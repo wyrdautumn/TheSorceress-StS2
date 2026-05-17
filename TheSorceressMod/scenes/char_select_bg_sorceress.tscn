@@ -1,0 +1,151 @@
+[gd_scene load_steps=16 format=3 uid="uid://dktced0ogs1sg"]
+
+[ext_resource type="Texture2D" uid="uid://860yqwwujysi" path="res://TheSorceressMod/images/charui/kalkarabackgroundwarlock.png" id="1_mfavt"]
+[ext_resource type="Shader" uid="uid://ctldrl1p0r0tk" path="res://TheSorceressMod/images/shaders/bg_select_flame.gdshader" id="2_dcco4"]
+[ext_resource type="Texture2D" uid="uid://dek2tt728c2rc" path="res://TheSorceressMod/images/charui/kalkarabackgroundwarlockbackground.png" id="2_n5fql"]
+[ext_resource type="Texture2D" uid="uid://cmgxhbii87rc2" path="res://TheSorceressMod/images/shaders/tileable_noise_2.png" id="3_j5nmo"]
+[ext_resource type="Texture2D" uid="uid://bas8wyfg736s6" path="res://TheSorceressMod/images/shaders/flame trail 2.png" id="3_n5fql"]
+[ext_resource type="Texture2D" uid="uid://bewbmbsve6w8i" path="res://TheSorceressMod/images/shaders/tileable_noise_1.png" id="4_j5nmo"]
+[ext_resource type="Texture2D" uid="uid://kovkmqn3m5e2" path="res://TheSorceressMod/images/shaders/flame trail 1.png" id="5_rp58w"]
+[ext_resource type="Material" path="res://TheSorceressMod/images/shaders/canvas_item_material_additive_shared.tres" id="6_noehk"]
+[ext_resource type="Texture2D" uid="uid://diutephylqmox" path="res://TheSorceressMod/images/shaders/warlock sword light.png" id="7_wa1jt"]
+[ext_resource type="Script" uid="uid://dufnlfhxfvjrs" path="res://TheSorceressMod/images/shaders/little_light_script.gd" id="8_dfcr0"]
+[ext_resource type="Texture2D" uid="uid://6mc6irw114ik" path="res://TheSorceressMod/images/shaders/flame wisp.png" id="9_vncaw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rp58w"]
+shader = ExtResource("2_dcco4")
+shader_parameter/OuterColor = Color(0.4993899, 0.38522094, 0.8451334, 0.5411765)
+shader_parameter/InnerColorStep = Vector2(0.4, 0.5)
+shader_parameter/Noise2Strength = 1.1
+shader_parameter/Noise2Scaling = Vector2(1, 1)
+shader_parameter/Noise2Panning = Vector2(-0.1, -0.1)
+shader_parameter/Noise2Texture = ExtResource("3_j5nmo")
+shader_parameter/Noise1Strength = 0.25
+shader_parameter/Noise1Scaling = Vector2(1, 1)
+shader_parameter/Noise1Panning = Vector2(1, 1)
+shader_parameter/InvertNoiseMask = true
+shader_parameter/NoiseMaskScale = Vector2(1, 1)
+shader_parameter/NoiseMaskOffset = Vector2(0, 0)
+shader_parameter/Distortion2Scale = Vector2(1, 1)
+shader_parameter/Distortion2Panning = Vector2(1, 1)
+shader_parameter/Distortion2Strength = 0.02
+shader_parameter/Distortion1Scale = Vector2(1, 1)
+shader_parameter/Distortion1Panning = Vector2(1, 1)
+shader_parameter/Distortion1Strength = 0.02
+shader_parameter/DistortionMaskScale = Vector2(1, 1)
+shader_parameter/DistortionMaskOffset = Vector2(0, 0)
+shader_parameter/InnerColor = Color(0.8666667, 0.53333336, 0.96862745, 0.8156863)
+shader_parameter/OuterStep = Vector2(0.1, 0.2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ym84"]
+shader = ExtResource("2_dcco4")
+shader_parameter/OuterColor = Color(0.29807132, 0.1817376, 0.4775486, 1)
+shader_parameter/InnerColorStep = Vector2(0.3, 0.4)
+shader_parameter/Noise2Strength = 0.5
+shader_parameter/Noise2Scaling = Vector2(1, 1)
+shader_parameter/Noise2Panning = Vector2(1, 1)
+shader_parameter/Noise2Texture = ExtResource("4_j5nmo")
+shader_parameter/Noise1Strength = 0.5
+shader_parameter/Noise1Scaling = Vector2(1, 1)
+shader_parameter/Noise1Panning = Vector2(1, 1)
+shader_parameter/Noise1Texture = ExtResource("4_j5nmo")
+shader_parameter/InvertNoiseMask = false
+shader_parameter/NoiseMaskScale = Vector2(1, 1)
+shader_parameter/NoiseMaskOffset = Vector2(0, 0)
+shader_parameter/Distortion2Scale = Vector2(1, 1)
+shader_parameter/Distortion2Panning = Vector2(1, 1)
+shader_parameter/Distortion2Texture = ExtResource("4_j5nmo")
+shader_parameter/Distortion2Strength = 0.005
+shader_parameter/Distortion1Scale = Vector2(1, 1)
+shader_parameter/Distortion1Panning = Vector2(1, 1)
+shader_parameter/Distortion1Texture = ExtResource("3_n5fql")
+shader_parameter/Distortion1Strength = 0.003
+shader_parameter/DistortionMaskScale = Vector2(1, 1)
+shader_parameter/DistortionMaskOffset = Vector2(0, 0)
+shader_parameter/InnerColor = Color(0, 0, 0, 1)
+shader_parameter/OuterStep = Vector2(0.1, 0.2)
+
+[sub_resource type="Curve" id="Curve_t8m2d"]
+_data = [Vector2(0, 0.8539326), 0.0, 0.29213473, 0, 1, Vector2(0.50000006, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.84269667), -0.3146067, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_ggjij"]
+_data = [Vector2(0.023255825, 0.26966298), 0.0, 0.0, 0, 0, Vector2(0.4941861, 0.6741574), 0.0, 0.0, 0, 0, Vector2(1, 0.25842702), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="CharSelectBgSorceress" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 341.0
+offset_top = 306.0
+offset_right = 341.0
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Kalkaraselectbackground3" type="Sprite2D" parent="."]
+position = Vector2(1188, 790)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_n5fql")
+
+[node name="Kalkaraselectbackground2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rp58w")
+position = Vector2(1188, 790)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_n5fql")
+
+[node name="Kalkaraselectbackground" type="Sprite2D" parent="."]
+position = Vector2(1188, 790)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_mfavt")
+
+[node name="flametrail1" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6ym84")
+position = Vector2(1936, 319)
+scale = Vector2(0.7, 0.698)
+texture = ExtResource("5_rp58w")
+
+[node name="flametrail2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6ym84")
+position = Vector2(1241.0001, 834.00006)
+scale = Vector2(0.7, 0.698)
+texture = ExtResource("3_n5fql")
+
+[node name="swordlight" type="CPUParticles2D" parent="."]
+material = ExtResource("6_noehk")
+position = Vector2(1606.0002, 707)
+scale = Vector2(0.43624154, 0.47008526)
+amount = 1
+texture = ExtResource("7_wa1jt")
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+gravity = Vector2(0, 0)
+scale_amount_min = 1.6
+scale_amount_max = 1.6
+scale_amount_curve = SubResource("Curve_t8m2d")
+color = Color(0.39559025, 0.12549442, 0.66831034, 1)
+script = ExtResource("8_dfcr0")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = ExtResource("6_noehk")
+position = Vector2(1162, 1416)
+amount = 25
+texture = ExtResource("9_vncaw")
+lifetime = 11.96
+preprocess = 15.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(550, 250)
+gravity = Vector2(0, -800)
+orbit_velocity_max = 0.07
+orbit_velocity_curve = SubResource("Curve_ggjij")
+radial_accel_max = 100.0
+angle_max = 353.6
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+color = Color(0.6941202, 0.52267414, 0.9999967, 1)

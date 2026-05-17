@@ -1,0 +1,45 @@
+﻿using BaseLib.Extensions;
+using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Powers;
+
+namespace TheSorceressMod.TheSorceressModCode.Cards.Common;
+
+public class Ember() : TheSorceressModCard(1,
+    CardType.Skill, CardRarity.Common,
+    TargetType.AnyEnemy)
+{
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new CalculationBaseVar(4),
+        new CalculationExtraVar(1),
+        new CalculatedVar("Prime").WithMultiplier(Calc)
+    ];
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromPower<CharismaPower>()];
+    
+    private static decimal Calc(CardModel card, Creature? arg2)
+        => card.Owner.Creature.GetPowerAmount<CharismaPower>() / 2;
+
+    protected override async Task OnPlay(
+        PlayerChoiceContext choiceContext,
+        CardPlay play)
+    {
+        if (play.Target != null)
+        {
+            await CommonActions.Apply<PrimedPower>(choiceContext, play.Target, play.Card,
+                ((CalculatedVar) DynamicVars["Prime"]).Calculate(Owner.Creature));
+        }
+    }
+
+    protected override void OnUpgrade()
+    {
+        this.EnergyCost.UpgradeBy(-1);
+    }
+}

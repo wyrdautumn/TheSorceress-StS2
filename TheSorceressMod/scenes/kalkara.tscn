@@ -1,0 +1,296 @@
+[gd_scene load_steps=25 format=3 uid="uid://dsypbaxmtvhby"]
+
+[ext_resource type="Script" uid="uid://5k8s8lckljkg" path="res://TheSorceressModCode/helpers/NKalkara.cs" id="1_oymli"]
+[ext_resource type="Texture2D" uid="uid://b6s68kfrlw7qb" path="res://TheSorceressMod/images/character/kalkaratempimage.png" id="1_p1qjb"]
+[ext_resource type="Shader" uid="uid://ctldrl1p0r0tk" path="res://TheSorceressMod/images/shaders/bg_select_flame.gdshader" id="2_5cbq5"]
+[ext_resource type="Script" uid="uid://ctvqi6km4ichf" path="res://TheSorceressModCode/helpers/SorceressParticles.cs" id="2_gjh31"]
+[ext_resource type="Texture2D" uid="uid://cmgxhbii87rc2" path="res://TheSorceressMod/images/shaders/tileable_noise_2.png" id="3_2j104"]
+[ext_resource type="Texture2D" uid="uid://c1n8v84iw7g6h" path="res://TheSorceressMod/images/character/kalkaratempimage_shadow.png" id="4_3kpd6"]
+[ext_resource type="Shader" uid="uid://18nsq0wncvur" path="res://TheSorceressMod/images/shaders/ring_shader.gdshader" id="9_7e358"]
+[ext_resource type="Texture2D" uid="uid://qskcylyyxc4g" path="res://TheSorceressMod/images/shaders/common_ring_polar_a.png" id="10_j00b5"]
+
+[sub_resource type="Curve" id="Curve_asfjd"]
+_data = [Vector2(0, 0.49438208), 0.0, 1.1896893, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3sqe3"]
+width = 64
+curve = SubResource("Curve_asfjd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_asfil"]
+shader = ExtResource("9_7e358")
+shader_parameter/erosion_curve = SubResource("CurveTexture_3sqe3")
+shader_parameter/erosion_offset = 0.1
+
+[sub_resource type="Curve" id="Curve_nb5ck"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 3), 0.0, -8.750562, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f4fch"]
+curve = SubResource("Curve_nb5ck")
+
+[sub_resource type="Curve" id="Curve_pp1l1"]
+_data = [Vector2(0, 0.24719107), 0.0, 9.228465, 0, 0, Vector2(0.15151516, 0.8539326), 0.1853932, 0.1853932, 0, 0, Vector2(1, 1), 0.1612115, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hiarp"]
+curve = SubResource("Curve_pp1l1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xu5rx"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.79999995
+scale_max = 0.79999995
+scale_curve = SubResource("CurveTexture_hiarp")
+emission_curve = SubResource("CurveTexture_f4fch")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywtfl"]
+shader = ExtResource("2_5cbq5")
+shader_parameter/OuterColor = Color(0.3254902, 0.20784314, 0.69411767, 0.5019608)
+shader_parameter/InnerColorStep = Vector2(0.3, 0.4)
+shader_parameter/Noise2Strength = 1.0
+shader_parameter/Noise2Scaling = Vector2(1, 1)
+shader_parameter/Noise2Panning = Vector2(1, 1)
+shader_parameter/Noise1Strength = 1.0
+shader_parameter/Noise1Scaling = Vector2(1, 1)
+shader_parameter/Noise1Panning = Vector2(1, 1)
+shader_parameter/InvertNoiseMask = true
+shader_parameter/NoiseMaskScale = Vector2(1, 1)
+shader_parameter/NoiseMaskOffset = Vector2(0, 0)
+shader_parameter/Distortion2Scale = Vector2(1, 1)
+shader_parameter/Distortion2Panning = Vector2(1, 1)
+shader_parameter/Distortion2Texture = ExtResource("3_2j104")
+shader_parameter/Distortion2Strength = 0.007
+shader_parameter/Distortion1Scale = Vector2(1, 1)
+shader_parameter/Distortion1Panning = Vector2(1, 1)
+shader_parameter/Distortion1Strength = 0.02
+shader_parameter/DistortionMaskScale = Vector2(1, 1)
+shader_parameter/DistortionMaskOffset = Vector2(0, 0)
+shader_parameter/InnerColor = Color(0, 0, 0, 1)
+shader_parameter/OuterStep = Vector2(0.1, 0.2)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h42u3"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(180, 0, 0)
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 99.99999
+radial_accel_max = 99.99999
+scale_min = 0.13
+scale_max = 0.13
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h42u3"]
+shader = ExtResource("9_7e358")
+shader_parameter/erosion_curve = SubResource("CurveTexture_3sqe3")
+shader_parameter/erosion_offset = 0.1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gjh31"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.39999998
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_hiarp")
+emission_curve = SubResource("CurveTexture_f4fch")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1semw"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(180, 0, 0)
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 99.99999
+radial_accel_max = 99.99999
+scale_min = 0.06
+scale_max = 0.06
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ywtfl"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(-160, 0, 0)
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 99.99999
+radial_accel_max = 99.99999
+scale_min = 0.13
+scale_max = 0.13
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_afo21"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(-160, 0, 0)
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 99.99999
+radial_accel_max = 99.99999
+scale_min = 0.06
+scale_max = 0.06
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7e358"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.39999998
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_hiarp")
+emission_curve = SubResource("CurveTexture_f4fch")
+
+[node name="Kalkara" type="Node2D"]
+script = ExtResource("1_oymli")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -103.0
+offset_top = -341.0
+offset_right = 108.0
+offset_bottom = 2.0
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(3, -181)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, -328)
+
+[node name="TalkPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(62, -302)
+
+[node name="OrbPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, -327)
+
+[node name="GainAdvantage" type="Node2D" parent="."]
+unique_name_in_owner = true
+show_behind_parent = true
+position = Vector2(0, -214)
+script = ExtResource("2_gjh31")
+
+[node name="Ring" type="GPUParticles2D" parent="GainAdvantage"]
+self_modulate = Color(0.39691457, 0.30333683, 0.7824953, 1)
+z_index = 1
+material = SubResource("ShaderMaterial_asfil")
+emitting = false
+amount = 1
+texture = ExtResource("10_j00b5")
+lifetime = 0.4
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_xu5rx")
+
+[node name="ShadowMoveGain" type="GPUParticles2D" parent="GainAdvantage"]
+self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
+material = SubResource("ShaderMaterial_ywtfl")
+position = Vector2(-10, 55.859)
+scale = Vector2(0.13, 0.13)
+emitting = false
+amount = 3
+texture = ExtResource("4_3kpd6")
+lifetime = 0.36
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_h42u3")
+
+[node name="GainAdvantageSmall" type="Node2D" parent="."]
+unique_name_in_owner = true
+show_behind_parent = true
+position = Vector2(0, -214)
+script = ExtResource("2_gjh31")
+
+[node name="Ring" type="GPUParticles2D" parent="GainAdvantageSmall"]
+self_modulate = Color(0.39691457, 0.30333683, 0.7824953, 1)
+z_index = 1
+material = SubResource("ShaderMaterial_h42u3")
+emitting = false
+amount = 1
+texture = ExtResource("10_j00b5")
+lifetime = 0.4
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gjh31")
+
+[node name="ShadowMoveGain" type="GPUParticles2D" parent="GainAdvantageSmall"]
+self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
+material = SubResource("ShaderMaterial_ywtfl")
+position = Vector2(-10, 55.859)
+scale = Vector2(0.13, 0.13)
+emitting = false
+amount = 3
+texture = ExtResource("4_3kpd6")
+lifetime = 0.36
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_1semw")
+
+[node name="LoseAdvantage" type="Node2D" parent="."]
+unique_name_in_owner = true
+show_behind_parent = true
+position = Vector2(0, -214)
+script = ExtResource("2_gjh31")
+
+[node name="ShadowMoveLose" type="GPUParticles2D" parent="LoseAdvantage"]
+self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
+material = SubResource("ShaderMaterial_ywtfl")
+position = Vector2(38, 55.85901)
+scale = Vector2(0.13, 0.13)
+emitting = false
+amount = 3
+texture = ExtResource("4_3kpd6")
+lifetime = 0.36
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_ywtfl")
+
+[node name="Ring" type="GPUParticles2D" parent="LoseAdvantage"]
+self_modulate = Color(0.69411767, 0.5411765, 1, 1)
+z_index = 1
+material = SubResource("ShaderMaterial_asfil")
+rotation = 1.5707964
+emitting = false
+amount = 1
+texture = ExtResource("10_j00b5")
+lifetime = 0.4
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_xu5rx")
+
+[node name="LoseAdvantageSmall" type="Node2D" parent="."]
+unique_name_in_owner = true
+show_behind_parent = true
+position = Vector2(0, -214)
+script = ExtResource("2_gjh31")
+
+[node name="ShadowMoveLose" type="GPUParticles2D" parent="LoseAdvantageSmall"]
+self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
+material = SubResource("ShaderMaterial_ywtfl")
+position = Vector2(38, 55.85901)
+scale = Vector2(0.13, 0.13)
+emitting = false
+amount = 3
+texture = ExtResource("4_3kpd6")
+lifetime = 0.36
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_afo21")
+
+[node name="Ring" type="GPUParticles2D" parent="LoseAdvantageSmall"]
+self_modulate = Color(0.69411767, 0.5411765, 1, 1)
+z_index = 1
+material = SubResource("ShaderMaterial_asfil")
+rotation = 1.5707964
+emitting = false
+amount = 1
+texture = ExtResource("10_j00b5")
+lifetime = 0.4
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_7e358")
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
+material = SubResource("ShaderMaterial_ywtfl")
+position = Vector2(19.400002, -158.441)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("4_3kpd6")
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -158.141)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("1_p1qjb")
+flip_h = true

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://xydxcar8jnq4"]
+
+[ext_resource type="Script" uid="uid://bpyo7ywxblaj2" path="res://TheSorceressModCode/helpers/AdvantageShadow.cs" id="1_0p7aw"]
+[ext_resource type="Shader" uid="uid://ctldrl1p0r0tk" path="res://TheSorceressMod/images/shaders/bg_select_flame.gdshader" id="2_6lj1g"]
+[ext_resource type="Texture2D" uid="uid://cmgxhbii87rc2" path="res://TheSorceressMod/images/shaders/tileable_noise_2.png" id="3_1cttv"]
+[ext_resource type="Texture2D" uid="uid://c1n8v84iw7g6h" path="res://TheSorceressMod/images/character/kalkaratempimage_shadow.png" id="4_1pthv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3kpd6"]
+shader = ExtResource("2_6lj1g")
+shader_parameter/OuterColor = Color(0.3254902, 0.20784314, 0.69411767, 0.5019608)
+shader_parameter/InnerColorStep = Vector2(0.3, 0.4)
+shader_parameter/Noise2Strength = 1.0
+shader_parameter/Noise2Scaling = Vector2(1, 1)
+shader_parameter/Noise2Panning = Vector2(1, 1)
+shader_parameter/Noise1Strength = 1.0
+shader_parameter/Noise1Scaling = Vector2(1, 1)
+shader_parameter/Noise1Panning = Vector2(1, 1)
+shader_parameter/InvertNoiseMask = true
+shader_parameter/NoiseMaskScale = Vector2(1, 1)
+shader_parameter/NoiseMaskOffset = Vector2(0, 0)
+shader_parameter/Distortion2Scale = Vector2(1, 1)
+shader_parameter/Distortion2Panning = Vector2(1, 1)
+shader_parameter/Distortion2Texture = ExtResource("3_1cttv")
+shader_parameter/Distortion2Strength = 0.007
+shader_parameter/Distortion1Scale = Vector2(1, 1)
+shader_parameter/Distortion1Panning = Vector2(1, 1)
+shader_parameter/Distortion1Strength = 0.02
+shader_parameter/DistortionMaskScale = Vector2(1, 1)
+shader_parameter/DistortionMaskOffset = Vector2(0, 0)
+shader_parameter/InnerColor = Color(0, 0, 0, 1)
+shader_parameter/OuterStep = Vector2(0.1, 0.2)
+
+[node name="AdvantageShadow" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_0p7aw")
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
+material = SubResource("ShaderMaterial_3kpd6")
+position = Vector2(-120, -10)
+texture = ExtResource("4_1pthv")
+flip_h = true

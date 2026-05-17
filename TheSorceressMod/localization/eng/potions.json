@@ -1,0 +1,8 @@
+﻿{
+  "THESORCERESSMOD-INVISIBILITY_POTION.description": "Gain [gold]Combat Advantage[/gold].",
+  "THESORCERESSMOD-INVISIBILITY_POTION.title": "Potion of Invisibility",
+  "THESORCERESSMOD-CHARISMA_POTION.description": "Gain {CharismaPower:diff()} [gold]Charisma[/gold].",
+  "THESORCERESSMOD-CHARISMA_POTION.title": "Elixir of Gender Transformation",
+  "THESORCERESSMOD-SHADOW_POTION.description": "Choose a card in your [gold]Exhaust Pile[/gold] and play it.",
+  "THESORCERESSMOD-SHADOW_POTION.title": "Serum of Shifting Shadows"
+}

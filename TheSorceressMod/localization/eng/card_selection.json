@@ -1,0 +1,7 @@
+﻿{
+  "TO_PALM": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to palm.",
+  "TO_RETAIN": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Retain[/gold].",
+  "TO_TELL": "Choose {Amount:plural:a story|[blue]{}[/blue] stories} to tell.",
+  "TO_SHUFFLE": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to shuffle into your Draw Pile.",
+  "TO_SHADOW": "Choose {Amount:plural:a shadow|[blue]{}[/blue] shadows} to call upon."
+}
