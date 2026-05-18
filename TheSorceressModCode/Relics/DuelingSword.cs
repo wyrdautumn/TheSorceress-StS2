@@ -51,7 +51,7 @@ public class DuelingSword() : TheSorceressModRelic
     
     public override bool TryModifyCardBeingAddedToDeck(CardModel card, out CardModel? newCard)
     {
-        newCard = (CardModel) null;
+        newCard = null;
         if (card.Owner != this.Owner || (!card.Tags.Contains(CardTag.Strike) && !card.Tags.Contains(CardTag.Defend)))
             return false;
         newCard = this.Owner.RunState.CloneCard(card);
