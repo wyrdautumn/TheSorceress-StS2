@@ -77,6 +77,8 @@ public class TheSorceressMod : PlaceholderCharacterModel
     public override string CustomCharacterSelectBg => "res://TheSorceressMod/scenes/char_select_bg_sorceress.tscn";
     public override string CustomVisualPath => "res://TheSorceressMod/scenes/kalkara.tscn";
     public override string CustomEnergyCounterPath => "res://TheSorceressMod/scenes/sorceress_energy_counter.tscn";
+    public override string CustomMerchantAnimPath => "res://TheSorceressMod/scenes/sorceress_merchant.tscn";
+    public override string CustomRestSiteAnimPath => "res://TheSorceressMod/scenes/sorceress_rest_site.tscn";
     
     public override RelicIconData? CustomYummyCookie => new RelicIconData("res://TheSorceressMod/images/relics/big/yummy_cookie_sorceress.png","res://TheSorceressMod/images/relics/yummy_cookie_sorceress.png","res://TheSorceressMod/images/relics/yummy_cookie_sorceress_outline.png");
 

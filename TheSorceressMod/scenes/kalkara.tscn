@@ -76,8 +76,8 @@ emission_shape_offset = Vector3(180, 0, 0)
 gravity = Vector3(0, 0, 0)
 radial_accel_min = 99.99999
 radial_accel_max = 99.99999
-scale_min = 0.13
-scale_max = 0.13
+scale_min = 0.099999994
+scale_max = 0.099999994
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h42u3"]
 shader = ExtResource("9_7e358")
@@ -98,8 +98,8 @@ emission_shape_offset = Vector3(180, 0, 0)
 gravity = Vector3(0, 0, 0)
 radial_accel_min = 99.99999
 radial_accel_max = 99.99999
-scale_min = 0.06
-scale_max = 0.06
+scale_min = 0.049999997
+scale_max = 0.049999997
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ywtfl"]
 particle_flag_disable_z = true
@@ -107,8 +107,8 @@ emission_shape_offset = Vector3(-160, 0, 0)
 gravity = Vector3(0, 0, 0)
 radial_accel_min = 99.99999
 radial_accel_max = 99.99999
-scale_min = 0.13
-scale_max = 0.13
+scale_min = 0.099999994
+scale_max = 0.099999994
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_afo21"]
 particle_flag_disable_z = true
@@ -116,8 +116,8 @@ emission_shape_offset = Vector3(-160, 0, 0)
 gravity = Vector3(0, 0, 0)
 radial_accel_min = 99.99999
 radial_accel_max = 99.99999
-scale_min = 0.06
-scale_max = 0.06
+scale_min = 0.049999997
+scale_max = 0.049999997
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7e358"]
 particle_flag_disable_z = true
@@ -134,31 +134,31 @@ script = ExtResource("1_oymli")
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = -103.0
-offset_top = -341.0
-offset_right = 108.0
+offset_left = -65.0
+offset_top = -245.0
+offset_right = 86.0
 offset_bottom = 2.0
 
 [node name="CenterPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(3, -181)
+position = Vector2(0, -140)
 
 [node name="IntentPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1, -328)
+position = Vector2(0, -263)
 
 [node name="TalkPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(62, -302)
+position = Vector2(44, -230)
 
 [node name="OrbPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1, -327)
+position = Vector2(0, -263)
 
 [node name="GainAdvantage" type="Node2D" parent="."]
 unique_name_in_owner = true
 show_behind_parent = true
-position = Vector2(0, -214)
+position = Vector2(0, -164)
 script = ExtResource("2_gjh31")
 
 [node name="Ring" type="GPUParticles2D" parent="GainAdvantage"]
@@ -176,7 +176,7 @@ process_material = SubResource("ParticleProcessMaterial_xu5rx")
 [node name="ShadowMoveGain" type="GPUParticles2D" parent="GainAdvantage"]
 self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
 material = SubResource("ShaderMaterial_ywtfl")
-position = Vector2(-10, 55.859)
+position = Vector2(-10, 42.85901)
 scale = Vector2(0.13, 0.13)
 emitting = false
 amount = 3
@@ -189,7 +189,7 @@ process_material = SubResource("ParticleProcessMaterial_h42u3")
 [node name="GainAdvantageSmall" type="Node2D" parent="."]
 unique_name_in_owner = true
 show_behind_parent = true
-position = Vector2(0, -214)
+position = Vector2(0, -163)
 script = ExtResource("2_gjh31")
 
 [node name="Ring" type="GPUParticles2D" parent="GainAdvantageSmall"]
@@ -220,13 +220,13 @@ process_material = SubResource("ParticleProcessMaterial_1semw")
 [node name="LoseAdvantage" type="Node2D" parent="."]
 unique_name_in_owner = true
 show_behind_parent = true
-position = Vector2(0, -214)
+position = Vector2(0, -163)
 script = ExtResource("2_gjh31")
 
 [node name="ShadowMoveLose" type="GPUParticles2D" parent="LoseAdvantage"]
 self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
 material = SubResource("ShaderMaterial_ywtfl")
-position = Vector2(38, 55.85901)
+position = Vector2(38, 42.859)
 scale = Vector2(0.13, 0.13)
 emitting = false
 amount = 3
@@ -252,7 +252,7 @@ process_material = SubResource("ParticleProcessMaterial_xu5rx")
 [node name="LoseAdvantageSmall" type="Node2D" parent="."]
 unique_name_in_owner = true
 show_behind_parent = true
-position = Vector2(0, -214)
+position = Vector2(0, -163)
 script = ExtResource("2_gjh31")
 
 [node name="ShadowMoveLose" type="GPUParticles2D" parent="LoseAdvantageSmall"]
@@ -284,13 +284,13 @@ process_material = SubResource("ParticleProcessMaterial_7e358")
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
 material = SubResource("ShaderMaterial_ywtfl")
-position = Vector2(19.400002, -158.441)
-scale = Vector2(0.13, 0.13)
+position = Vector2(19.4, -121.141)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_3kpd6")
 
 [node name="Visuals" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -158.141)
-scale = Vector2(0.13, 0.13)
+position = Vector2(0, -121.14101)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_p1qjb")
 flip_h = true
