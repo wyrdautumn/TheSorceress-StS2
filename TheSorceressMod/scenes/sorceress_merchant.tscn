@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvgseqkvdhy3m"]
+
+[ext_resource type="Script" uid="uid://csuy6p0c37af2" path="res://TheSorceressModCode/helpers/NSorceressMerchant.cs" id="1_nufcu"]
+[ext_resource type="Texture2D" uid="uid://b6s68kfrlw7qb" path="res://TheSorceressMod/images/character/kalkaratempimage.png" id="2_rgu0g"]
+
+[node name="SorceressMerchant" type="Node2D"]
+script = ExtResource("1_nufcu")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -185.14099)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("2_rgu0g")
+flip_h = true

@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://dv8eet3hldpfw"]
+
+[ext_resource type="Texture2D" uid="uid://1jvd7e8qklq1" path="res://TheSorceressMod/images/character/sorceress_rest_off.png" id="1_54iqe"]
+[ext_resource type="Script" uid="uid://brrbe8yobhnw4" path="res://TheSorceressModCode/helpers/NSorceressRestSite.cs" id="1_i7d20"]
+[ext_resource type="Texture2D" uid="uid://nkn1tv3kaahn" path="res://TheSorceressMod/images/character/kalkara-sitting-isolated.png" id="2_i7d20"]
+[ext_resource type="Texture2D" uid="uid://bkk8vxxtqn57t" path="res://TheSorceressMod/images/character/sorceress_rest_glory.png" id="3_x5s12"]
+[ext_resource type="Texture2D" uid="uid://b7oerh1qrhlww" path="res://TheSorceressMod/images/character/sorceress_rest_hive.png" id="4_2xfe7"]
+[ext_resource type="Texture2D" uid="uid://da5sepkc470eb" path="res://TheSorceressMod/images/character/sorceress_rest_overgrowth.png" id="5_ixucj"]
+[ext_resource type="PackedScene" uid="uid://l4gyxlv8u7xh" path="res://TheSorceressMod/scenes/sorceress_selection_reticle.tscn" id="7_x5s12"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i5eap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_54iqe")
+}],
+"loop": true,
+"name": &"_tracks_light_off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i7d20")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_x5s12")
+}],
+"loop": true,
+"name": &"glory_loop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2xfe7")
+}],
+"loop": true,
+"name": &"hive_loop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ixucj")
+}],
+"loop": true,
+"name": &"overgrowth_loop",
+"speed": 5.0
+}]
+
+[node name="SorceressRestSite" type="Node2D"]
+position = Vector2(-1, 0)
+script = ExtResource("1_i7d20")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-40.99997, 3.9999695)
+scale = Vector2(0.585, 0.6)
+sprite_frames = SubResource("SpriteFrames_i5eap")
+
+[node name="ControlRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -95.0
+offset_top = 43.0
+offset_right = -95.0
+offset_bottom = 43.0
+metadata/_edit_use_anchors_ = true
+
+[node name="SelectionReticle" parent="ControlRoot" instance=ExtResource("7_x5s12")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -141.0
+offset_top = -315.0
+offset_right = 231.0
+offset_bottom = 204.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Hitbox" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -153.0
+offset_top = -328.0
+offset_right = 244.0
+offset_bottom = 218.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ThoughtBubbleRight" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 69.0
+offset_top = -235.0
+offset_right = 69.0
+offset_bottom = -235.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ThoughBubbleLeft" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -92.0
+offset_top = -235.0
+offset_right = -92.0
+offset_bottom = -235.0
+metadata/_edit_use_anchors_ = true
