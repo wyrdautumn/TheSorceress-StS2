@@ -70,6 +70,7 @@ public class TheSorceressMod : PlaceholderCharacterModel
     public override string PlaceholderID => "silent";
 
     public override string CustomIconTexturePath => "character_icon_kalkara.png".CharacterUiPath();
+    public override string? CustomIconOutlineTexturePath => "character_icon_kalkara_outline.png".CharacterUiPath();
     public override string CustomCharacterSelectIconPath => "char_select_kalkara.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "char_select_kalkara_locked.png".CharacterUiPath();
     public override string CustomMapMarkerPath => "map_marker_kalkara.png".CharacterUiPath();

@@ -96,7 +96,7 @@ offset_right = 69.0
 offset_bottom = -235.0
 metadata/_edit_use_anchors_ = true
 
-[node name="ThoughBubbleLeft" type="Control" parent="ControlRoot"]
+[node name="ThoughtBubbleLeft" type="Control" parent="ControlRoot"]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = -92.0
