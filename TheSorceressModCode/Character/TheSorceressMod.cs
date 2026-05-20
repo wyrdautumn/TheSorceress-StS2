@@ -13,6 +13,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using TheSorceressMod.TheSorceressModCode.Cards.Starter;
 using TheSorceressMod.TheSorceressModCode.helpers;
 using TheSorceressMod.TheSorceressModCode.Relics;
@@ -84,4 +85,9 @@ public class TheSorceressMod : PlaceholderCharacterModel
     public override RelicIconData? CustomYummyCookie => new RelicIconData("res://TheSorceressMod/images/relics/big/yummy_cookie_sorceress.png","res://TheSorceressMod/images/relics/yummy_cookie_sorceress.png","res://TheSorceressMod/images/relics/yummy_cookie_sorceress_outline.png");
 
     public override Color EnergyLabelOutlineColor => new ("2f3056");
+    public override Color DialogueColor => new ("4D3970");
+    public override VfxColor SpeechBubbleColor => VfxColor.Purple;
+    public override Color MapDrawingColor => new ("7B4EC8");
+    public override Color RemoteTargetingLineColor => new ("A17CEAFF");
+    public override Color RemoteTargetingLineOutline => new ("714CBCFF");
 }

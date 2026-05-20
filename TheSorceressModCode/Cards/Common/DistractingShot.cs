@@ -31,6 +31,6 @@ public class DistractingShot() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        this.EnergyCost.UpgradeBy(-1);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 }

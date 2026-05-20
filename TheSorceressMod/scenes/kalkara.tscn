@@ -145,15 +145,15 @@ position = Vector2(0, -140)
 
 [node name="IntentPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -263)
+position = Vector2(0, -310)
 
 [node name="TalkPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(44, -230)
+position = Vector2(144, -241)
 
 [node name="OrbPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -263)
+position = Vector2(0, -292)
 
 [node name="GainAdvantage" type="Node2D" parent="."]
 unique_name_in_owner = true

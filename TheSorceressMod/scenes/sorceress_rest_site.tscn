@@ -12,14 +12,6 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_54iqe")
-}],
-"loop": true,
-"name": &"_tracks_light_off",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("2_i7d20")
 }],
 "loop": true,
@@ -44,6 +36,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("1_54iqe")
+}],
+"loop": true,
+"name": &"light_off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_ixucj")
 }],
 "loop": true,
@@ -55,10 +55,11 @@ animations = [{
 position = Vector2(-1, 0)
 script = ExtResource("1_i7d20")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="KalkaraSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-40.99997, 3.9999695)
 scale = Vector2(0.585, 0.6)
 sprite_frames = SubResource("SpriteFrames_i5eap")
+animation = &"light_off"
 
 [node name="ControlRoot" type="Control" parent="."]
 layout_mode = 3
@@ -90,17 +91,17 @@ metadata/_edit_use_anchors_ = true
 [node name="ThoughtBubbleRight" type="Control" parent="ControlRoot"]
 unique_name_in_owner = true
 anchors_preset = 0
-offset_left = 69.0
-offset_top = -235.0
-offset_right = 69.0
-offset_bottom = -235.0
+offset_left = 138.0
+offset_top = -277.0
+offset_right = 138.0
+offset_bottom = -277.0
 metadata/_edit_use_anchors_ = true
 
 [node name="ThoughtBubbleLeft" type="Control" parent="ControlRoot"]
 unique_name_in_owner = true
 anchors_preset = 0
-offset_left = -92.0
-offset_top = -235.0
-offset_right = -92.0
-offset_bottom = -235.0
+offset_left = -185.0
+offset_top = -278.0
+offset_right = -185.0
+offset_bottom = -278.0
 metadata/_edit_use_anchors_ = true

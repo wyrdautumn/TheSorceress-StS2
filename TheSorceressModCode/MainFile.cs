@@ -4,6 +4,8 @@ using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Modding;
+using MegaCrit.Sts2.Core.Models;
+using TheSorceressMod.TheSorceressModCode.Cards.Starter;
 
 namespace TheSorceressMod.TheSorceressModCode;
 
@@ -24,6 +26,14 @@ public partial class MainFile : Node
         
         var assembly = Assembly.GetExecutingAssembly();
         Godot.Bridge.ScriptManagerBridge.LookupScriptsInAssembly(assembly);
+        
+        var deckboxType = AccessTools.TypeByName("MoreNeow.MoreNeowCode.Relics.Complex.UnfamiliarDeckbox");
+        if (deckboxType != null)
+        {
+            var addMethod = AccessTools.DeclaredMethod(deckboxType, "AddCharacterDeck");
+            addMethod.Invoke(null, [ModelDb.GetId<Character.TheSorceressMod>(), ModelDb.GetId<TwoWeaponTwist>(), ModelDb.GetId<SparkStep>()]);
+        }
+
     }
     
 }

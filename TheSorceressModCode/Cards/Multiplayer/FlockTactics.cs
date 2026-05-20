@@ -8,7 +8,7 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Multiplayer;
 
-public class FlockTactics() : TheSorceressModCard(2,
+public class FlockTactics() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {

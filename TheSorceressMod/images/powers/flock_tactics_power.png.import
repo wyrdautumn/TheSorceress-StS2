@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq3armoor00rx"
-path="res://.godot/imported/FlockTactics.png-6f9e2057e03002fad7f6b91894774ccb.ctex"
+uid="uid://cejjusujtw1h4"
+path="res://.godot/imported/flock_tactics_power.png-2b9ec64f0c30e8784295751d75133e6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheSorceressMod/images/powers/big/FlockTactics.png"
-dest_files=["res://.godot/imported/FlockTactics.png-6f9e2057e03002fad7f6b91894774ccb.ctex"]
+source_file="res://TheSorceressMod/images/powers/flock_tactics_power.png"
+dest_files=["res://.godot/imported/flock_tactics_power.png-2b9ec64f0c30e8784295751d75133e6d.ctex"]
 
 [params]
 

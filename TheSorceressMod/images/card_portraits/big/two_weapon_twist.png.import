@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddefsgchl1asi"
-path="res://.godot/imported/FlockTactics.png-eb0ad4a896c1fcc983f182ad4563ac41.ctex"
+uid="uid://cv844mr78blyn"
+path="res://.godot/imported/two_weapon_twist.png-38a1fe7cfad57c5f25efad5acc453b2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheSorceressMod/images/powers/FlockTactics.png"
-dest_files=["res://.godot/imported/FlockTactics.png-eb0ad4a896c1fcc983f182ad4563ac41.ctex"]
+source_file="res://TheSorceressMod/images/card_portraits/big/two_weapon_twist.png"
+dest_files=["res://.godot/imported/two_weapon_twist.png-38a1fe7cfad57c5f25efad5acc453b2c.ctex"]
 
 [params]
 
