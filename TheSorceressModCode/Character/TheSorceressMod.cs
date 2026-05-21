@@ -81,7 +81,16 @@ public class TheSorceressMod : PlaceholderCharacterModel
     public override string CustomEnergyCounterPath => "res://TheSorceressMod/scenes/sorceress_energy_counter.tscn";
     public override string CustomMerchantAnimPath => "res://TheSorceressMod/scenes/sorceress_merchant.tscn";
     public override string CustomRestSiteAnimPath => "res://TheSorceressMod/scenes/sorceress_rest_site.tscn";
-    
+    public override string CustomTrailPath => "res://TheSorceressMod/scenes/card_trail_sorceress.tscn";
+
+    public override string CustomCharacterSelectTransitionPath =>
+        "res://TheSorceressMod/images/shaders/sorceress_transition_mat.tres";
+
+    public override string CharacterTransitionSfx => "res://TheSorceressMod/audio/sorceress_transition.wav";
+    public override string CustomArmPointingTexturePath => "res://TheSorceressMod/images/hands/sorceress_hand_point.png";
+    public override string CustomArmRockTexturePath => "res://TheSorceressMod/images/hands/sorceress_hand_rock.png";
+    public override string CustomArmPaperTexturePath => "res://TheSorceressMod/images/hands/sorceress_hand_paper.png";
+    public override string CustomArmScissorsTexturePath => "res://TheSorceressMod/images/hands/sorceress_hand_scissors.png";
     public override RelicIconData? CustomYummyCookie => new RelicIconData("res://TheSorceressMod/images/relics/big/yummy_cookie_sorceress.png","res://TheSorceressMod/images/relics/yummy_cookie_sorceress.png","res://TheSorceressMod/images/relics/yummy_cookie_sorceress_outline.png");
 
     public override Color EnergyLabelOutlineColor => new ("2f3056");

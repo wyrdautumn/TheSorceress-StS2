@@ -1,0 +1,140 @@
+[gd_scene load_steps=20 format=3 uid="uid://djn64f75pr3i7"]
+
+[ext_resource type="Script" uid="uid://dmml7me2oo01c" path="res://TheSorceressModCode/helpers/SorceressCardTrailVfx.cs" id="1_2gkar"]
+[ext_resource type="Texture2D" uid="uid://88mp36nej5s0" path="res://TheSorceressMod/images/shaders/trail.png" id="2_ehdub"]
+[ext_resource type="Script" uid="uid://xwf44ac0sdrl" path="res://TheSorceressModCode/helpers/SorceressCardTrail.cs" id="3_08pi2"]
+[ext_resource type="Texture2D" uid="uid://crpfe2yc3iklk" path="res://TheSorceressMod/images/shaders/trail2.png" id="4_jrk22"]
+[ext_resource type="Texture2D" uid="uid://6mc6irw114ik" path="res://TheSorceressMod/images/shaders/flame wisp.png" id="5_8dcau"]
+[ext_resource type="Texture2D" uid="uid://cxdd6jf8ve0dg" path="res://TheSorceressMod/images/shaders/sparkle.png" id="6_08pi2"]
+[ext_resource type="Texture2D" uid="uid://d1h0da6f1cvg3" path="res://TheSorceressMod/images/shaders/small_card_silhouette.png" id="7_jrk22"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x164w"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_r32df"]
+_data = [Vector2(0, 0.111), 0.0, 0.0, 0, 0, Vector2(0.84, 0.664), -2.61, -2.61, 0, 0, Vector2(0.922, 0.943), 0.0, 0.0, 0, 0, Vector2(1, 0.686), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_tslc4"]
+offsets = PackedFloat32Array(0, 0.141, 0.522)
+colors = PackedColorArray(0, 0, 0, 0, 0.2509804, 0.2509804, 0.2509804, 0.30588236, 1, 1, 1, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6fw57"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_kh4g1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.801, 0.571), -3.158, -3.158, 0, 0, Vector2(0.901, 0.367), 0.0, 0.0, 0, 0, Vector2(0.938, 0.931), 0.0, 0.0, 0, 0, Vector2(1, 0.742), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_5hdff"]
+offsets = PackedFloat32Array(0.261, 0.647, 0.822)
+colors = PackedColorArray(0, 0, 0, 0, 0.2509804, 0.2509804, 0.2509804, 0.30588236, 1, 1, 1, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kvow8"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_dhhfu"]
+offsets = PackedFloat32Array(0, 0.554, 0.806, 1)
+colors = PackedColorArray(0.69411767, 0.5411765, 1, 1, 0.63529414, 0.40784314, 0.9411765, 0.44705883, 0.6039216, 0.38039216, 0.92156863, 0.48235294, 0.8493932, 0.6541253, 1, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8dcau"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_x164w"]
+colors = PackedColorArray(0.69411767, 0.5411765, 1, 1, 0.7686161, 0.49742597, 1, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r32df"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tslc4"]
+blend_mode = 1
+
+[node name="CardTrailSorceress" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_2gkar")
+
+[node name="Trails" type="Node2D" parent="."]
+
+[node name="OuterTrail" type="Line2D" parent="Trails"]
+modulate = Color(0.69411767, 0.5411765, 1, 0.7529412)
+material = SubResource("CanvasItemMaterial_x164w")
+width = 96.0
+width_curve = SubResource("Curve_r32df")
+default_color = Color(1, 1, 1, 0.7529412)
+gradient = SubResource("Gradient_tslc4")
+texture = ExtResource("2_ehdub")
+texture_mode = 2
+joint_mode = 2
+script = ExtResource("3_08pi2")
+
+[node name="InnerTrail" type="Line2D" parent="Trails"]
+modulate = Color(0.4954139, 0.42676288, 0.95888036, 0.5019608)
+material = SubResource("CanvasItemMaterial_6fw57")
+width = 64.0
+width_curve = SubResource("Curve_kh4g1")
+gradient = SubResource("Gradient_5hdff")
+texture = ExtResource("4_jrk22")
+texture_mode = 2
+joint_mode = 2
+script = ExtResource("3_08pi2")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="BigSparks" type="CPUParticles2D" parent="Sprites"]
+material = SubResource("CanvasItemMaterial_kvow8")
+amount = 64
+texture = ExtResource("5_8dcau")
+lifetime = 2.0
+randomness = 0.5
+lifetime_randomness = 1.0
+fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(24, 24)
+direction = Vector2(5, -5)
+gravity = Vector2(0, 0)
+initial_velocity_min = 16.0
+initial_velocity_max = 32.0
+angular_velocity_min = -32.0
+angular_velocity_max = 32.0
+damping_min = 1.0
+damping_max = 5.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color_ramp = SubResource("Gradient_dhhfu")
+
+[node name="LittleSparks" type="CPUParticles2D" parent="Sprites"]
+material = SubResource("CanvasItemMaterial_8dcau")
+amount = 64
+texture = ExtResource("6_08pi2")
+lifetime = 0.3
+explosiveness = 0.35
+randomness = 1.0
+lifetime_randomness = 1.0
+fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(24, 24)
+particle_flag_align_y = true
+direction = Vector2(0, -5)
+gravity = Vector2(0, 1960)
+initial_velocity_max = 480.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.02
+scale_amount_max = 0.05
+color_ramp = SubResource("Gradient_x164w")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
+modulate = Color(0.18431373, 0.1882353, 0.3372549, 0.7529412)
+material = SubResource("CanvasItemMaterial_r32df")
+scale = Vector2(1.1, 1.054)
+texture = ExtResource("7_jrk22")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites"]
+modulate = Color(0.69411767, 0.5411765, 1, 0.5019608)
+material = SubResource("CanvasItemMaterial_tslc4")
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("7_jrk22")
