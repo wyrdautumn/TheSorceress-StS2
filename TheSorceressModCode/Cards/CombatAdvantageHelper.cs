@@ -17,7 +17,7 @@ public class CombatAdvantageHelper() : CustomSingletonModel(true,false)
     {
         if (power.Owner.Player == null)
         {
-            return base.AfterPowerAmountChanged(choiceContext, power, amount, applier, cardSource);
+            return Task.CompletedTask;
         }
         PlayerCombatState? playerCombatState = power.Owner.Player.PlayerCombatState;
         if (power is CombatAdvantagePower && amount > 0 && playerCombatState != null)
@@ -25,6 +25,6 @@ public class CombatAdvantageHelper() : CustomSingletonModel(true,false)
             int val = CombatAdvantageCount.Get(playerCombatState);
             CombatAdvantageCount.Set(playerCombatState, val +1);
         }
-        return base.AfterPowerAmountChanged(choiceContext, power, amount, applier, cardSource);
+        return Task.CompletedTask;
     }
 }

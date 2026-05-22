@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
 
-namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
+namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
 public class PerfectDistraction() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Uncommon,

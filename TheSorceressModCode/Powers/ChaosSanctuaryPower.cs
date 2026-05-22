@@ -37,7 +37,7 @@ public class ChaosSanctuaryPower() : TheSorceressModPower
         await PowerCmd.Apply<PrimedPower>(choiceContext, dealer, this.Amount,Owner, null);
     }
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (this.Owner.Side == side)
         {
@@ -45,4 +45,5 @@ public class ChaosSanctuaryPower() : TheSorceressModPower
         }
         await PowerCmd.Remove((PowerModel)this);
     }
+    
 }

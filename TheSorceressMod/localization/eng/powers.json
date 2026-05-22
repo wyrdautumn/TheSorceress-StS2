@@ -1,8 +1,8 @@
 {
-  "THESORCERESSMOD-COMBAT_ADVANTAGE_POWER.description": "Increase the damage of your next Attack by [blue]50%[/blue].",
-  "THESORCERESSMOD-COMBAT_ADVANTAGE_POWER.smartDescription": "Increase the damage of your next Attack by [blue]50%[/blue].",
+  "THESORCERESSMOD-COMBAT_ADVANTAGE_POWER.description": "Increase the damage of your next Attack by [blue]50%[/blue]. Does not stack.",
+  "THESORCERESSMOD-COMBAT_ADVANTAGE_POWER.smartDescription": "Increase the damage of your next Attack by [blue]50%[/blue]. Does not stack.",
   "THESORCERESSMOD-COMBAT_ADVANTAGE_POWER.title": "Combat Advantage",
-  "THESORCERESSMOD-PRIMED_POWER.description": "Primed creatures take additional damage from attacks.",
+  "THESORCERESSMOD-PRIMED_POWER.description": "Primed creatures take additional damage from attacks this turn.",
   "THESORCERESSMOD-PRIMED_POWER.smartDescription": "Receive [blue]{Amount}[/blue] more damage from attacks this turn.",
   "THESORCERESSMOD-PRIMED_POWER.title": "Prime",
   "THESORCERESSMOD-CHARISMA_POWER.description": "Charisma increases the amount of HP enemies lose from your skills.",
@@ -58,7 +58,7 @@
   "THESORCERESSMOD-PRIME_THE_FIRE_POWER.smartDescription": "Next turn, play a copy of [blue]Prime the Fire[/blue].",
   "THESORCERESSMOD-PRIME_THE_FIRE_POWER.title": "Prime the Fire",
   "THESORCERESSMOD-SHADOW_ON_THE_WALL_POWER.description": "The next time you play an Attack, gain [gold]Combat Advantage[/gold] and play it an extra time.",
-  "THESORCERESSMOD-SHADOW_ON_THE_WALL_POWER.smartDescription": "The next {Amount:plural:time|[blue]{}[/blue] times} you play an Attack, gain [gold]Combat Advantage[/gold] and play it an extra time.",
+  "THESORCERESSMOD-SHADOW_ON_THE_WALL_POWER.smartDescription": "The next time you play an Attack, gain [gold]Combat Advantage[/gold] and play it {Amount:plural:an extra time|[blue]{}[/blue] extra times}.",
   "THESORCERESSMOD-SHADOW_ON_THE_WALL_POWER.title": "Shadow on the Wall",
   "THESORCERESSMOD-FIRESWARM_POWER.description": "Next turn, this enemy [gold]Primes[/gold].",
   "THESORCERESSMOD-FIRESWARM_POWER.smartDescription": "Next turn, this enemy [gold]Primes[/gold] [blue]{Amount}[/blue].",
@@ -77,5 +77,11 @@
   "THESORCERESSMOD-LEGENDARY_SNEAK_POWER.title": "Legendary Sneak",
   "THESORCERESSMOD-FLOCK_TACTICS_POWER.description": "Whenever another player attacks an enemy this turn, gain [gold]Combat Advantage[/gold].",
   "THESORCERESSMOD-FLOCK_TACTICS_POWER.smartDescription": "Whenever another player attacks an enemy this turn, gain [gold]Combat Advantage[/gold].",
-  "THESORCERESSMOD-FLOCK_TACTICS_POWER.title": "Flock Tactics"
+  "THESORCERESSMOD-FLOCK_TACTICS_POWER.title": "Flock Tactics",
+  "THESORCERESSMOD-SUDDEN_SCALES_POWER.description": "The next time you're attacked, gain [gold]Block[/gold].",
+  "THESORCERESSMOD-SUDDEN_SCALES_POWER.smartDescription": "The next time you're attacked, gain [blue]{Amount}[/blue] [gold]Block[/gold].",
+  "THESORCERESSMOD-SUDDEN_SCALES_POWER.title": "Sudden Scales",
+  "THESORCERESSMOD-TWO_WEAPON_DEFENSE_POWER.description": "Whenever you attack an enemy, gain [blue]2[/blue] [gold]Block[/gold].",
+  "THESORCERESSMOD-TWO_WEAPON_DEFENSE_POWER.smartDescription": "Whenever you attack an enemy, gain [blue]{Amount}[/blue] [gold]Block[/gold].",
+  "THESORCERESSMOD-TWO_WEAPON_DEFENSE_POWER.title": "Two-Weapon Defense"
 }

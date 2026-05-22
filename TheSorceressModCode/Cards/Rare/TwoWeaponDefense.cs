@@ -5,16 +5,17 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Powers;
 
-namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
+namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
 public class TwoWeaponDefense() : TheSorceressModCard(1,
-    CardType.Power, CardRarity.Uncommon,
+    CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DexterityPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<TwoWeaponDefensePower>(2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<DexterityPower>()];
+        [HoverTipFactory.FromPower<TwoWeaponDefensePower>()];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
@@ -24,11 +25,11 @@ public class TwoWeaponDefense() : TheSorceressModCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await PowerCmd.Apply<DexterityPower>(choiceContext, this.Owner.Creature, this.DynamicVars.Dexterity.BaseValue, this.Owner.Creature, this);
+        await PowerCmd.Apply<TwoWeaponDefensePower>(choiceContext, this.Owner.Creature, this.DynamicVars["TwoWeaponDefensePower"].BaseValue, this.Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Dexterity.UpgradeValueBy(1);
+        DynamicVars["TwoWeaponDefensePower"].UpgradeValueBy(1);
     }
 }

@@ -18,7 +18,7 @@ public class Detonator() : TheSorceressModCard(0,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("HitCount", 1),
     new CalculationBaseVar(0),
     new ExtraDamageVar(1),
-    new CalculatedDamageVar(ValueProp.Move).WithMultiplier((Func<CardModel, Creature, Decimal>) ((_, target) => (Decimal) (target != null ? target.GetPowerAmount<PrimedPower>() : 0)))];
+    new CalculatedDamageVar(ValueProp.Move).WithMultiplier((_, target) => (target != null ? target.GetPowerAmount<PrimedPower>() : 0))];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>()];

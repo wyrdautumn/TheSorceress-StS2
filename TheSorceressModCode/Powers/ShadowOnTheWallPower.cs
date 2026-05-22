@@ -17,14 +17,23 @@ public class ShadowOnTheWallPower : TheSorceressModPower
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
     
-    public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        return card.Owner.Creature != this.Owner || card.Type != CardType.Attack ? playCount : playCount + 1;
-    }
-
-    public override async Task AfterModifyingCardPlayCount(CardModel card)
-    {
-        await PowerCmd.Apply<CombatAdvantagePower>(new ThrowingPlayerChoiceContext(), Owner, 1, Owner, null);
+        if (cardPlay.Card.Owner != Owner.Player || cardPlay.Card.Type != CardType.Attack || this.Amount < 1)
+        {
+            return;
+        }
+        Creature? target;
+        if (cardPlay.Target != null && cardPlay.Target.IsAlive)
+        {
+            target = cardPlay.Target;
+        }
+        else
+        {
+            target = null;
+        }
         await PowerCmd.Decrement(this);
+        await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, Owner, 1, Owner, null);
+        await CardCmd.AutoPlay(choiceContext, cardPlay.Card.CreateDupe(), target);
     }
 }

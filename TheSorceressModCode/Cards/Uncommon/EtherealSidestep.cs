@@ -12,12 +12,13 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class EtherealSidestep() : TheSorceressModCard(0,
+public class EtherealSidestep() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
     public override bool GainsBlock => true;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(4,ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5,ValueProp.Move)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -32,6 +33,6 @@ public class EtherealSidestep() : TheSorceressModCard(0,
 
     protected override void OnUpgrade()
     {
-        this.DynamicVars.Block.UpgradeValueBy(3);
+        EnergyCost.UpgradeBy(-1);
     }
 }

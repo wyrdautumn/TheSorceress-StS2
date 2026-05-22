@@ -14,24 +14,20 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Common;
 
-public class Infiltrate() : TheSorceressModCard(0,
+public class Infiltrate() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Common,
     TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CalculationBaseVar(3),
-        new ExtraDamageVar(2),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier(Calc)
+        new DamageVar(6, ValueProp.Move),
+        new PowerVar<CharismaPower>(1)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<CombatAdvantagePower>()];
+        [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.FromPower<CharismaPower>()];
     
     protected override bool ShouldGlowGoldInternal => Owner.HasPower<CombatAdvantagePower>();
-
-    private static decimal Calc(CardModel card, Creature? arg2)
-        => card.Owner.HasPower<CombatAdvantagePower>() ? 1 : 0;
     
 
     protected override async Task OnPlay(
@@ -39,10 +35,14 @@ public class Infiltrate() : TheSorceressModCard(0,
         CardPlay play)
     {
         await CommonActions.CardAttack(this, play, vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
+        if (Owner.HasPower<CombatAdvantagePower>())
+        {
+            await CommonActions.ApplySelf<CharismaPower>(choiceContext, this);
+        }
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.ExtraDamage.UpgradeValueBy(2);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }

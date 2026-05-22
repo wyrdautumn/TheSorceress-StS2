@@ -9,11 +9,11 @@ using TheSorceressMod.TheSorceressModCode.Cards;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class DevourMagic() : TheSorceressModCard(2,
+public class DevourMagic() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered)];
     public override bool GainsBlock => true;
     
     protected override async Task OnPlay(
@@ -32,6 +32,6 @@ public class DevourMagic() : TheSorceressModCard(2,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }

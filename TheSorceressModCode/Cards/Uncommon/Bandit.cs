@@ -14,7 +14,6 @@ public class Bandit() : TheSorceressModCard(0,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(2), new PowerVar<CharismaPower>(2)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.ForEnergy(this),HoverTipFactory.FromPower<CharismaPower>()];
 

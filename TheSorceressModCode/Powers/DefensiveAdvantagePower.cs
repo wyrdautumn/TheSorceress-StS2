@@ -17,7 +17,7 @@ public class DefensiveAdvantagePower : TheSorceressModPower
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.FromPower<StrengthPower>()];
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (Owner.CombatState != null && side == CombatSide.Player && this.Owner.HasPower<CombatAdvantagePower>())
         {

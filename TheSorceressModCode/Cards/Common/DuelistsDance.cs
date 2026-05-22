@@ -13,7 +13,7 @@ public class DuelistsDance() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6,ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7,ValueProp.Move)];
     
     public override bool GainsBlock => true;
     
@@ -30,6 +30,6 @@ public class DuelistsDance() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(4);
+        DynamicVars.Block.UpgradeValueBy(3);
     }
 }

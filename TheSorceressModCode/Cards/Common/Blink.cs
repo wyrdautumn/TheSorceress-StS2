@@ -11,7 +11,7 @@ public class Blink() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8,ValueProp.Move),new CardsVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6,ValueProp.Move),new CardsVar(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, SorceressKeywords.Shadowdance];
     public override bool GainsBlock => true;
 
