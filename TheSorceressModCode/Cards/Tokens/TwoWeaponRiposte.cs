@@ -16,7 +16,7 @@ namespace TheSorceressMod.TheSorceressModCode.Cards.Tokens;
 
 public class TwoWeaponRiposte() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Token,
-    CustomTargetType.AnyAttackingEnemy)
+    TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move)];
     
@@ -24,11 +24,8 @@ public class TwoWeaponRiposte() : TheSorceressModCard(1,
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
     }
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal,CardKeyword.Exhaust];
     
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [..HoverTipFactory.FromCardWithCardHoverTips<TwoWeaponParry>(IsUpgraded)];
-
     protected override bool IsPlayable
     {
         get
@@ -55,12 +52,6 @@ public class TwoWeaponRiposte() : TheSorceressModCard(1,
         CardPlay play)
     {
         await CommonActions.CardAttack(this, play, vfx: "vfx/vfx_attack_slash").Execute(choiceContext);
-        if (CombatState == null)
-            return;
-        CardModel parry = CombatState.CreateCard<TwoWeaponParry>(Owner);
-        await CardPileCmd.AddGeneratedCardToCombat(parry, PileType.Hand, Owner);
-        if (IsUpgraded)
-            CardCmd.Upgrade(parry);
     }
 
     protected override void OnUpgrade()

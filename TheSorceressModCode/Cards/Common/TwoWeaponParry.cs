@@ -22,7 +22,6 @@ public class TwoWeaponParry() : TheSorceressModCard(1,
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
     }
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [..HoverTipFactory.FromCardWithCardHoverTips<TwoWeaponRiposte>(IsUpgraded)];
 

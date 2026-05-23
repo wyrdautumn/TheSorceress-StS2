@@ -14,7 +14,7 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards;
 
-public class SleightHelper() : CustomSingletonModel(true, true)
+public class SleightHelper() : CustomSingletonModel(HookType.Combat)
 {
     public static readonly SpireField<PlayerCombatState, int> SleightCount = new(() => 0);
     public static readonly SpireField<PlayerCombatState, int> NimbleFingersCount = new(() => 0);

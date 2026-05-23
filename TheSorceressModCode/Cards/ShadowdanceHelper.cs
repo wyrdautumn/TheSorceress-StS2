@@ -15,7 +15,7 @@ using TheSorceressMod.TheSorceressModCode.Relics;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards;
 
-public class ShadowdanceHelper() : CustomSingletonModel(true,false)
+public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
 {
     public static readonly SpireField<CardModel, bool> TempShadowdance = new(() => false);
 

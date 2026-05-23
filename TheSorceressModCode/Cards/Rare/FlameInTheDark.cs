@@ -21,6 +21,7 @@ public class FlameInTheDark() : TheSorceressModCard(3,
     private const string _increaseKey = "Increase";
     private const int _baseCharisma = 2;
     private int _currentCharisma = 2;
+    private int _increasedCharisma;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(20, ValueProp.Move), new PowerVar<CharismaPower>(this.CurrentCharisma),new IntVar("Increase", 2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery,CardKeyword.Exhaust];
@@ -36,6 +37,17 @@ public class FlameInTheDark() : TheSorceressModCard(3,
             this.AssertMutable();
             this._currentCharisma = value;
             this.DynamicVars["CharismaPower"].BaseValue = (Decimal) this._currentCharisma;
+        }
+    }
+
+    [SavedProperty]
+    public int IncreasedCharisma
+    {
+        get => this._increasedCharisma;
+        set
+        {
+            this.AssertMutable();
+            this._increasedCharisma = value;
         }
     }
     
@@ -67,9 +79,14 @@ public class FlameInTheDark() : TheSorceressModCard(3,
     {
         DynamicVars.Damage.UpgradeValueBy(10);
     }
+    
+    protected override void AfterDowngraded() => this.UpdateCharisma();
 
     private void BuffFromKill()
     {
-        this.CurrentCharisma += this.DynamicVars["Increase"].IntValue;
+        this.IncreasedCharisma += this.DynamicVars["Increase"].IntValue;
+        UpdateCharisma();
     }
+
+    private void UpdateCharisma() => this.CurrentCharisma = 2 + this.IncreasedCharisma;
 }

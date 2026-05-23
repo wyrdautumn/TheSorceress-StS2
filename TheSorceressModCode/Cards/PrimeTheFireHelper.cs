@@ -9,7 +9,7 @@ using TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards;
 
-public class PrimeTheFireHelper() : CustomSingletonModel(true, false)
+public class PrimeTheFireHelper() : CustomSingletonModel(HookType.Combat)
 {
     public readonly List<CardModel> PrimeTheFirePlayed = new List<CardModel>();
 

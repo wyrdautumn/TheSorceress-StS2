@@ -8,7 +8,7 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards;
 
-public class CombatAdvantageHelper() : CustomSingletonModel(true,false)
+public class CombatAdvantageHelper() : CustomSingletonModel(HookType.Combat)
 {
     public static readonly SpireField<PlayerCombatState, int> CombatAdvantageCount = new(() => 0);
 

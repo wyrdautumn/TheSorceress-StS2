@@ -21,7 +21,7 @@
   "THESORCERESSMOD-MAKE_AN_IMPRESSION.title": "Make an Impression",
   "THESORCERESSMOD-GLOAMING_CUT.description": "Deal {Damage:diff()} damage.\nGain {GloamingCutPower:diff()} [gold]Dexterity[/gold] this turn.",
   "THESORCERESSMOD-GLOAMING_CUT.title": "Gloaming Cut",
-  "THESORCERESSMOD-TWO_WEAPON_FEINT.description": "Deal {Damage:diff()} damage.\nGain [gold]Combat Advantage[/gold].\n\nAdd [gold]{IfUpgraded:show:Two-Weapon Punish+|Two-Weapon Punish}[/gold] into your [gold]Hand[/gold].",
+  "THESORCERESSMOD-TWO_WEAPON_FEINT.description": "Deal {Damage:diff()} damage.\nGain [gold]Combat Advantage[/gold].\nAdd [gold]{IfUpgraded:show:Two-Weapon Punish+|Two-Weapon Punish}[/gold] into your [gold]Hand[/gold].",
   "THESORCERESSMOD-TWO_WEAPON_FEINT.title": "Two-Weapon Feint",
   "THESORCERESSMOD-HELLFIRE_STRIKE.description": "Deal {Damage:diff()} damage.\n[gold]Exhaust[/gold] 1 card.",
   "THESORCERESSMOD-HELLFIRE_STRIKE.title": "Hellfire Strike",
@@ -65,7 +65,7 @@
   "THESORCERESSMOD-UNKINDNESS.title": "Unkindness",
   "THESORCERESSMOD-CANDLELIGHT.description": "Gain {Energy:energyIcons()}.\nDraw {Cards:diff()} cards.\nGain [gold]Combat Advantage[/gold].",
   "THESORCERESSMOD-CANDLELIGHT.title": "Candlelight",
-  "THESORCERESSMOD-TWO_WEAPON_FIGHTING.description": "Deal {Damage:diff()} damage twice.",
+  "THESORCERESSMOD-TWO_WEAPON_FIGHTING.description": "Deal {Damage:diff()} damage twice.\nAdd [gold]{IfUpgraded:show:Two-Weapon Combination+|Two-Weapon Combination}[/gold] into your [gold]Hand[/gold].",
   "THESORCERESSMOD-TWO_WEAPON_FIGHTING.title": "Two-Weapon Fighting",
   "THESORCERESSMOD-LIGHTNING_DAGGERS.description": "Deal {CalculatedDamage:diff()} damage to ALL enemies.\nDeals {ExtraDamage:diff()} additional damage if you have [gold]Combat Advantage[/gold].",
   "THESORCERESSMOD-LIGHTNING_DAGGERS.title": "Lightning Daggers",
@@ -73,7 +73,7 @@
   "THESORCERESSMOD-DUELISTS_FLURRY.title": "Duelist's Flurry",
   "THESORCERESSMOD-COMBAT_OPPORTUNIST.description": "Deal {Damage:diff()} damage.\nEnemy loses {StrengthPower:diff()} [gold]Strength[/gold].",
   "THESORCERESSMOD-COMBAT_OPPORTUNIST.title": "Low Slash",
-  "THESORCERESSMOD-TWO_WEAPON_RIPOSTE.description": "Can only be played if the enemy intends to attack.\nDeal {Damage:diff()} damage.\nAdd [gold]{IfUpgraded:show:Two-Weapon Parry+|Two-Weapon Parry}[/gold] into your [gold]Hand[/gold].",
+  "THESORCERESSMOD-TWO_WEAPON_RIPOSTE.description": "Can only be played if an enemy intends to attack.\nDeal {Damage:diff()} damage.",
   "THESORCERESSMOD-TWO_WEAPON_RIPOSTE.title": "Two-Weapon Riposte",
   "THESORCERESSMOD-KINGSLAYER.description": "Deal {Damage:diff()} damage to the enemy with the most HP.",
   "THESORCERESSMOD-KINGSLAYER.title": "Kingslayer",
@@ -180,5 +180,7 @@
   "THESORCERESSMOD-TWO_WEAPON_TWIST.description": "Deal {Damage:diff()} damage.\nEnemy loses {TwoWeaponTwistPower:diff()} [gold]Strength[/gold] this turn.",
   "THESORCERESSMOD-TWO_WEAPON_TWIST.title": "Two-Weapon Twist",
   "THESORCERESSMOD-TWO_WEAPON_PUNISH.description": "Can only be played when you have [gold]Combat Advantage[/gold].\nDeal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
-  "THESORCERESSMOD-TWO_WEAPON_PUNISH.title": "Two-Weapon Punish"
+  "THESORCERESSMOD-TWO_WEAPON_PUNISH.title": "Two-Weapon Punish",
+  "THESORCERESSMOD-TWO_WEAPON_COMBINATION.description": "Deal {Damage:diff()} damage{InCombat:{hits:plural:| {hits:diff()} times}|}.\nHits an additional time for each [gold]Two-Weapon Combination[/gold] already played this combat.",
+  "THESORCERESSMOD-TWO_WEAPON_COMBINATION.title": "Two-Weapon Combination"
 }
