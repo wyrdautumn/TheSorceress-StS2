@@ -14,7 +14,7 @@ public class SorcerersGambit() : TheSorceressModCard(1,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CalculationBaseVar(4),
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CalculationBaseVar(5),
     new CalculationExtraVar(1),
     new CalculatedVar("SorcerersGambitPower").WithMultiplier(Calc)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];

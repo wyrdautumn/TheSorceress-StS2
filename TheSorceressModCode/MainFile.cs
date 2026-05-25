@@ -31,7 +31,7 @@ public partial class MainFile : Node
         if (deckboxType != null)
         {
             var addMethod = AccessTools.DeclaredMethod(deckboxType, "AddCharacterDeck");
-            addMethod.Invoke(null, [ModelDb.GetId<Character.TheSorceressMod>(), ModelDb.GetId<TwoWeaponTwist>(), ModelDb.GetId<SparkStep>()]);
+            addMethod.Invoke(null, [ModelDb.GetId<Character.TheSorceressMod>(), ModelDb.GetId<TwoWeaponCatch>(), ModelDb.GetId<SparkStep>()]);
         }
 
     }

@@ -34,8 +34,9 @@ public class Infiltrate() : TheSorceressModCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        bool hadCA = Owner.HasPower<CombatAdvantagePower>();
         await CommonActions.CardAttack(this, play, vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
-        if (Owner.HasPower<CombatAdvantagePower>())
+        if (hadCA)
         {
             await CommonActions.ApplySelf<CharismaPower>(choiceContext, this);
         }

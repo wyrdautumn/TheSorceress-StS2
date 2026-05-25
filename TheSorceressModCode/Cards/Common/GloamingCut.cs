@@ -24,7 +24,7 @@ public class GloamingCut() : TheSorceressModCard(1,
         CardPlay play)
     {
         await CommonActions.CardAttack(this, play.Target,vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
-        await CommonActions.ApplySelf<GloamingCutPower>(choiceContext, this, 1);
+        await CommonActions.ApplySelf<GloamingCutPower>(choiceContext, this);
     }
 
     protected override void OnUpgrade()

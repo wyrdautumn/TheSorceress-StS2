@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
@@ -11,6 +12,7 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Tokens;
 
+[Pool(typeof(TokenCardPool))]
 public class TwoWeaponPunish() : TheSorceressModCard(0,
     CardType.Attack, CardRarity.Token,
     TargetType.AnyEnemy)

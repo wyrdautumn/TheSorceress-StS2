@@ -1,9 +1,9 @@
 {
   "THESORCERESSMOD-SLEIGHT.description": "A Sleight's cost is equal to the number of Sleights you've played this turn.",
   "THESORCERESSMOD-SLEIGHT.title": "Sleight",
-  "THESORCERESSMOD-SORCERY.description": "This card's damage and Block scale with your [gold]Charisma[/gold].",
+  "THESORCERESSMOD-SORCERY.description": "[gold]Charisma[/gold] increases this card's damage or [gold]Block[/gold].",
   "THESORCERESSMOD-SORCERY.title": "Sorcery",
-  "THESORCERESSMOD-SHADOWDANCE.description": "If this card is in your [gold]Exhaust Pile[/gold] at the start of your turn, it returns to your Discard Pile.",
+  "THESORCERESSMOD-SHADOWDANCE.description": "If this card is in your [gold]Exhaust Pile[/gold] at the start of your turn, it returns to your [gold]Discard Pile[/gold].",
   "THESORCERESSMOD-SHADOWDANCE.title": "Shadowdance",
   "THESORCERESSMOD-SUBTLE.description": "If this card is [gold]Exhausted[/gold], play it for free.",
   "THESORCERESSMOD-SUBTLE.title": "Agile"

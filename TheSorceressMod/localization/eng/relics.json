@@ -26,7 +26,7 @@
   "THESORCERESSMOD-DANCING_SASH.description": "Whenever you play a [gold]Sleight[/gold], gain [blue]1[/blue] [gold]Vigor[/gold].",
   "THESORCERESSMOD-DANCING_SASH.flavor": "Combat is like dancing and storytelling both: it's all about momentum.",
   "THESORCERESSMOD-DANCING_SASH.title": "Dancing Sash",
-  "THESORCERESSMOD-VOIDHEART.description": "When your cards [gold]Shadowdance[/gold], they return to your [gold]Hand[/gold] instead of your Discard Pile.",
+  "THESORCERESSMOD-VOIDHEART.description": "When your cards [gold]Shadowdance[/gold], they return to your [gold]Hand[/gold] instead of your [gold]Discard Pile[/gold].",
   "THESORCERESSMOD-VOIDHEART.flavor": "A sliver of power, carved from the hungering dark and nestled in the scar on your heart where you cut out the person you once were.",
   "THESORCERESSMOD-VOIDHEART.title": "Voidheart"
 }

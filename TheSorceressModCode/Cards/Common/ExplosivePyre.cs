@@ -41,7 +41,7 @@ public class ExplosivePyre() : TheSorceressModCard(2,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Damage.UpgradeValueBy(3);
         DynamicVars["PrimedPower"].UpgradeValueBy(2);
     }
 }
