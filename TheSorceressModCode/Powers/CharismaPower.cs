@@ -35,7 +35,7 @@ public class CharismaPower : TheSorceressModPower
         CardModel? cardSource,
         CardPlay? cardPlay)
     {
-        if (cardSource != null && cardSource.Keywords.Contains(SorceressKeywords.Sorcery) && cardSource.Owner.Creature == this.Owner && this.Owner == target)
+        if (cardSource != null && cardSource.Keywords.Contains(SorceressKeywords.Sorcery) && props.IsPoweredCardOrMonsterMoveBlock() && cardSource.Owner.Creature == this.Owner && this.Owner == target)
         {
             return Amount;
         }
