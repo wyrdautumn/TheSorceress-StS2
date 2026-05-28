@@ -11,15 +11,6 @@ public class TwoWeaponMasteryPower : TheSorceressModPower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
-    {
-        if (card.Owner.Creature == this.Owner && card.Tags.Contains(SorceressKeywords.TwoWeapon))
-        {
-            return playCount + Amount;
-        }
-        return playCount;
-    }
-
     public override int ModifyAttackHitCount(AttackCommand attack, int hitCount)
     {
         if (attack.ModelSource is not CardModel)
