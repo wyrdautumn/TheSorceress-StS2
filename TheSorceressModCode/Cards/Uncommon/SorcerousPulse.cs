@@ -26,6 +26,7 @@ public class SorcerousPulse() : TheSorceressModCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await CommonActions.ApplySelf<CharismaPower>(choiceContext, this);
         if (!IsUpgraded)
         {

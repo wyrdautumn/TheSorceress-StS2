@@ -28,7 +28,7 @@ public class ArcingFire() : TheSorceressModCard(2,
         {
             return;
         }
-        AttackCommand attackCommand = await DamageCmd.Attack(cardSource.DynamicVars.Damage.BaseValue).FromCard((CardModel) cardSource).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        AttackCommand attackCommand = await DamageCmd.Attack(cardSource.DynamicVars.Damage.BaseValue).FromCard((CardModel) cardSource).Targeting(play.Target).WithHitFx(vfx:"vfx/vfx_fire_burst",sfx:"event:/sfx/characters/attack_fire").WithAttackerAnim("Cast",0.2f).Execute(choiceContext);
         if (attackCommand.Results
             .SelectMany<List<DamageResult>, DamageResult>(
                 (Func<List<DamageResult>, IEnumerable<DamageResult>>)(r => (IEnumerable<DamageResult>)r))

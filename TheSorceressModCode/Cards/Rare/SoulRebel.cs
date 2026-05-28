@@ -21,7 +21,7 @@ public class SoulRebel() : TheSorceressModCard(3,
     new CalculatedVar("ExhaustCount").WithMultiplier(Calc)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword( CardKeyword.Exhaust)];
-
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     public override CardType Type => IsUpgraded ? CardType.Attack : CardType.Skill;
 
     private static decimal Calc(CardModel card, Creature? arg2)
@@ -52,6 +52,7 @@ public class SoulRebel() : TheSorceressModCard(3,
             List<CardModel> list = PileType.Discard.GetPile(this.Owner).Cards
                 .Where<CardModel>((Func<CardModel, bool>)(c => c.Type == CardType.Attack)).ToList<CardModel>();
             int cardCount = list.Count;
+            await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
             foreach (CardModel card in list)
             {
                 await CardCmd.Exhaust(choiceContext, card);
@@ -71,13 +72,12 @@ public class SoulRebel() : TheSorceressModCard(3,
             {
                 await CardCmd.Exhaust(choiceContext, card);
             }
-            await CommonActions.CardAttack(this, play, cardCount,vfx:"vfx/vfx_fire_burst").Execute(choiceContext);
+            await CommonActions.CardAttack(this, play, cardCount,vfx:"vfx/attack_blunt", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
         }
     }
 
     protected override void OnUpgrade()
     {
-        AddKeyword(SorceressKeywords.Sorcery);
-        
+
     }
 }

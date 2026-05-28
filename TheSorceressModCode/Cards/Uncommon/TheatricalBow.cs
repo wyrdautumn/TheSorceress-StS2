@@ -2,6 +2,7 @@
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -35,6 +36,7 @@ public class TheatricalBow() : TheSorceressModCard(0,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await CommonActions.ApplySelf<VigorPower>(choiceContext,this, ((CalculatedVar)DynamicVars["Skills"]).Calculate(Owner.Creature));
     }
 

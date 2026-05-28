@@ -18,12 +18,15 @@ public class MindShadows() : TheSorceressModCard(1,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7,ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move), new PowerVar<WeakPower>(1)];
+    
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
         if (play.Target != null){
+            await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
             IEnumerable<DamageResult> damageResults = await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, (CardModel) this);
             await CommonActions.Apply<WeakPower>(choiceContext, play.Target, this);
         }

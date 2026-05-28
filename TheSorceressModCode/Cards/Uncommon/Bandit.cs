@@ -21,6 +21,7 @@ public class Bandit() : TheSorceressModCard(0,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
         await PowerCmd.Apply<CharismaPower>(choiceContext, Owner.Creature, -DynamicVars["CharismaPower"].BaseValue, Owner.Creature, this);
     }

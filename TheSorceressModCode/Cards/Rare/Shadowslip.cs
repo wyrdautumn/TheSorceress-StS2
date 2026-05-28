@@ -22,6 +22,7 @@ public class Shadowslip() : TheSorceressModCard(3,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         foreach (CardModel card in PileType.Hand.GetPile(this.Owner).Cards.ToList<CardModel>())
         {
             if ((card.Type == CardType.Attack || card.Type == CardType.Skill) && !card.Keywords.Contains(SorceressKeywords.Subtle))

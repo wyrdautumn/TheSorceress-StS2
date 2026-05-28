@@ -19,7 +19,7 @@ public class SparkForm() : TheSorceressModCard(0,
     TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered), new PowerVar<WeakPower>(1)];
-    
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     protected override bool HasEnergyCostX => true;
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -35,7 +35,7 @@ public class SparkForm() : TheSorceressModCard(0,
         {
             return;
         }
-
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         if (!card.IsUpgraded)
         {
             for (int hitcount = num1; hitcount > 0;)
@@ -43,6 +43,8 @@ public class SparkForm() : TheSorceressModCard(0,
                 --hitcount;
                 Creature target = this.CombatState.HittableEnemies.TakeRandom(1, this.Owner.RunState.Rng.CombatTargets)
                     .First();
+                VfxCmd.PlayOnCreature(target, "vfx/vfx_attack_lightning");
+                SfxCmd.Play("event:/sfx/characters/defect/defect_lightning_passive");
                 await CreatureCmd.Damage(choiceContext, target, this.DynamicVars.Damage, (CardModel) this);
                 await CommonActions.Apply<WeakPower>(choiceContext, target, this);
             }
@@ -52,6 +54,8 @@ public class SparkForm() : TheSorceressModCard(0,
             for (int hitcount = num1; hitcount > 0;)
             {
                 --hitcount;
+                VfxCmd.PlayOnCreatures(this.CombatState.HittableEnemies, "vfx/vfx_attack_lightning");
+                SfxCmd.Play("event:/sfx/characters/defect/defect_lightning_evoke");
                 await CreatureCmd.Damage(choiceContext, this.CombatState.HittableEnemies, this.DynamicVars.Damage,
                     this.Owner.Creature);
                 await PowerCmd.Apply<WeakPower>(choiceContext, this.CombatState.HittableEnemies, this.DynamicVars.Weak.BaseValue,

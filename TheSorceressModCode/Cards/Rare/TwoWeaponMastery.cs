@@ -22,11 +22,12 @@ public class TwoWeaponMastery() : TheSorceressModCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await CommonActions.ApplySelf<TwoWeaponMasteryPower>(choiceContext, this);
     }
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Innate);
+        DynamicVars["TwoWeaponMasteryPower"].UpgradeValueBy(1);
     }
 }

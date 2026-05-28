@@ -15,7 +15,7 @@ public class ShadowyTendrils() : TheSorceressModCard(2,
     TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered), new PowerVar<ShadowyTendrilsPower>(3)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle,SorceressKeywords.Shadowdance];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle,SorceressKeywords.Shadowdance, SorceressKeywords.Sorcery];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<StrengthPower>()];
     
@@ -25,6 +25,7 @@ public class ShadowyTendrils() : TheSorceressModCard(2,
     {
         if (CombatState == null)
             return;
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, DynamicVars.Damage, Owner.Creature, this);
         await PowerCmd.Apply<ShadowyTendrilsPower>(choiceContext, CombatState.HittableEnemies, DynamicVars["ShadowyTendrilsPower"].BaseValue, Owner.Creature, this);
     }

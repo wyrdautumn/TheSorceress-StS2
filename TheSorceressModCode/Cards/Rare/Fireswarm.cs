@@ -21,6 +21,7 @@ public class Fireswarm() : TheSorceressModCard(1,
         {
             return;
         }
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await PowerCmd.Apply<PrimedPower>(choiceContext, play.Target, DynamicVars["PrimedPower"].BaseValue,
             Owner.Creature, this);
         await PowerCmd.Apply<FireswarmPower>(choiceContext, play.Target, play.Target.GetPowerAmount<PrimedPower>(),

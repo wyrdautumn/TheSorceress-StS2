@@ -22,6 +22,7 @@ public class Candlelight() : TheSorceressModCard(0,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await PlayerCmd.GainEnergy(this.DynamicVars.Energy.IntValue, this.Owner);
         await CommonActions.Draw(this, choiceContext);
         await CommonActions.ApplySelf<CombatAdvantagePower>(choiceContext, this, 1);

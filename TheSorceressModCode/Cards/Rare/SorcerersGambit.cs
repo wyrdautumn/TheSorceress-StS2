@@ -26,6 +26,7 @@ public class SorcerersGambit() : TheSorceressModCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await PowerCmd.Apply<SorcerersGambitPower>(choiceContext, Owner.Creature,
             ((CalculatedVar)DynamicVars["SorcerersGambitPower"]).Calculate(Owner.Creature), Owner.Creature, this);
     }

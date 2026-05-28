@@ -22,7 +22,7 @@ public class FlameSpiral() : TheSorceressModCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CommonActions.CardAttack(this, play, vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
+        await CommonActions.CardAttack(this, play, vfx:"vfx/vfx_fire_burst",sfx:"event:/sfx/characters/attack_fire").WithAttackerAnim("Cast",0.2f).Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

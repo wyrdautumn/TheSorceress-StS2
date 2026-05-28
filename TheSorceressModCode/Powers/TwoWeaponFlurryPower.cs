@@ -13,14 +13,28 @@ public class TwoWeaponFlurryPower : TheSorceressModPower
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
+    
+    protected override object InitInternalData() => (object) new TwoWeaponFlurryPower.Data();
+    
+    public override Task BeforeCardPlayed(CardPlay cardPlay)
+    {
+        if (cardPlay.Card.Owner.Creature != this.Owner || !cardPlay.Card.Tags.Contains(SorceressKeywords.TwoWeapon))
+            return Task.CompletedTask;
+        this.GetInternalData<TwoWeaponFlurryPower.Data>().amountsForPlayedCards.Add(cardPlay.Card, this.Amount);
+        return Task.CompletedTask;
+    }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != this.Owner.Player || !cardPlay.Card.Tags.Contains(SorceressKeywords.TwoWeapon))
-        {
+        int amount;
+        if (cardPlay.Card.Owner.Creature != Owner || !GetInternalData<TwoWeaponFlurryPower.Data>().amountsForPlayedCards.Remove(cardPlay.Card, out amount) || amount <= 0)
             return;
-        }
         this.Flash();
-        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, Amount, ValueProp.Unpowered, Owner, (CardModel) null!);
+        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, amount, ValueProp.Unpowered, Owner, null);
+    }
+    
+    private class Data
+    {
+        public readonly Dictionary<CardModel, int> amountsForPlayedCards = new Dictionary<CardModel, int>();
     }
 }

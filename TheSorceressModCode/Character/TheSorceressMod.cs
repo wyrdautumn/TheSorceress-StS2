@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices;
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Patches.UI;
@@ -99,4 +100,23 @@ public class TheSorceressMod : PlaceholderCharacterModel
     public override Color MapDrawingColor => new ("7B4EC8");
     public override Color RemoteTargetingLineColor => new ("A17CEAFF");
     public override Color RemoteTargetingLineOutline => new ("714CBCFF");
+    
+    public override List<string> GetArchitectAttackVfx()
+    {
+        int num = 5;
+        List<string> list = new List<string>(num);
+        CollectionsMarshal.SetCount<string>(list, num);
+        Span<string> span = CollectionsMarshal.AsSpan<string>(list);
+        int index1 = 0;
+        span[index1] = "vfx/vfx_attack_slash";
+        int index2 = index1 + 1;
+        span[index2] = "vfx/vfx_attack_blunt";
+        int index3 = index2 + 1;
+        span[index3] = "vfx/vfx_bloody_impact";
+        int index4 = index3 + 1;
+        span[index4] = "vfx/vfx_fire_burst";
+        int index5 = index4 + 1;
+        span[index5] = "vfx/vfx_rock_shatter";
+        return list;
+    }
 }

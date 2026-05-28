@@ -22,6 +22,7 @@ public class ShadowOnTheWall() : TheSorceressModCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
         await PowerCmd.Apply<ShadowOnTheWallPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }

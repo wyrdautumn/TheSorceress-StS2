@@ -25,7 +25,7 @@ public class SlyFlourish() : TheSorceressModCard(0,
     {
         await CommonActions.CardAttack(this, play.Target,vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
         await CommonActions.Draw(this, choiceContext);
-        CardModel? card = (await CardSelectCmd.FromHandForDiscard(choiceContext, play.Card.Owner, new CardSelectorPrefs(CardSelectorPrefs.DiscardSelectionPrompt, 1),null!, this)).FirstOrDefault();
+        CardModel? card = (await CardSelectCmd.FromHandForDiscard(choiceContext, play.Card.Owner, new CardSelectorPrefs(CardSelectorPrefs.DiscardSelectionPrompt, 1),null, this)).FirstOrDefault();
         if (card == null)
             return;
         await CardCmd.Discard(choiceContext, card);

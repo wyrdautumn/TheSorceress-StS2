@@ -1,11 +1,16 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using Godot;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
 using TheSorceressMod.TheSorceressModCode.Powers;
@@ -23,6 +28,8 @@ public class ChaosBolt() : TheSorceressModCard(2,
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<WeakPower>(),HoverTipFactory.FromPower<VulnerablePower>(),HoverTipFactory.FromPower<CharismaPower>()];
     
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
+    
     private static decimal Calc(CardModel card, Creature? arg2)
         => card.Owner.Creature.GetPowerAmount<CharismaPower>() / 2;
     
@@ -34,9 +41,23 @@ public class ChaosBolt() : TheSorceressModCard(2,
         {
             return;
         }
-
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         int num1 = (int)((CalculatedVar)DynamicVars["Debuff"]).Calculate(Owner.Creature);
+        NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(play.Target);
+        if (creatureNode != null && NCombatRoom.Instance != null)
+        {
+            NLargeMagicMissileVfx? child = NLargeMagicMissileVfx.Create(creatureNode.GetBottomOfHitbox(),
+                new Color("b18aff"));
+            if (child != null)
+            {
+                NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(child);
+                await Cmd.Wait(child.WaitTime);
+            }
+        }
+        VfxCmd.PlayOnCreature(play.Target, "vfx/vfx_attack_blunt");
+        SfxCmd.Play("blunt_attack.mp3");
         await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, (CardModel) this);
+        
         for (int loops = num1; loops > 0;)
         {
             --loops;

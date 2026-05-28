@@ -31,6 +31,7 @@ public class LingeringShadows() : TheSorceressModCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await PowerCmd.Apply<LingeringShadowsPower>(choiceContext, Owner.Creature,
             ((CalculatedVar)DynamicVars["LingeringShadowsPower"]).Calculate(Owner.Creature), Owner.Creature, this);
     }

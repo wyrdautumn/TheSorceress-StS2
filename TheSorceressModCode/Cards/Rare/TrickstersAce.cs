@@ -22,6 +22,7 @@ public class TrickstersAce() : TheSorceressModCard(0,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         CardModel? card = CardFactory.GetDistinctForCombat(Owner, Owner.Character.CardPool.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint).Where<CardModel>((Func<CardModel, bool>) (c => c.Keywords.Contains(SorceressKeywords.Sorcery))), 1, Owner.RunState.Rng.CombatCardGeneration).FirstOrDefault<CardModel>();
         if (card == null)
             return;

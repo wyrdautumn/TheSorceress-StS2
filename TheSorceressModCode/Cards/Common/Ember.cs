@@ -1,5 +1,6 @@
 ﻿using BaseLib.Extensions;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -33,6 +34,7 @@ public class Ember() : TheSorceressModCard(1,
     {
         if (play.Target != null)
         {
+            await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
             await CommonActions.Apply<PrimedPower>(choiceContext, play.Target, play.Card,
                 ((CalculatedVar) DynamicVars["Prime"]).Calculate(Owner.Creature));
         }

@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Entities.Creatures;
+﻿using MegaCrit.Sts2.Core.Commands.Builders;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
 
@@ -18,10 +19,22 @@ public class TwoWeaponMasteryPower : TheSorceressModPower
         }
         return playCount;
     }
-    
-    public override Task AfterModifyingCardPlayCount(CardModel card)
+
+    public override int ModifyAttackHitCount(AttackCommand attack, int hitCount)
     {
+        if (attack.ModelSource is not CardModel)
+        {
+            return hitCount;
+        }
+
+        CardModel card = (CardModel) attack.ModelSource;
+
+        if (card.Owner != this.Owner.Player || !card.Tags.Contains(SorceressKeywords.TwoWeapon))
+        {
+            return hitCount;
+        }
+
         this.Flash();
-        return Task.CompletedTask;
+        return hitCount + Amount;
     }
 }

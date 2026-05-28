@@ -1,16 +1,20 @@
 ﻿using BaseLib.Cards.Variables;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
@@ -92,7 +96,27 @@ public class HellfireSoul() : TheSorceressModCard(5,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CommonActions.CardAttack(this, play, vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
+        if (CombatState == null)
+        {
+            return;
+        }
+        float scale = 0.8f;
+        await CommonActions.CardAttack(this, play).BeforeDamage(() =>
+        {
+            foreach (Creature target in CombatState.HittableEnemies)
+            {
+                NGroundFireVfx? child = NGroundFireVfx.Create(target, VfxColor.Purple);
+                if (child == null)
+                    return Task.CompletedTask;
+                SfxCmd.Play("event:/sfx/characters/attack_fire");
+                child.Scale = Vector2.One * scale;
+                NCombatRoom? instance = NCombatRoom.Instance;
+                if (instance != null)
+                    instance.CombatVfxContainer.AddChildSafely((Godot.Node)child);
+                scale += 0.1f;
+            }
+            return Task.CompletedTask;
+        }).WithAttackerAnim("Cast",0.2f).Execute(choiceContext);
         HellfireSoul hellfireSoul = this;
         foreach (CardModel card in PileType.Discard.GetPile(hellfireSoul.Owner).Cards.ToList<CardModel>()
                      .StableShuffle<CardModel>(hellfireSoul.Owner.RunState.Rng.Shuffle).Take<CardModel>(hellfireSoul

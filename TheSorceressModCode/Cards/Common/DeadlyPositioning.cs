@@ -25,6 +25,7 @@ public class DeadlyPositioning() : TheSorceressModCard(1,
         CardPlay play)
     {
         DeadlyPositioning cardSource = this;
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await CommonActions.ApplySelf<CombatAdvantagePower>(choiceContext, this, 1);
         EnergyNextTurnPower? energyNextTurnPower = await PowerCmd.Apply<EnergyNextTurnPower>(choiceContext, cardSource.Owner.Creature, cardSource.DynamicVars.Energy.BaseValue, cardSource.Owner.Creature, (CardModel) cardSource);
     }

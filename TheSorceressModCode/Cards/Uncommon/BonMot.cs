@@ -24,6 +24,7 @@ public class BonMot() : TheSorceressModCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await PowerCmd.Apply<BonMotPower>(choiceContext, this.Owner.Creature, this.DynamicVars["CharismaPower"].BaseValue, this.Owner.Creature, (CardModel) this);
         await CommonActions.ApplySelf<CombatAdvantagePower>(choiceContext, this, 1);
     }

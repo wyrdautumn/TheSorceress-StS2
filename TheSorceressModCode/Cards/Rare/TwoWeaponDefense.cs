@@ -25,6 +25,7 @@ public class TwoWeaponDefense() : TheSorceressModCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await PowerCmd.Apply<TwoWeaponDefensePower>(choiceContext, this.Owner.Creature, this.DynamicVars["TwoWeaponDefensePower"].BaseValue, this.Owner.Creature, this);
     }
 

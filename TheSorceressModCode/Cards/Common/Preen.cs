@@ -16,7 +16,7 @@ public class Preen() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Retain),HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
@@ -27,7 +27,7 @@ public class Preen() : TheSorceressModCard(1,
     {
         await CommonActions.Draw(this, choiceContext);
         CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1);
-        CardModel card2 = (await CardSelectCmd.FromHand(choiceContext, this.Owner, prefs, (Func<CardModel, bool>) null!, (AbstractModel) this)).FirstOrDefault<CardModel>();
+        CardModel? card2 = (await CardSelectCmd.FromHand(choiceContext, this.Owner, prefs, null, this)).FirstOrDefault<CardModel>();
         if (card2 != null)
         {
             await CardCmd.Exhaust(choiceContext, card2);
