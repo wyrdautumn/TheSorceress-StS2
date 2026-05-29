@@ -54,7 +54,10 @@ public class PrimeTheFire() : TheSorceressModCard(4,
             ).WithAttackerAnim("Cast",0.2f).Execute(choiceContext);
         await PowerCmd.Apply<PrimedPower>(choiceContext, CombatState.HittableEnemies,
             DynamicVars["PrimedPower"].BaseValue, Owner.Creature, this);
-        await PowerCmd.Apply<PrimeTheFirePower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+        if (!IsDupe)
+        {
+            await PowerCmd.Apply<PrimeTheFirePower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+        }
     }
 
     protected override void OnUpgrade()

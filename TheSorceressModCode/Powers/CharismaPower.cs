@@ -21,7 +21,7 @@ public class CharismaPower : TheSorceressModPower
         Creature? dealer,
         CardModel? cardSource)
     {
-        if ((cardSource != null && cardSource.Keywords.Contains(SorceressKeywords.Sorcery) && dealer == Owner) || (dealer == Owner && props.HasFlag(ValueProp.Unblockable) && target != Owner))
+        if ((cardSource != null && cardSource.Keywords.Contains(SorceressKeywords.Sorcery) && dealer == Owner && target != Owner) || (dealer == Owner && props.HasFlag(ValueProp.Unblockable) && target != Owner))
         {
             return Amount;
         }
