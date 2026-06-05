@@ -9,8 +9,8 @@ namespace TheSorceressMod.TheSorceressModCode.Epochs;
 public class Sorceress1Epoch : EpochModel
 {
     public override string Id => "THESORCERESSMOD-SORCERESS1_EPOCH";
-    public override EpochEra Era => EpochEra.Invitation1;
-    public override int EraPosition => 0;
+    public override EpochEra Era => EpochEra.Invitation0;
+    public override int EraPosition => 4;
     public override string? StoryId => "Sorceress";
 
     public static List<PotionModel> Potions =>

@@ -16,10 +16,10 @@ public class FeintingFlurry() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move),
-        new CalculationBaseVar(0),
-        new CalculationExtraVar(1),
-        new CalculatedVar("Sleights").WithMultiplier(Calc)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move),
+        new CalculationBaseVar(8),
+        new ExtraDamageVar(4),
+        new CalculatedDamageVar(ValueProp.Move).WithMultiplier(Calc)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight)];
 
@@ -33,12 +33,12 @@ public class FeintingFlurry() : TheSorceressModCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CommonActions.CardAttack(this, play,
-            (int)((CalculatedVar)DynamicVars["Sleights"]).Calculate(Owner.Creature),vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
+        await CommonActions.CardAttack(this, play,vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.CalculationBase.UpgradeValueBy(1);
+        DynamicVars.ExtraDamage.UpgradeValueBy(2);
     }
 }

@@ -9,7 +9,7 @@ public class Sorceress6Epoch : EpochModel
 {
     public override string Id => "THESORCERESSMOD-SORCERESS6_EPOCH";
     public override EpochEra Era => EpochEra.Invitation6;
-    public override int EraPosition => 0;
+    public override int EraPosition => 2;
     public override string? StoryId => "Sorceress";
     
     public static List<RelicModel> Relics =>

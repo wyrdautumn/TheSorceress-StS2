@@ -11,7 +11,7 @@ public class Sorceress3Epoch : EpochModel
 {
     public override string Id => "THESORCERESSMOD-SORCERESS3_EPOCH";
     public override EpochEra Era => EpochEra.Invitation3;
-    public override int EraPosition => 0;
+    public override int EraPosition => 2;
     public override string? StoryId => "Sorceress";
 
     public static List<CardModel> Cards =>

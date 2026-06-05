@@ -28,7 +28,7 @@ public class CombatAdvantagePower : TheSorceressModPower
         CardModel? cardSource)
     {
         if (dealer is null) return 1;
-        if (dealer != this.Owner && !this.Owner.Pets.Contains<Creature>(dealer) || !props.IsPoweredAttack() ||
+        if (dealer != this.Owner || !props.IsPoweredAttack() ||
             cardSource == null)
         {
             return 1;
@@ -50,7 +50,6 @@ public class CombatAdvantagePower : TheSorceressModPower
             {
                 return Task.CompletedTask;
             }
-
             PowerCmd.Remove(this);
         }
         return Task.CompletedTask;

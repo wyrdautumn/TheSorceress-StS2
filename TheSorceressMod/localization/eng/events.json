@@ -1,0 +1,7 @@
+﻿{
+  "COLORFUL_PHILOSOPHERS.pages.INITIAL.options.CARD_POOL∴THESORCERESSMOD-THE_SORCERESS_MOD_CARD_POOL.description": "Obtain [blue]{Cards}[/blue] Sorceress {Cards:plural:card|cards}.",
+  "COLORFUL_PHILOSOPHERS.pages.INITIAL.options.CARD_POOL∴THESORCERESSMOD-THE_SORCERESS_MOD_CARD_POOL.title": "Navy",
+  "BYRDONIS_NEST.pages.INITIAL.sorceressDescription": "You spot an enormous [jitter][red]Shambling Beast[/red][/jitter] chase off an injured [green][sine]Green Byrd[/sine][/green].\n\nIn the alcove the byrd fled from, a [gold]single unguarded egg[/gold] lies abandoned.\n\n[sine]You feel conflicted...[/sine]",
+  "BYRDONIS_NEST.pages.TAKE.sorceressDescription": "You gently scoop up the egg and stow it.\n\nYou never expected to [green]hatch[/green] one yourself. But the thought is strangely comforting.",
+  "BYRDONIS_NEST.pages.EAT.sorceressDescription": "You crack the egg open and cook it with your flame.\n\nIt's only nature, after all. The last thing this place needs is more megafauna."
+}
