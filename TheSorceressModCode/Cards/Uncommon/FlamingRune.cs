@@ -9,11 +9,11 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class FlamingRune() : TheSorceressModCard(1,
+public class FlamingRune() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlamingRunePower>(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlamingRunePower>(2)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>()];
@@ -28,6 +28,6 @@ public class FlamingRune() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["FlamingRunePower"].UpgradeValueBy(2);
+        DynamicVars["FlamingRunePower"].UpgradeValueBy(1);
     }
 }

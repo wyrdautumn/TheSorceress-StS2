@@ -22,6 +22,10 @@ public class PrimeTheFire() : TheSorceressModCard(4,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(26, ValueProp.Move), new PowerVar<PrimedPower>(6)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
+    protected override HashSet<CardTag> CanonicalTags
+    {
+        get => new HashSet<CardTag>() { SorceressKeywords.Fire };
+    }
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>()];
     

@@ -29,7 +29,7 @@ public class TwoWeaponPressure() : TheSorceressModCard(2,
     }
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<WeakPower>(), HoverTipFactory.FromCard<TwoWeaponOpening>(false)];
+        [HoverTipFactory.FromPower<WeakPower>(), HoverTipFactory.FromCard<TwoWeaponOpening>(), HoverTipFactory.FromCard<TwoWeaponLink>(), HoverTipFactory.FromCard<TwoWeaponFinisher>()];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

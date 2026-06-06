@@ -43,7 +43,6 @@ public static class SorceressEpochUnlockPatches
             if (epoch != null)
             {
                 TryObtainMidRun?.Invoke(__instance, new object[2] { epoch, localPlayer });
-                SaveManager.Instance?.UnlockSlot(epoch.Id);
                 MainFile.Logger.Info($"Sorceress epoch obtained for completing Act {act + 1}");
             }
         }
@@ -86,7 +85,6 @@ public static class SorceressEpochUnlockPatches
             if (eliteWins >= 15)
             {
                 TryObtainMidRun?.Invoke(__instance, new object[2] { epoch, localPlayer });
-                SaveManager.Instance?.UnlockSlot(epoch.Id);
             }
         }
         catch (Exception ex)
@@ -131,7 +129,6 @@ public static class SorceressEpochUnlockPatches
             if (bossWins >= 15)
             {
                 TryObtainMidRun?.Invoke(__instance, new object[2] { epoch, localPlayer });
-                SaveManager.Instance?.UnlockSlot(epoch.Id);
             }
         }
         catch (Exception ex)
@@ -155,7 +152,6 @@ public static class SorceressEpochUnlockPatches
             {
                 EpochModel epoch = EpochModel.Get(EpochModel.GetId<Sorceress7Epoch>());
                 TryObtainPostRun?.Invoke(__instance, new object[3] { epoch, serializablePlayer, serializableRun });
-                SaveManager.Instance?.UnlockSlot(epoch.Id);
             }
         }
         catch (Exception ex)
@@ -177,7 +173,6 @@ public static class SorceressEpochUnlockPatches
         {
             EpochModel epoch = EpochModel.Get(EpochModel.GetId<Sorceress4Epoch>());
             TryObtainPostRun?.Invoke(__instance, new object[3] { epoch, serializablePlayer, serializableRun });
-            SaveManager.Instance?.UnlockSlot(epoch.Id);
         }
         catch (Exception ex)
         {

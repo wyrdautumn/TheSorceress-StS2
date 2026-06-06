@@ -39,6 +39,6 @@ public class ShadowSneak() : TheSorceressModCard(0,
 
     protected override void OnUpgrade()
     {
-        this.DynamicVars.Damage.UpgradeValueBy(2);
+        this.DynamicVars.Damage.UpgradeValueBy(3);
     }
 }

@@ -12,12 +12,12 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Common;
 
-public class Ember() : TheSorceressModCard(1,
+public class Ember() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Common,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new CalculationBaseVar(4),
+        new CalculationBaseVar(3),
         new CalculationExtraVar(1),
         new CalculatedVar("Prime").WithMultiplier(Calc)
     ];
@@ -42,6 +42,6 @@ public class Ember() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        this.EnergyCost.UpgradeBy(-1);
+        this.DynamicVars.CalculationBase.UpgradeValueBy(3);
     }
 }

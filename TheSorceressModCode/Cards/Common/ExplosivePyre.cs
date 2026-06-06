@@ -20,7 +20,6 @@ public class ExplosivePyre() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
-    
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(11, ValueProp.Move), new PowerVar<PrimedPower>(4)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     
@@ -37,7 +36,7 @@ public class ExplosivePyre() : TheSorceressModCard(2,
         CardPlay play)
     {
         ArgumentNullException.ThrowIfNull(this.CombatState);
-        await CommonActions.CardAttack(this, play.Target,vfx:"vfx/vfx_attack_slash").BeforeDamage(() =>
+        await CommonActions.CardAttack(this, play.Target).BeforeDamage(() =>
             {
                 if (play.Target != null)
                 {
@@ -53,6 +52,8 @@ public class ExplosivePyre() : TheSorceressModCard(2,
             }
         ).WithAttackerAnim("Cast",0.2f).Execute(choiceContext);
         await PowerCmd.Apply<PrimedPower>(choiceContext, this.CombatState.HittableEnemies, this.DynamicVars.Power<PrimedPower>().BaseValue, Owner.Creature, this, false);
+        await PowerCmd.Apply<ExplosivePyrePower>(choiceContext, Owner.Creature,
+            this.DynamicVars.Power<PrimedPower>().BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

@@ -18,6 +18,11 @@ public class ArcingFire() : TheSorceressModCard(2,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
+    
+    protected override HashSet<CardTag> CanonicalTags
+    {
+        get => new HashSet<CardTag>() { SorceressKeywords.Fire };
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

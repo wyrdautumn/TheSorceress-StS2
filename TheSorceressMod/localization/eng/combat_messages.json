@@ -21,5 +21,7 @@
   "SORCERESS_PUNCHERS_BANTER": "I see you've put aside your differences.",
   "SORCERESS_PUNCHERS_REPLY": "[sine]Bweedle-beep.[/sine]",
   "SORCERESS_FAKE_MERCHANT_BANTER": "I'm not offended by your deception. I'm offended by its mediocrity.",
-  "SORCERESS_FAKE_MERCHANT_REPLY": "I'm offended by your stupid beak!"
+  "SORCERESS_FAKE_MERCHANT_REPLY": "I'm offended by your stupid beak!",
+  "SORCERESS_THINK_NO_OPENING": "I don't have an opening.",
+  "SORCERESS_THINK_NEED_TARGET": "I need to aim this at a target."
 }

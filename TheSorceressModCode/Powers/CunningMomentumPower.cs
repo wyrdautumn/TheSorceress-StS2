@@ -7,14 +7,14 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace TheSorceressMod.TheSorceressModCode.Powers;
 
-public class SorcerousMomentumPower : TheSorceressModPower
+public class CunningMomentumPower : TheSorceressModPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromKeyword(SorceressKeywords.Sorcery),HoverTipFactory.ForEnergy(this)];
+        [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight),HoverTipFactory.ForEnergy(this)];
     
-    protected override object InitInternalData() => (object) new SorcerousMomentumPower.Data();
+    protected override object InitInternalData() => (object) new CunningMomentumPower.Data();
 
     public override Task BeforeCardPlayed(CardPlay cardPlay)
     {
@@ -23,7 +23,7 @@ public class SorcerousMomentumPower : TheSorceressModPower
             return Task.CompletedTask;
         }
 
-        Data internalData = GetInternalData<Data>();
+        CunningMomentumPower.Data internalData = GetInternalData<CunningMomentumPower.Data>();
         internalData.cardPlayed = cardPlay.Card;
         internalData.amountWhenCardPlayed = Amount;
         return Task.CompletedTask;
@@ -31,9 +31,9 @@ public class SorcerousMomentumPower : TheSorceressModPower
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        SorcerousMomentumPower power = this;
-        Data internalData = GetInternalData<Data>();
-        if (cardPlay.Card.Keywords.Contains(SorceressKeywords.Sorcery) && internalData.cardPlayed == cardPlay.Card)
+        CunningMomentumPower power = this;
+        CunningMomentumPower.Data internalData = GetInternalData<CunningMomentumPower.Data>();
+        if (cardPlay.Card.Keywords.Contains(SorceressKeywords.Sleight) && internalData.cardPlayed == cardPlay.Card)
         {
             await PlayerCmd.GainEnergy((Decimal)internalData.amountWhenCardPlayed, cardPlay.Card.Owner);
             await PowerCmd.ModifyAmount(choiceContext, power, -internalData.amountWhenCardPlayed, null, null);

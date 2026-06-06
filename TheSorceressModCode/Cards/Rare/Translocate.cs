@@ -12,32 +12,32 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
-public class Translocate() : TheSorceressModCard(1,
+public class Translocate() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8, ValueProp.Move),
-    new CalculationBaseVar(2),
-    new CalculationExtraVar(1),
-    new CalculatedVar("CardDraw").WithMultiplier(Calc)];
+    new CardsVar(2)];
     public override bool GainsBlock => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<CharismaPower>()];
+        [HoverTipFactory.FromPower<CharismaPower>(),HoverTipFactory.FromKeyword(SorceressKeywords.Sleight)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    protected override HashSet<CardTag> CanonicalTags
+    {
+        get => new HashSet<CardTag>() { SorceressKeywords.Cunning };
+    }
     
-    private static decimal Calc(CardModel card, Creature? arg2)
-        => card.Owner.Creature.GetPowerAmount<CharismaPower>() / 3;
-
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
         await CommonActions.CardBlock(this, play);
-        IEnumerable<CardModel> cards = (IEnumerable<CardModel>) PileType.Hand.GetPile(this.Owner).Cards;
-        await CardCmd.DiscardAndDraw(choiceContext, cards, (int) ((CalculatedVar) DynamicVars["CardDraw"]).Calculate(Owner.Creature));
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationBase.UpgradeValueBy(1);
+        DynamicVars.Block.UpgradeValueBy(3);
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
 }

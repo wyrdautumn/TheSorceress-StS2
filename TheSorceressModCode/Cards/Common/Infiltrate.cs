@@ -21,7 +21,7 @@ public class Infiltrate() : TheSorceressModCard(1,
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(6, ValueProp.Move),
-        new PowerVar<CharismaPower>(1)
+        new PowerVar<CharismaPower>(2)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

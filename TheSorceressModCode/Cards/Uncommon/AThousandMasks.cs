@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -14,37 +15,26 @@ public class AThousandMasks() : TheSorceressModCard(3,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new DynamicVar("AdvantageCount",0)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move),
+    new CalculationBaseVar(0),
+    new CalculationExtraVar(1),
+    new CalculatedVar("AdvantageCount").WithMultiplier(Calc)];
+
+    private static decimal Calc(CardModel card, Creature? target)
+    {
+        if (card.Owner.PlayerCombatState == null)
+            return 0;
+        return CombatAdvantageHelper.CombatAdvantageCount.Get(card.Owner.PlayerCombatState);
+    }
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
-    
-    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        if (this.Owner.PlayerCombatState != null)
-        {
-            this.DynamicVars["AdvantageCount"].BaseValue =
-                CombatAdvantageHelper.CombatAdvantageCount.Get(this.Owner.PlayerCombatState);
-        }
-
-        return base.AfterCardPlayed(choiceContext, cardPlay);
-    }
-
-    public override Task AfterCardEnteredCombat(CardModel card)
-    {
-        if (card == this && this.Owner.PlayerCombatState != null)
-        {
-            this.DynamicVars["AdvantageCount"].BaseValue =
-                CombatAdvantageHelper.CombatAdvantageCount.Get(this.Owner.PlayerCombatState);
-        }
-        return base.AfterCardEnteredCombat(card);
-    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CommonActions.CardAttack(this, play, DynamicVars["AdvantageCount"].IntValue).Execute(choiceContext);
+        await CommonActions.CardAttack(this, play, (int) ((CalculatedVar) DynamicVars["AdvantageCount"]).Calculate(null)).Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

@@ -72,7 +72,7 @@ public class SoulRebel() : TheSorceressModCard(3,
             {
                 await CardCmd.Exhaust(choiceContext, card);
             }
-            await CommonActions.CardAttack(this, play, cardCount,vfx:"vfx/attack_blunt", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
+            await CommonActions.CardAttack(this, play, cardCount,vfx:"vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
         }
     }
 

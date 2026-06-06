@@ -16,7 +16,7 @@ public class MakeAnImpression() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<CharismaPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<CharismaPower>(3)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

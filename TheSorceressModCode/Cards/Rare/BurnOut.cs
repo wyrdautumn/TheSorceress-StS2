@@ -9,11 +9,11 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
-public class BurnOut() : TheSorceressModCard(3,
+public class BurnOut() : TheSorceressModCard(2,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BurnOutPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Exhaust), HoverTipFactory.ForEnergy(this)];
 
@@ -22,11 +22,11 @@ public class BurnOut() : TheSorceressModCard(3,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-        await CommonActions.ApplySelf<BurnOutPower>(choiceContext, this);
+        await CommonActions.ApplySelf<BurnOutPower>(choiceContext, this,DynamicVars.Energy.BaseValue);
     }
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars.Energy.UpgradeValueBy(1);
     }
 }

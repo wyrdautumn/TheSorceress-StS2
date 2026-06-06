@@ -16,7 +16,7 @@ public class Preen() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Retain),HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
@@ -37,6 +37,6 @@ public class Preen() : TheSorceressModCard(1,
     
     protected override void OnUpgrade()
     {
-        this.EnergyCost.UpgradeBy(-1);
+        this.DynamicVars.Cards.UpgradeValueBy(1);
     }
 }

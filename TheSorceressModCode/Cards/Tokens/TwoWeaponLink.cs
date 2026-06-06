@@ -24,7 +24,7 @@ public class TwoWeaponLink() : TheSorceressModCard(1,
     }
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal,CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromCard<TwoWeaponFinisher>(IsUpgraded),HoverTipFactory.FromPower<CombatAdvantagePower>()];
+        [HoverTipFactory.FromCard<TwoWeaponFinisher>(IsUpgraded), HoverTipFactory.FromCard<TwoWeaponFinisher>(IsUpgraded), HoverTipFactory.FromPower<CombatAdvantagePower>()];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

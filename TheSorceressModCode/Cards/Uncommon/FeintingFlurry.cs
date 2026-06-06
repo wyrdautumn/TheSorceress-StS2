@@ -12,13 +12,13 @@ using TheSorceressMod.TheSorceressModCode.Cards;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class FeintingFlurry() : TheSorceressModCard(1,
+public class FeintingFlurry() : TheSorceressModCard(0,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move),
-        new CalculationBaseVar(8),
-        new ExtraDamageVar(4),
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new CalculationBaseVar(3),
+        new ExtraDamageVar(3),
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier(Calc)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight)];
@@ -38,7 +38,7 @@ public class FeintingFlurry() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationBase.UpgradeValueBy(1);
+        DynamicVars.CalculationBase.UpgradeValueBy(2);
         DynamicVars.ExtraDamage.UpgradeValueBy(2);
     }
 }

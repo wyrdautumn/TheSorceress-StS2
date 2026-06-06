@@ -28,6 +28,10 @@ public class HellfireSoul() : TheSorceressModCard(5,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(20, ValueProp.Move), new DynamicVar("Exhaust", 3)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
+    protected override HashSet<CardTag> CanonicalTags
+    {
+        get => new HashSet<CardTag>() { SorceressKeywords.Fire };
+    }
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
     public override bool CanBeGeneratedInCombat => false;

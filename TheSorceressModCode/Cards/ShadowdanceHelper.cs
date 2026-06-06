@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Random;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using TheSorceressMod.TheSorceressModCode.Relics;
 
@@ -18,7 +19,7 @@ namespace TheSorceressMod.TheSorceressModCode.Cards;
 public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
 {
     public static readonly SpireField<CardModel, bool> TempShadowdance = new(() => false);
-
+    
     public override async Task AfterAutoPrePlayPhaseEnteredEarly(PlayerChoiceContext choiceContext, Player player)
     {
         List<CardModel> list = PileType.Exhaust.GetPile(player).Cards.ToList();

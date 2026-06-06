@@ -14,7 +14,7 @@ namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
 public class LightningDaggers() : TheSorceressModCard(0,
     CardType.Attack, CardRarity.Uncommon,
-    TargetType.AllEnemies)
+    TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

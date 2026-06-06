@@ -10,7 +10,7 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class DefensiveAdvantage() : TheSorceressModCard(2,
+public class DefensiveAdvantage() : TheSorceressModCard(1,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {

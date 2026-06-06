@@ -30,6 +30,10 @@ public class FlameInTheDark() : TheSorceressModCard(3,
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(20, ValueProp.Move), new PowerVar<CharismaPower>(this.CurrentCharisma),new IntVar("Increase", 2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery,CardKeyword.Exhaust];
+    protected override HashSet<CardTag> CanonicalTags
+    {
+        get => new HashSet<CardTag>() { SorceressKeywords.Fire };
+    }
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CharismaPower>(),HoverTipFactory.Static(StaticHoverTip.Fatal)];
     

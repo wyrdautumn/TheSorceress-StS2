@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
@@ -53,6 +54,17 @@ public class TwoWeaponRiposte() : TheSorceressModCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        if (!this.IsPlayable)
+        {
+            ThinkCmd.Play(new LocString("combat_messages", "SORCERESS_THINK_NO_OPENING"), Owner.Creature);
+            return;
+        }
+
+        if (this.IsPlayable && play.Target == null)
+        {
+            ThinkCmd.Play(new LocString("combat_messages", "SORCERESS_THINK_NEED_TARGET"), Owner.Creature);
+            return;
+        }
         await CommonActions.CardAttack(this, play, vfx: "vfx/vfx_attack_slash").Execute(choiceContext);
     }
 

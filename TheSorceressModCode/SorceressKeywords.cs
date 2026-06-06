@@ -1,5 +1,6 @@
 ﻿using BaseLib.Patches.Content;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.HoverTips;
 
 namespace TheSorceressMod.TheSorceressModCode;
 
@@ -17,4 +18,5 @@ public static class SorceressKeywords
     [CustomEnum] public static CardTag Fire;
     [CustomEnum] public static CardTag Stealthy;
     [CustomEnum] public static CardTag Cunning;
+    [CustomEnum] public static StaticHoverTip FireAttack;
 }

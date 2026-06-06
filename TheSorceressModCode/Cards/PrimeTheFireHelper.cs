@@ -11,11 +11,11 @@ namespace TheSorceressMod.TheSorceressModCode.Cards;
 
 public class PrimeTheFireHelper() : CustomSingletonModel(HookType.Combat)
 {
-    public readonly List<CardModel> PrimeTheFirePlayed = new List<CardModel>();
+    private readonly List<CardModel> primeTheFirePlayed = new List<CardModel>();
 
     public override Task BeforeCombatStart()
     {
-        PrimeTheFirePlayed.Clear();
+        primeTheFirePlayed.Clear();
         return Task.CompletedTask;
     }
 
@@ -23,7 +23,7 @@ public class PrimeTheFireHelper() : CustomSingletonModel(HookType.Combat)
     {
         if (cardPlay.Card is PrimeTheFire && !cardPlay.Card.IsDupe)
         {
-            PrimeTheFirePlayed.Add(cardPlay.Card);
+            primeTheFirePlayed.Add(cardPlay.Card);
         }
 
         return Task.CompletedTask;
@@ -31,16 +31,16 @@ public class PrimeTheFireHelper() : CustomSingletonModel(HookType.Combat)
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        foreach (CardModel card in PrimeTheFirePlayed.ToList())
+        foreach (CardModel card in primeTheFirePlayed.ToList())
         {
             await CardCmd.AutoPlay(choiceContext, card.CreateDupe(), null);
-            PrimeTheFirePlayed.Remove(card);
+            primeTheFirePlayed.Remove(card);
         }
     }
 
     public override Task AfterCombatEnd(CombatRoom room)
     {
-        PrimeTheFirePlayed.Clear();
+        primeTheFirePlayed.Clear();
         return Task.CompletedTask;
     }
 }

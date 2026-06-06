@@ -13,7 +13,7 @@ public class CounterStep() : TheSorceressModCard(1,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<CounterStepPower>(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<CounterStepPower>(4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight)];
 
