@@ -11,7 +11,7 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class AThousandMasks() : TheSorceressModCard(3,
+public class AThousandMasks() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
@@ -39,6 +39,6 @@ public class AThousandMasks() : TheSorceressModCard(3,
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }
