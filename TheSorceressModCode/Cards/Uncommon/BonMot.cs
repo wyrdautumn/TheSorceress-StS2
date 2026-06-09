@@ -15,7 +15,7 @@ public class BonMot() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<CharismaPower>(4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<CharismaPower>(3)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.FromPower<CharismaPower>(),HoverTipFactory.FromKeyword(SorceressKeywords.Sleight)];
@@ -36,6 +36,6 @@ public class BonMot() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        this.DynamicVars["CharismaPower"].UpgradeValueBy(3);
+        this.DynamicVars["CharismaPower"].UpgradeValueBy(2);
     }
 }

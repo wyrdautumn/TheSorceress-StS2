@@ -45,5 +45,6 @@ public class Infiltrate() : TheSorceressModCard(1,
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars["CharismaPower"].UpgradeValueBy(1);
     }
 }

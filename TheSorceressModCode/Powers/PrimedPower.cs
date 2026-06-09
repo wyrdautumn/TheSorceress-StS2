@@ -1,5 +1,6 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -20,12 +21,18 @@ public class PrimedPower : TheSorceressModPower
             return 0;
         return Amount;
     }
-    
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+
+    public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
     {
-        if (side != CombatSide.Player)
+        if (command.ModelSource is not CardModel || !command.Results.SelectMany(r => r.Select(c => c.Receiver)).Contains(Owner) || !command.DamageProps.IsPoweredAttack())
+        {
             return;
-        await PowerCmd.Remove(this);
+        }
+        CardModel card = (CardModel) command.ModelSource;
+        if (!card.Tags.Contains(SorceressKeywords.PrimeTrick))
+        {
+            await PowerCmd.Remove(this);
+        }
     }
 }
 

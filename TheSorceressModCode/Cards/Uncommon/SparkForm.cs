@@ -18,7 +18,7 @@ public class SparkForm() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered), new PowerVar<WeakPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered), new PowerVar<WeakPower>(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     protected override bool HasEnergyCostX => true;
     

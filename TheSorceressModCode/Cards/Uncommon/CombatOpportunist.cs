@@ -14,9 +14,9 @@ public class CombatOpportunist() : TheSorceressModCard(0,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new PowerVar<StrengthPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new PowerVar<DexterityPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<VulnerablePower>()];
+        [HoverTipFactory.FromPower<DexterityPower>()];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     
@@ -27,7 +27,7 @@ public class CombatOpportunist() : TheSorceressModCard(0,
         await CommonActions.CardAttack(this, play, vfx: "vfx/vfx_attack_slash").Execute(choiceContext);
         if (play.Target != null)
         {
-            await PowerCmd.Apply<StrengthPower>(choiceContext, play.Target, -DynamicVars.Strength.BaseValue,Owner.Creature,this);
+            await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars.Dexterity.BaseValue,Owner.Creature,this);
         }
     }
 

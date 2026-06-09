@@ -16,7 +16,7 @@ public class MakeAnImpression() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<CharismaPower>(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<CharismaPower>(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -28,7 +28,7 @@ public class MakeAnImpression() : TheSorceressModCard(0,
     {
         await CommonActions.ApplySelf<CharismaPower>(choiceContext, this);
         var prefs = new CardSelectorPrefs(new LocString("card_selection", "TO_TELL"), 1);
-        CardModel? card = (await CardSelectCmd.FromSimpleGrid(choiceContext, PileType.Draw.GetPile(this.Owner).Cards,
+        CardModel? card = (await CardSelectCmd.FromSimpleGrid(choiceContext, PileType.Discard.GetPile(this.Owner).Cards,
             this.Owner, prefs)).FirstOrDefault();
         if (card == null)
             return;

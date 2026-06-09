@@ -27,7 +27,7 @@ public class MindShadows() : TheSorceressModCard(1,
     {
         if (play.Target != null){
             await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-            IEnumerable<DamageResult> damageResults = await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, (CardModel) this);
+            await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, (CardModel) this);
             await CommonActions.Apply<WeakPower>(choiceContext, play.Target, this);
         }
     }

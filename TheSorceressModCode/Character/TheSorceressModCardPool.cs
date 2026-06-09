@@ -38,8 +38,7 @@ public class TheSorceressModCardPool : CustomCardPoolModel
     
     protected override IEnumerable<CardModel> FilterThroughEpochs(UnlockState unlockState, IEnumerable<CardModel> cards)
     {
-        // Exclude Basic/Starter cards from the reward pool (Strike, Defend, Snapshot, Memento, Covet)
-        var list = cards.Where(c => c.Rarity != CardRarity.Basic).ToList();
+        var list = cards.ToList();
 
         if (TheSorceressModConfig.AllStuffUnlocked == false)
         {

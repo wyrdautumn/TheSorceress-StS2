@@ -9,11 +9,11 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class Firestarter() : TheSorceressModCard(3,
+public class Firestarter() : TheSorceressModCard(1,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FirestarterPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FirestarterPower>(4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight),HoverTipFactory.FromKeyword(SorceressKeywords.Sorcery),HoverTipFactory.ForEnergy(this)];
 
@@ -27,6 +27,6 @@ public class Firestarter() : TheSorceressModCard(3,
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        this.DynamicVars["FirestarterPower"].UpgradeValueBy(2);
     }
 }

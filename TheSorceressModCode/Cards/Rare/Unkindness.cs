@@ -17,7 +17,7 @@ public class Unkindness() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
 
@@ -26,7 +26,7 @@ public class Unkindness() : TheSorceressModCard(1,
     {
         if (cardSource == this && this.Owner.HasPower<CombatAdvantagePower>())
         {
-            return 2;
+            return 3;
         }
         return base.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource);
     }
@@ -42,6 +42,6 @@ public class Unkindness() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(1);
     }
 }

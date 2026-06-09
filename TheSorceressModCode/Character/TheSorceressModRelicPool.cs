@@ -19,7 +19,7 @@ public class TheSorceressModRelicPool : CustomRelicPoolModel
         var list = AllRelics.ToList();
         if (TheSorceressModConfig.AllStuffUnlocked == false)
         {
-            if (!unlockState.IsEpochRevealed<Sorceress6Epoch>())
+            if (!unlockState.IsEpochRevealed<Sorceress2Epoch>())
             {
                 list.RemoveAll(r => Sorceress2Epoch.Relics.Any(relic => relic.Id == r.Id));
             }

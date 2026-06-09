@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Timeline;
+﻿using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Timeline;
+using TheSorceressMod.TheSorceressModCode.Cards.Starter;
 
 namespace TheSorceressMod.TheSorceressModCode.Epochs;
 

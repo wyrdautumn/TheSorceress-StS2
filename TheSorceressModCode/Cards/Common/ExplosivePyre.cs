@@ -20,7 +20,7 @@ public class ExplosivePyre() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(11, ValueProp.Move), new PowerVar<PrimedPower>(4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, ValueProp.Move), new PowerVar<PrimedPower>(4)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -52,13 +52,11 @@ public class ExplosivePyre() : TheSorceressModCard(2,
             }
         ).WithAttackerAnim("Cast",0.2f).Execute(choiceContext);
         await PowerCmd.Apply<PrimedPower>(choiceContext, this.CombatState.HittableEnemies, this.DynamicVars.Power<PrimedPower>().BaseValue, Owner.Creature, this, false);
-        await PowerCmd.Apply<ExplosivePyrePower>(choiceContext, Owner.Creature,
-            this.DynamicVars.Power<PrimedPower>().BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Damage.UpgradeValueBy(2);
         DynamicVars["PrimedPower"].UpgradeValueBy(2);
     }
 }

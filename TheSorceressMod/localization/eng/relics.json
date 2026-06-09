@@ -8,7 +8,7 @@
   "THESORCERESSMOD-FETCHING_HAT.description": "At the start of each combat, gain [blue]1[/blue] [gold]Charisma[/gold].",
   "THESORCERESSMOD-FETCHING_HAT.flavor": "A stalwart companion.",
   "THESORCERESSMOD-FETCHING_HAT.title": "Fetching Hat",
-  "THESORCERESSMOD-PRIMAL_FLAME.description": "At the start of each combat, ALL enemies [gold]Prime[/gold] [blue]4[/blue].",
+  "THESORCERESSMOD-PRIMAL_FLAME.description": "At the start of each combat, ALL enemies [gold]Prime[/gold] [blue]6[/blue].",
   "THESORCERESSMOD-PRIMAL_FLAME.flavor": "A strong enough will can ignite even the most distant and dormant ember.",
   "THESORCERESSMOD-PRIMAL_FLAME.title": "Primal Flame",
   "THESORCERESSMOD-THROWING_KNIVES.description": "Whenever you gain [gold]Combat Advantage[/gold], draw a card.",
@@ -28,5 +28,6 @@
   "THESORCERESSMOD-DANCING_SASH.title": "Dancing Sash",
   "THESORCERESSMOD-VOIDHEART.description": "When your cards [gold]Shadowdance[/gold], they return to your [gold]Hand[/gold] instead of your [gold]Discard Pile[/gold].",
   "THESORCERESSMOD-VOIDHEART.flavor": "A sliver of power, carved from the hungering dark and nestled in the scar on your heart where you cut out the person you once were.",
-  "THESORCERESSMOD-VOIDHEART.title": "Voidheart"
+  "THESORCERESSMOD-VOIDHEART.title": "Voidheart",
+  "SEA_GLASS.THESORCERESSMOD-THE_SORCERESS_MOD.title": "Trickster Glass"
 }

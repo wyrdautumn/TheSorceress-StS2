@@ -21,17 +21,12 @@ public class ChaosBolt() : TheSorceressModCard(2,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10,ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered),
-        new CalculationBaseVar(2),
-        new CalculationExtraVar(1),
-        new CalculatedVar("Debuff").WithMultiplier(Calc)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9,ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered),
+    new PowerVar<PrimedPower>(3), new DynamicVar("Debuff",3)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<WeakPower>(),HoverTipFactory.FromPower<VulnerablePower>(),HoverTipFactory.FromPower<CharismaPower>()];
+        [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromPower<WeakPower>(),HoverTipFactory.FromPower<VulnerablePower>()];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
-    
-    private static decimal Calc(CardModel card, Creature? arg2)
-        => card.Owner.Creature.GetPowerAmount<CharismaPower>() / 2;
     
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -42,7 +37,7 @@ public class ChaosBolt() : TheSorceressModCard(2,
             return;
         }
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-        int num1 = (int)((CalculatedVar)DynamicVars["Debuff"]).Calculate(Owner.Creature);
+        int num1 = DynamicVars["Debuff"].IntValue;
         NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(play.Target);
         if (creatureNode != null && NCombatRoom.Instance != null)
         {
@@ -74,7 +69,7 @@ public class ChaosBolt() : TheSorceressModCard(2,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars.CalculationBase.UpgradeValueBy(2);
+        DynamicVars["PrimedPower"].UpgradeValueBy(2);
+        DynamicVars["Debuff"].UpgradeValueBy(2);
     }
 }

@@ -16,12 +16,11 @@ public class Translocate() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8, ValueProp.Move),
-    new CardsVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6, ValueProp.Move)];
     public override bool GainsBlock => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CharismaPower>(),HoverTipFactory.FromKeyword(SorceressKeywords.Sleight)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust,CardKeyword.Retain];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.Cunning };
@@ -32,12 +31,10 @@ public class Translocate() : TheSorceressModCard(0,
         CardPlay play)
     {
         await CommonActions.CardBlock(this, play);
-        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Block.UpgradeValueBy(3);
-        DynamicVars.Cards.UpgradeValueBy(1);
     }
 }

@@ -15,7 +15,7 @@ public class Detonator() : TheSorceressModCard(0,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("HitCount", 1),
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
     new CalculationBaseVar(0),
     new ExtraDamageVar(1),
     new CalculatedDamageVar(ValueProp.Move).WithMultiplier((_, target) => (target != null ? target.GetPowerAmount<PrimedPower>() : 0))];
@@ -29,13 +29,13 @@ public class Detonator() : TheSorceressModCard(0,
     {
         if (play.Target == null || !play.Target.HasPower<PrimedPower>())
             return;
-        await DamageCmd.Attack(play.Card.DynamicVars.CalculatedDamage).WithHitCount(DynamicVars["HitCount"].IntValue)
+        await DamageCmd.Attack(play.Card.DynamicVars.CalculatedDamage)
             .FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3")
             .Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["HitCount"].UpgradeValueBy(1);
+        DynamicVars.ExtraDamage.UpgradeValueBy(1);
     }
 }

@@ -15,16 +15,16 @@ public partial class NKalkara : NCreatureVisuals
 	private SorceressParticles? _gainEffect;
 	private SorceressParticles? _loseEffectSmall;
 	private SorceressParticles? _gainEffectSmall;
+	private SorceressParticles? _loseEffectFlipped;
+	private SorceressParticles? _gainEffectFlipped;
 
 	public override void _Ready()
 	{
 		base._Ready();
-		_visuals = GetNodeOrNull<Node2D>("Visuals");
-		_shadow = GetNodeOrNull<Sprite2D>("ShadowSprite");
-		_loseEffect = GetNodeOrNull<SorceressParticles>("%LoseAdvantage");
-		_gainEffect = GetNodeOrNull<SorceressParticles>("%GainAdvantage");
-		_loseEffectSmall = GetNodeOrNull<SorceressParticles>("%LoseAdvantageSmall");
-		_gainEffectSmall = GetNodeOrNull<SorceressParticles>("%GainAdvantageSmall");
+		_visuals = GetNodeOrNull<Node2D>("%Visuals");
+		_shadow = GetNodeOrNull<Sprite2D>("%Visuals/ShadowSprite");
+		_loseEffect = GetNodeOrNull<SorceressParticles>("%Visuals/%LoseAdvantage");
+		_gainEffect = GetNodeOrNull<SorceressParticles>("%Visuals/%GainAdvantage");
 	}
 	
 	public override void _Process(double delta)
@@ -36,31 +36,15 @@ public partial class NKalkara : NCreatureVisuals
 			{
 				Creature creature = parentNCreature.Entity;
 				bool hasAdvantage = creature.HasPower<CombatAdvantagePower>();
-				bool hasSmall = creature.HasPower<ShrinkPower>();
 				if (hasAdvantage && !_shadow.Visible)
 				{
 					_shadow.Visible = true;
-					if (!hasSmall)
-					{
-						if (_gainEffect != null) _gainEffect.Restart();
-					}
-					else
-					{
-						if (_gainEffectSmall != null) _gainEffectSmall.Restart();
-					}
+					if (_gainEffect != null) _gainEffect.Restart();
 				}
-
 				if (!hasAdvantage && _shadow.Visible)
 				{
 					_shadow.Visible = false;
-					if (!hasSmall)
-					{
-						if (_loseEffect != null) _loseEffect.Restart();
-					}
-					else
-					{
-						if (_loseEffectSmall != null) _loseEffectSmall.Restart();
-					}
+					if (_loseEffect != null) _loseEffect.Restart();
 				}
 			}
 		}

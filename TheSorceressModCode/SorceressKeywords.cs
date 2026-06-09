@@ -18,5 +18,6 @@ public static class SorceressKeywords
     [CustomEnum] public static CardTag Fire;
     [CustomEnum] public static CardTag Stealthy;
     [CustomEnum] public static CardTag Cunning;
+    [CustomEnum] public static CardTag PrimeTrick;
     [CustomEnum] public static StaticHoverTip FireAttack;
 }

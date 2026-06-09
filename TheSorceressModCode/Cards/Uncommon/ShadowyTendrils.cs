@@ -14,7 +14,7 @@ public class ShadowyTendrils() : TheSorceressModCard(2,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered), new PowerVar<ShadowyTendrilsPower>(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered), new PowerVar<ShadowyTendrilsPower>(3)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle,SorceressKeywords.Shadowdance, SorceressKeywords.Sorcery];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<StrengthPower>()];
@@ -33,6 +33,6 @@ public class ShadowyTendrils() : TheSorceressModCard(2,
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars["ShadowyTendrilsPower"].UpgradeValueBy(1);
+        DynamicVars["ShadowyTendrilsPower"].UpgradeValueBy(2);
     }
 }

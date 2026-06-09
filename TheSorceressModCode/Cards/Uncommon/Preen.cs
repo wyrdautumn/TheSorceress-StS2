@@ -1,4 +1,5 @@
 ﻿using BaseLib.Utils;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,16 +11,16 @@ using MegaCrit.Sts2.Core.Models;
 using TheSorceressMod.TheSorceressModCode.Cards;
 using TheSorceressMod.TheSorceressModCode.Powers;
 
-namespace TheSorceressMod.TheSorceressModCode.Cards.Common;
+namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class Preen() : TheSorceressModCard(1,
+public class Preen() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromKeyword(CardKeyword.Retain),HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
+        [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -32,11 +33,12 @@ public class Preen() : TheSorceressModCard(1,
         {
             await CardCmd.Exhaust(choiceContext, card2);
         }
-        await CommonActions.ApplySelf<PreenPower>(choiceContext, this, 1,true);
+        if (IsUpgraded)
+            await CommonActions.ApplySelf<PreenPower>(choiceContext, this, 1,true);
     }
     
     protected override void OnUpgrade()
     {
-        this.DynamicVars.Cards.UpgradeValueBy(1);
+        ExtraHoverTips.AddItem(HoverTipFactory.FromKeyword(CardKeyword.Retain));
     }
 }

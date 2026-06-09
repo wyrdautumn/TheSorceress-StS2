@@ -13,7 +13,7 @@ public class Backstabber() : TheSorceressModCard(1,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BackstabberPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BackstabberPower>(3)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];

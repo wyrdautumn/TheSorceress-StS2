@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dsypbaxmtvhby"]
+[gd_scene load_steps=51 format=3 uid="uid://dsypbaxmtvhby"]
 
 [ext_resource type="Script" uid="uid://5k8s8lckljkg" path="res://TheSorceressModCode/helpers/NKalkara.cs" id="1_oymli"]
 [ext_resource type="Texture2D" uid="uid://b6s68kfrlw7qb" path="res://TheSorceressMod/images/character/kalkaratempimage.png" id="1_p1qjb"]
@@ -23,6 +23,31 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ywtfl"]
 blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywtfl"]
+shader = ExtResource("2_5cbq5")
+shader_parameter/OuterColor = Color(0.3254902, 0.20784314, 0.69411767, 0.5019608)
+shader_parameter/InnerColorStep = Vector2(0.3, 0.4)
+shader_parameter/Noise2Strength = 1.0
+shader_parameter/Noise2Scaling = Vector2(1, 1)
+shader_parameter/Noise2Panning = Vector2(1, 1)
+shader_parameter/Noise1Strength = 1.0
+shader_parameter/Noise1Scaling = Vector2(1, 1)
+shader_parameter/Noise1Panning = Vector2(1, 1)
+shader_parameter/InvertNoiseMask = true
+shader_parameter/NoiseMaskScale = Vector2(1, 1)
+shader_parameter/NoiseMaskOffset = Vector2(0, 0)
+shader_parameter/Distortion2Scale = Vector2(1, 1)
+shader_parameter/Distortion2Panning = Vector2(1, 1)
+shader_parameter/Distortion2Texture = ExtResource("3_2j104")
+shader_parameter/Distortion2Strength = 0.007
+shader_parameter/Distortion1Scale = Vector2(1, 1)
+shader_parameter/Distortion1Panning = Vector2(1, 1)
+shader_parameter/Distortion1Strength = 0.02
+shader_parameter/DistortionMaskScale = Vector2(1, 1)
+shader_parameter/DistortionMaskOffset = Vector2(0, 0)
+shader_parameter/InnerColor = Color(0, 0, 0, 1)
+shader_parameter/OuterStep = Vector2(0.1, 0.2)
 
 [sub_resource type="Curve" id="Curve_asfjd"]
 _data = [Vector2(0, 0.49438208), 0.0, 1.1896893, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -60,87 +85,28 @@ scale_max = 0.79999995
 scale_curve = SubResource("CurveTexture_hiarp")
 emission_curve = SubResource("CurveTexture_f4fch")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywtfl"]
-shader = ExtResource("2_5cbq5")
-shader_parameter/OuterColor = Color(0.3254902, 0.20784314, 0.69411767, 0.5019608)
-shader_parameter/InnerColorStep = Vector2(0.3, 0.4)
-shader_parameter/Noise2Strength = 1.0
-shader_parameter/Noise2Scaling = Vector2(1, 1)
-shader_parameter/Noise2Panning = Vector2(1, 1)
-shader_parameter/Noise1Strength = 1.0
-shader_parameter/Noise1Scaling = Vector2(1, 1)
-shader_parameter/Noise1Panning = Vector2(1, 1)
-shader_parameter/InvertNoiseMask = true
-shader_parameter/NoiseMaskScale = Vector2(1, 1)
-shader_parameter/NoiseMaskOffset = Vector2(0, 0)
-shader_parameter/Distortion2Scale = Vector2(1, 1)
-shader_parameter/Distortion2Panning = Vector2(1, 1)
-shader_parameter/Distortion2Texture = ExtResource("3_2j104")
-shader_parameter/Distortion2Strength = 0.007
-shader_parameter/Distortion1Scale = Vector2(1, 1)
-shader_parameter/Distortion1Panning = Vector2(1, 1)
-shader_parameter/Distortion1Strength = 0.02
-shader_parameter/DistortionMaskScale = Vector2(1, 1)
-shader_parameter/DistortionMaskOffset = Vector2(0, 0)
-shader_parameter/InnerColor = Color(0, 0, 0, 1)
-shader_parameter/OuterStep = Vector2(0.1, 0.2)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h42u3"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_asfil"]
 particle_flag_disable_z = true
-emission_shape_offset = Vector3(180, 0, 0)
+spread = 0.0
+initial_velocity_min = 2800.0
+initial_velocity_max = 2900.0
 gravity = Vector3(0, 0, 0)
-radial_accel_min = 99.99999
-radial_accel_max = 99.99999
-scale_min = 0.099999994
-scale_max = 0.099999994
+linear_accel_min = 99.99999
+linear_accel_max = 99.99999
+scale_min = 7.7
+scale_max = 7.7
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h42u3"]
-shader = ExtResource("9_7e358")
-shader_parameter/erosion_curve = SubResource("CurveTexture_3sqe3")
-shader_parameter/erosion_offset = 0.1
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gjh31"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ogcq6"]
 particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 2800.0
+initial_velocity_max = 2800.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.39999998
-scale_max = 0.39999998
-scale_curve = SubResource("CurveTexture_hiarp")
-emission_curve = SubResource("CurveTexture_f4fch")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1semw"]
-particle_flag_disable_z = true
-emission_shape_offset = Vector3(180, 0, 0)
-gravity = Vector3(0, 0, 0)
-radial_accel_min = 99.99999
-radial_accel_max = 99.99999
-scale_min = 0.049999997
-scale_max = 0.049999997
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ywtfl"]
-particle_flag_disable_z = true
-emission_shape_offset = Vector3(-160, 0, 0)
-gravity = Vector3(0, 0, 0)
-radial_accel_min = 99.99999
-radial_accel_max = 99.99999
-scale_min = 0.099999994
-scale_max = 0.099999994
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_afo21"]
-particle_flag_disable_z = true
-emission_shape_offset = Vector3(-160, 0, 0)
-gravity = Vector3(0, 0, 0)
-radial_accel_min = 99.99999
-radial_accel_max = 99.99999
-scale_min = 0.049999997
-scale_max = 0.049999997
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7e358"]
-particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
-scale_min = 0.39999998
-scale_max = 0.39999998
-scale_curve = SubResource("CurveTexture_hiarp")
-emission_curve = SubResource("CurveTexture_f4fch")
+linear_accel_min = 99.99999
+linear_accel_max = 99.99999
+scale_min = 7.7
+scale_max = 7.7
 
 [sub_resource type="Animation" id="Animation_h42u3"]
 length = 0.001
@@ -195,79 +161,79 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ShadowSprite:position")
+tracks/4/path = NodePath("Visuals/ShadowSprite:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(19.4, -121.141)]
+"values": [0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ShadowSprite:rotation")
+tracks/5/path = NodePath("Visuals/ShadowSprite:material")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [SubResource("ShaderMaterial_ywtfl")]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("ShadowSprite:skew")
+tracks/6/path = NodePath("Visuals/ShadowSprite:self_modulate:a")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [0.5921569]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ShadowSprite:visible")
+tracks/7/path = NodePath("FireBurst:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("ShadowSprite:material")
+tracks/8/path = NodePath("FireBurst:frame")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [SubResource("ShaderMaterial_ywtfl")]
+"values": [10]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("ShadowSprite:self_modulate:a")
+tracks/9/path = NodePath("FireBurst/BackLight:emitting")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0.5921569]
+"values": [false]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("FireBurst:visible")
+tracks/10/path = NodePath("FireBurst/LittleSparks:emitting")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -279,38 +245,38 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("FireBurst:frame")
+tracks/11/path = NodePath("Visuals/ShadowSprite:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
+"update": 0,
+"values": [Vector2(194, 0)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("FireBurst/BackLight:emitting")
+tracks/12/path = NodePath("Visuals/ShadowSprite:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("FireBurst/LittleSparks:emitting")
+tracks/13/path = NodePath("Visuals/ShadowSprite:skew")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_gjh31"]
@@ -469,19 +435,19 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ShadowSprite:position")
+tracks/4/path = NodePath("Visuals/ShadowSprite:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(19.4, -121.141)]
+"values": [0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ShadowSprite:rotation")
+tracks/5/path = NodePath("Visuals/ShadowSprite:skew")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -493,7 +459,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("ShadowSprite:material")
+tracks/6/path = NodePath("Visuals/ShadowSprite:material")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -505,7 +471,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ShadowSprite:self_modulate:a")
+tracks/7/path = NodePath("Visuals/ShadowSprite:self_modulate:a")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -513,6 +479,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1.5691682, 1.5157164),
 "update": 0,
 "values": [1.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Visuals/ShadowSprite:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(194, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_afo21"]
@@ -544,46 +522,22 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ShadowSprite:position")
+tracks/2/path = NodePath("Visuals/ShadowSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(19.4, -121.141)]
+"values": [Vector2(194, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("ShadowSprite:rotation")
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/ShadowSprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.0801, 0.16666667, 1),
-"transitions": PackedFloat32Array(0.12074213, 1, 2.2191389, 1, 1),
-"update": 0,
-"values": [0.0, 1.5707963267948966, -1.5707963267948966, 0.0, 0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = false
-tracks/4/path = NodePath("ShadowSprite:skew")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.0801, 0.1667),
-"transitions": PackedFloat32Array(0.12074211, 1, 2.2191389, 1),
-"update": 0,
-"values": [0.0, -1.5690509975429023, 1.5690509975429023, 0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("ShadowSprite:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -620,7 +574,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ShadowSprite:material")
+tracks/2/path = NodePath("Visuals/ShadowSprite:material")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -640,6 +594,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/ShadowSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(194, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j00b5"]
@@ -766,145 +732,86 @@ position = Vector2(183, -290)
 unique_name_in_owner = true
 position = Vector2(0, -292)
 
-[node name="GainAdvantage" type="Node2D" parent="."]
-unique_name_in_owner = true
-show_behind_parent = true
-position = Vector2(0, -164)
-script = ExtResource("2_gjh31")
-
-[node name="Ring" type="GPUParticles2D" parent="GainAdvantage"]
-self_modulate = Color(0.39691457, 0.30333683, 0.7824953, 1)
-z_index = 1
-material = SubResource("ShaderMaterial_asfil")
-emitting = false
-amount = 1
-texture = ExtResource("10_j00b5")
-lifetime = 0.4
-one_shot = true
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_xu5rx")
-
-[node name="ShadowMoveGain" type="GPUParticles2D" parent="GainAdvantage"]
-self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
-material = SubResource("ShaderMaterial_ywtfl")
-position = Vector2(-10, 42.85901)
-scale = Vector2(0.13, 0.13)
-emitting = false
-amount = 3
-texture = ExtResource("4_3kpd6")
-lifetime = 0.36
-one_shot = true
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_h42u3")
-
-[node name="GainAdvantageSmall" type="Node2D" parent="."]
-unique_name_in_owner = true
-show_behind_parent = true
-position = Vector2(0, -163)
-script = ExtResource("2_gjh31")
-
-[node name="Ring" type="GPUParticles2D" parent="GainAdvantageSmall"]
-self_modulate = Color(0.39691457, 0.30333683, 0.7824953, 1)
-z_index = 1
-material = SubResource("ShaderMaterial_h42u3")
-emitting = false
-amount = 1
-texture = ExtResource("10_j00b5")
-lifetime = 0.4
-one_shot = true
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_gjh31")
-
-[node name="ShadowMoveGain" type="GPUParticles2D" parent="GainAdvantageSmall"]
-self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
-material = SubResource("ShaderMaterial_ywtfl")
-position = Vector2(-10, 55.859)
-scale = Vector2(0.13, 0.13)
-emitting = false
-amount = 3
-texture = ExtResource("4_3kpd6")
-lifetime = 0.36
-one_shot = true
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_1semw")
-
-[node name="LoseAdvantage" type="Node2D" parent="."]
-unique_name_in_owner = true
-show_behind_parent = true
-position = Vector2(0, -163)
-script = ExtResource("2_gjh31")
-
-[node name="ShadowMoveLose" type="GPUParticles2D" parent="LoseAdvantage"]
-self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
-material = SubResource("ShaderMaterial_ywtfl")
-position = Vector2(38, 42.859)
-scale = Vector2(0.13, 0.13)
-emitting = false
-amount = 3
-texture = ExtResource("4_3kpd6")
-lifetime = 0.36
-one_shot = true
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_ywtfl")
-
-[node name="Ring" type="GPUParticles2D" parent="LoseAdvantage"]
-self_modulate = Color(0.69411767, 0.5411765, 1, 1)
-z_index = 1
-material = SubResource("ShaderMaterial_asfil")
-rotation = 1.5707964
-emitting = false
-amount = 1
-texture = ExtResource("10_j00b5")
-lifetime = 0.4
-one_shot = true
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_xu5rx")
-
-[node name="LoseAdvantageSmall" type="Node2D" parent="."]
-unique_name_in_owner = true
-show_behind_parent = true
-position = Vector2(0, -163)
-script = ExtResource("2_gjh31")
-
-[node name="ShadowMoveLose" type="GPUParticles2D" parent="LoseAdvantageSmall"]
-self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
-material = SubResource("ShaderMaterial_ywtfl")
-position = Vector2(38, 55.85901)
-scale = Vector2(0.13, 0.13)
-emitting = false
-amount = 3
-texture = ExtResource("4_3kpd6")
-lifetime = 0.36
-one_shot = true
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_afo21")
-
-[node name="Ring" type="GPUParticles2D" parent="LoseAdvantageSmall"]
-self_modulate = Color(0.69411767, 0.5411765, 1, 1)
-z_index = 1
-material = SubResource("ShaderMaterial_asfil")
-rotation = 1.5707964
-emitting = false
-amount = 1
-texture = ExtResource("10_j00b5")
-lifetime = 0.4
-one_shot = true
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_7e358")
-
-[node name="ShadowSprite" type="Sprite2D" parent="."]
-self_modulate = Color(0.41960785, 0.32941177, 0.8117647, 0.5921569)
-material = SubResource("ShaderMaterial_ywtfl")
-position = Vector2(19.4, -121.141)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_3kpd6")
-
 [node name="Visuals" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -121.14101)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_p1qjb")
 flip_h = true
+
+[node name="ShadowSprite" type="Sprite2D" parent="Visuals"]
+self_modulate = Color(0.41960785, 0.32941177, 0.8117647, 0.5921569)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_ywtfl")
+position = Vector2(194, 0)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("4_3kpd6")
+
+[node name="GainAdvantage" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+show_behind_parent = true
+position = Vector2(0, -428.58997)
+script = ExtResource("2_gjh31")
+
+[node name="Ring" type="GPUParticles2D" parent="Visuals/GainAdvantage"]
+self_modulate = Color(0.39691457, 0.30333683, 0.7824953, 1)
+z_index = 1
+material = SubResource("ShaderMaterial_asfil")
+emitting = false
+amount = 1
+texture = ExtResource("10_j00b5")
+lifetime = 0.4
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_xu5rx")
+
+[node name="ShadowMoveGain" type="GPUParticles2D" parent="Visuals/GainAdvantage"]
+self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
+material = SubResource("ShaderMaterial_ywtfl")
+position = Vector2(59, 432.85938)
+scale = Vector2(0.13, 0.13)
+emitting = false
+amount = 3
+texture = ExtResource("4_3kpd6")
+lifetime = 0.36
+one_shot = true
+fixed_fps = 60
+local_coords = true
+trail_lifetime = 0.92
+process_material = SubResource("ParticleProcessMaterial_asfil")
+
+[node name="LoseAdvantage" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+show_behind_parent = true
+position = Vector2(0, -418.58997)
+script = ExtResource("2_gjh31")
+
+[node name="ShadowMoveLose" type="GPUParticles2D" parent="Visuals/LoseAdvantage"]
+self_modulate = Color(0.6509804, 0.45490196, 0.9843137, 0.5921569)
+material = SubResource("ShaderMaterial_ywtfl")
+position = Vector2(190, 457.85938)
+scale = Vector2(0.13, 0.13)
+emitting = false
+amount = 3
+texture = ExtResource("4_3kpd6")
+lifetime = 0.36
+one_shot = true
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ogcq6")
+
+[node name="Ring" type="GPUParticles2D" parent="Visuals/LoseAdvantage"]
+self_modulate = Color(0.69411767, 0.5411765, 1, 1)
+z_index = 1
+material = SubResource("ShaderMaterial_asfil")
+rotation = 1.5707964
+emitting = false
+amount = 1
+texture = ExtResource("10_j00b5")
+lifetime = 0.4
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_xu5rx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
