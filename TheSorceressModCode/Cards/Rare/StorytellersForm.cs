@@ -14,7 +14,7 @@ public class StorytellersForm() : TheSorceressModCard(3,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StorytellersFormPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StorytellersFormPower>(2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sorcery),HoverTipFactory.FromPower<CharismaPower>()];
 

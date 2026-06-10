@@ -13,10 +13,9 @@ public class Firestarter() : TheSorceressModCard(1,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FirestarterPower>(4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FirestarterPower>(3)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight),HoverTipFactory.FromKeyword(SorceressKeywords.Sorcery),HoverTipFactory.ForEnergy(this)];
-
+        [HoverTipFactory.FromPower<PrimedPower>()];
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
@@ -27,6 +26,6 @@ public class Firestarter() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        this.DynamicVars["FirestarterPower"].UpgradeValueBy(2);
+        this.DynamicVars["FirestarterPower"].UpgradeValueBy(1);
     }
 }

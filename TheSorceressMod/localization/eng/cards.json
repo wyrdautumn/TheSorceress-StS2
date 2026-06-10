@@ -5,7 +5,7 @@
   "THESORCERESSMOD-DEFEND_SORCERESS.title": "Defend",
   "THESORCERESSMOD-ETHEREAL_SIDESTEP.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain [gold]Combat Advantage[/gold].",
   "THESORCERESSMOD-ETHEREAL_SIDESTEP.title": "Eldritch Sidestep",
-  "THESORCERESSMOD-EXPLOSIVE_PYRE.description": "Deal {Damage:diff()} damage.\nALL enemies [gold]Prime[/gold] {PrimedPower:diff()}.\nNext turn, ALL enemies [gold]Prime[/gold] the same amount.",
+  "THESORCERESSMOD-EXPLOSIVE_PYRE.description": "Deal {Damage:diff()} damage.\nALL enemies [gold]Prime[/gold] {PrimedPower:diff()}.",
   "THESORCERESSMOD-EXPLOSIVE_PYRE.title": "Explosive Pyre",
   "THESORCERESSMOD-RETURNING_DAGGER.description": "Deal {Damage:diff()} damage.",
   "THESORCERESSMOD-RETURNING_DAGGER.title": "Returning Dagger",

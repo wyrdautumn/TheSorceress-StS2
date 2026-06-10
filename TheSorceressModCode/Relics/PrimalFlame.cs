@@ -23,7 +23,7 @@ public class PrimalFlame() : TheSorceressModRelic
         if (!participants.Contains(Owner.Creature) || Owner.PlayerCombatState == null || Owner.PlayerCombatState.TurnNumber > 1)
             return;
         this.Flash();
-        await PowerCmd.Apply<PrimedPower>(choiceContext, combatState.HittableEnemies, 6, this.Owner.Creature, null);
+        await PowerCmd.Apply<PrimedPower>(choiceContext, combatState.HittableEnemies, 5, this.Owner.Creature, null);
 
     }
 }

@@ -9,6 +9,7 @@ namespace TheSorceressMod.TheSorceressModCode.Powers;
 
 public class TwoWeaponTwistPower : CustomTemporaryPowerModelWrapper<TwoWeaponTwist, StrengthPower>
 {
+    public override PowerType Type => PowerType.Debuff;
     protected override bool InvertInternalPowerAmount => true;
     public override string CustomPackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".PowerImagePath();
     public override string CustomBigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigPowerImagePath();
