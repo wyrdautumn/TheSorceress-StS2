@@ -1,4 +1,5 @@
-﻿using Godot;
+﻿using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -52,7 +53,7 @@ public class ChaosBolt() : TheSorceressModCard(2,
         VfxCmd.PlayOnCreature(play.Target, "vfx/vfx_attack_blunt");
         SfxCmd.Play("blunt_attack.mp3");
         await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, (CardModel) this);
-        
+        await CommonActions.Apply<PrimedPower>(choiceContext, play.Target, this);
         for (int loops = num1; loops > 0;)
         {
             --loops;
