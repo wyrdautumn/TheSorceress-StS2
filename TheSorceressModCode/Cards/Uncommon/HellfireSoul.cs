@@ -34,66 +34,27 @@ public class HellfireSoul() : TheSorceressModCard(5,
     }
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
-    public override bool CanBeGeneratedInCombat => false;
 
-    public override Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
+    public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost)
     {
-        if (card.Owner.PlayerCombatState != null)
+        modifiedCost = originalCost;
+        if (card != this || originalCost <= 0)
+            return false;
+        int discard = PileType.Discard.GetPile(Owner).Cards.Count;
+        int exhaust = DynamicVars["Exhaust"].IntValue;
+        int reduceCost;
+        if (discard > exhaust)
         {
-            SetCost();
+            reduceCost = exhaust;
         }
-        return Task.CompletedTask;
-    }
-
-    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        if (cardPlay.Card.Owner.PlayerCombatState != null)
+        else
         {
-            SetCost();
+            reduceCost = discard;
         }
-        return Task.CompletedTask;
-    }
-
-    public override Task AfterPotionUsed(PotionModel potion, Creature? target)
-    {
-        if (potion.Owner.PlayerCombatState != null)
-        {
-            SetCost();
-        }
-        return Task.CompletedTask;
-    }
-
-    public override Task AfterCardEnteredCombat(CardModel card)
-    {
-        if (card.Owner.PlayerCombatState != null)
-        {
-            SetCost();
-        }
-        return Task.CompletedTask;
-    }
-
-    public override Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
-    {
-        if (card.Owner.PlayerCombatState != null)
-        {
-            SetCost();
-        }
-        return Task.CompletedTask;
-    }
-
-    public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
-    {
-        if (player.PlayerCombatState != null)
-        {
-            SetCost();
-        }
-        return Task.CompletedTask;
-    }
-
-    public override Task AfterCombatEnd(CombatRoom room)
-    {
-        EnergyCost.SetThisCombat(this.EnergyCost.Canonical);
-        return Task.CompletedTask;
+        modifiedCost = originalCost - reduceCost;
+        if (modifiedCost < 0M)
+            modifiedCost = 0M;
+        return true;
     }
 
     protected override async Task OnPlay(
@@ -135,20 +96,4 @@ public class HellfireSoul() : TheSorceressModCard(5,
     {
         DynamicVars["Exhaust"].UpgradeValueBy(2);
     }
-
-    private void SetCost()
-    {
-        int discard = PileType.Discard.GetPile(Owner).Cards.Count;
-        int exhaust = DynamicVars["Exhaust"].IntValue;
-        int reduceCost;
-        if (discard > exhaust)
-        {
-            reduceCost = exhaust;
-        }
-        else
-        {
-            reduceCost = discard;
-        }
-        this.EnergyCost.SetThisCombat(this.EnergyCost.Canonical - reduceCost);
     }
-}
