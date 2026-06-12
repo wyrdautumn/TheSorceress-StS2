@@ -18,7 +18,7 @@ public class TwoWeaponFlurryPower : TheSorceressModPower
     
     public override Task BeforeCardPlayed(CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner.Creature != this.Owner || !cardPlay.Card.Tags.Contains(SorceressKeywords.TwoWeapon))
+        if (cardPlay.Card.Owner.Creature != this.Owner || cardPlay.Card.Type != CardType.Attack)
             return Task.CompletedTask;
         this.GetInternalData<TwoWeaponFlurryPower.Data>().amountsForPlayedCards.Add(cardPlay.Card, this.Amount);
         return Task.CompletedTask;

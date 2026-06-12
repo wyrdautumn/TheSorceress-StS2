@@ -26,10 +26,6 @@ public class LingeringShadowsPower : TheSorceressModPower
             return;
         }
         await Cmd.CustomScaledWait(0.1f, 0.2f);
-        Creature? target = this.Owner.Player.RunState.Rng.CombatTargets.NextItem<Creature>((IEnumerable<Creature>) this.Owner.CombatState.HittableEnemies);
-        if (target == null)
-            return;
-        VfxCmd.PlayOnCreatureCenter(target, "vfx/vfx_attack_blunt");
-        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, (decimal) this.Amount, ValueProp.Unpowered, this.Owner);
+        await CreatureCmd.GainBlock(Owner, (decimal) this.Amount, ValueProp.Unpowered, null, true);
     }
 }

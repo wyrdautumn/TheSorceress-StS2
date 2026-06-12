@@ -14,7 +14,7 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
 public class Preen() : TheSorceressModCard(0,
-    CardType.Skill, CardRarity.Common,
+    CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];

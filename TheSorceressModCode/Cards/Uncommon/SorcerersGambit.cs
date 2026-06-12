@@ -8,10 +8,10 @@ using MegaCrit.Sts2.Core.Models;
 using TheSorceressMod.TheSorceressModCode.Cards;
 using TheSorceressMod.TheSorceressModCode.Powers;
 
-namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
+namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
 public class SorcerersGambit() : TheSorceressModCard(1,
-    CardType.Power, CardRarity.Rare,
+    CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CalculationBaseVar(5),
