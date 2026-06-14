@@ -144,7 +144,7 @@
   "THESORCERESSMOD-FLAME_IN_THE_DARK.title": "Flame in the Dark",
   "THESORCERESSMOD-A_MURDER_OF_ONE.description": "If X > 1, gain [gold]Combat Advantage[/gold].\nDeal {Damage:diff()} damage X{IfUpgraded:show:+1} times.",
   "THESORCERESSMOD-A_MURDER_OF_ONE.title": "A Murder of One",
-  "THESORCERESSMOD-SOUL_REBEL.description": "[gold]Exhaust[/gold] all {IfUpgraded:show:Skills|Attacks} in your [gold]Discard Pile[/gold].\n{IfUpgraded:show:Deal {Damage:diff()} damage|Enemy loses 7 HP} for each card [gold]Exhausted[/gold].{InCombat:\n[gold]Exhaust[/gold] {ExhaustCount:diff()} {ExhaustCount:plural:card|cards}.|}",
+  "THESORCERESSMOD-SOUL_REBEL.description": "[gold]Exhaust[/gold] all {IfUpgraded:show:Skills|Attacks} in your [gold]Discard Pile[/gold].\n{IfUpgraded:show:Deal {Damage:diff()} damage|Enemy loses {Damage:diff()} HP} for each card [gold]Exhausted[/gold].{InCombat:\n[gold]Exhaust[/gold] {ExhaustCount:diff()} {ExhaustCount:plural:card|cards}.|}",
   "THESORCERESSMOD-SOUL_REBEL.title": "Soul Rebel",
   "THESORCERESSMOD-TWO_WEAPON_PRESSURE.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].\nShuffle [gold]Two-Weapon Opening[/gold] into your [gold]Draw Pile[/gold].",
   "THESORCERESSMOD-TWO_WEAPON_PRESSURE.title": "Two-Weapon Pressure",

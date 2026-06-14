@@ -40,7 +40,7 @@ public class TwoWeaponDervish() : TheSorceressModCard(0,
         int hits = num1 * DynamicVars["mult"].IntValue;
         AttackCommand result = await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(hits).FromCard(this).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         List<Creature> enemies = result.Results.SelectMany(r => r.Select(c => c.Receiver)).Distinct().ToList();
-        await CreatureCmd.Damage(choiceContext, enemies, DynamicVars["bonusdamage"].BaseValue, ValueProp.Unpowered,
+        await CreatureCmd.Damage(choiceContext, enemies.Where(c => c.IsHittable), DynamicVars["bonusdamage"].BaseValue, ValueProp.Unpowered,
             Owner.Creature, this);
     }
 

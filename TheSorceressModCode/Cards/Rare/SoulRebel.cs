@@ -15,7 +15,7 @@ public class SoulRebel() : TheSorceressModCard(3,
     CardType.Skill, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, ValueProp.Move),
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered),
     new CalculationBaseVar(0),
     new CalculationExtraVar(1),
     new CalculatedVar("ExhaustCount").WithMultiplier(Calc)];
@@ -59,8 +59,7 @@ public class SoulRebel() : TheSorceressModCard(3,
             }
             for (int hits = 0; hits < cardCount; hits++)
             {
-                await CreatureCmd.Damage(choiceContext, play.Target, 7,
-                    ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered, Owner.Creature, this);
+                await CreatureCmd.Damage(choiceContext, play.Target, DynamicVars.Damage, Owner.Creature, this);
             }
         }
         else
@@ -78,6 +77,6 @@ public class SoulRebel() : TheSorceressModCard(3,
 
     protected override void OnUpgrade()
     {
-
+        DynamicVars.Damage.Props = ValueProp.Move;
     }
 }

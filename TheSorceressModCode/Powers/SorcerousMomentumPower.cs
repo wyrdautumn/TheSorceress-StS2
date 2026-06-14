@@ -18,7 +18,7 @@ public class SorcerousMomentumPower : TheSorceressModPower
 
     public override Task BeforeCardPlayed(CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != this.Owner.Player)
+        if (cardPlay.Card.Owner != this.Owner.Player || !cardPlay.Card.Keywords.Contains(SorceressKeywords.Sorcery))
         {
             return Task.CompletedTask;
         }
@@ -33,7 +33,7 @@ public class SorcerousMomentumPower : TheSorceressModPower
     {
         SorcerousMomentumPower power = this;
         Data internalData = GetInternalData<Data>();
-        if (cardPlay.Card.Keywords.Contains(SorceressKeywords.Sorcery) && internalData.cardPlayed == cardPlay.Card)
+        if (internalData.cardPlayed == cardPlay.Card)
         {
             await PlayerCmd.GainEnergy((Decimal)internalData.amountWhenCardPlayed, cardPlay.Card.Owner);
             await PowerCmd.ModifyAmount(choiceContext, power, -internalData.amountWhenCardPlayed, null, null);

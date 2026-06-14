@@ -11,7 +11,7 @@ public class TwoWeaponFlurry() : TheSorceressModCard(1,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<TwoWeaponFlurryPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<TwoWeaponFlurryPower>(3)];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
