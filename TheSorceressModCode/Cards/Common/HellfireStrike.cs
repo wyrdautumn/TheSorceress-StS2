@@ -35,7 +35,6 @@ public class HellfireStrike() : TheSorceressModCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        HellfireStrike source = this;
         float scale = 0.6f;
         await CommonActions.CardAttack(this, play.Target,vfx:"vfx/vfx_attack_slash").BeforeDamage(() =>
         {
