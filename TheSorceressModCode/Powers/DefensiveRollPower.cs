@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheSorceressMod.TheSorceressModCode.Powers;
@@ -26,11 +27,13 @@ public class DefensiveRollPower : TheSorceressModPower
         Creature? dealer,
         CardModel? cardSource)
     {
-        return target != this.Owner ? amount : 0M;
+        return target != this.Owner && !Owner.HasPower<BufferPower>() ? amount : 0M;
     }
 
     public override async Task AfterModifyingHpLostAfterOsty()
     {
+        if (Owner.HasPower<BufferPower>())
+            return;
         if (this.Owner.Player != null)
         {
             List<CardModel> piles = new List<CardModel>();

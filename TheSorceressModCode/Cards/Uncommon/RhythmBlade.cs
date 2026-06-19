@@ -21,7 +21,9 @@ public class RhythmBlade() : TheSorceressModCard(1,
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
     public override bool GainsBlock => true;
-    
+
+    protected override bool ShouldGlowGoldInternal => Owner.HasPower<CombatAdvantagePower>();
+
     public override decimal ModifyBlockMultiplicative(Creature target, decimal block, ValueProp props, CardModel? cardSource,
         CardPlay? cardPlay)
     {

@@ -41,18 +41,17 @@ public class CombatAdvantagePower : TheSorceressModPower
         return 1.5M;
     }
 
-    public override Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
+    public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
     {
         if (command.Attacker == this.Owner && command.ModelSource is CardModel && command.DamageProps.IsPoweredAttack())
         {
             CardModel? cardSource = command.ModelSource as CardModel;
             if (cardSource != null && cardSource.Tags.Contains(SorceressKeywords.Stealthy))
             {
-                return Task.CompletedTask;
+                return;
             }
-            PowerCmd.Remove(this);
+            await PowerCmd.Remove(this);
         }
-        return Task.CompletedTask;
     }
 
     public override async Task AfterRemoved(Creature oldOwner)
