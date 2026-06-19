@@ -1,0 +1,34 @@
+﻿{
+  "THESORCERESSMOD-SORCERESS1_EPOCH.title": "死在别处",
+  "THESORCERESSMOD-SORCERESS1_EPOCH.description": "一只年轻的鸦鸟离开了家。他没有任何理由留下来。\n\n沙漠寒冷，长夜漫漫。他活不过这一夜。尽管害怕，但这反而让他如释重负。\n\n他再也无法忍受自己成为这样的 [red]东西[/red]了。",
+  "THESORCERESSMOD-SORCERESS1_EPOCH.unlock": "[color=B18AFF]女巫[/color] 塑造自己的命运。\n开始游戏时可选择 [red]进阶[/red]。",
+  "THESORCERESSMOD-SORCERESS1_EPOCH.unlockInfo": "使用 [color=B18AFF]女巫[/color] 击败 [gold]第[/gold] [blue]3[/blue] [gold]幕[/gold]{IsRevealed:| 以解锁此纪元}。",
+  "THESORCERESSMOD-SORCERESS1_EPOCH.unlockText": "为 [color=B18AFF]女巫[/color] 解锁 [red]进阶[/red]，以及 [gold]{Potion1}[/gold]、[gold]{Potion2}[/gold] 和 [gold]{Potion3}[/gold]。",
+
+  "THESORCERESSMOD-SORCERESS2_EPOCH.title": "狼心似我",
+  "THESORCERESSMOD-SORCERESS2_EPOCH.description": "尽管她只是个新手，但那位 [orange]剑术大师[/orange] 却对她青眼有加。她身手敏捷，诡计多端，比他手下大多数人都强。或许她也确实花了些心思来吸引他的注意。\n\n\"再来一回合，我定能胜你。我们赌一把如何。\"\n\n\"你身上有什么值得我押注的东西？\"\n\n她走近时，腰肢 [sine][color=B18AFF]摇曳[/color][/sine]。\"还需要我说出来吗？\"",
+  "THESORCERESSMOD-SORCERESS2_EPOCH.unlockInfo": "{IsRevealed:已击杀|击杀} [blue]15[/blue] 个 [red]首领[/red] 使用 [color=B18AFF]女巫[/color]{IsRevealed:| 以解锁此纪元}。",
+
+  "THESORCERESSMOD-SORCERESS3_EPOCH.title": "交易的代价",
+  "THESORCERESSMOD-SORCERESS3_EPOCH.description": "[color=B18AFF]女巫[/color] 曾发誓要为像她这样的人而战——被遗弃者和孤儿。但 [red]公司[/red] 只为出价最高者而战。\n\n多年来她不断撕扯自己，试图成为别人要求她成为的样子。她成功了。而她又变成了那个 [red]她无法忍受的东西[/red]。",
+  "THESORCERESSMOD-SORCERESS3_EPOCH.unlockInfo": "{IsRevealed:已击杀|击杀} [blue]15[/blue] 个 [purple]精英[/purple] 使用 [color=B18AFF]女巫[/color]{IsRevealed:| 以解锁此纪元}。",
+
+  "THESORCERESSMOD-SORCERESS4_EPOCH.title": "陨落",
+  "THESORCERESSMOD-SORCERESS4_EPOCH.description": "\"值得吗？为了些没用的 [jitter]贱民[/jitter] 在背后捅自己人一刀？\"\n\n如果她觉得 [orange]他[/orange] 配得上一个回答，她喙中的 [red]血[/red] 也会让她无法作答。\n\n\"运气好的话，守卫来的时候你还活着。这是我最后一次对你展现 [blue]仁慈[/blue] 了。\"",
+  "THESORCERESSMOD-SORCERESS4_EPOCH.unlockInfo": "{IsRevealed:已进行|进行} 一次 [color=B18AFF]女巫[/color] 的旅程{IsRevealed:| 以解锁此纪元}。",
+  "THESORCERESSMOD-SORCERESS4_EPOCH.unlockText": "为 [color=B18AFF]女巫[/color]ep[ 解锁 [blue]纪元[/blue]。",
+
+  "THESORCERESSMOD-SORCERESS5_EPOCH.title": "点亮黑夜",
+  "THESORCERESSMOD-SORCERESS5_EPOCH.description": "监狱里恰好有一件好事：它给了她 [blue]思考[/blue] 的时间。但她已经受够了。她知道 [purple]自己需要成为什么样的人[/purple]。而困在牢房里是永远无法成为那个人的。\n\n[color=B18AFF]\"来吧姑娘们，起舞吧。\"[/color]",
+  "THESORCERESSMOD-SORCERESS5_EPOCH.unlockInfo": "使用 [color=B18AFF]女巫[/color] 击败 [gold]第[/gold] [blue]1[/blue] [gold]幕[/gold]{IsRevealed:| 以解锁此纪元}。",
+
+  "THESORCERESSMOD-SORCERESS6_EPOCH.title": "神明",
+  "THESORCERESSMOD-SORCERESS6_EPOCH.description": "\"你觉得 [red]他[/red] 在那座塔上谋划什么？\"\n\n\"和所有 [orange]暴君[/orange] 一样：为所欲为。直到 [color=B18AFF]有人[/color] 告诉他不行。\"",
+  "THESORCERESSMOD-SORCERESS6_EPOCH.unlockInfo": "使用 [color=B18AFF]女巫[/color] 击败 [gold]第[/gold] [blue]2[/blue] [gold]幕[/gold]{IsRevealed:| 以解锁此纪元}。",
+
+  "THESORCERESSMOD-SORCERESS7_EPOCH.title": "宝贝，我是个无政府主义者！",
+  "THESORCERESSMOD-SORCERESS7_EPOCH.description": "\"你的 [orange]老东家[/orange] 听起来真不是个东西。而你最后选择了做这个，而不是去寻仇？\"\n\n[color=B18AFF]女巫[/color] 伸手去拿那本她贴身珍藏的 [purple]书[/purple]。\"有意思的是，囚犯之间流传的读物。\"\n\n\"哦，我懂了。你读了本书，现在搞什么和平爱与宽恕那一套了。\"\n\n\"在该用的时候。我依然是个战士。但我学会了为真正重要的事而战。\"",
+  "THESORCERESSMOD-SORCERESS7_EPOCH.unlockInfo": "使用 [color=B18AFF]女巫[/color] 击败 [red]进阶[/red] [blue]1[/blue]{IsRevealed:| 以解锁此纪元}。",
+
+  "STORY_SORCERESS": "女巫"
+}

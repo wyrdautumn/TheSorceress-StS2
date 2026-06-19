@@ -1,0 +1,10 @@
+{
+  "THESORCERESSMOD-SLEIGHT.description": "本卡牌的费用等同于本回合你已打出的戏法数量。",
+  "THESORCERESSMOD-SLEIGHT.title": "戏法",
+  "THESORCERESSMOD-SORCERY.description": "本卡牌的效果受[gold]魅力[/gold]加成。",
+  "THESORCERESSMOD-SORCERY.title": "巫术",
+  "THESORCERESSMOD-SHADOWDANCE.description": "若本卡牌在你的[gold]消耗堆[/gold]中，回合开始时将其移回你的 [gold]弃牌堆[/gold]。",
+  "THESORCERESSMOD-SHADOWDANCE.title": "暗影之舞",
+  "THESORCERESSMOD-SUBTLE.description": "若本卡牌已被[gold]消耗[/gold]，则免费打出。",
+  "THESORCERESSMOD-SUBTLE.title": "灵巧"
+}

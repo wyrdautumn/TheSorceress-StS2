@@ -1,0 +1,16 @@
+{
+  "THESORCERESSMOD-THE_SORCERESS_MOD.aromaPrinciple": "[sine][color=B18AFF]无论代价如何，我都要书写属于自己的故事。[/color][/sine]",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.banter.alive.endTurnPing": "我们的敌人，正耐心地等待着...",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.banter.dead.endTurnPing": "……",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.cardsModifierDescription": "女巫的卡牌现在会出现在奖励和商店中。",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.cardsModifierTitle": "女巫卡牌",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.description": "一个生来不幸的雇佣兵，决定成为全新的自己。\n巫术的火花之下，潜藏着一柄致命的锋刃。",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.eventDeathPrevention": "让一切在此结束，未免太可惜了。",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.goldMonologue": "[sine]偶尔奢侈一下，添几件漂亮裙子……也不算过分吧？[/sine]",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.possessiveAdjective": "她的",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.pronounObject": "她",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.pronounPossessive": "她的",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.pronounSubject": "她",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.title": "女巫",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.titleObject": "女巫"
+}

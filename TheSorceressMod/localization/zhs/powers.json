@@ -1,0 +1,135 @@
+{
+  "THESORCERESSMOD-COMBAT_ADVANTAGE_POWER.title": "优势",
+  "THESORCERESSMOD-COMBAT_ADVANTAGE_POWER.description": "使你的下一次攻击伤害提高[blue]50%[/blue]。不会叠加。",
+  "THESORCERESSMOD-COMBAT_ADVANTAGE_POWER.smartDescription": "使你的下一次攻击伤害提高[blue]50%[/blue]。不会叠加。",
+
+  "THESORCERESSMOD-PRIMED_POWER.title": "点燃",
+  "THESORCERESSMOD-PRIMED_POWER.description": "被点燃的目标在下一次受到攻击时会承受额外伤害。",
+  "THESORCERESSMOD-PRIMED_POWER.smartDescription": "下次受到攻击时额外承受[blue]{Amount}[/blue]点伤害。",
+
+  "THESORCERESSMOD-CHARISMA_POWER.title": "魅力",
+  "THESORCERESSMOD-CHARISMA_POWER.description": "魅力会增强[gold]巫术[/gold]与消耗生命值技能的效果。",
+  "THESORCERESSMOD-CHARISMA_POWER.smartDescription": "{Amount:cond:<0?降低|提升}[gold]巫术[/gold]与消耗生命值技能的效果[blue]{Amount:abs()}[/blue]点。",
+
+  "THESORCERESSMOD-SORCEROUS_MOMENTUM_POWER.title": "巫术残留",
+  "THESORCERESSMOD-SORCEROUS_MOMENTUM_POWER.description": "下一次使用[gold]巫术[/gold]时获得[gold]能量[/gold]。",
+  "THESORCERESSMOD-SORCEROUS_MOMENTUM_POWER.smartDescription": "下一次使用[gold]巫术[/gold]时获得{Amount:energyIcons()}。",
+
+  "THESORCERESSMOD-PREEN_POWER.title": "打理羽毛",
+  "THESORCERESSMOD-PREEN_POWER.description": "回合结束时，至多保留[blue]1[/blue]张牌。",
+  "THESORCERESSMOD-PREEN_POWER.selectionScreenPrompt": "选择要保留的牌（最多{Amount}张）。",
+  "THESORCERESSMOD-PREEN_POWER.smartDescription": "回合结束时，至多保留[blue]{Amount}[/blue]张牌。",
+
+  "THESORCERESSMOD-FLAMING_RUNE_POWER.title": "烈焰符咒",
+  "THESORCERESSMOD-FLAMING_RUNE_POWER.description": "每当你本回合攻击敌人时，使其获得[gold]预燃[/gold][blue]3[/blue]层。",
+  "THESORCERESSMOD-FLAMING_RUNE_POWER.smartDescription": "每当你攻击敌人时，使其获得[gold]预燃[/gold][blue]{Amount}[/blue]层。",
+
+  "THESORCERESSMOD-CHAOS_SANCTUARY_POWER.title": "混乱圣所",
+  "THESORCERESSMOD-CHAOS_SANCTUARY_POWER.description": "每当你本回合受到攻击时，使敌人获得[gold]点燃[/gold][blue]2[/blue]层。",
+  "THESORCERESSMOD-CHAOS_SANCTUARY_POWER.smartDescription": "每当你受到攻击时，使敌人获得[gold]点燃[/gold][blue]{Amount}[/blue]层。",
+
+  "THESORCERESSMOD-TWO_WEAPON_FLURRY_POWER.title": "双武器·乱舞",
+  "THESORCERESSMOD-TWO_WEAPON_FLURRY_POWER.description": "每当你使用攻击牌时，对所有敌人造成[blue]2[/blue]点伤害。",
+  "THESORCERESSMOD-TWO_WEAPON_FLURRY_POWER.smartDescription": "每当你使用攻击牌时，对所有敌人造成[blue]{Amount}[/blue]点伤害。",
+
+  "THESORCERESSMOD-LINGERING_SHADOWS_POWER.title": "余影",
+  "THESORCERESSMOD-LINGERING_SHADOWS_POWER.description": "每当一张牌离开你的消耗堆时，获得[blue]3[/blue]点格挡。",
+  "THESORCERESSMOD-LINGERING_SHADOWS_POWER.smartDescription": "每当一张牌离开你的消耗堆时，获得[blue]{Amount}[/blue]点格挡。",
+
+  "THESORCERESSMOD-BACKSTABBER_POWER.title": "背刺者",
+  "THESORCERESSMOD-BACKSTABBER_POWER.description": "当你拥有[gold]战术优势[/gold]时，攻击额外造成[blue]2[/blue]点伤害。",
+  "THESORCERESSMOD-BACKSTABBER_POWER.smartDescription": "当你拥有[gold]战术优势[/gold]时，攻击额外造成[blue]{Amount}[/blue]点伤害。",
+
+  "THESORCERESSMOD-NIMBLE_FINGERS_POWER.title": "灵巧之手",
+  "THESORCERESSMOD-NIMBLE_FINGERS_POWER.description": "每回合你打出的第一张[gold]戏法[/gold]不会提高后续戏法费用。",
+  "THESORCERESSMOD-NIMBLE_FINGERS_POWER.smartDescription": "每回合你打出的第一张[gold]戏法[/gold]不会提高后续戏法费用。",
+
+  "THESORCERESSMOD-DEFENSIVE_ADVANTAGE_POWER.title": "牵制",
+  "THESORCERESSMOD-DEFENSIVE_ADVANTAGE_POWER.description": "每当你获得[gold]战术优势[/gold]时，所有敌人本回合失去[blue]2[/blue]点力量。",
+  "THESORCERESSMOD-DEFENSIVE_ADVANTAGE_POWER.smartDescription": "每当你获得[gold]战术优势[/gold]时，所有敌人本回合失去[blue]{Amount}[/blue]点力量。",
+
+  "THESORCERESSMOD-DUELISTS_PROWESS_POWER.title": "决斗者技艺",
+  "THESORCERESSMOD-DUELISTS_PROWESS_POWER.description": "每回合开始时获得[gold]战术优势[/gold]。",
+  "THESORCERESSMOD-DUELISTS_PROWESS_POWER.smartDescription": "每回合开始时获得[gold]战术优势[/gold]。",
+
+  "THESORCERESSMOD-COUNTER_STEP_POWER.title": "回身步",
+  "THESORCERESSMOD-COUNTER_STEP_POWER.description": "每当你使用[gold]戏法[/gold]时，获得[blue]3[/blue]点格挡。",
+  "THESORCERESSMOD-COUNTER_STEP_POWER.smartDescription": "每当你使用[gold]戏法[/gold]时，获得[blue]{Amount}[/blue]点格挡。",
+
+  "THESORCERESSMOD-FIRESTARTER_POWER.title": "引火者",
+  "THESORCERESSMOD-FIRESTARTER_POWER.description": "回合开始时，所有敌人获得[gold]预燃[/gold]。",
+  "THESORCERESSMOD-FIRESTARTER_POWER.smartDescription": "回合开始时，所有敌人获得[gold]预燃[/gold][blue]{Amount}[/blue]层。",
+
+  "THESORCERESSMOD-DEFENSIVE_ROLL_POWER.title": "受身",
+  "THESORCERESSMOD-DEFENSIVE_ROLL_POWER.description": "防止你即将受到的伤害一次，然后从抽牌堆与弃牌堆中随机消耗5张牌。",
+  "THESORCERESSMOD-DEFENSIVE_ROLL_POWER.smartDescription": "防止你即将受到的伤害[blue]{Amount}[/blue]次，然后随机消耗牌。",
+
+  "THESORCERESSMOD-STORYTELLERS_FORM_POWER.title": "吟游形态",
+  "THESORCERESSMOD-STORYTELLERS_FORM_POWER.description": "每当你使用[gold]巫术[/gold]时，获得[blue]1[/blue]点魅力。",
+  "THESORCERESSMOD-STORYTELLERS_FORM_POWER.smartDescription": "每当你使用[gold]巫术[/gold]时，获得[blue]{Amount}[/blue]点魅力。",
+
+  "THESORCERESSMOD-TWO_WEAPON_MASTERY_POWER.title": "双武器·精通",
+  "THESORCERESSMOD-TWO_WEAPON_MASTERY_POWER.description": "你的双武攻击额外命中一次。",
+  "THESORCERESSMOD-TWO_WEAPON_MASTERY_POWER.smartDescription": "你的双武攻击额外命中[blue]{Amount}[/blue]次。",
+
+  "THESORCERESSMOD-PRIME_THE_FIRE_POWER.title": "纵火仪式",
+  "THESORCERESSMOD-PRIME_THE_FIRE_POWER.description": "下回合自动使用一次[blue]引燃之火[/blue]。",
+  "THESORCERESSMOD-PRIME_THE_FIRE_POWER.smartDescription": "下回合自动使用一次[blue]引燃之火[/blue]。",
+
+  "THESORCERESSMOD-SHADOW_ON_THE_WALL_POWER.title": "幽影随行",
+  "THESORCERESSMOD-SHADOW_ON_THE_WALL_POWER.description": "下次使用攻击牌时获得[gold]战术优势[/gold]并重复一次。",
+  "THESORCERESSMOD-SHADOW_ON_THE_WALL_POWER.smartDescription": "下次使用攻击牌时获得[gold]战术优势[/gold]并重复[blue]{Amount}[/blue]次。",
+
+  "THESORCERESSMOD-FIRESWARM_POWER.title": "火潮",
+  "THESORCERESSMOD-FIRESWARM_POWER.description": "下回合该敌人获得[gold]预燃[/gold]。",
+  "THESORCERESSMOD-FIRESWARM_POWER.smartDescription": "下回合该敌人获得[gold]预燃[/gold][blue]{Amount}[/blue]层。",
+
+  "THESORCERESSMOD-BURN_OUT_POWER.title": "透支",
+  "THESORCERESSMOD-BURN_OUT_POWER.description": "回合开始时获得[blue]1[/blue]点能量并消耗一张手牌。",
+  "THESORCERESSMOD-BURN_OUT_POWER.smartDescription": "回合开始时获得{Amount:energyIcons()}并消耗手牌。",
+
+  "THESORCERESSMOD-SPELLBLADE_POWER.title": "咒刃",
+  "THESORCERESSMOD-SPELLBLADE_POWER.description": "你的所有攻击变为[gold]巫术[/gold]。",
+  "THESORCERESSMOD-SPELLBLADE_POWER.smartDescription": "你的所有攻击变为[gold]巫术[/gold]。",
+
+  "THESORCERESSMOD-SORCERERS_GAMBIT_POWER.title": "巫术师的谋弈",
+  "THESORCERESSMOD-SORCERERS_GAMBIT_POWER.description": "当你未受到攻击伤害时，对敌人造成反击伤害。",
+  "THESORCERESSMOD-SORCERERS_GAMBIT_POWER.smartDescription": "当你未受到攻击伤害时，对敌人造成[blue]{Amount}[/blue]点反击伤害。",
+
+  "THESORCERESSMOD-LEGENDARY_SNEAK_POWER.title": "诡术大师",
+  "THESORCERESSMOD-LEGENDARY_SNEAK_POWER.description": "每当你使用[gold]戏法[/gold]时，获得[gold]战术优势[/gold]。",
+  "THESORCERESSMOD-LEGENDARY_SNEAK_POWER.smartDescription": "每当你使用[gold]戏法[/gold]时，获得[gold]战术优势[/gold]。",
+
+  "THESORCERESSMOD-FLOCK_TACTICS_POWER.title": "群鸦战术",
+  "THESORCERESSMOD-FLOCK_TACTICS_POWER.description": "当其他玩家攻击敌人时，获得[gold]战术优势[/gold]。",
+  "THESORCERESSMOD-FLOCK_TACTICS_POWER.smartDescription": "当其他玩家攻击敌人时，获得[gold]战术优势[/gold]。",
+
+  "THESORCERESSMOD-SUDDEN_SCALES_POWER.title": "鳞甲",
+  "THESORCERESSMOD-SUDDEN_SCALES_POWER.description": "下次受到攻击时获得[gold]格挡[/gold]。",
+  "THESORCERESSMOD-SUDDEN_SCALES_POWER.smartDescription": "下次受到攻击时获得[blue]{Amount}[/blue]点格挡。",
+
+  "THESORCERESSMOD-TWO_WEAPON_DEFENSE_POWER.title": "双武器·防守",
+  "THESORCERESSMOD-TWO_WEAPON_DEFENSE_POWER.description": "每当你攻击敌人时获得[blue]2[/blue]点格挡。",
+  "THESORCERESSMOD-TWO_WEAPON_DEFENSE_POWER.smartDescription": "每当你攻击敌人时获得[blue]{Amount}[/blue]点格挡。",
+
+  "THESORCERESSMOD-DERVISH_BLEED_POWER.title": "流血",
+  "THESORCERESSMOD-DERVISH_BLEED_POWER.description": "回合结束时受到[blue]5[/blue]点伤害。",
+  "THESORCERESSMOD-DERVISH_BLEED_POWER.smartDescription": "回合结束时受到[blue]{Amount}[/blue]点伤害。",
+
+  "THESORCERESSMOD-TWO_WEAPON_SORCERY_POWER.title": "双武器·巫术",
+  "THESORCERESSMOD-TWO_WEAPON_SORCERY_POWER.description": "下回合将一张双武器·巫术加入手牌。",
+  "THESORCERESSMOD-TWO_WEAPON_SORCERY_POWER.smartDescription": "下回合将一张双武器·巫术加入手牌。",
+
+  "THESORCERESSMOD-EXPLOSIVE_PYRE_POWER.title": "火葬术",
+  "THESORCERESSMOD-EXPLOSIVE_PYRE_POWER.description": "下回合所有敌人获得[gold]点燃[/gold]。",
+  "THESORCERESSMOD-EXPLOSIVE_PYRE_POWER.smartDescription": "下回合所有敌人获得[blue]{Amount}[/blue]层[gold]点燃[/gold]。",
+
+  "THESORCERESSMOD-FREE_SORCERY_POWER.title": "免费巫术",
+  "THESORCERESSMOD-FREE_SORCERY_POWER.description": "你的下一张[gold]巫术[/gold]费用变为0。",
+  "THESORCERESSMOD-FREE_SORCERY_POWER.smartDescription": "你的下一张[gold]巫术[/gold]费用变为0。",
+
+  "THESORCERESSMOD-CUNNING_MOMENTUM_POWER.title": "诡术残留",
+  "THESORCERESSMOD-CUNNING_MOMENTUM_POWER.description": "下一次使用[gold]戏法[/gold]时获得[blue]1[/blue]点能量。",
+  "THESORCERESSMOD-CUNNING_MOMENTUM_POWER.smartDescription": "下一次使用[gold]戏法[/gold]时获得{Amount:energyIcons()}"
+  
+}

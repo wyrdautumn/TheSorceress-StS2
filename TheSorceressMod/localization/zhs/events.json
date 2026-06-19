@@ -1,0 +1,10 @@
+﻿{
+  "COLORFUL_PHILOSOPHERS.pages.INITIAL.options.CARD_POOL∴THESORCERESSMOD-THE_SORCERESS_MOD_CARD_POOL.description": "获得 [blue]{Cards}[/blue] 张女巫 {Cards:plural:卡牌|卡牌}。",
+  "COLORFUL_PHILOSOPHERS.pages.INITIAL.options.CARD_POOL∴THESORCERESSMOD-THE_SORCERESS_MOD_CARD_POOL.title": "深蓝",
+
+  "BYRDONIS_NEST.pages.INITIAL.sorceressDescription": "你看到一头巨大的 [jitter][red]蹒跚巨兽[/red][/jitter] 追赶着一只受伤的 [green][sine]绿羽鸟[/sine][/green]。\n\n在绿羽鸟逃出的壁龛中，一枚 [gold]无人看守的蛋[/gold] 被遗弃在那里。\n\n[sine]你感到内心矛盾……[/sine]",
+
+  "BYRDONIS_NEST.pages.TAKE.sorceressDescription": "你轻轻捧起那枚蛋，将其收好。\n\n你从未想过自己会 [green]孵化[/green] 一枚蛋。但这个念头莫名让你感到安慰。",
+
+  "BYRDONIS_NEST.pages.EAT.sorceressDescription": "你敲开蛋壳，用火焰将其烹熟。\n\n毕竟，这不过是自然法则。这片土地最不需要的就是更多巨型生物了。"
+}

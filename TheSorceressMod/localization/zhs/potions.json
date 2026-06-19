@@ -1,0 +1,10 @@
+﻿{
+  "THESORCERESSMOD-INVISIBILITY_POTION.description": "获得 [gold]战斗优势[/gold]。",
+  "THESORCERESSMOD-INVISIBILITY_POTION.title": "隐身药水",
+
+  "THESORCERESSMOD-CHARISMA_POTION.description": "获得 {CharismaPower:diff()} 点 [gold]魅力[/gold]。",
+  "THESORCERESSMOD-CHARISMA_POTION.title": "变性灵药",
+
+  "THESORCERESSMOD-SHADOW_POTION.description": "选择一张 [gold]消耗堆[/gold] 中的牌并打出。",
+  "THESORCERESSMOD-SHADOW_POTION.title": "暗影血清"
+}

@@ -27,7 +27,7 @@ public class CreateADiversion() : TheSorceressModCard(0,
     {
         await CommonActions.CardBlock(this, play);
         var prefs = new CardSelectorPrefs(new LocString("card_selection", "TO_TELL"), 1);
-        var card = (await CardSelectCmd.FromSimpleGrid(choiceContext, PileType.Draw.GetPile(this.Owner).Cards,
+        var card = (await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(this.Owner),
             this.Owner, prefs)).FirstOrDefault();
         if (card == null)
             return;

@@ -1,0 +1,7 @@
+﻿{
+  "TO_PALM": "选择 {Amount:plural:一张牌|[blue]{}[/blue] 张牌}放入手牌中。",
+  "TO_RETAIN": "选择 {Amount:plural:一张牌|[blue]{}[/blue] 张牌}[gold]保留[/gold]。",
+  "TO_TELL": "选择 {Amount:plural:一个故事|[blue]{}[/blue] 个故事}讲述。",
+  "TO_SHUFFLE": "选择 {Amount:plural:一张牌|[blue]{}[/blue] 张牌}洗入抽牌堆。",
+  "TO_SHADOW": "选择 {Amount:plural:一道暗影|[blue]{}[/blue] 道暗影}召唤。"
+}

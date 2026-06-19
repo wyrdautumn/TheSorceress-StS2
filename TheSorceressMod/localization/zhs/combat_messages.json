@@ -1,0 +1,42 @@
+﻿{
+  "SORCERESS_CULTIST_BANTER": "伪神麾下的伪鸟。你什么时候才肯放弃去死？",
+  "SORCERESS_CULTISTS_REPLY": "[jitter]等到你死的时候！[/jitter]",
+
+  "SORCERESS_BYRDONIS_BANTER": "我能不能求个团结一致？",
+  "SORCERESS_BYRDONIS_REPLY": "[jitter]嘎——！[/jitter]",
+
+  "SORCERESS_SCULPTOR_BANTER": "体型大一倍，可悲大三倍。",
+
+  "SORCERESS_OWL_BANTER": "好大的翼展。真让人羡慕。",
+
+  "SORCERESS_OBSCURA_BANTER": "你是想糊弄我吗？倒是有几分可爱。",
+
+  "SORCERESS_KIN_BANTER1": "现在放弃职责还不算晚。",
+  "SORCERESS_KIN_REPLY": "[jitter]我们为同胞而战！[/jitter]",
+  "SORCERESS_KIN_BANTER2": "那我希望他们值得你为之赴死。",
+
+  "SORCERESS_WATERFALL_BANTER": "我想我得试试瀑布能不能被点燃。",
+
+  "SORCERESS_INSATIABLE_BANTER": "好吧。我讨厌这个。",
+
+  "SORCERESS_QUEEN_BANTER": "王冠当诛。",
+  "SORCERESS_QUEEN_REPLY": "[jitter]革命当诛。[/jitter]",
+
+  "SORCERESS_TEST_SUBJECT_BANTER": "可怜的畜生……",
+
+  "SORCERESS_AEONGLASS_BANTER": "你掌控不了我的命运！",
+
+  "SORCERESS_WRIGGLER_BANTER": "对淑女的隐私毫无尊重。",
+
+  "SORCERESS_KEY_FIGHT_BANTER": "你应该学会接受拒绝。",
+  "SORCERESS_KEY_FIGHT_REPLY": "你应该学会说好！",
+
+  "SORCERESS_PUNCHERS_BANTER": "看来你们把分歧放下了。",
+  "SORCERESS_PUNCHERS_REPLY": "[sine]哔嘀嘀——哔。[/sine]",
+
+  "SORCERESS_FAKE_MERCHANT_BANTER": "我不因你的欺骗而愤怒。我愤怒的是它如此平庸。",
+  "SORCERESS_FAKE_MERCHANT_REPLY": "我愤怒的是你那愚蠢的鸟喙！",
+
+  "SORCERESS_THINK_NO_OPENING": "我没有破绽。",
+  "SORCERESS_THINK_NEED_TARGET": "我需要瞄准一个目标。"
+}
