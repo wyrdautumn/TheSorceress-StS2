@@ -3,6 +3,7 @@ using TheSorceressMod.TheSorceressModCode.Extensions;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Unlocks;
 using TheSorceressMod.TheSorceressModCode.Epochs;
 
@@ -40,22 +41,19 @@ public class TheSorceressModCardPool : CustomCardPoolModel
     {
         var list = cards.ToList();
 
-        if (TheSorceressModConfig.AllStuffUnlocked == false)
+        if (!unlockState.IsEpochRevealed<Sorceress3Epoch>())
         {
-            if (!unlockState.IsEpochRevealed<Sorceress3Epoch>())
-            {
-                list.RemoveAll(c => Sorceress3Epoch.Cards.Any(card => card.Id == c.Id));
-            }
+            list.RemoveAll(c => Sorceress3Epoch.Cards.Any(card => card.Id == c.Id));
+        }
 
-            if (!unlockState.IsEpochRevealed<Sorceress5Epoch>())
-            {
-                list.RemoveAll(c => Sorceress5Epoch.Cards.Any(card => card.Id == c.Id));
-            }
+        if (!unlockState.IsEpochRevealed<Sorceress5Epoch>())
+        {
+            list.RemoveAll(c => Sorceress5Epoch.Cards.Any(card => card.Id == c.Id));
+        }
 
-            if (!unlockState.IsEpochRevealed<Sorceress7Epoch>())
-            {
-                list.RemoveAll(c => Sorceress7Epoch.Cards.Any(card => card.Id == c.Id));
-            }
+        if (!unlockState.IsEpochRevealed<Sorceress7Epoch>())
+        {
+            list.RemoveAll(c => Sorceress7Epoch.Cards.Any(card => card.Id == c.Id));
         }
 
         return list;

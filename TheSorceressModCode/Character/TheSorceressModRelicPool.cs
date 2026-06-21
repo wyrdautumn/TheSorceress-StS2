@@ -17,19 +17,15 @@ public class TheSorceressModRelicPool : CustomRelicPoolModel
     public override IEnumerable<RelicModel> GetUnlockedRelics(UnlockState unlockState)
     {
         var list = AllRelics.ToList();
-        if (TheSorceressModConfig.AllStuffUnlocked == false)
+        if (!unlockState.IsEpochRevealed<Sorceress2Epoch>())
         {
-            if (!unlockState.IsEpochRevealed<Sorceress2Epoch>())
-            {
-                list.RemoveAll(r => Sorceress2Epoch.Relics.Any(relic => relic.Id == r.Id));
-            }
-
-            if (!unlockState.IsEpochRevealed<Sorceress6Epoch>())
-            {
-                list.RemoveAll(r => Sorceress6Epoch.Relics.Any(relic => relic.Id == r.Id));
-            }
+            list.RemoveAll(r => Sorceress2Epoch.Relics.Any(relic => relic.Id == r.Id));
         }
 
+        if (!unlockState.IsEpochRevealed<Sorceress6Epoch>())
+        {
+            list.RemoveAll(r => Sorceress6Epoch.Relics.Any(relic => relic.Id == r.Id));
+        }
         return list;
     }
 }

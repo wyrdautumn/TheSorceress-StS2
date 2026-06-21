@@ -19,6 +19,7 @@ namespace TheSorceressMod.TheSorceressModCode.Cards;
 public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
 {
     public static readonly SpireField<CardModel, bool> TempShadowdance = new(() => false);
+    public static readonly SpireField<CardModel, bool> WasAgilePlayed = new(() => false);
     
     public override async Task AfterAutoPrePlayPhaseEnteredEarly(PlayerChoiceContext choiceContext, Player player)
     {
@@ -52,10 +53,28 @@ public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
         {
             return;
         }
-        if (card.Keywords.Contains(SorceressKeywords.Subtle))
+        if (card.Keywords.Contains(SorceressKeywords.Subtle) && !WasAgilePlayed.Get(card))
         {
-            CardModel card2 = card.CreateDupe();
-            await CardCmd.AutoPlay(choiceContext, card2,null,AutoPlayType.Default,false,false);
+            WasAgilePlayed.Set(card, true);
+            await CardCmd.AutoPlay(choiceContext, card,null,AutoPlayType.Default,false,false);
+        }
+
+        if (WasAgilePlayed.Get(card))
+        {
+            WasAgilePlayed.Set(card, false);
+        }
+    }
+
+    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay,
+        ResourceInfo resources, PileType pileType, CardPilePosition position)
+    {
+        if (WasAgilePlayed.Get(card))
+        {
+            return (PileType.Exhaust, CardPilePosition.Top);
+        }
+        else
+        {
+            return (pileType, position);
         }
     }
 }

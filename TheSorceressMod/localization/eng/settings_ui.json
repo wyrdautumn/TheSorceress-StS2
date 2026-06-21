@@ -1,4 +1,7 @@
 ﻿{
   "THESORCERESSMOD.mod_title": "The Sorceress",
-  "THESORCERESSMOD-ALL_STUFF_UNLOCKED.title": "Unlock all cards, relics, and potions, regardless of epoch progress."
+  "THESORCERESSMOD-RANDOM_BOOL.title": "This doesn't do anything, but the button below won't appear without it.",
+  "THESORCERESSMOD-UNLOCK_SECTION.title": "Sorceress Unlocks",
+  "THESORCERESSMOD-ALL_STUFF_UNLOCKED.title": "Unlock",
+  "THESORCERESSMOD-UNLOCK_ALL_STUFF.title": "Unlock all Sorceress epochs"
 }

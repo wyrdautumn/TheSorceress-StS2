@@ -26,7 +26,7 @@ public class HellfireSoul() : TheSorceressModCard(5,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(20, ValueProp.Move), new DynamicVar("Exhaust", 3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(24, ValueProp.Move), new DynamicVar("Exhaust", 3)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     protected override HashSet<CardTag> CanonicalTags
     {

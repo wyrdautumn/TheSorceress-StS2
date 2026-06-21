@@ -22,7 +22,7 @@ public class TheSorceressModPotionPool : CustomPotionPoolModel
 
     public override IEnumerable<PotionModel> GetUnlockedPotions(UnlockState unlockState)
     {
-        if (!unlockState.IsEpochRevealed<Sorceress1Epoch>() && !TheSorceressModConfig.AllStuffUnlocked)
+        if (!unlockState.IsEpochRevealed<Sorceress1Epoch>())
         {
             return Array.Empty<PotionModel>();
         }
