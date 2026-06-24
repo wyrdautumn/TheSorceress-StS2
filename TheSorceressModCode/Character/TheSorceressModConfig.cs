@@ -1,5 +1,6 @@
 ﻿using BaseLib.Config;
 using BaseLib.Config.UI;
+using Godot;
 using MegaCrit.Sts2.Core.Saves;
 using MegaCrit.Sts2.Core.Timeline;
 using TheSorceressMod.TheSorceressModCode.Epochs;
@@ -8,6 +9,12 @@ namespace TheSorceressMod.TheSorceressModCode.Character;
 
 public class TheSorceressModConfig : SimpleModConfig
 {
+    public override void SetupConfigUI(Control optionContainer)
+    {
+        GenerateOptionsForAllProperties(optionContainer);
+        SetupFocusNeighbors(optionContainer);
+    }
+    
     public static bool RandomBool { get; set; } = false;
     
     [ConfigButton("AllStuffUnlocked")]

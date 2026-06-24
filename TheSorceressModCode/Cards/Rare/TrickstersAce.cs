@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Character;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
@@ -23,7 +24,7 @@ public class TrickstersAce() : TheSorceressModCard(0,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-        CardModel? card = CardFactory.GetDistinctForCombat(Owner, Owner.Character.CardPool.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint).Where<CardModel>((Func<CardModel, bool>) (c => c.Keywords.Contains(SorceressKeywords.Sorcery))), 1, Owner.RunState.Rng.CombatCardGeneration).FirstOrDefault<CardModel>();
+        CardModel? card = CardFactory.GetDistinctForCombat(Owner, ModelDb.CardPool<TheSorceressModCardPool>().GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint).Where(c => c.Keywords.Contains(SorceressKeywords.Sorcery)), 1, Owner.RunState.Rng.CombatCardGeneration).FirstOrDefault();
         if (card == null)
             return;
         card.SetToFreeThisTurn();
