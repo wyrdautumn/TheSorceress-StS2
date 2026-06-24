@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using BaseLib.Extensions;
+using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -60,7 +61,10 @@ public class PrimeTheFire() : TheSorceressModCard(4,
             DynamicVars["PrimedPower"].BaseValue, Owner.Creature, this);
         PrimeTheFirePower? power = await PowerCmd.Apply<PrimeTheFirePower>(choiceContext, Owner.Creature, DynamicVars.Damage.PreviewValue, Owner.Creature, this);
         if (power != null)
-            power.DynamicVars["PrimedPower"].BaseValue = DynamicVars["PrimedPower"].BaseValue;
+        {
+            power.DynamicVars["PrimedPower"].BaseValue += DynamicVars["PrimedPower"].BaseValue;
+            power.InvokeSecondAmountChanged();
+        }
     }
 
     protected override void OnUpgrade()
