@@ -1,6 +1,7 @@
 ﻿using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -23,7 +24,6 @@ public class TwoWeaponBurst() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Token,
     TargetType.AllEnemies)
 {
-    private bool _returnToHand = false;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, ValueProp.Move), new DynamicVar("hits",1)];
     public override int MaxUpgradeLevel => 999;
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery,CardKeyword.Ethereal,CardKeyword.Exhaust];
@@ -32,19 +32,13 @@ public class TwoWeaponBurst() : TheSorceressModCard(1,
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
     }
 
-    public override Task BeforeCombatStart()
-    {
-        _returnToHand = false;
-        return Task.CompletedTask;
-    }
-
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
-        if (_returnToHand)
+        if (player == Owner && CombatManager.Instance.History.CardPlaysFinished.Any(e =>
+                e.HappenedLastPlayerTurn(Owner) && e.CardPlay.Card == this))
         {
             await CardPileCmd.Add(this, PileType.Hand.GetPile(Owner));
             CardCmd.Upgrade(this);
-            _returnToHand = false;
         }
     }
 
@@ -56,7 +50,6 @@ public class TwoWeaponBurst() : TheSorceressModCard(1,
         {
             return;
         }
-        _returnToHand = true;
         await CommonActions.CardAttack(this, play, DynamicVars["hits"].IntValue, vfx: "vfx/vfx_attack_slash").BeforeDamage(() =>
             {
                 foreach (Creature target in CombatState.HittableEnemies)

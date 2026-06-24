@@ -21,7 +21,10 @@ public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
     public static readonly SpireField<CardModel, bool> TempShadowdance = new(() => false);
     public static readonly SpireField<CardModel, bool> WasAgilePlayed = new(() => false);
     
-    public override async Task AfterAutoPrePlayPhaseEnteredEarly(PlayerChoiceContext choiceContext, Player player)
+    public override async Task BeforeHandDraw(
+        Player player,
+        PlayerChoiceContext choiceContext,
+        ICombatState combatState)
     {
         List<CardModel> list = PileType.Exhaust.GetPile(player).Cards.ToList();
         foreach (CardModel card in list)
