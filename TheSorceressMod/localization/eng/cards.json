@@ -138,7 +138,7 @@
   "THESORCERESSMOD-STORYTELLERS_FORM.title": "Storyteller's Form",
   "THESORCERESSMOD-TWO_WEAPON_MASTERY.description": "Your Two-Weapon Attacks hit {TwoWeaponMasteryPower:plural:an additional time|{TwoWeaponMasteryPower:diff()} additional times}.",
   "THESORCERESSMOD-TWO_WEAPON_MASTERY.title": "Two-Weapon Mastery",
-  "THESORCERESSMOD-PRIME_THE_FIRE.description": "Deal {Damage:diff()} damage to ALL enemies.\nALL enemies [gold]Prime[/gold] {PrimedPower:diff()}.\nNext turn, play this again.",
+  "THESORCERESSMOD-PRIME_THE_FIRE.description": "Deal {Damage:diff()} damage to ALL enemies.\nALL enemies [gold]Prime[/gold] {PrimedPower:diff()}.\nNext turn, deal damage and [gold]Prime[/gold] again.",
   "THESORCERESSMOD-PRIME_THE_FIRE.title": "Prime the Fire",
   "THESORCERESSMOD-FLAME_IN_THE_DARK.description": "Deal {Damage:diff()} damage.\nGain {CharismaPower:diff()} Charisma.\nIf [gold]Fatal[/gold], permanently increase this [gold]Charisma[/gold] gain by {Increase:diff()}.",
   "THESORCERESSMOD-FLAME_IN_THE_DARK.title": "Flame in the Dark",
