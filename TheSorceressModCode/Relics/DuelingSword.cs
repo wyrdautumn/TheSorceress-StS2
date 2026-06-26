@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Helpers.Models;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using TheSorceressMod.TheSorceressModCode.helpers;
 using TheSorceressMod.TheSorceressModCode.Relics;
@@ -20,52 +21,29 @@ public class DuelingSword() : TheSorceressModRelic
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sorcery)];
 
-    public override Task AfterObtained()
-    {
-        foreach (CardModel card in PileType.Deck.GetPile(Owner).Cards.Where(c => c.Tags.Contains(CardTag.Strike) || c.Tags.Contains(CardTag.Defend)))
-        {
-            CardCmd.ApplyKeyword(card, SorceressKeywords.Sorcery);
-        }
-        return Task.CompletedTask;
-    }
-    
-    public override bool TryModifyCardRewardOptionsLate(
-        Player player,
-        List<CardCreationResult> cardRewards,
-        CardCreationOptions options)
-    {
-        if (player != this.Owner)
-            return false;
-        SwordRelicHelper.UpgradeValidCards(cardRewards, (RelicModel) this);
-        return true;
-    }
-    
-    public override void ModifyMerchantCardCreationResults(
-        Player player,
-        List<CardCreationResult> cards)
-    {
-        if (player != this.Owner)
-            return;
-        SwordRelicHelper.UpgradeValidCards(cards, (RelicModel) this);
-    }
-    
-    public override bool TryModifyCardBeingAddedToDeck(CardModel card, out CardModel? newCard)
-    {
-        newCard = null;
-        if (card.Owner != this.Owner || (!card.Tags.Contains(CardTag.Strike) && !card.Tags.Contains(CardTag.Defend)))
-            return false;
-        newCard = this.Owner.RunState.CloneCard(card);
-        CardCmd.ApplyKeyword(newCard, SorceressKeywords.Sorcery);
-        return true;
-    }
-
     public override Task AfterCardEnteredCombat(CardModel card)
     {
-        if (card.Owner == this.Owner && (card.Tags.Contains(CardTag.Strike) || card.Tags.Contains(CardTag.Defend)))
+        if (!CanAffect(card))
+            return Task.CompletedTask;
+        CardCmd.ApplyKeyword(card, SorceressKeywords.Sorcery);
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterRoomEntered(AbstractRoom room)
+    {
+        if (!(room is CombatRoom) || this.Owner.PlayerCombatState == null)
+            return Task.CompletedTask;
+        foreach (CardModel allCard in this.Owner.PlayerCombatState.AllCards)
         {
-            CardCmd.ApplyKeyword(card, SorceressKeywords.Sorcery);
+            if (CanAffect(allCard))
+                CardCmd.ApplyKeyword(allCard, SorceressKeywords.Sorcery);
         }
         return Task.CompletedTask;
+    }
+
+    private static bool CanAffect(CardModel card)
+    {
+        return card.Rarity == CardRarity.Basic && (card.Tags.Contains<CardTag>(CardTag.Strike) || card.Tags.Contains<CardTag>(CardTag.Defend)) && !card.GetKeywordsWithSources(KeywordSources.Local).Contains(CardKeyword.Ethereal);
     }
     
 }
