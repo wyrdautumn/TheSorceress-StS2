@@ -13,9 +13,6 @@ namespace TheSorceressMod.TheSorceressModCode.Patches;
 [HarmonyPatch]
 public class SorceressEventPatches
 {
-    private static readonly MethodInfo? EventFinished = AccessTools.Method(
-        typeof(EventModel), "SetEventFinished", (Type[])null, (Type[])null);
-    
     [HarmonyPatch(typeof(ColorfulPhilosophers))]
     public static class SorceressPhilosophersPatch
     {
@@ -30,7 +27,6 @@ public class SorceressEventPatches
     [HarmonyPatch(typeof(ByrdonisNest), "Eat", MethodType.Async)]
     public class SorceressNestEatPatch
     {
-        private const string DefaultKey = "BYRDONIS_NEST.pages.EAT.description";
         private const string NewKey = "BYRDONIS_NEST.pages.EAT.sorceressDescription";
     
         [HarmonyTranspiler]
@@ -38,9 +34,6 @@ public class SorceressEventPatches
         {
             return new InstructionPatcher(instructions)
                 .Match(new InstructionMatcher()
-                    .ldloc_1()
-                    .ldloc_1()
-                    .ldstr(DefaultKey)
                     .call(typeof(EventModel), nameof(EventModel.L10NLookup), [typeof(string)])
                 ).Step(-1).Insert([
                     CodeInstruction.LoadLocal(1),
@@ -53,24 +46,10 @@ public class SorceressEventPatches
             return instance.Owner?.Character is Character.TheSorceressMod ? NewKey : orig;
         }
     }
-
-    
-    // public static class SorceressByrdonisEatPatch
-    // {
-    //     [HarmonyPrefix]
-    //     public static void Prefix(ByrdonisNest __instance)
-    //     {
-    //         if (__instance.Owner != null && __instance.Owner.Character is Character.TheSorceressMod)
-    //         {
-    //             EventFinished?.Invoke(__instance, new object?[1] { new LocString("events", "BYRDONIS_NEST.pages.EAT.sorceressDescription") });
-    //         }
-    //     }
-    // }
     
     [HarmonyPatch(typeof(ByrdonisNest),"Take", MethodType.Async)]
     public class SorceressNestTakePatch
     {
-        private const string DefaultKey = "BYRDONIS_NEST.pages.TAKE.description";
         private const string NewKey = "BYRDONIS_NEST.pages.TAKE.sorceressDescription";
     
         [HarmonyTranspiler]
@@ -78,9 +57,6 @@ public class SorceressEventPatches
         {
             return new InstructionPatcher(instructions)
                 .Match(new InstructionMatcher()
-                    .ldloc_1()
-                    .ldloc_1()
-                    .ldstr(DefaultKey)
                     .call(typeof(EventModel), nameof(EventModel.L10NLookup), [typeof(string)])
                 ).Step(-1).Insert([
                     CodeInstruction.LoadLocal(1),
@@ -93,19 +69,6 @@ public class SorceressEventPatches
             return instance.Owner?.Character is Character.TheSorceressMod ? NewKey : orig;
         }
     }
-    
-    
-    // public static class SorceressByrdonisTakePatch
-    // {
-    //     [HarmonyPrefix]
-    //     public static void Prefix(ByrdonisNest __instance)
-    //     {
-    //         if (__instance.Owner != null && __instance.Owner.Character is Character.TheSorceressMod)
-    //         {
-    //             EventFinished?.Invoke(__instance, new object?[1] { new LocString("events", "BYRDONIS_NEST.pages.TAKE.sorceressDescription") });
-    //         }
-    //     }
-    // }
     
     [HarmonyPatch(typeof(EventModel),"SetInitialEventState")]
     public static class SorceressByrdonisNestInitialPatch
