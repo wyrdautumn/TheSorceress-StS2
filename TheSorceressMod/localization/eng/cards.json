@@ -93,7 +93,7 @@
   "THESORCERESSMOD-TIME_JUMP.title": "Time Jump",
   "THESORCERESSMOD-SKILLFUL_FEINT.description": "Gain [gold]Combat Advantage[/gold].{IfUpgraded:show:\nGain {VigorPower:diff()} [gold]Vigor[/gold].|}",
   "THESORCERESSMOD-SKILLFUL_FEINT.title": "Skillful Feint",
-  "THESORCERESSMOD-THEATRICAL_BOW.description": "Gain 1 [gold]Vigor[/gold] for each Skill already played this turn.{InCombat:\nGain {Skills:diff()} Vigor.|}",
+  "THESORCERESSMOD-THEATRICAL_BOW.description": "Gain {CalculationExtra:diff()} [gold]Vigor[/gold] for each card already played this turn.{InCombat:\nGain {Skills:diff()} Vigor.|}",
   "THESORCERESSMOD-THEATRICAL_BOW.title": "Theatrical Bow",
   "THESORCERESSMOD-DEVOUR_MAGIC.description": "Enemy loses {Damage:diff()} HP.\nGain [gold]Block[/gold] equal to HP lost.",
   "THESORCERESSMOD-DEVOUR_MAGIC.title": "Devour Magic",

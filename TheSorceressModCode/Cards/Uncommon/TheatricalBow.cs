@@ -20,7 +20,7 @@ public class TheatricalBow() : TheSorceressModCard(0,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new CalculationBaseVar(0),
-        new CalculationExtraVar(1),
+        new CalculationExtraVar(2),
         new CalculatedVar("Skills").WithMultiplier(Calc)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -29,7 +29,7 @@ public class TheatricalBow() : TheSorceressModCard(0,
     private static decimal Calc(CardModel card, Creature? arg2)
         => (Decimal)CombatManager.Instance.History.CardPlaysFinished.Count<CardPlayFinishedEntry>(
             (Func<CardPlayFinishedEntry, bool>)(e =>
-                e.HappenedThisTurn(card.CombatState) && e.CardPlay.Card.Type == CardType.Skill &&
+                e.HappenedThisTurn(card.CombatState) && 
                 e.CardPlay.Card.Owner == card.Owner));
 
     protected override async Task OnPlay(

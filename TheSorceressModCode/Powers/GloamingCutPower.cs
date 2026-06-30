@@ -1,7 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Models.Powers;
-using TheSorceressMod.TheSorceressModCode.Cards.Common;
+using TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 using TheSorceressMod.TheSorceressModCode.Extensions;
 
 namespace TheSorceressMod.TheSorceressModCode.Powers;

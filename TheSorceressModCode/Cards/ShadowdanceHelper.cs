@@ -37,15 +37,7 @@ public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
             }
             else if (card.Keywords.Contains(SorceressKeywords.Shadowdance))
             {
-                Voidheart? relic = player.GetRelic<Voidheart>();
-                if (relic != null)
-                {
-                    await CardPileCmd.Add(card, PileType.Hand.GetPile(player));
-                }
-                else
-                {
-                    await CardPileCmd.Add(card, PileType.Discard.GetPile(player));
-                }
+                await CardPileCmd.Add(card, PileType.Discard.GetPile(player));
             }
         }
     }

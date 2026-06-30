@@ -16,7 +16,7 @@ public class Sorceress6Epoch : EpochModel
     [
         ModelDb.Relic<FetchingHat>(),
         ModelDb.Relic<DuelingSword>(),
-        ModelDb.Relic<ThrowingKnives>()
+        ModelDb.Relic<PrimalFlame>()
     ];
 
     public override string UnlockText => CreateRelicUnlockText(Relics);

@@ -15,7 +15,7 @@ public class Sorceress2Epoch : EpochModel
 
     public static List<RelicModel> Relics =>
     [
-        ModelDb.Relic<Voidheart>(),
+        ModelDb.Relic<ThrowingKnives>(),
         ModelDb.Relic<DancingSash>(),
         ModelDb.Relic<WickedDagger>()
     ];
