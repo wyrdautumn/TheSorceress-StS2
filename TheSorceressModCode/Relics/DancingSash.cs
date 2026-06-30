@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
+using TheSorceressMod.TheSorceressModCode.Powers;
 using TheSorceressMod.TheSorceressModCode.Relics;
 
 namespace TheSorceressMod.TheSorceressModCode.Relics;
@@ -22,19 +23,19 @@ public class DancingSash() : TheSorceressModRelic
 
     public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal)
     {
-        if (card.Owner == Owner)
+        if (card.Owner == Owner && Owner.Creature.CombatState != null && Owner.Creature.Side == Owner.Creature.CombatState.CurrentSide)
         {
             Flash();
-            await PowerCmd.Apply<TemporaryStrengthPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
+            await PowerCmd.Apply<DancingSashPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
         }
     }
 
     public override async Task AfterCardDiscarded(PlayerChoiceContext choiceContext, CardModel card)
     {
-        if (card.Owner == Owner)
+        if (card.Owner == Owner && Owner.Creature.CombatState != null && Owner.Creature.Side == Owner.Creature.CombatState.CurrentSide)
         {
             Flash();
-            await PowerCmd.Apply<TemporaryStrengthPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
+            await PowerCmd.Apply<DancingSashPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
         }
     }
 }

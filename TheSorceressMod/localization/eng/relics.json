@@ -23,7 +23,7 @@
   "THESORCERESSMOD-DUELING_SWORD.description": "Strikes and Defends become [gold]Sorceries[/gold].",
   "THESORCERESSMOD-DUELING_SWORD.flavor": "An agile weapon that rewards finesse. Less subtle than a dagger, but with a better sense of drama.",
   "THESORCERESSMOD-DUELING_SWORD.title": "Dueling Sword",
-  "THESORCERESSMOD-DANCING_SASH.description": "Whenever you discard or [gold]Exhaust[/gold] a card, gain [blue]1[/blue] temporary [gold]Strength[/gold].",
+  "THESORCERESSMOD-DANCING_SASH.description": "Whenever you [gold]Exhaust[/gold] or discard a card during your turn, gain [blue]1[/blue] temporary [gold]Strength[/gold].",
   "THESORCERESSMOD-DANCING_SASH.flavor": "Combat is like dancing and storytelling both: it's all about momentum.",
   "THESORCERESSMOD-DANCING_SASH.title": "Dancing Sash",
   "THESORCERESSMOD-VOIDHEART.description": "When your cards [gold]Shadowdance[/gold], they return to your [gold]Hand[/gold] instead of your [gold]Discard Pile[/gold].",

@@ -3,7 +3,7 @@
   "name": "The Sorceress",
   "author": "weird autumn",
   "description": "A cunning scoundrel and magical trickster who relies on wit, agility, and a spark of sorcery. Character art commissioned from Ghostnade, Korvi__, megueggu, and CupsOfJade. Using a sound effect from SonoFxAudio and Saladsounds.",
-  "version": "v0.2.6",
+  "version": "v0.2.7",
   "has_pck": true,
   "has_dll": true,
   "dependencies": [{"id": "BaseLib", "min_version": "3.3.2"}],
