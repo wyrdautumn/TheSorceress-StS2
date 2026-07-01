@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheSorceressMod.TheSorceressModCode.Powers;
 
-public class DefensiveAdvantagePower : TheSorceressModPower
+public class DefensiveAdvantageUpgradePower : TheSorceressModPower
 {
     public override PowerType Type => PowerType.Buff;
 
@@ -19,11 +19,11 @@ public class DefensiveAdvantagePower : TheSorceressModPower
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
-    
+
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        if (Owner.HasPower<DefensiveAdvantageUpgradePower>())
-            await PowerCmd.Remove(this);
+        if (Owner.HasPower<DefensiveAdvantagePower>())
+            await PowerCmd.Remove<DefensiveAdvantagePower>(Owner);
     }
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
@@ -31,6 +31,6 @@ public class DefensiveAdvantagePower : TheSorceressModPower
     {
         if (target != Owner || dealer == Owner || !props.IsPoweredAttack() || !Owner.HasPower<CombatAdvantagePower>())
             return 1;
-        return 0.75M;
+        return 0.6M;
     }
 }

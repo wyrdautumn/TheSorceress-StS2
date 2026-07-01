@@ -2,11 +2,12 @@
 using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models.Powers;
+using TheSorceressMod.TheSorceressModCode.Cards.Starter;
 using TheSorceressMod.TheSorceressModCode.Extensions;
 
 namespace TheSorceressMod.TheSorceressModCode.Powers;
 
-public class DefensiveAdvantageDebuff : CustomTemporaryPowerModelWrapper<DefensiveAdvantagePower, StrengthPower>
+public class DefensiveAdvantageDebuff : CustomTemporaryPowerModelWrapper<SkillfulFeint, StrengthPower>
 {
     public override PowerType Type => PowerType.Debuff;
     protected override bool InvertInternalPowerAmount => true;

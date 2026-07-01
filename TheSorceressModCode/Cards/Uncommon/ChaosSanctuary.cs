@@ -13,7 +13,7 @@ public class ChaosSanctuary() : TheSorceressModCard(2,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(12, ValueProp.Move), new PowerVar<ChaosSanctuaryPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(13, ValueProp.Move), new PowerVar<ChaosSanctuaryPower>(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>()];

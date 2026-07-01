@@ -17,7 +17,7 @@ public class EnsorcelledBlade() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Basic,
     TargetType.AnyEnemy),ITranscendenceCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10,ValueProp.Move),new EnergyVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12,ValueProp.Move),new EnergyVar(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -35,7 +35,7 @@ public class EnsorcelledBlade() : TheSorceressModCard(2,
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars.Energy.UpgradeValueBy(1);
     }
 
     public CardModel GetTranscendenceTransformedCard()

@@ -13,7 +13,7 @@ public class RavensSplendor() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Rare,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(10, ValueProp.Move), new PowerVar<VulnerablePower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(12, ValueProp.Move), new PowerVar<VulnerablePower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<VulnerablePower>()];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery, CardKeyword.Exhaust];

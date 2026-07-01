@@ -19,7 +19,7 @@ namespace TheSorceressMod.TheSorceressModCode.Cards.Tokens;
 [Pool(typeof(TokenCardPool))]
 public class TwoWeaponRiposte() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Token,
-    CustomTargetType.AnyAttackingEnemy)
+    TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move)];
     
@@ -29,42 +29,10 @@ public class TwoWeaponRiposte() : TheSorceressModCard(1,
     }
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal,CardKeyword.Exhaust];
     
-    protected override bool IsPlayable
-    {
-        get
-        {
-            if (this.CombatState == null)
-            {
-                return false;
-            }
-            
-            foreach (Creature enemy in this.CombatState.Enemies)
-            {
-                if (enemy.Monster != null && enemy.Monster.IntendsToAttack)
-                {
-                    return true;
-                }
-            }
-            
-            return false;
-        }
-    }
-    
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        if (!this.IsPlayable)
-        {
-            ThinkCmd.Play(new LocString("combat_messages", "SORCERESS_THINK_NO_OPENING"), Owner.Creature);
-            return;
-        }
-
-        if (this.IsPlayable && play.Target == null)
-        {
-            ThinkCmd.Play(new LocString("combat_messages", "SORCERESS_THINK_NEED_TARGET"), Owner.Creature);
-            return;
-        }
         await CommonActions.CardAttack(this, play, vfx: "vfx/vfx_attack_slash").Execute(choiceContext);
     }
 

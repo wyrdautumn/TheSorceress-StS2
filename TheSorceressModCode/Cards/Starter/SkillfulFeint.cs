@@ -12,12 +12,12 @@ namespace TheSorceressMod.TheSorceressModCode.Cards.Starter;
 
 public class SkillfulFeint() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Basic,
-    TargetType.Self)
+    TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VigorPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DefensiveAdvantageDebuff>(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<CombatAdvantagePower>()];
+        [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.FromPower<StrengthPower>()];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -25,14 +25,12 @@ public class SkillfulFeint() : TheSorceressModCard(0,
     {
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await CommonActions.ApplySelf<CombatAdvantagePower>(choiceContext, this, 1);
-        if (IsUpgraded)
-        {
-            await CommonActions.ApplySelf<VigorPower>(choiceContext, this);
-        }
+        await CommonActions.Apply<DefensiveAdvantageDebuff>(choiceContext, this, play);
+
     }
 
     protected override void OnUpgrade()
     {
-
+        DynamicVars["DefensiveAdvantageDebuff"].UpgradeValueBy(1);
     }
 }

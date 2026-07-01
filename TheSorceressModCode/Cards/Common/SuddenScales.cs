@@ -9,11 +9,11 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Common;
 
-public class SuddenScales() : TheSorceressModCard(1,
+public class SuddenScales() : TheSorceressModCard(2,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(3,ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7,ValueProp.Move)];
     
     public override bool GainsBlock => true;
     
