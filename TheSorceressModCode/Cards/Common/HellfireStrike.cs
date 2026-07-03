@@ -36,7 +36,7 @@ public class HellfireStrike() : TheSorceressModCard(2,
         CardPlay play)
     {
         float scale = 0.6f;
-        await CommonActions.CardAttack(this, play.Target,vfx:"vfx/vfx_attack_slash").BeforeDamage(() =>
+        await CommonActions.CardAttack(this, play,vfx:"vfx/vfx_attack_slash").BeforeDamage(() =>
         {
             if (play.Target != null){
                 NGroundFireVfx? child = NGroundFireVfx.Create(play.Target);

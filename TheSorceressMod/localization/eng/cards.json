@@ -54,7 +54,7 @@
   "THESORCERESSMOD-ARCING_FIRE.description": "Deal {Damage:diff()} damage.\nIf this kills an enemy, play it again.",
   "THESORCERESSMOD-ARCING_FIRE.title": "Arcing Fire",
   "THESORCERESSMOD-SPARK_FORM.description": "{IfUpgraded:show:ALL enemies lose {Damage:diff()} HP|A random enemy loses {Damage:diff()} HP} X times.\nApply {WeakPower:diff()} [gold]Weak[/gold] each time an enemy loses HP this way.",
-  "THESORCERESSMOD-SPARK_FORM.title": "Spark Form",
+  "THESORCERESSMOD-SPARK_FORM.title": "Spark Dash",
   "THESORCERESSMOD-CHAOS_BOLT.description": "Enemy loses {Damage:diff()} HP.\n[gold]Prime[/gold] {PrimedPower:diff()}.\nRandomly apply [gold]Weak[/gold] or [gold]Vulnerable[/gold] {Debuff:diff()} times.",
   "THESORCERESSMOD-CHAOS_BOLT.title": "Chaos Bolt",
   "THESORCERESSMOD-ACROBATS_TRICK.description": "Draw {Cards:diff()} cards.\nDiscard 1 card.",
@@ -201,5 +201,11 @@
   "THESORCERESSMOD-RHYTHM_BLADE.description": "Gain {Block:diff()} [gold]Block[/gold].\nDouble this card's [gold]Block[/gold] if you have [gold]Combat Advantage[/gold].",
   "THESORCERESSMOD-RHYTHM_BLADE.title": "Rhythm Blade",
   "THESORCERESSMOD-FROM_THE_SHADOWS.description": "Choose {IfUpgraded:show:an Attack or Skill card|1 of 3 Attack or Skill cards} from another player's [gold]Exhaust Pile[/gold].\nPut a copy of it on top of your [gold]Draw Pile[/gold].",
-  "THESORCERESSMOD-FROM_THE_SHADOWS.title": "From the Shadows"
+  "THESORCERESSMOD-FROM_THE_SHADOWS.title": "From the Shadows",
+  "THESORCERESSMOD-PERSISTENT_PRIME.description": "[gold]Prime[/gold] lasts until the end of the turn. When [gold]Prime[/gold] wears off, deal that much damage.",
+  "THESORCERESSMOD-PERSISTENT_PRIME.title": "Relentless Prime",
+  "THESORCERESSMOD-TWO_WEAPON_SUPPRESSION.description": "Deal {Damage:diff()} damage to ALL enemies.\nApply {WeakPower:diff()} [gold]Weak[/gold] to ALL enemies.\nAdd [gold]{IfUpgraded:show:Two-Weapon Tactics+|Two-Weapon Tactics}[/gold] to each other player's hand.",
+  "THESORCERESSMOD-TWO_WEAPON_SUPPRESSION.title": "Two-Weapon Suppression",
+  "THESORCERESSMOD-TWO_WEAPON_TACTICS.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.",
+  "THESORCERESSMOD-TWO_WEAPON_TACTICS.title": "Two-Weapon Tactics"
 }

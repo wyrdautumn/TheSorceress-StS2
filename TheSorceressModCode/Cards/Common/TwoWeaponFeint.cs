@@ -31,7 +31,7 @@ public class TwoWeaponFeint() : TheSorceressModCard(1,
     {
         if (play.Target != null)
         {
-            await CommonActions.CardAttack(this, play.Target, vfx: "vfx/vfx_attack_slash").Execute(choiceContext);
+            await CommonActions.CardAttack(this, play, vfx: "vfx/vfx_attack_slash").Execute(choiceContext);
             await CommonActions.ApplySelf<CombatAdvantagePower>(choiceContext, this);
         }
         if (CombatState == null)

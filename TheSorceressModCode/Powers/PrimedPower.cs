@@ -34,6 +34,11 @@ public class PrimedPower : TheSorceressModPower
         {
             return;
         }
+        foreach (Creature enemy in CombatState.GetOpponentsOf(Owner))
+        {
+            if (enemy.HasPower<PersistentPrimePower>())
+                return;
+        }
         CardModel card = (CardModel) command.ModelSource;
         if (!card.Tags.Contains(SorceressKeywords.PrimeTrick))
         {
@@ -49,6 +54,41 @@ public class PrimedPower : TheSorceressModPower
                         instance.CombatVfxContainer.AddChildSafely((Godot.Node)child);
                 }
             }
+            await PowerCmd.Remove(this);
+        }
+    }
+
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+    {
+        if (side != CombatSide.Player)
+            return;
+        bool shouldRemove = false;
+        foreach (Creature enemy in CombatState.GetOpponentsOf(Owner))
+        {
+            if (enemy.HasPower<PersistentPrimePower>())
+            {
+                shouldRemove = true;
+                int loops = enemy.GetPowerAmount<PersistentPrimePower>();
+                for(int i = loops; i > 0; --i)
+                {
+                    NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(Owner);
+                    if (creatureNode != null)
+                    {
+                        NFireBurstVfx? child = NFireBurstVfx.Create(creatureNode.GetBottomOfHitbox(), 1f, new Color("8263c0"));
+                        if (child != null)
+                        {
+                            SfxCmd.Play("event:/sfx/characters/attack_fire");
+                            NCombatRoom? instance = NCombatRoom.Instance;
+                            if (instance != null)
+                                instance.CombatVfxContainer.AddChildSafely((Godot.Node)child);
+                        }
+                    }
+                    await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered, null, null);
+                }
+            }
+        }
+        if (shouldRemove)
+        {
             await PowerCmd.Remove(this);
         }
     }

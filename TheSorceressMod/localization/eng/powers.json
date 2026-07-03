@@ -2,7 +2,7 @@
   "THESORCERESSMOD-COMBAT_ADVANTAGE_POWER.description": "Increase the damage of your next Attack by [blue]50%[/blue]. Does not stack.",
   "THESORCERESSMOD-COMBAT_ADVANTAGE_POWER.smartDescription": "Increase the damage of your next Attack by [blue]50%[/blue]. Does not stack.",
   "THESORCERESSMOD-COMBAT_ADVANTAGE_POWER.title": "Combat Advantage",
-  "THESORCERESSMOD-PRIMED_POWER.description": "Primed creatures take additional damage the next time they're hit by an attack.",
+  "THESORCERESSMOD-PRIMED_POWER.description": "Primed creatures take additional damage from the next attack.",
   "THESORCERESSMOD-PRIMED_POWER.smartDescription": "Receive [blue]{Amount}[/blue] more damage from the next attack.",
   "THESORCERESSMOD-PRIMED_POWER.title": "Prime",
   "THESORCERESSMOD-CHARISMA_POWER.description": "Charisma increases the power of [gold]Sorceries[/gold] and HP loss Skills.",
@@ -101,5 +101,8 @@
   "THESORCERESSMOD-FREE_SORCERY_POWER.title": "Free Sorcery",
   "THESORCERESSMOD-CUNNING_MOMENTUM_POWER.description": "The next time you play a [gold]Sleight[/gold], gain {energyPrefix:energyIcons(1)}.",
   "THESORCERESSMOD-CUNNING_MOMENTUM_POWER.smartDescription": "The next time you play a [gold]Sleight[/gold], gain {Amount:energyIcons()}.",
-  "THESORCERESSMOD-CUNNING_MOMENTUM_POWER.title": "Cunning Momentum"
+  "THESORCERESSMOD-CUNNING_MOMENTUM_POWER.title": "Cunning Momentum",
+  "THESORCERESSMOD-PERSISTENT_PRIME_POWER.description": "ALL [gold]Primed[/gold] enemies remain [gold]Primed[/gold] until the end of the turn. Whenever an enemy's [gold]Prime[/gold] is removed, deal damage equal to their [gold]Prime[/gold].",
+  "THESORCERESSMOD-PERSISTENT_PRIME_POWER.smartDescription": "ALL [gold]Primed[/gold] enemies remain [gold]Primed[/gold] until the end of the turn. Whenever an enemy's [gold]Prime[/gold] is removed, deal damage equal to their [gold]Prime[/gold]{Amount:plural:| {Amount} times}.",
+  "THESORCERESSMOD-PERSISTENT_PRIME_POWER.title": "Relentless Prime"
 }

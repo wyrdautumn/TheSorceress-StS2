@@ -36,7 +36,7 @@ public class ExplosivePyre() : TheSorceressModCard(2,
         CardPlay play)
     {
         ArgumentNullException.ThrowIfNull(this.CombatState);
-        await CommonActions.CardAttack(this, play.Target).BeforeDamage(() =>
+        await CommonActions.CardAttack(this, play).BeforeDamage(() =>
             {
                 if (play.Target != null)
                 {
