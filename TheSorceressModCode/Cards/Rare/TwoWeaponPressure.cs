@@ -37,7 +37,7 @@ public class TwoWeaponPressure() : TheSorceressModCard(2,
     {
         if (play.Target == null)
             return;
-        await DamageCmd.Attack(this.DynamicVars.Damage.BaseValue).FromCard((CardModel) this).Targeting(play.Target).WithHitFx(tmpSfx: "heavy_attack.mp3").WithHitVfxNode((Func<Creature, Node2D>) (t => (Node2D) NBigSlashVfx.Create(t))).WithHitVfxNode((Func<Creature, Node2D>) (t => (Node2D) NBigSlashImpactVfx.Create(t))).Execute(choiceContext);
+        await DamageCmd.Attack(this.DynamicVars.Damage.BaseValue).FromCard((CardModel) this, play).Targeting(play.Target).WithHitFx(tmpSfx: "heavy_attack.mp3").WithHitVfxNode((Func<Creature, Node2D>) (t => (Node2D) NBigSlashVfx.Create(t))).WithHitVfxNode((Func<Creature, Node2D>) (t => (Node2D) NBigSlashImpactVfx.Create(t))).Execute(choiceContext);
         await CommonActions.Apply<WeakPower>(choiceContext, play.Target, this);
         if (CombatState == null)
             return;

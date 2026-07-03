@@ -45,7 +45,7 @@ public class SparkForm() : TheSorceressModCard(0,
                     .First();
                 VfxCmd.PlayOnCreature(target, "vfx/vfx_attack_lightning");
                 SfxCmd.Play("event:/sfx/characters/defect/defect_lightning_passive");
-                await CreatureCmd.Damage(choiceContext, target, this.DynamicVars.Damage, (CardModel) this);
+                await CreatureCmd.Damage(choiceContext, target, this.DynamicVars.Damage, (CardModel) this, play);
                 await CommonActions.Apply<WeakPower>(choiceContext, target, this);
             }
         }

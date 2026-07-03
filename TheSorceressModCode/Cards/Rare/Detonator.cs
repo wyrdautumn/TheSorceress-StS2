@@ -30,7 +30,7 @@ public class Detonator() : TheSorceressModCard(0,
         if (play.Target == null || !play.Target.HasPower<PrimedPower>())
             return;
         await DamageCmd.Attack(play.Card.DynamicVars.CalculatedDamage)
-            .FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3")
+            .FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3")
             .Execute(choiceContext);
     }
 

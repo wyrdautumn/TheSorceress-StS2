@@ -15,8 +15,6 @@ public class TheSorceressModConfig : SimpleModConfig
         SetupFocusNeighbors(optionContainer);
     }
     
-    public static bool RandomBool { get; set; } = false;
-    
     [ConfigButton("AllStuffUnlocked")]
     public static void UnlockAllStuff()
     {

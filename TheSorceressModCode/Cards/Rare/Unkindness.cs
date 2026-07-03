@@ -22,13 +22,14 @@ public class Unkindness() : TheSorceressModCard(1,
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource, CardPlay? play)
     {
         if (cardSource == this && this.Owner.HasPower<CombatAdvantagePower>())
         {
             return 3;
         }
-        return base.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource);
+
+        return 1;
     }
     
     protected override bool ShouldGlowGoldInternal => Owner.HasPower<CombatAdvantagePower>();

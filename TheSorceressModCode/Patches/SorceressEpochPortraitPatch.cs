@@ -19,7 +19,7 @@ public class SorceressEpochPortraitPatch
         }
     }
 
-    [HarmonyPatch(typeof(EpochModel), nameof(EpochModel.PackedPortraitPath), MethodType.Getter)]
+    [HarmonyPatch(typeof(EpochModel), "PackedPortraitPath", MethodType.Getter)]
     [HarmonyPostfix]
     public static void SorceressPortraitPathPostfix(EpochModel __instance, ref string __result)
     {

@@ -25,7 +25,7 @@ public class DevourMagic() : TheSorceressModCard(1,
         if (play.Target != null)
         {
             var damageResults =
-                await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, (CardModel)this);
+                await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, (CardModel)this, play);
             var damage = damageResults.Sum(r => r.TotalDamage + r.OverkillDamage);
             await CreatureCmd.GainBlock(this.Owner.Creature, damage, ValueProp.Move | ValueProp.Unpowered, play);
 

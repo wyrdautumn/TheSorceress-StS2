@@ -26,7 +26,7 @@ public class ShadowyTendrils() : TheSorceressModCard(2,
         if (CombatState == null)
             return;
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, DynamicVars.Damage, Owner.Creature, this);
+        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, DynamicVars.Damage, Owner.Creature, this, play);
         await PowerCmd.Apply<ShadowyTendrilsPower>(choiceContext, CombatState.HittableEnemies, DynamicVars["ShadowyTendrilsPower"].BaseValue, Owner.Creature, this);
     }
 

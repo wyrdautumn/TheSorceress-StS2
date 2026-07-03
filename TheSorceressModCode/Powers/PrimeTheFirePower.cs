@@ -23,7 +23,7 @@ public class PrimeTheFirePower : TheSorceressModPower, IHasSecondAmount
         if (player != this.Owner.Player)
             return;
         this.Flash();
-        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, Amount, ValueProp.Unpowered, Owner, null);
+        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, Amount, ValueProp.Unpowered, Owner, null, null);
         await PowerCmd.Apply<PrimedPower>(choiceContext, CombatState.HittableEnemies, DynamicVars["PrimedPower"].BaseValue, Owner, null);
         await PowerCmd.Remove(this);
     }

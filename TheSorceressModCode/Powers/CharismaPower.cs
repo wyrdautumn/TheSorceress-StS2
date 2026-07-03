@@ -19,7 +19,8 @@ public class CharismaPower : TheSorceressModPower
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource,
+        CardPlay? cardPlay)
     {
         if ((cardSource != null && cardSource.Keywords.Contains(SorceressKeywords.Sorcery) && dealer == Owner && target != Owner) || (dealer == Owner && props.HasFlag(ValueProp.Unblockable) && target != Owner))
         {

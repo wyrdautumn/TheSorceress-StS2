@@ -59,7 +59,7 @@ public class SoulRebel() : TheSorceressModCard(3,
             }
             for (int hits = 0; hits < cardCount; hits++)
             {
-                await CreatureCmd.Damage(choiceContext, play.Target, DynamicVars.Damage, Owner.Creature, this);
+                await CreatureCmd.Damage(choiceContext, play.Target, DynamicVars.Damage, Owner.Creature, this, play);
             }
         }
         else

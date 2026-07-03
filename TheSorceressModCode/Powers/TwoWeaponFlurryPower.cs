@@ -30,7 +30,7 @@ public class TwoWeaponFlurryPower : TheSorceressModPower
         if (cardPlay.Card.Owner.Creature != Owner || !GetInternalData<TwoWeaponFlurryPower.Data>().amountsForPlayedCards.Remove(cardPlay.Card, out amount) || amount <= 0)
             return;
         this.Flash();
-        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, amount, ValueProp.Unpowered, Owner, null);
+        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, amount, ValueProp.Unpowered, Owner, null, null);
     }
     
     private class Data

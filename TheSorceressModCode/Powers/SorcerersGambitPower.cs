@@ -25,6 +25,6 @@ public class SorcerersGambitPower : TheSorceressModPower
         {
             return;
         }
-        await CreatureCmd.Damage(choiceContext, dealer, Amount, ValueProp.Unpowered, Owner, null);
+        await CreatureCmd.Damage(choiceContext, dealer, Amount, ValueProp.Unpowered, Owner, null, null);
     }
 }

@@ -38,10 +38,10 @@ public class TwoWeaponDervish() : TheSorceressModCard(0,
             return;
         int num1 = this.ResolveEnergyXValue();
         int hits = num1 * DynamicVars["mult"].IntValue;
-        AttackCommand result = await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(hits).FromCard(this).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        AttackCommand result = await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(hits).FromCard(this, play).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         List<Creature> enemies = result.Results.SelectMany(r => r.Select(c => c.Receiver)).Distinct().ToList();
         await CreatureCmd.Damage(choiceContext, enemies.Where(c => c.IsHittable), DynamicVars["bonusdamage"].BaseValue, ValueProp.Unpowered,
-            Owner.Creature, this);
+            Owner.Creature, this, play);
     }
 
     protected override void OnUpgrade()

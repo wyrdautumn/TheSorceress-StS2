@@ -33,6 +33,7 @@ public static class EpochRegistration
             var epochDictField = epochType.GetField("_epochTypeDictionary", BindingFlags.Static | BindingFlags.NonPublic);
             var typeToIdField = epochType.GetField("_typeToIdDictionary", BindingFlags.Static | BindingFlags.NonPublic);
             var allIdsField = epochType.GetField("_allEpochIds", BindingFlags.Static | BindingFlags.NonPublic);
+            var allEpochsField = epochType.GetField("_allEpochs", BindingFlags.Static | BindingFlags.NonPublic);
 
             if (epochDictField == null || typeToIdField == null)
             {
@@ -42,6 +43,7 @@ public static class EpochRegistration
 
             var epochDict = (Dictionary<string, Type>)epochDictField.GetValue(null)!;
             var typeToId = (Dictionary<Type, string>)typeToIdField.GetValue(null)!;
+            var allEpochs = (List<Type>)allEpochsField!.GetValue(null);
 
             foreach (var type in SorceressEpochTypes)
             {
@@ -56,6 +58,7 @@ public static class EpochRegistration
 
                 epochDict[id] = type;
                 typeToId[type] = id;
+                allEpochs!.Add(type);
                 MainFile.Logger.Info($"Registered epoch: {id}");
             }
 

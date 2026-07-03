@@ -199,5 +199,7 @@
   "THESORCERESSMOD-TWO_WEAPON_CATCH.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].\nAdd [gold]{IfUpgraded:show:Two-Weapon Twist+|Two-Weapon Twist}[/gold] into your [gold]Hand[/gold].",
   "THESORCERESSMOD-TWO_WEAPON_CATCH.title": "Two-Weapon Catch",
   "THESORCERESSMOD-RHYTHM_BLADE.description": "Gain {Block:diff()} [gold]Block[/gold].\nDouble this card's [gold]Block[/gold] if you have [gold]Combat Advantage[/gold].",
-  "THESORCERESSMOD-RHYTHM_BLADE.title": "Rhythm Blade"
+  "THESORCERESSMOD-RHYTHM_BLADE.title": "Rhythm Blade",
+  "THESORCERESSMOD-FROM_THE_SHADOWS.description": "Choose {IfUpgraded:show:an Attack or Skill card|1 of 3 Attack or Skill cards} from another player's [gold]Exhaust Pile[/gold].\nPut a copy of it on top of your [gold]Draw Pile[/gold].",
+  "THESORCERESSMOD-FROM_THE_SHADOWS.title": "From the Shadows"
 }

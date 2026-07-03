@@ -69,7 +69,7 @@ public class FlameInTheDark() : TheSorceressModCard(3,
             return;
         }
         bool shouldTriggerFatal = play.Target.Powers.All<PowerModel>((Func<PowerModel, bool>) (p => p.ShouldOwnerDeathTriggerFatal()));
-        AttackCommand attackCommand = await DamageCmd.Attack(this.DynamicVars.Damage.BaseValue).FromCard((CardModel) this).Targeting(play.Target).BeforeDamage(() =>
+        AttackCommand attackCommand = await DamageCmd.Attack(this.DynamicVars.Damage.BaseValue).FromCard((CardModel) this, play).Targeting(play.Target).BeforeDamage(() =>
         {
             NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(play.Target);
             if (creatureNode != null)

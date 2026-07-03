@@ -9,7 +9,7 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 namespace TheSorceressMod.TheSorceressModCode.Cards.Multiplayer;
 
 public class FlockTactics() : TheSorceressModCard(1,
-    CardType.Skill, CardRarity.Rare,
+    CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlockTacticsPower>(1)];

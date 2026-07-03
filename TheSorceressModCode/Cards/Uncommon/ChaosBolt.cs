@@ -52,7 +52,7 @@ public class ChaosBolt() : TheSorceressModCard(2,
         }
         VfxCmd.PlayOnCreature(play.Target, "vfx/vfx_attack_blunt");
         SfxCmd.Play("blunt_attack.mp3");
-        await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, (CardModel) this);
+        await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, (CardModel) this, play);
         await CommonActions.Apply<PrimedPower>(choiceContext, play.Target, this);
         for (int loops = num1; loops > 0;)
         {
