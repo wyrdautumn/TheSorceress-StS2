@@ -19,18 +19,19 @@ public class SleightHelper() : CustomSingletonModel(HookType.Combat)
     public static readonly SpireField<PlayerCombatState, int> SleightCount = new(() => 0);
     public static readonly SpireField<PlayerCombatState, int> NimbleFingersCount = new(() => 0);
 
-    public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    public override Task AfterFlush(PlayerChoiceContext choiceContext, Player player, IReadOnlyCollection<CardModel> flushedCards,
+        IReadOnlyCollection<CardModel> retainedCards)
     {
         PlayerCombatState? combatState = player.PlayerCombatState;
         if (combatState != null)
         {
-            SleightHelper.SleightCount.Set(combatState, 0);
-            SleightHelper.NimbleFingersCount.Set(combatState, 0);
+            SleightCount.Set(combatState, 0);
+            NimbleFingersCount.Set(combatState, 0);
         }
 
         return Task.CompletedTask;
     }
-
+    
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         PlayerCombatState? combatState = cardPlay.Card.Owner.PlayerCombatState;
