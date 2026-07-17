@@ -20,7 +20,11 @@ public class SorcerersGambit() : TheSorceressModCard(1,
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     
     private static decimal Calc(CardModel card, Creature? arg2)
-        => card.Owner.Creature.GetPowerAmount<CharismaPower>();
+    {
+        if (card.Owner.Creature.GetPowerAmount<CharismaPower>() < -card.DynamicVars.CalculationBase.BaseValue)
+            return -card.DynamicVars.CalculationBase.BaseValue;
+        return card.Owner.Creature.GetPowerAmount<CharismaPower>();
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

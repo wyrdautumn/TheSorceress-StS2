@@ -21,7 +21,7 @@ public class DimensionalAssault() : TheSorceressModCard(2,
     {
         if (play.Target == null)
             return;
-        await CreatureCmd.LoseBlock(play.Target, play.Target.Block);
+        await CreatureCmd.LoseBlock(choiceContext, play.Target, play.Target.Block, Owner.Creature);
         await CommonActions.CardAttack(this, play, vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
     }
 

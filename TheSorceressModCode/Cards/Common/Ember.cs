@@ -17,8 +17,8 @@ public class Ember() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Common,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, ValueProp.Unblockable | ValueProp.Unpowered),
-    new PowerVar<PrimedPower>(6)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Unblockable | ValueProp.Unpowered),
+    new PowerVar<PrimedPower>(4)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>()];

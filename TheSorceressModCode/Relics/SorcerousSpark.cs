@@ -11,7 +11,7 @@ namespace TheSorceressMod.TheSorceressModCode.Relics;
 public class SorcerousSpark() : TheSorceressModRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Ancient;
+        RelicRarity.Starter;
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>(), HoverTipFactory.FromPower<CharismaPower>()];

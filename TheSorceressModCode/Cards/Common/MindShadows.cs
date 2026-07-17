@@ -1,4 +1,5 @@
 ﻿using BaseLib.Utils;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -15,29 +16,30 @@ namespace TheSorceressMod.TheSorceressModCode.Cards.Common;
 
 public class MindShadows() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Common,
-    TargetType.AnyEnemy)
+    TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7,ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move), new PowerVar<WeakPower>(1)];
-    
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WeakPower>(1)];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        if (play.Target != null){
-            await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-            await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, (CardModel) this, play);
-            await CommonActions.Apply<WeakPower>(choiceContext, play.Target, this);
-        }
+        if (CombatState == null)
+            return;
+        await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
+        await CommonActions.Apply<WeakPower>(choiceContext, CombatState.HittableEnemies, this);
+        CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1);
+        CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs,null,this)).FirstOrDefault();
+        if (card == null)
+            return;
+        await CardCmd.Exhaust(choiceContext, card);
     }
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<WeakPower>()];
+        [HoverTipFactory.FromPower<WeakPower>(),HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
         DynamicVars.Weak.UpgradeValueBy(1);
     }
 }

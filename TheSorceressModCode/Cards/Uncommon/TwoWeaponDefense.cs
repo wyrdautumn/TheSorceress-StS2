@@ -13,7 +13,7 @@ public class TwoWeaponDefense() : TheSorceressModCard(1,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<TwoWeaponDefensePower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<TwoWeaponDefensePower>(1)];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };

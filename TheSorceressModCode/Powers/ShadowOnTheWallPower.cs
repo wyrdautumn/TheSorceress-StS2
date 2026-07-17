@@ -47,7 +47,7 @@ public class ShadowOnTheWallPower : TheSorceressModPower
         }
         await PowerCmd.Decrement(this);
         await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, Owner, 1, Owner, null);
-        await CardCmd.AutoPlay(choiceContext, cardPlay.Card.CreateDupe(), target);
+        await CardCmd.AutoPlay(choiceContext, cardPlay.Card, target);
         GetInternalData<ShadowOnTheWallPower.Data>().cardPlayed.Remove(cardPlay.Card);
     }
     

@@ -39,7 +39,7 @@ public class ArcingFire() : TheSorceressModCard(2,
                 (Func<List<DamageResult>, IEnumerable<DamageResult>>)(r => (IEnumerable<DamageResult>)r))
             .Any<DamageResult>((Func<DamageResult, bool>)(r => r.WasTargetKilled)))
         {
-            CardModel dupe = cardSource.CreateDupe();
+            CardModel dupe = cardSource.CreateDupe(Owner);
             await CardCmd.AutoPlay(choiceContext, dupe, null);
         }
     }

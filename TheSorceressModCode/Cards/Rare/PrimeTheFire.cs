@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
@@ -21,7 +22,10 @@ public class PrimeTheFire() : TheSorceressModCard(4,
     CardType.Attack, CardRarity.Rare,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(26, ValueProp.Move), new PowerVar<PrimedPower>(6)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(28, ValueProp.Move), new PowerVar<PrimedPower>(8),
+    new CalculationBaseVar(28),
+    new CalculationExtraVar(1),
+    new CalculatedVar("PrimeTheFirePower").WithMultiplier(Calc)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     protected override HashSet<CardTag> CanonicalTags
     {
@@ -29,6 +33,13 @@ public class PrimeTheFire() : TheSorceressModCard(4,
     }
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>()];
+
+    private static decimal Calc(CardModel card, Creature? arg2)
+    {
+        if (card.Owner.Creature.GetPowerAmount<CharismaPower>() < -card.DynamicVars.CalculationBase.BaseValue)
+            return -card.DynamicVars.CalculationBase.BaseValue;
+        return card.Owner.Creature.GetPowerAmount<CharismaPower>();
+    }
     
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -59,17 +70,13 @@ public class PrimeTheFire() : TheSorceressModCard(4,
             ).WithAttackerAnim("Cast",0.2f).Execute(choiceContext);
         await PowerCmd.Apply<PrimedPower>(choiceContext, CombatState.HittableEnemies,
             DynamicVars["PrimedPower"].BaseValue, Owner.Creature, this);
-        PrimeTheFirePower? power = await PowerCmd.Apply<PrimeTheFirePower>(choiceContext, Owner.Creature, DynamicVars.Damage.PreviewValue, Owner.Creature, this);
-        if (power != null)
-        {
-            power.DynamicVars["PrimedPower"].BaseValue += DynamicVars["PrimedPower"].BaseValue;
-            power.InvokeSecondAmountChanged();
-        }
+        await PowerCmd.Apply<PrimeTheFirePower>(choiceContext, CombatState.HittableEnemies, ((CalculatedVar) DynamicVars["PrimeTheFirePower"]).Calculate(null), Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(4);
         DynamicVars["PrimedPower"].UpgradeValueBy(4);
+        DynamicVars.CalculationBase.UpgradeValueBy(4);
     }
 }

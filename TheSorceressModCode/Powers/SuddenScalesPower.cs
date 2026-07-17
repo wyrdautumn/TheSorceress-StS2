@@ -20,7 +20,7 @@ public class SuddenScalesPower : TheSorceressModPower
     public override async Task BeforeDamageReceived(PlayerChoiceContext choiceContext, Creature target, decimal amount, ValueProp props,
         Creature? dealer, CardModel? cardSource)
     {
-        if (target == Owner && props.IsPoweredAttack())
+        if (target == Owner && dealer != Owner && props.IsPoweredAttack())
         {
             await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null, true);
             await PowerCmd.Remove(this);

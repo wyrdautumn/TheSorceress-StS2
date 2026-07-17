@@ -23,9 +23,13 @@ public class Fireswarm() : TheSorceressModCard(0,
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromPower<CharismaPower>()];
-    
+
     private static decimal Calc(CardModel card, Creature? arg2)
-        => card.Owner.Creature.GetPowerAmount<CharismaPower>() / 2;
+    {
+        if ((card.Owner.Creature.GetPowerAmount<CharismaPower>() / 2) < -card.DynamicVars.CalculationBase.BaseValue)
+            return -card.DynamicVars.CalculationBase.BaseValue;
+        return card.Owner.Creature.GetPowerAmount<CharismaPower>() / 2;
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

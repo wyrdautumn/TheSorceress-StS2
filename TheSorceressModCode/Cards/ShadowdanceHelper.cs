@@ -60,16 +60,17 @@ public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
         }
     }
 
-    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay,
-        ResourceInfo resources, PileType pileType, CardPilePosition position)
+    public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay, ResourceInfo resources,
+        CardLocation cardLocation)
     {
         if (WasAgilePlayed.Get(card))
         {
-            return (PileType.Exhaust, CardPilePosition.Top);
+            cardLocation.pileType = PileType.Exhaust;
+            return cardLocation;
         }
         else
         {
-            return (pileType, position);
+            return cardLocation;
         }
     }
 }
