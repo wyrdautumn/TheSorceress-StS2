@@ -9,14 +9,14 @@ using MegaCrit.Sts2.Core.Models;
 using TheSorceressMod.TheSorceressModCode.Cards;
 using TheSorceressMod.TheSorceressModCode.Powers;
 
-namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
+namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
 public class LingeringShadows() : TheSorceressModCard(1,
-    CardType.Power, CardRarity.Uncommon,
+    CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new CalculationBaseVar(2),
+    new CalculationBaseVar(3),
     new CalculationExtraVar(1),
     new CalculatedVar("LingeringShadowsPower").WithMultiplier(Calc)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];

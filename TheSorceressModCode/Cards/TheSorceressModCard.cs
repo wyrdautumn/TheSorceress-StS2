@@ -1,9 +1,12 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using Godot;
 using TheSorceressMod.TheSorceressModCode.Character;
 using TheSorceressMod.TheSorceressModCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Nodes.Cards;
+using TheSorceressMod.TheSorceressModCode.helpers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards;
 

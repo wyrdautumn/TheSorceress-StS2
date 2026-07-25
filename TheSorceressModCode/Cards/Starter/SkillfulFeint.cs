@@ -12,7 +12,7 @@ namespace TheSorceressMod.TheSorceressModCode.Cards.Starter;
 
 public class SkillfulFeint() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Basic,
-    TargetType.AllEnemies)
+    TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DefensiveAdvantageDebuff>(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
@@ -26,7 +26,6 @@ public class SkillfulFeint() : TheSorceressModCard(0,
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await CommonActions.ApplySelf<CombatAdvantagePower>(choiceContext, this, 1);
         await CommonActions.Apply<DefensiveAdvantageDebuff>(choiceContext, this, play);
-
     }
 
     protected override void OnUpgrade()

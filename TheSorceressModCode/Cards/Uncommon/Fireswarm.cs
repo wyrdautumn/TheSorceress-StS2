@@ -1,4 +1,5 @@
 ﻿using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -9,26 +10,27 @@ using MegaCrit.Sts2.Core.Models;
 using TheSorceressMod.TheSorceressModCode.Cards;
 using TheSorceressMod.TheSorceressModCode.Powers;
 
-namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
+namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
 public class Fireswarm() : TheSorceressModCard(0,
-    CardType.Skill, CardRarity.Rare,
+    CardType.Skill, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new CalculationBaseVar(4),
+        new CalculationBaseVar(0),
         new CalculationExtraVar(1),
         new CalculatedVar("Prime").WithMultiplier(Calc)
     ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromPower<CharismaPower>()];
+        [HoverTipFactory.FromPower<PrimedPower>()];
 
-    private static decimal Calc(CardModel card, Creature? arg2)
+    private static decimal Calc(CardModel card, Creature? target)
     {
-        if ((card.Owner.Creature.GetPowerAmount<CharismaPower>() / 2) < -card.DynamicVars.CalculationBase.BaseValue)
-            return -card.DynamicVars.CalculationBase.BaseValue;
-        return card.Owner.Creature.GetPowerAmount<CharismaPower>() / 2;
+        if (target == null)
+            return 0;
+        return PrimedPower.PrimeRemoved.Get(target);
     }
 
     protected override async Task OnPlay(
@@ -39,12 +41,12 @@ public class Fireswarm() : TheSorceressModCard(0,
         {
             await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
             await CommonActions.Apply<PrimedPower>(choiceContext, play.Target, play.Card,
-                ((CalculatedVar) DynamicVars["Prime"]).Calculate(Owner.Creature));
+                ((CalculatedVar) DynamicVars["Prime"]).Calculate(play.Target));
         }
     }
 
     protected override void OnUpgrade()
     {
-        this.DynamicVars.CalculationBase.UpgradeValueBy(2);
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 }

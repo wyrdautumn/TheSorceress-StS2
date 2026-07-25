@@ -18,7 +18,7 @@ public class CounterStepPower : TheSorceressModPower
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner.Creature == this.Owner && cardPlay.Card.Keywords.Contains(SorceressKeywords.Sleight))
+        if (cardPlay.Card.Owner.Creature == this.Owner && cardPlay.Card.Keywords.Contains(SorceressKeywords.Sleight) && cardPlay.Resources.EnergySpent == 0)
         {
             this.Flash();
             await CreatureCmd.GainBlock(this.Owner, this.Amount, ValueProp.Unpowered, cardPlay, true);

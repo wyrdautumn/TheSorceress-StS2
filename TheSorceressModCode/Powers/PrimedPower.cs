@@ -1,4 +1,5 @@
-﻿using Godot;
+﻿using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
@@ -17,6 +18,8 @@ namespace TheSorceressMod.TheSorceressModCode.Powers;
 
 public class PrimedPower : TheSorceressModPower
 {
+    public static readonly SpireField<Creature, int> PrimeRemoved = new(() => 0);
+    
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
@@ -54,6 +57,8 @@ public class PrimedPower : TheSorceressModPower
                         instance.CombatVfxContainer.AddChildSafely((Godot.Node)child);
                 }
             }
+            int val = PrimeRemoved.Get(Owner);
+            PrimeRemoved.Set(Owner, val + Amount);
             await PowerCmd.Remove(this);
         }
     }
@@ -89,6 +94,8 @@ public class PrimedPower : TheSorceressModPower
         }
         if (shouldRemove)
         {
+            int val = PrimeRemoved.Get(Owner);
+            PrimeRemoved.Set(Owner, val + Amount);
             await PowerCmd.Remove(this);
         }
     }

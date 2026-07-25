@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://u6xxy27tlyli"]
+
+[ext_resource type="Texture2D" uid="uid://c0ooph5ta6w2h" path="res://TheSorceressMod/images/charui/sorcery_border.png" id="2_ts4bf"]
+
+[node name="SorceryStamp" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -150.0
+offset_top = -211.0
+offset_right = 150.0
+offset_bottom = 211.0
+pivot_offset = Vector2(150, 211)
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 299.0
+offset_bottom = 551.0
+texture = ExtResource("2_ts4bf")
+expand_mode = 1
+stretch_mode = 4

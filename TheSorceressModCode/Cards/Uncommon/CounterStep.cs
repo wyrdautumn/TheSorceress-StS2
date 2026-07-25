@@ -27,6 +27,6 @@ public class CounterStep() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["CounterStepPower"].UpgradeValueBy(1);
+        DynamicVars["CounterStepPower"].UpgradeValueBy(2);
     }
 }

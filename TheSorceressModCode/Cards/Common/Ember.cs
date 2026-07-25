@@ -1,5 +1,6 @@
 ﻿using BaseLib.Extensions;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -17,11 +18,9 @@ public class Ember() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Common,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Unblockable | ValueProp.Unpowered),
-    new PowerVar<PrimedPower>(4)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PrimedPower>(6)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<PrimedPower>()];
+        [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -30,14 +29,17 @@ public class Ember() : TheSorceressModCard(1,
         if (play.Target != null)
         {
             await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-            await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, this, play);
             await CommonActions.Apply<PrimedPower>(choiceContext, play.Target, this);
+            CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1);
+            CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs,null,this)).FirstOrDefault();
+            if (card == null)
+                return;
+            await CardCmd.Exhaust(choiceContext, card);
         }
     }
 
     protected override void OnUpgrade()
     {
-        this.DynamicVars.Damage.UpgradeValueBy(1);
-        this.DynamicVars["PrimedPower"].UpgradeValueBy(2);
+        this.DynamicVars["PrimedPower"].UpgradeValueBy(3);
     }
 }

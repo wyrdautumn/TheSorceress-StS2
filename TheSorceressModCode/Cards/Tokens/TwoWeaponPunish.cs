@@ -17,7 +17,7 @@ public class TwoWeaponPunish() : TheSorceressModCard(0,
     CardType.Attack, CardRarity.Token,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(2, ValueProp.Move), new PowerVar<WeakPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(2, ValueProp.Move), new PowerVar<WeakPower>(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal, CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.FromPower<WeakPower>()];
@@ -40,6 +40,6 @@ public class TwoWeaponPunish() : TheSorceressModCard(0,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Weak.UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }

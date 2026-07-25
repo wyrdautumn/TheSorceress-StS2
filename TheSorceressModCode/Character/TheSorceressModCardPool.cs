@@ -16,6 +16,8 @@ public class TheSorceressModCardPool : CustomCardPoolModel
     public override string BigEnergyIconPath => "charui/kalkara_big_energy.png".ImagePath();
     public override string TextEnergyIconPath => "charui/kalkara_text_energy.png".ImagePath();
 
+    public override Color EnergyOutlineColor => new Color("2f3056");
+
 
     /* These HSV values will determine the color of your card back.
     They are applied as a shader onto an already colored image,

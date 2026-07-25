@@ -15,27 +15,45 @@ public class Detonator() : TheSorceressModCard(0,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new CalculationBaseVar(0),
-    new ExtraDamageVar(1),
-    new CalculatedDamageVar(ValueProp.Move).WithMultiplier((_, target) => (target != null ? target.GetPowerAmount<PrimedPower>() : 0))];
+    private Decimal _extraDamageFromPrime;
+    
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(0, ValueProp.Move), new DynamicVar("hits", 1)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>()];
+    
+    private Decimal ExtraDamageFromPrime
+    {
+        get => _extraDamageFromPrime;
+        set
+        {
+            AssertMutable();
+            _extraDamageFromPrime = value;
+        }
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        if (play.Target == null || !play.Target.HasPower<PrimedPower>())
+        if (play.Target == null)
             return;
-        await DamageCmd.Attack(play.Card.DynamicVars.CalculatedDamage)
-            .FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3")
+        int increase = play.Target.GetPowerAmount<PrimedPower>();
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            .FromCard(this, play).WithHitCount(DynamicVars["hits"].IntValue).Targeting(play.Target).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3")
             .Execute(choiceContext);
+        DynamicVars.Damage.BaseValue += increase;
+        ExtraDamageFromPrime += increase;
+    }
+    
+    protected override void AfterDowngraded()
+    {
+        base.AfterDowngraded();
+        DynamicVars.Damage.BaseValue += ExtraDamageFromPrime;
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.ExtraDamage.UpgradeValueBy(1);
+        DynamicVars["hits"].UpgradeValueBy(1);
     }
 }

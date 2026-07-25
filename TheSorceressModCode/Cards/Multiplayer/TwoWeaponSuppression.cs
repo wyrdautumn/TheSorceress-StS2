@@ -17,7 +17,7 @@ public class TwoWeaponSuppression() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, ValueProp.Move), new PowerVar<WeakPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move), new PowerVar<WeakPower>(1)];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
@@ -52,7 +52,6 @@ public class TwoWeaponSuppression() : TheSorceressModCard(2,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
-        DynamicVars.Weak.UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 }

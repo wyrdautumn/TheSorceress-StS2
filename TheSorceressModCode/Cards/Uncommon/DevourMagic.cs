@@ -15,7 +15,6 @@ public class DevourMagic() : TheSorceressModCard(1,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered)];
     public override bool GainsBlock => true;
-    
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     
     protected override async Task OnPlay(

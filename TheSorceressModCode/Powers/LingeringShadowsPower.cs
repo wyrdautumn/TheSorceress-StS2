@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using TheSorceressMod.TheSorceressModCode.Cards;
 
 namespace TheSorceressMod.TheSorceressModCode.Powers;
 
@@ -21,7 +22,7 @@ public class LingeringShadowsPower : TheSorceressModPower
 
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
     {
-        if (card.Owner.Creature != this.Owner || oldPileType != PileType.Exhaust || card.Pile == null || card.Pile.Type == PileType.Exhaust || card.Pile.Type == PileType.None || this.Owner.Player == null || this.Owner.CombatState == null)
+        if (card.Owner.Creature != this.Owner || oldPileType != PileType.Exhaust || card.Pile == null || card.Pile.Type == PileType.Exhaust || card.Pile.Type == PileType.None || this.Owner.Player == null || this.Owner.CombatState == null || ShadowdanceHelper.WasAgilePlayed.Get(card))
         {
             return;
         }

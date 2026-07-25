@@ -32,8 +32,11 @@ public class ShadowOnTheWallPower : TheSorceressModPower
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != Owner.Player || cardPlay.Card.Type != CardType.Attack || this.Amount < 1 || 
+            cardPlay.Card == null || !cardPlay.Card.IsInCombat || 
             !GetInternalData<ShadowOnTheWallPower.Data>().cardPlayed.Contains(cardPlay.Card))
         {
+            if (cardPlay.Card != null && GetInternalData<Data>().cardPlayed.Contains(cardPlay.Card))
+                GetInternalData<ShadowOnTheWallPower.Data>().cardPlayed.Remove(cardPlay.Card);
             return;
         }
         Creature? target;

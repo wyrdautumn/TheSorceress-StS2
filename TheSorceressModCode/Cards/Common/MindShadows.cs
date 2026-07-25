@@ -16,30 +16,28 @@ namespace TheSorceressMod.TheSorceressModCode.Cards.Common;
 
 public class MindShadows() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Common,
-    TargetType.AllEnemies)
+    TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WeakPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Unblockable | ValueProp.Unpowered), new PowerVar<WeakPower>(1)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, SorceressKeywords.Subtle, SorceressKeywords.Sorcery];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        if (CombatState == null)
+        if (CombatState == null || play.Target == null)
             return;
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
+        await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, this, play);
         await CommonActions.Apply<WeakPower>(choiceContext, CombatState.HittableEnemies, this);
-        CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1);
-        CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs,null,this)).FirstOrDefault();
-        if (card == null)
-            return;
-        await CardCmd.Exhaust(choiceContext, card);
     }
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<WeakPower>(),HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
+        [HoverTipFactory.FromPower<WeakPower>()];
 
     protected override void OnUpgrade()
     {
+        DynamicVars.Damage.UpgradeValueBy(2);
         DynamicVars.Weak.UpgradeValueBy(1);
     }
 }

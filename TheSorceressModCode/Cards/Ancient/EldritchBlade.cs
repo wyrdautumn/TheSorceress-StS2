@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using BaseLib.Abstracts;
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,13 +8,14 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Cards.Starter;
 using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Ancient;
 
 public class EldritchBlade() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Ancient,
-    TargetType.AnyEnemy)
+    TargetType.AnyEnemy), ITranscendenceCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(16,ValueProp.Move),new EnergyVar(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
@@ -33,5 +35,10 @@ public class EldritchBlade() : TheSorceressModCard(1,
     protected override void OnUpgrade()
     {
         DynamicVars.Energy.UpgradeValueBy(1);
+    }
+
+    public CardModel GetTranscendenceTransformedCard()
+    {
+        return ModelDb.Card<EnsorcelledBlade>();
     }
 }

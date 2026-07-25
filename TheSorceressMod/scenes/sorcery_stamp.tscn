@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc0e1vvy62lv4"]
+
+[ext_resource type="Texture2D" uid="uid://u7p64djyppml" path="res://TheSorceressMod/images/charui/sorcery_stamp.png" id="1_qv1xh"]
+
+[node name="SorceryStamp" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -150.0
+offset_top = -211.0
+offset_right = 150.0
+offset_bottom = 211.0
+pivot_offset = Vector2(150, 211)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = -19.0
+offset_top = 41.0
+offset_right = 45.0
+offset_bottom = 105.0
+pivot_offset = Vector2(32, 32)
+mouse_filter = 2
+texture = ExtResource("1_qv1xh")

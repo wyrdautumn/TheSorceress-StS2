@@ -13,7 +13,7 @@ public class TwoWeaponTactics() : TheSorceressModCard(0,
     CardType.Attack, CardRarity.Token,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, ValueProp.Move), new BlockVar(8, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move), new BlockVar(6, ValueProp.Move)];
 
     protected override HashSet<CardTag> CanonicalTags
     {
@@ -31,7 +31,7 @@ public class TwoWeaponTactics() : TheSorceressModCard(0,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
-        DynamicVars.Block.UpgradeValueBy(2);
+        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Block.UpgradeValueBy(3);
     }
 }

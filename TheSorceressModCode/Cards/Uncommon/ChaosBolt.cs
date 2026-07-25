@@ -24,10 +24,9 @@ public class ChaosBolt() : TheSorceressModCard(2,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9,ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered),
     new PowerVar<PrimedPower>(3), new DynamicVar("Debuff",3)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromPower<WeakPower>(),HoverTipFactory.FromPower<VulnerablePower>()];
-    
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

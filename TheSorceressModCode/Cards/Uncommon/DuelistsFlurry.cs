@@ -39,7 +39,6 @@ public class DuelistsFlurry() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(1);
-        DynamicVars.Weak.UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 }

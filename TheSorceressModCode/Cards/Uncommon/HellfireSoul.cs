@@ -84,7 +84,7 @@ public class HellfireSoul() : TheSorceressModCard(5,
         }).WithAttackerAnim("Cast",0.2f).Execute(choiceContext);
         HellfireSoul hellfireSoul = this;
         foreach (CardModel card in PileType.Discard.GetPile(hellfireSoul.Owner).Cards.ToList<CardModel>()
-                     .StableShuffle<CardModel>(hellfireSoul.Owner.RunState.Rng.Shuffle).Take<CardModel>(hellfireSoul
+                     .StableShuffle<CardModel>(hellfireSoul.Owner.RunState.Rng.CombatCardSelection).Take<CardModel>(hellfireSoul
                          .DynamicVars
                              ["Exhaust"].IntValue))
         {
