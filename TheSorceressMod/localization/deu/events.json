@@ -1,0 +1,7 @@
+﻿{
+  "COLORFUL_PHILOSOPHERS.pages.INITIAL.options.CARD_POOL∴THESORCERESSMOD-THE_SORCERESS_MOD_CARD_POOL.description": "Obtain [blue]{Cards}[/blue] Sorceress {Cards:plural:card|cards}.",
+  "COLORFUL_PHILOSOPHERS.pages.INITIAL.options.CARD_POOL∴THESORCERESSMOD-THE_SORCERESS_MOD_CARD_POOL.title": "Navy",
+  "BYRDONIS_NEST.pages.INITIAL.sorceressDescription": "Du erblickst eine [jitter][red]taukelnde Bestie[/red][/jitter], die einen verletzten [green][sine]grünen Fogl[/sine][/green] verscheucht.\n\nIn der Nische, aus der der Fogl kam, liegt ein [gold]unbeschützes Ei[/gold], scheinbar verlasssen.\n\n[sine]Du bist hin- und hergerissen...[/sine]",
+  "BYRDONIS_NEST.pages.TAKE.sorceressDescription": "Du nimmst das Ei sehr Vorsichting auf.\n\nDu hättest nie erwartet, zu [green]sowas[/green] in der Lage zu sein. Und dennoch beruhigt dich der Gedanke.",
+  "BYRDONIS_NEST.pages.EAT.sorceressDescription": "Du zerbrichst das Ei und kochst es über deiner Flamme.\n\nSo gehört es sich immerhin in der Natur. Eine Megafauna würde diesem Ort auch kaum helfen."
+}

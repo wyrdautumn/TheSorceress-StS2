@@ -1,0 +1,8 @@
+﻿{
+  "THESORCERESSMOD-INVISIBILITY_POTION.description": "Erhalte [gold]Kampfvorteil[/gold].",
+  "THESORCERESSMOD-INVISIBILITY_POTION.title": "Trank der Unsichtbarkeit",
+  "THESORCERESSMOD-CHARISMA_POTION.description": "Erhalte {CharismaPower:diff()} [gold]Charisma[/gold].",
+  "THESORCERESSMOD-CHARISMA_POTION.title": "Elexir der Geschlechtsumwandlung",
+  "THESORCERESSMOD-SHADOW_POTION.description": "Wähle eine Karte aus deinem [gold]Erschöpfungsstapel[/gold] und spiele sie aus.",
+  "THESORCERESSMOD-SHADOW_POTION.title": "Serum der wandelden Schatten"
+}

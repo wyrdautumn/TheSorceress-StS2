@@ -1,0 +1,7 @@
+﻿{
+  "TO_PALM": "Wähle {Amount:plural:eine Karte|[blue]{}[/blue] Karten} aus.",
+  "TO_RETAIN": "Wähle {Amount:plural:eine Karte|[blue]{}[/blue] Karten} zum [gold]Behalten[/gold] aus.",
+  "TO_TELL": "Wähle {Amount:plural:einen Garn zum spinnen|[blue]{}[/blue] Garne zu spinnen}.",
+  "TO_SHUFFLE": "Wähle {Amount:plural:eine Karte|[blue]{}[/blue] Karten} für deinen Nachziehstapel aus.",
+  "TO_SHADOW": "Wähle {Amount:plural:einen Schatten|[blue]{}[/blue] Schatten} zum herbeirufen."
+}

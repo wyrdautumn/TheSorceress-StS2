@@ -1,0 +1,16 @@
+{
+  "THESORCERESSMOD-THE_SORCERESS_MOD.aromaPrinciple": "[sine][color=B18AFF]Ich schreibe meine eigene Geschichte, komme was wolle.[/color][/sine]",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.banter.alive.endTurnPing": "Der Feind wartet.",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.banter.dead.endTurnPing": "...",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.cardsModifierDescription": "Karten der Hexerin werden nun im Laden un als Behlohnung auftauchen.",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.cardsModifierTitle": "Karten der Hexerin",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.description": "Ein missratener Söldner, der zu einer Neuen wurde.\nDer Funke Hexerei verbirgt eine tödliche Klinge.",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.eventDeathPrevention": "Es wäre nur zu bedauerlich, wenn alles hier sein Ende fänd.",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.goldMonologue": "[sine]Wären ein Paar hübsche Kleider so schlimm...?[/sine]",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.possessiveAdjective": "sie",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.pronounObject": "ihr",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.pronounPossessive": "ihr",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.pronounSubject": "sie",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.title": "Die Hexerin",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.titleObject": "Die Hexerin"
+}

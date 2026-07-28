@@ -1,0 +1,10 @@
+{
+  "THESORCERESSMOD-SLEIGHT.description": "Die Kosten von jedem Taschentrick, hängen von der Anzahl der in diesem Zug gespielten Taschentricks ab.",
+  "THESORCERESSMOD-SLEIGHT.title": "Taschentrick",
+  "THESORCERESSMOD-SORCERY.description": "Die Macht dieser Karte wird durch [gold]Charisma[/gold] erhöht.",
+  "THESORCERESSMOD-SORCERY.title": "Hexerei",
+  "THESORCERESSMOD-SHADOWDANCE.description": "Wenn sich diese Karte bei Beginn des Zuges auf deinem [gold]Erschöpfungsstapel[/gold] befindet, kehrt sie auf dein [gold]Abwurfstapel[/gold] zurück.",
+  "THESORCERESSMOD-SHADOWDANCE.title": "Schattentanz",
+  "THESORCERESSMOD-SUBTLE.description": "Wenn diese Karte [gold]erschöpft[/gold] ist, wird sie gratis ausgespielt.",
+  "THESORCERESSMOD-SUBTLE.title": "Agil"
+}
