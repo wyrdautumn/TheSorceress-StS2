@@ -13,12 +13,10 @@ namespace TheSorceressMod.TheSorceressModCode.Patches;
 [HarmonyPatch(typeof(NCard), "UpdateTypePlaque")]
 public class SorcerySubtypePatch
 {
-    [HarmonyPrefix]
-    public static bool SorcerySubptypePrefix(NCard __instance)
+    [HarmonyPostfix]
+    public static void SorcerySubptypePostfix(NCard __instance)
     {
-        if (__instance.Model == null || !__instance.Model.Keywords.Contains(SorceressKeywords.Sorcery))
-            return true;
-        else
+        if (__instance.Model != null && __instance.Model.Keywords.Contains(SorceressKeywords.Sorcery))
         {
             LocString sorceryString;
             sorceryString = new LocString("gameplay_ui", "THESORCERESSMOD-CARD_TYPE.SORCERY");
@@ -29,7 +27,6 @@ public class SorcerySubtypePatch
             if (__instance._typePlaque.Material != sorceryMaterial)
                 __instance._typePlaque.Material = sorceryMaterial;
             Callable.From(new Action(__instance.UpdateTypePlaqueSizeAndPosition)).CallDeferred();
-            return false;
         }
     }
 }
