@@ -16,7 +16,7 @@ public class ShadowSneak() : TheSorceressModCard(0,
     TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [SorceressKeywords.Stealthy];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7,ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6,ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     
 

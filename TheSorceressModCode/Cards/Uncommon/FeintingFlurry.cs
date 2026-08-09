@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using System.Buffers;
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -12,33 +13,34 @@ using TheSorceressMod.TheSorceressModCode.Cards;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class FeintingFlurry() : TheSorceressModCard(0,
+public class FeintingFlurry() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new CalculationBaseVar(3),
-        new ExtraDamageVar(3),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier(Calc)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move),
+        new CalculationBaseVar(0),
+        new CalculationExtraVar(1),
+        new CalculatedVar("hits").WithMultiplier(Calc)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight)];
 
     private static decimal Calc(CardModel card, Creature? arg2)
-        => (Decimal)CombatManager.Instance.History.CardPlaysFinished.Count<CardPlayFinishedEntry>(
-            (Func<CardPlayFinishedEntry, bool>)(e =>
-                e.HappenedThisTurn(card.CombatState) && e.CardPlay.Card.Keywords.Contains(SorceressKeywords.Sleight) &&
-                e.CardPlay.Card.Owner == card.Owner));
+    {
+        if (card.Owner.PlayerCombatState == null)
+            return 0;
+        return card.Owner.PlayerCombatState.AllCards.Count(c => c.Keywords.Contains(SorceressKeywords.Sleight));
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CommonActions.CardAttack(this, play,vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
+        await CommonActions.CardAttack(this, play, (int) ((CalculatedVar) DynamicVars["hits"]).Calculate(null), "vfx/vfx_attack_slash").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationBase.UpgradeValueBy(2);
-        DynamicVars.ExtraDamage.UpgradeValueBy(2);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }

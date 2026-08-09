@@ -11,27 +11,24 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
-public class DefensiveAdvantage() : TheSorceressModCard(2,
+public class DefensiveAdvantage() : TheSorceressModCard(1,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Percent", 25)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DefensiveAdvantagePower>(2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<CombatAdvantagePower>()];
+        [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.FromPower<DexterityPower>()];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-        if (IsUpgraded)
-            await CommonActions.ApplySelf<DefensiveAdvantageUpgradePower>(choiceContext, this, 1);
-        else
-            await CommonActions.ApplySelf<DefensiveAdvantagePower>(choiceContext, this, 1);
+        await CommonActions.ApplySelf<DefensiveAdvantagePower>(choiceContext, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Percent"].UpgradeValueBy(15);
+        DynamicVars["DefensiveAdvantagePower"].UpgradeValueBy(1);
     }
 }

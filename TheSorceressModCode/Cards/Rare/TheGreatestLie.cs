@@ -12,12 +12,12 @@ using TheSorceressMod.TheSorceressModCode.Cards;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
-public class TheGreatestLie() : TheSorceressModCard(0,
+public class TheGreatestLie() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight,CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -36,11 +36,12 @@ public class TheGreatestLie() : TheSorceressModCard(0,
         var clone = CombatState?.CloneCard(card);
         if (clone != null)
         {
+            clone.DeckVersion = card;
             CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(clone, PileType.Draw, Owner, CardPilePosition.Top));
         }
     }
     protected override void OnUpgrade()
     {
-        this.AddKeyword(SorceressKeywords.Shadowdance);
+        EnergyCost.UpgradeBy(-1);
     }
 }

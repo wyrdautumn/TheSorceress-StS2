@@ -17,7 +17,7 @@ public class SorcerousPulse() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<CharismaPower>(2), new PowerVar<FreeSorceryPower>(1),
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FreeSorceryPower>(1),
     new DynamicVar("Exhaust",1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Exhaust),HoverTipFactory.FromPower<CharismaPower>(),HoverTipFactory.FromKeyword(SorceressKeywords.Sorcery)];
@@ -27,7 +27,6 @@ public class SorcerousPulse() : TheSorceressModCard(1,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-        await CommonActions.ApplySelf<CharismaPower>(choiceContext, this);
         if (!IsUpgraded)
         {
             foreach (CardModel card in PileType.Discard.GetPile(this.Owner).Cards.ToList<CardModel>()

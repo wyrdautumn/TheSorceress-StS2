@@ -94,6 +94,6 @@ public class HellfireSoul() : TheSorceressModCard(5,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Exhaust"].UpgradeValueBy(2);
+        AddKeyword(CardKeyword.Retain);
     }
     }

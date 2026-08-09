@@ -7,6 +7,7 @@ public partial class NSorceryStamp : Control
 {
         private NCard? _card;
         private Control? _container;
+        private Vector2 _position;
         
         public override void _Ready()
         {
@@ -21,6 +22,8 @@ public partial class NSorceryStamp : Control
             {
                 _card = card;
             }
+
+            _position = Position;
         }
         
         public override void _Process(double delta)
@@ -31,5 +34,14 @@ public partial class NSorceryStamp : Control
                 return;
             }
             this.Visible = _card.Visible;
+            if (Visible)
+            {
+                if (_card.Model.Enchantment != null)
+                    Position = (_position + new Vector2(0f, 64f));
+                else
+                {
+                    Position = _position;
+                }
+            }
         }
 }

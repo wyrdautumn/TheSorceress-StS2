@@ -1,4 +1,6 @@
 {
   "THESORCERESSMOD-FIRE_ATTACK.description": "Fire Attacks have the words \"[gold]Fire[/gold]\", \"[gold]Flame[/gold]\", or \"[gold]Pyre[/gold]\" in their name.",
-  "THESORCERESSMOD-FIRE_ATTACK.title": "Fire"
+  "THESORCERESSMOD-FIRE_ATTACK.title": "Fire",
+  "THESORCERESSMOD-REKINDLE.title": "Rekindle",
+  "THESORCERESSMOD-REKINDLE.description": "When a card [gold]Rekindles[/gold], return it to your [gold]Hand[/gold] from the [gold]Exhaust Pile[/gold]."
 }

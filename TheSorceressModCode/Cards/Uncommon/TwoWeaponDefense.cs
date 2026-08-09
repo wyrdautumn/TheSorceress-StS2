@@ -29,6 +29,6 @@ public class TwoWeaponDefense() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["TwoWeaponDefensePower"].UpgradeValueBy(1);
+        AddKeyword(SorceressKeywords.Subtle);
     }
 }

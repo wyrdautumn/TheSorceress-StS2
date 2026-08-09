@@ -35,3 +35,20 @@ public class SorceryStampNodePostfix
         cardContainer.AddChild(stamp);
     }
 }
+
+[HarmonyPatch(typeof(NCard), nameof(NCard.UpdateVisuals))]
+public class SorceryStampVisibilityPostfix
+{
+    [HarmonyPostfix]
+    public static void FixSorceryStampNode(NCard __instance)
+    {
+        Control? stamp = __instance.GetChild(0)!.GetNodeOrNull<Control>("SorceryStamp");
+        if (__instance.Visible && __instance.Model != null &&
+            __instance.Model.Keywords.Contains(SorceressKeywords.Sorcery))
+            stamp.Visible = true;
+        else
+        {
+            stamp.Visible = false;
+        }
+    }
+}

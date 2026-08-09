@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
@@ -20,11 +21,11 @@ public class TheatricalBow() : TheSorceressModCard(0,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new CalculationBaseVar(0),
-        new CalculationExtraVar(2),
+        new CalculationExtraVar(1),
         new CalculatedVar("Skills").WithMultiplier(Calc)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<VigorPower>()];
+        [HoverTipFactory.FromPower<CharismaPower>()];
     
     private static decimal Calc(CardModel card, Creature? arg2)
         => (Decimal)CombatManager.Instance.History.CardPlaysFinished.Count<CardPlayFinishedEntry>(
@@ -37,7 +38,7 @@ public class TheatricalBow() : TheSorceressModCard(0,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-        await CommonActions.ApplySelf<VigorPower>(choiceContext,this, ((CalculatedVar)DynamicVars["Skills"]).Calculate(Owner.Creature));
+        await CommonActions.ApplySelf<CharismaPower>(choiceContext,this, ((CalculatedVar)DynamicVars["Skills"]).Calculate(Owner.Creature));
     }
 
     protected override void OnUpgrade()

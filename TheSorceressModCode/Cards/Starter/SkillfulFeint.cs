@@ -19,6 +19,8 @@ public class SkillfulFeint() : TheSorceressModCard(0,
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.FromPower<StrengthPower>()];
 
+    public override TargetType TargetType => IsUpgraded ? TargetType.AllEnemies : TargetType.AnyEnemy;
+    
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
@@ -30,6 +32,6 @@ public class SkillfulFeint() : TheSorceressModCard(0,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["DefensiveAdvantageDebuff"].UpgradeValueBy(1);
+
     }
 }

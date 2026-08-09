@@ -29,7 +29,7 @@ public class MindShadows() : TheSorceressModCard(1,
             return;
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await CreatureCmd.Damage(choiceContext, play.Target, this.DynamicVars.Damage, this, play);
-        await CommonActions.Apply<WeakPower>(choiceContext, CombatState.HittableEnemies, this);
+        await CommonActions.Apply<WeakPower>(choiceContext, this, play);
     }
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -37,7 +37,6 @@ public class MindShadows() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars.Weak.UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 }

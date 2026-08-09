@@ -14,18 +14,28 @@ namespace TheSorceressMod.TheSorceressModCode.Patches;
 public class SorcerySubtypePatch
 {
     [HarmonyPostfix]
-    public static void SorcerySubptypePostfix(NCard __instance)
+    public static void SorcerySubtypePostfix(NCard __instance)
     {
-        if (__instance.Model != null && __instance.Model.Keywords.Contains(SorceressKeywords.Sorcery))
+        CardModel? card = __instance.Model;
+        if (card != null && (card.Keywords.Contains(SorceressKeywords.Sorcery) || card.Tags.Contains(SorceressKeywords.TwoWeapon)))
         {
             LocString sorceryString;
-            sorceryString = new LocString("gameplay_ui", "THESORCERESSMOD-CARD_TYPE.SORCERY");
-            sorceryString.Add("Type",__instance.Model.Type.ToLocString());
+            if (card.Keywords.Contains(SorceressKeywords.Sorcery) && card.Tags.Contains(SorceressKeywords.TwoWeapon))
+                sorceryString = new LocString("gameplay_ui", "THESORCERESSMOD-CARD_TYPE.TWO_WEAPON_SORCERY");
+            else if (card.Keywords.Contains(SorceressKeywords.Sorcery))
+                sorceryString = new LocString("gameplay_ui", "THESORCERESSMOD-CARD_TYPE.SORCERY");
+            else
+                sorceryString = new LocString("gameplay_ui", "THESORCERESSMOD-CARD_TYPE.TWO_WEAPON");
+            sorceryString.Add("Type",card.Type.ToLocString());
             __instance._typeLabel.SetTextAutoSize(sorceryString.GetFormattedText());
-            Material sorceryMaterial =
-                PreloadManager.Cache.GetMaterial("res://TheSorceressMod/images/shaders/card_banner_sorcery_mat.tres");
-            if (__instance._typePlaque.Material != sorceryMaterial)
-                __instance._typePlaque.Material = sorceryMaterial;
+            if (card.Keywords.Contains(SorceressKeywords.Sorcery))
+            {
+                Material sorceryMaterial =
+                    PreloadManager.Cache.GetMaterial(
+                        "res://TheSorceressMod/images/shaders/card_banner_sorcery_mat.tres");
+                if (__instance._typePlaque.Material != sorceryMaterial)
+                    __instance._typePlaque.Material = sorceryMaterial;
+            }
             Callable.From(new Action(__instance.UpdateTypePlaqueSizeAndPosition)).CallDeferred();
         }
     }

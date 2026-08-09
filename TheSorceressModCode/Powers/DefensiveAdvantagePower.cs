@@ -19,19 +19,15 @@ public class DefensiveAdvantagePower : TheSorceressModPower
     public override PowerStackType StackType => PowerStackType.Single;
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<CombatAdvantagePower>()];
+        [HoverTipFactory.FromPower<CombatAdvantagePower>(), HoverTipFactory.FromPower<DexterityPower>()];
     
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
+        CardModel? cardSource)
     {
-        if (Owner.HasPower<DefensiveAdvantageUpgradePower>())
-            await PowerCmd.Remove(this);
-    }
-
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
-        CardModel? cardSource, CardPlay? cardPlay)
-    {
-        if (target != Owner || dealer == Owner || !props.IsPoweredAttack() || !Owner.HasPower<CombatAdvantagePower>())
-            return 1;
-        return 0.75M;
+        if (power.Owner.Player != Owner.Player || power is not CombatAdvantagePower || amount < 1)
+        {
+            return;
+        }
+        await PowerCmd.Apply<DexterityAdvantagePower>(choiceContext, Owner, Amount, Owner, null);
     }
 }

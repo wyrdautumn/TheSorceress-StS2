@@ -26,6 +26,6 @@ public class TwoWeaponFlurry() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["TwoWeaponFlurryPower"].UpgradeValueBy(1);
+        AddKeyword(SorceressKeywords.Subtle);
     }
 }

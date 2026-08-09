@@ -47,8 +47,7 @@ public class CombatAdvantagePower : TheSorceressModPower
     {
         if (command.Attacker == this.Owner && command.ModelSource is CardModel && command.DamageProps.IsPoweredAttack())
         {
-            CardModel? cardSource = command.ModelSource as CardModel;
-            if (cardSource != null && cardSource.Tags.Contains(SorceressKeywords.Stealthy))
+            if (command.ModelSource is CardModel cardSource && cardSource.Tags.Contains(SorceressKeywords.Stealthy))
             {
                 return;
             }
