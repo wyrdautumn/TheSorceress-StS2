@@ -10,52 +10,39 @@ namespace TheSorceressMod.TheSorceressModCode.Powers;
 
 public class ShadowOnTheWallPower : TheSorceressModPower
 {
-    protected override object InitInternalData() => (object) new ShadowOnTheWallPower.Data();
-    
+   
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
+
+    protected override object InitInternalData() => new Data();
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
-    
-    public override Task BeforeCardPlayed(CardPlay cardPlay)
+
+    public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
     {
-        if (cardPlay.Card.Owner != Owner.Player || cardPlay.Card.Type != CardType.Attack || this.Amount < 1)
+        if (card.Owner.Creature == this.Owner && card.Type == CardType.Attack)
         {
-            return Task.CompletedTask;
+            GetInternalData<Data>().CardPlayed.Add(card);
+            return playCount + Amount;
         }
-        this.GetInternalData<ShadowOnTheWallPower.Data>().cardPlayed.Add(cardPlay.Card);
-        return Task.CompletedTask;
+        return playCount;
     }
-    
+
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner.Player || cardPlay.Card.Type != CardType.Attack || this.Amount < 1 || 
-            cardPlay.Card == null || !cardPlay.Card.IsInCombat || 
-            !GetInternalData<ShadowOnTheWallPower.Data>().cardPlayed.Contains(cardPlay.Card))
+        if (GetInternalData<Data>().CardPlayed.Contains(cardPlay.Card))
         {
-            if (cardPlay.Card != null && GetInternalData<Data>().cardPlayed.Contains(cardPlay.Card))
-                GetInternalData<ShadowOnTheWallPower.Data>().cardPlayed.Remove(cardPlay.Card);
-            return;
+            await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, Owner, 1, Owner, null);
+            await PowerCmd.Decrement(this);
+            if (cardPlay.IsLastInSeries && Amount > 0)
+                await PowerCmd.Remove(this);
         }
-        Creature? target;
-        if (cardPlay.Target != null && cardPlay.Target.IsAlive)
-        {
-            target = cardPlay.Target;
-        }
-        else
-        {
-            target = null;
-        }
-        await PowerCmd.Decrement(this);
-        await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, Owner, 1, Owner, null);
-        await CardCmd.AutoPlay(choiceContext, cardPlay.Card, target);
-        GetInternalData<ShadowOnTheWallPower.Data>().cardPlayed.Remove(cardPlay.Card);
     }
-    
-    private class Data
+
+    private class Data()
     {
-        public readonly List<CardModel> cardPlayed = new List<CardModel>();
+        public List<CardModel> CardPlayed = new List<CardModel>();
     }
 }
