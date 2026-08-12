@@ -13,23 +13,22 @@ using TheSorceressMod.TheSorceressModCode.Cards;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class FeintingFlurry() : TheSorceressModCard(1,
+public class FeintingFlurry() : TheSorceressModCard(0,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move),
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, ValueProp.Move),
         new CalculationBaseVar(0),
         new CalculationExtraVar(1),
         new CalculatedVar("hits").WithMultiplier(Calc)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight)];
 
     private static decimal Calc(CardModel card, Creature? arg2)
     {
-        if (card.Owner.PlayerCombatState == null)
-            return 0;
-        return card.Owner.PlayerCombatState.AllCards.Count(c => c.Keywords.Contains(SorceressKeywords.Sleight));
+        return CombatManager.Instance.History.CardPlaysFinished.Count(e =>
+                e.HappenedThisTurn(card.CombatState) && e.CardPlay.Card.Keywords.Contains(SorceressKeywords.Sleight) &&
+                e.CardPlay.Card.Owner == card.Owner);
     }
 
     protected override async Task OnPlay(
@@ -41,6 +40,6 @@ public class FeintingFlurry() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
+        AddKeyword(CardKeyword.Retain);
     }
 }

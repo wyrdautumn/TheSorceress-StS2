@@ -83,7 +83,7 @@
   "THESORCERESSMOD-A_THOUSAND_MASKS.title": "A Thousand Masks",
   "THESORCERESSMOD-HELLFIRE_SOUL.description": "Deal {Damage:diff()} damage to ALL enemies.\n[gold]Exhaust[/gold] up to {Exhaust:diff()} random cards in your [gold]Discard Pile[/gold].\nCosts {energyPrefix:energyIcons(1)} less for each card that will be [gold]Exhausted[/gold].",
   "THESORCERESSMOD-HELLFIRE_SOUL.title": "Hellfire Soul",
-  "THESORCERESSMOD-FEINTING_FLURRY.description": "Deal {Damage:diff()} damage for each of your [gold]Sleight[/gold] cards.{InCombat:\nHits {hits:diff()} times.|}",
+  "THESORCERESSMOD-FEINTING_FLURRY.description": "Deal {Damage:diff()} damage for each [gold]Sleight[/gold] card already played this turn.{InCombat:\nHits {hits:diff()} times.|}",
   "THESORCERESSMOD-FEINTING_FLURRY.title": "Feinting Finale",
   "THESORCERESSMOD-CREATE_A_DIVERSION.description": "Gain {Block:diff()} [gold]Block[/gold].\nChoose a card in your [gold]Draw Pile[/gold] and put it on top.",
   "THESORCERESSMOD-CREATE_A_DIVERSION.title": "Create a Diversion",
