@@ -20,6 +20,7 @@ public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
 {
     public static readonly SpireField<CardModel, bool> TempShadowdance = new(() => false);
     public static readonly SpireField<CardModel, bool> WasAgilePlayed = new(() => false);
+    public static readonly SpireField<CardModel, bool> ExhaustedOnPlay = new(() => false);
     
     public override async Task BeforeHandDraw(
         Player player,
@@ -42,21 +43,29 @@ public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
         }
     }
 
+    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.ResultPile == PileType.Exhaust)
+            ExhaustedOnPlay.Set(cardPlay.Card, true);
+        return Task.CompletedTask;
+    }
+
     public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool _)
     {
         if (card.CombatState == null)
         {
             return;
         }
-        if (card.Keywords.Contains(SorceressKeywords.Subtle) && !WasAgilePlayed.Get(card))
+
+        if (ExhaustedOnPlay.Get(card))
+        {
+            ExhaustedOnPlay.Set(card, false);
+            return;
+        }
+        if (card.Keywords.Contains(SorceressKeywords.Subtle))
         {
             WasAgilePlayed.Set(card, true);
             await CardCmd.AutoPlay(choiceContext, card,null,AutoPlayType.Default,false,false);
-        }
-
-        if (WasAgilePlayed.Get(card))
-        {
-            WasAgilePlayed.Set(card, false);
         }
     }
 
@@ -65,6 +74,7 @@ public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
     {
         if (WasAgilePlayed.Get(card))
         {
+            WasAgilePlayed.Set(card, false);
             cardLocation.pileType = PileType.Exhaust;
             return cardLocation;
         }

@@ -10,7 +10,7 @@ public class Sorceress2Epoch : EpochModel
 {
     public override string Id => "THESORCERESSMOD-SORCERESS2_EPOCH";
     public override EpochEra Era => EpochEra.Invitation2;
-    public override int EraPosition => 2;
+    public override int EraPosition => 3;
     public override string? StoryId => "Sorceress";
 
     public static List<RelicModel> Relics =>

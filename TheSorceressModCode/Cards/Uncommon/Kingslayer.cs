@@ -15,7 +15,7 @@ public class Kingslayer() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(16, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(22, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle,CardKeyword.Exhaust];
 
     protected override async Task OnPlay(

@@ -18,7 +18,7 @@ public class MindShadows() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Common,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Unblockable | ValueProp.Unpowered), new PowerVar<WeakPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Unblockable | ValueProp.Unpowered), new PowerVar<WeakPower>(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, SorceressKeywords.Subtle, SorceressKeywords.Sorcery];
 
     protected override async Task OnPlay(
