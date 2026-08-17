@@ -1,15 +1,18 @@
 ﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Cards.CrossMod;
 using TheSorceressMod.TheSorceressModCode.Patches;
+using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Ancient;
 
-public class UnseenStrike : TheSorceressModCard
+public class UnseenStrike : TheSorceressModAncientsAwakenedCard
 {
     public UnseenStrike() : base(1, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
     {
@@ -25,6 +28,8 @@ public class UnseenStrike : TheSorceressModCard
     [
         CardTag.Strike, SorceressKeywords.Stealthy, SorceressKeywords.PrimeTrick
     ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.Static(SorceressKeywords.AncientsAwakened)];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle];
     

@@ -24,9 +24,10 @@ public class TheGreatestLie() : TheSorceressModCard(1,
         CardPlay play)
     {
         var prefs = new CardSelectorPrefs(new LocString("card_selection", "TO_TELL"), DynamicVars.Cards.IntValue);
+        var deck = PileType.Deck.GetPile(Owner).Cards.Where(c => c != this).ToList();
         var card = (await CardSelectCmd.FromSimpleGrid(
             choiceContext,
-            PileType.Deck.GetPile(Owner).Cards,
+            deck,
             Owner,
             prefs)).FirstOrDefault();
         if (card == null || CombatState == null)

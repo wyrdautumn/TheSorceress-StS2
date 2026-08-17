@@ -5,6 +5,6 @@
   "THESORCERESSMOD-SORCERY.title": "Sorcery",
   "THESORCERESSMOD-SHADOWDANCE.description": "If this card is in your [gold]Exhaust Pile[/gold] at the start of your turn, it returns to your [gold]Discard Pile[/gold].",
   "THESORCERESSMOD-SHADOWDANCE.title": "Shadowdance",
-  "THESORCERESSMOD-SUBTLE.description": "If this card is [gold]Exhausted[/gold] without being played, it immediately plays for free.",
+  "THESORCERESSMOD-SUBTLE.description": "If this card is [gold]Exhausted[/gold] without being played, it immediately plays for free. Then, it [gold]Exhausts[/gold].",
   "THESORCERESSMOD-SUBTLE.title": "Agile"
 }

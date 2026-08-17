@@ -73,4 +73,9 @@ public static class StringExtensions
     {
         return Path.Join(MainFile.ResPath, "scenes", path);
     }
+    
+    public static string EnchantmentsPath(this string path)
+    {
+        return Path.Join(MainFile.ResPath, "images", "enchantments", path);
+    }
 }

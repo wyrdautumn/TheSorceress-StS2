@@ -1,10 +1,12 @@
 ﻿using BaseLib.Abstracts;
 using TheSorceressMod.TheSorceressModCode.Extensions;
 using Godot;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Unlocks;
+using TheSorceressMod.TheSorceressModCode.Cards.CrossMod;
 using TheSorceressMod.TheSorceressModCode.Epochs;
 
 namespace TheSorceressMod.TheSorceressModCode.Character;
@@ -56,6 +58,20 @@ public class TheSorceressModCardPool : CustomCardPoolModel
         if (!unlockState.IsEpochRevealed<Sorceress7Epoch>())
         {
             list.RemoveAll(c => Sorceress7Epoch.Cards.Any(card => card.Id == c.Id));
+        }
+        
+        var mysteriousFlashlightType =
+            AccessTools.TypeByName("TheHeroExpansion.TheHeroExpansionCode.Extensions.CustomMysteriousFlashlightExtension");
+        if (mysteriousFlashlightType == null)
+        {
+            list.RemoveAll(c => c is TheSorceressModHeroExpansionCard);
+        }
+        
+        var ancientsAwakenedType =
+            AccessTools.TypeByName("AncientsAwakened.AncientsAwakenedCode.Pools.Mithrix.PerfectedPool");
+        if (ancientsAwakenedType == null)
+        {
+            list.RemoveAll(c => c is TheSorceressModAncientsAwakenedCard);
         }
 
         return list;

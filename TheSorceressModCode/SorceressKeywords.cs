@@ -21,4 +21,6 @@ public static class SorceressKeywords
     [CustomEnum] public static CardTag PrimeTrick;
     [CustomEnum] public static StaticHoverTip FireAttack;
     [CustomEnum] public static StaticHoverTip Rekindle;
+    [CustomEnum] public static StaticHoverTip AncientsAwakened;
+    [CustomEnum] public static StaticHoverTip HeroExpansion;
 }

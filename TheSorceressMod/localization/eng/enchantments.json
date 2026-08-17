@@ -1,0 +1,5 @@
+﻿{
+  "THESORCERESSMOD-STEALTHY_ENCHANTMENT.description": "This card deals [blue]{Amount}[/blue] additional damage when you have [gold]Combat Advantage[/gold] and you don't lose [gold]Combat Advantage[/gold] after playing it.",
+  "THESORCERESSMOD-STEALTHY_ENCHANTMENT.extraCardText": "Deal [blue]{Amount}[/blue] additional damage when you have [gold]Combat Advantage[/gold].{AddStealthy:cond:>0?\nDon't lose [gold]Combat Advantage[/gold] after playing this card.|}",
+  "THESORCERESSMOD-STEALTHY_ENCHANTMENT.title": "Stealthy"
+}

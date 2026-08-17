@@ -6,6 +6,7 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
+using TheSorceressMod.TheSorceressModCode.Cards.Event;
 using TheSorceressMod.TheSorceressModCode.Cards.Starter;
 using TheSorceressMod.TheSorceressModCode.Character;
 using TheSorceressMod.TheSorceressModCode.Patches;
@@ -39,7 +40,6 @@ public partial class MainFile : Node
             var addMethod = AccessTools.DeclaredMethod(deckboxType, "AddCharacterDeck");
             addMethod.Invoke(null, [ModelDb.GetId<Character.TheSorceressMod>(), ModelDb.GetId<TwoWeaponCatch>(), ModelDb.GetId<SparkStep>()]);
         }
-
     }
     
 }

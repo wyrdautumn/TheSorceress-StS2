@@ -20,7 +20,7 @@ public class SorcerousPulse() : TheSorceressModCard(1,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FreeSorceryPower>(1),
     new DynamicVar("Exhaust",1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromKeyword(CardKeyword.Exhaust),HoverTipFactory.FromPower<CharismaPower>(),HoverTipFactory.FromKeyword(SorceressKeywords.Sorcery)];
+        [HoverTipFactory.FromKeyword(CardKeyword.Exhaust),HoverTipFactory.FromKeyword(SorceressKeywords.Sorcery)];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

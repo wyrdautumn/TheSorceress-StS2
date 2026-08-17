@@ -8,13 +8,14 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Cards.CrossMod;
 using TheSorceressMod.TheSorceressModCode.Patches;
 using TheSorceressMod.TheSorceressModCode.Powers;
 using TheSorceressMod.TheSorceressModCode.Relics;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Ancient;
 
-public class UnseenDefend : TheSorceressModCard
+public class UnseenDefend : TheSorceressModAncientsAwakenedCard
 {
     public UnseenDefend() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self)
     {
@@ -31,7 +32,7 @@ public class UnseenDefend : TheSorceressModCard
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<CombatAdvantagePower>()];
+        [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.Static(SorceressKeywords.AncientsAwakened)];
 
     
     public override bool GainsBlock => true;

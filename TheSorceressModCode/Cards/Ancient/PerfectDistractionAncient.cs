@@ -10,12 +10,13 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Cards.CrossMod;
 using TheSorceressMod.TheSorceressModCode.Patches;
 using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Ancient;
 
-public class PerfectDistractionAncient : TheSorceressModCard
+public class PerfectDistractionAncient : TheSorceressModAncientsAwakenedCard
 {
     public PerfectDistractionAncient() : base(0,
         CardType.Skill, CardRarity.Ancient,
@@ -26,9 +27,8 @@ public class PerfectDistractionAncient : TheSorceressModCard
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PrimedPower>(5)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-    
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.Static(SorceressKeywords.Rekindle)];
+        [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.Static(SorceressKeywords.Rekindle),HoverTipFactory.Static(SorceressKeywords.AncientsAwakened)];
 
         public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
         {

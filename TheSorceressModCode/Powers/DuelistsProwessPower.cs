@@ -16,8 +16,10 @@ public class DuelistsProwessPower : TheSorceressModPower
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
 
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
+        if (player != Owner.Player)
+            return;
         this.Flash();
         await PowerCmd.Apply<CombatAdvantagePower>(new ThrowingPlayerChoiceContext(), this.Owner, 1M, this.Owner, null);
     }

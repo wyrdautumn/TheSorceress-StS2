@@ -68,7 +68,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="TheSorceressModCode\Cards\Event\" />
         <Folder Include="TheSorceressMod\images\card_portraits\big\"/>
         <Folder Include="TheSorceressMod\images\powers\big\"/>
         <Folder Include="TheSorceressMod\images\relics\big\"/>
