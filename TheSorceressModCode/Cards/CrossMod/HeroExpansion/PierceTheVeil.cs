@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.CrossMod.HeroExpansion;
 
@@ -17,7 +18,7 @@ public class PierceTheVeil() : TheSorceressModHeroExpansionCard(3,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(24, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust,SorceressKeywords.Sorcery];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromCard<RendTheVeil>(),HoverTipFactory.Static(SorceressKeywords.HeroExpansion)];
+        [HoverTipFactory.FromCard<RendTheVeil>(),HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.Static(SorceressKeywords.HeroExpansion)];
     
     public override bool GainsBlock => true;
 
@@ -27,6 +28,7 @@ public class PierceTheVeil() : TheSorceressModHeroExpansionCard(3,
     {
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await CommonActions.CardBlock(this, play);
+        await CommonActions.ApplySelf<CombatAdvantagePower>(choiceContext, this, 1);
         if (CombatState == null)
             return;
         CardModel rend = CombatState.CreateCard<RendTheVeil>(Owner);

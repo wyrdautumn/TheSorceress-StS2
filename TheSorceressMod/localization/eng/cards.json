@@ -236,7 +236,7 @@
   "THESORCERESSMOD-PRESCIENT_PLANNER.title": "Prescient Planner",
   "THESORCERESSMOD-REND_THE_VEIL.description": "Deal {Damage:diff()} damage to ALL enemies.",
   "THESORCERESSMOD-REND_THE_VEIL.title": "Rend the Veil",
-  "THESORCERESSMOD-PIERCE_THE_VEIL.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd [gold]{IfUpgraded:show:Rend the Veil+|Rend the Veil}[/gold] into your [gold]Exhaust Pile[/gold].",
+  "THESORCERESSMOD-PIERCE_THE_VEIL.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain [gold]Combat Advantage[/gold].\nAdd [gold]{IfUpgraded:show:Rend the Veil+|Rend the Veil}[/gold] into your [gold]Exhaust Pile[/gold].",
   "THESORCERESSMOD-PIERCE_THE_VEIL.title": "Pierce the Veil",
   "THESORCERESSMOD-AVOID_NOTICE.description": "Apply {WeakPower:diff()} [gold]Weak[/gold] to ALL enemies.",
   "THESORCERESSMOD-AVOID_NOTICE.title": "Avoid Notice",
