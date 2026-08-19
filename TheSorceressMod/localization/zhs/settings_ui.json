@@ -1,4 +1,7 @@
-﻿{
+{
   "THESORCERESSMOD.mod_title": "女巫",
-  "THESORCERESSMOD-ALL_STUFF_UNLOCKED.title": "解锁全部内容（无视Epoch进度）"
+  "THESORCERESSMOD-RANDOM_BOOL.title": "这个按钮什么也不做，但没有它下面的按钮就不会出现。",
+  "THESORCERESSMOD-UNLOCK_SECTION.title": "女巫解锁内容",
+  "THESORCERESSMOD-ALL_STUFF_UNLOCKED.title": "解锁",
+  "THESORCERESSMOD-UNLOCK_ALL_STUFF.title": "解锁女巫的所有纪元"
 }

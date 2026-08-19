@@ -1,4 +1,10 @@
 {
-  "THESORCERESSMOD-FIRE_ATTACK.description": "名称中包含 \"[gold]火焰[/gold]\"、\"[gold]烈焰[/gold]\" 或 \"[gold]火葬[/gold]\" 的攻击牌。",
-  "THESORCERESSMOD-FIRE_ATTACK.title": "火焰"
+  "THESORCERESSMOD-FIRE_ATTACK.description": "火焰攻击是指名称中含有“[gold]火[/gold]”、“[gold]焰[/gold]”或“[gold]焚[/gold]”的攻击牌。",
+  "THESORCERESSMOD-FIRE_ATTACK.title": "火焰",
+  "THESORCERESSMOD-REKINDLE.title": "复燃",
+  "THESORCERESSMOD-REKINDLE.description": "当一张牌[gold]复燃[/gold]时，将其从[gold]消耗堆[/gold]移回你的[gold]手牌[/gold]。",
+  "THESORCERESSMOD-ANCIENTS_AWAKENED.title": "远古苏醒",
+  "THESORCERESSMOD-ANCIENTS_AWAKENED.description": "此牌为与[gold]远古苏醒[/gold]Mod配合使用而设计。",
+  "THESORCERESSMOD-HERO_EXPANSION.title": "英雄扩展",
+  "THESORCERESSMOD-HERO_EXPANSION.description": "此牌为与[gold]英雄扩展[/gold]Mod配合使用而设计。"
 }

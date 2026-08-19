@@ -1,49 +1,33 @@
 {
-  "YANXUE-GTRAWBERRY.title": "巨草莓",
-  "YANXUE-GTRAWBERRY.description": "开始一场愉快的游戏...(将你血量与能量互换)",
-  "YANXUE-GTRAWBERRY.flavor": "觉得很眼熟？",
-
-
-
-  "THESORCERESSMOD-CUNNING_SPARK.description": "每场战斗开始时，获得 [gold]优势[/gold]。",
-  "THESORCERESSMOD-CUNNING_SPARK.flavor": "星星之火，足矣燎原。",
+  "THESORCERESSMOD-CUNNING_SPARK.description": "每场战斗开始时，获得[gold]优势[/gold]。",
+  "THESORCERESSMOD-CUNNING_SPARK.flavor": "最微小的余烬便已足够。",
   "THESORCERESSMOD-CUNNING_SPARK.title": "狡黠火花",
-
-  "THESORCERESSMOD-SORCEROUS_SPARK.description": "每场战斗开始时，获得 [blue]2[/blue] 点 [gold]魅力[/gold] 和 [gold]战斗优势[/gold]。",
-  "THESORCERESSMOD-SORCEROUS_SPARK.flavor": "“一个完美的谎言，足以改写世界。而我，正是那个谎言。”",
+  "THESORCERESSMOD-SORCEROUS_SPARK.description": "每场战斗开始时，获得[blue]2[/blue]点[gold]魅力[/gold]和[gold]优势[/gold]。",
+  "THESORCERESSMOD-SORCEROUS_SPARK.flavor": "\"一个足够好的谎言可以改变世界。而我就是有史以来最伟大的谎言。\"",
   "THESORCERESSMOD-SORCEROUS_SPARK.title": "巫术火花",
-
-  "THESORCERESSMOD-FETCHING_HAT.description": "每场战斗开始时，获得 [blue]1[/blue] 点 [gold]魅力[/gold]。",
-  "THESORCERESSMOD-FETCHING_HAT.flavor": "一位沉默却忠诚的伙伴。",
-  "THESORCERESSMOD-FETCHING_HAT.title": "迷人礼帽",
-
-  "THESORCERESSMOD-PRIMAL_FLAME.description": "每场战斗开始时，所有敌人 [gold]点燃[/gold] [blue]5[/blue] 层。",
-  "THESORCERESSMOD-PRIMAL_FLAME.flavor": "足够强大的意志，足以点燃最遥远、最沉寂的余烬。",
-  "THESORCERESSMOD-PRIMAL_FLAME.title": "原初烈焰",
-
-  "THESORCERESSMOD-THROWING_KNIVES.description": "每当你获得 [gold]优势[/gold] 时，抽一张牌。",
-  "THESORCERESSMOD-THROWING_KNIVES.flavor": "一组精心配重的飞刀，藏于斗篷之下，抬腕即出。",
-  "THESORCERESSMOD-THROWING_KNIVES.title": "飞刀",
-
-  "THESORCERESSMOD-SILVERY_SWORDBREAKER.description": "每当你失去 [gold]优势[/gold] 时，获得 [blue]{Block}[/blue] 点 [gold]格挡[/gold]。",
-  "THESORCERESSMOD-SILVERY_SWORDBREAKER.flavor": "一把泛着银光的防身副手武器，闪烁着未曾书写的未来。",
-  "THESORCERESSMOD-SILVERY_SWORDBREAKER.title": "银碎剑",
-
-  "THESORCERESSMOD-WICKED_DAGGER.description": "[gold]战斗优势[/gold] 对你下一次攻击的伤害加成从 50% 提升至 75%。",
-  "THESORCERESSMOD-WICKED_DAGGER.flavor": "一道微妙的附魔，使其永不沾血——血迹将由持刀者承担。",
-  "THESORCERESSMOD-WICKED_DAGGER.title": "邪戾匕首",
-
-  "THESORCERESSMOD-DUELING_SWORD.description": "所有 [gold]打击[/gold]和[gold]防御[/gold]变为[gold]巫术[/gold]。",
-  "THESORCERESSMOD-DUELING_SWORD.flavor": "一把优雅而锋利的武器，彰显技艺，却不及匕首隐秘，更具舞台感。",
-  "THESORCERESSMOD-DUELING_SWORD.title": "决斗剑",
-
-  "THESORCERESSMOD-DANCING_SASH.description": "每当你使用一张 [gold]戏法[/gold] 时，获得 [blue]1[/blue] 点 [gold]活力[/gold]。",
-  "THESORCERESSMOD-DANCING_SASH.flavor": "战斗如同舞蹈与叙事，节奏与势头缺一不可。",
+  "THESORCERESSMOD-FETCHING_HAT.description": "每场战斗开始时，获得[blue]1[/blue]点[gold]魅力[/gold]。",
+  "THESORCERESSMOD-FETCHING_HAT.flavor": "一位忠实的伙伴。",
+  "THESORCERESSMOD-FETCHING_HAT.title": "迷人帽子",
+  "THESORCERESSMOD-PRIMAL_FLAME.description": "每场战斗开始时，所有敌人[gold]点燃[/gold][blue]5[/blue]层。",
+  "THESORCERESSMOD-PRIMAL_FLAME.flavor": "足够强大的意志，甚至能点燃最遥远、最沉寂的余烬。",
+  "THESORCERESSMOD-PRIMAL_FLAME.title": "原始烈焰",
+  "THESORCERESSMOD-THROWING_KNIVES.description": "每当你获得[gold]优势[/gold]时，抽一张牌。",
+  "THESORCERESSMOD-THROWING_KNIVES.flavor": "一套精心配重的投掷匕首。藏于斗篷之下，手腕一抖即可抽出。",
+  "THESORCERESSMOD-THROWING_KNIVES.title": "投掷匕首",
+  "THESORCERESSMOD-SILVERY_SWORDBREAKER.description": "每当你失去[gold]优势[/gold]时，获得[blue]{Block}[/blue]点[gold]格挡[/gold]。",
+  "THESORCERESSMOD-SILVERY_SWORDBREAKER.flavor": "一把防御性的副手武器，隐约闪烁着未写就未来的光芒。",
+  "THESORCERESSMOD-SILVERY_SWORDBREAKER.title": "银光碎剑者",
+  "THESORCERESSMOD-WICKED_DAGGER.description": "[gold]优势[/gold]使你下次攻击的伤害提高75%而非50%。",
+  "THESORCERESSMOD-WICKED_DAGGER.flavor": "微妙的附魔使这把利刃免受血迹玷污。那些污渍必须由持刀者来背负。",
+  "THESORCERESSMOD-WICKED_DAGGER.title": "恶毒匕首",
+  "THESORCERESSMOD-DUELING_SWORD.description": "打击和防御牌变为[gold]巫术[/gold]牌。",
+  "THESORCERESSMOD-DUELING_SWORD.flavor": "一把奖励技巧的敏捷武器。不如匕首隐蔽，但更具戏剧性。",
+  "THESORCERESSMOD-DUELING_SWORD.title": "决斗之剑",
+  "THESORCERESSMOD-DANCING_SASH.description": "在你的回合中，每当你[gold]消耗[/gold]或弃掉一张牌时，获得[blue]1[/blue]点临时[gold]力量[/gold]。",
+  "THESORCERESSMOD-DANCING_SASH.flavor": "战斗既是舞蹈也是讲故事：关键在于势头。",
   "THESORCERESSMOD-DANCING_SASH.title": "舞动腰带",
-
-  "THESORCERESSMOD-VOIDHEART.description": "当你的牌触发 [gold]暗影之舞[/gold] 时，将其返回[gold]手牌[/gold]，而非[gold]弃牌堆[/gold]。",
-  "THESORCERESSMOD-VOIDHEART.flavor": "一缕从饥渴黑暗中切割出的碎片，嵌入你亲手留下的伤痕之中。",
+  "THESORCERESSMOD-VOIDHEART.description": "当你的牌触发[gold]暗影之舞[/gold]时，它们会回到你的[gold]手牌[/gold]而非[gold]弃牌堆[/gold]。",
+  "THESORCERESSMOD-VOIDHEART.flavor": "一块力量的碎片，从饥饿的黑暗中雕琢而出，安放在你心脏的伤疤上——你曾在那里剜掉了曾经的自己。",
   "THESORCERESSMOD-VOIDHEART.title": "虚空之心",
-
-  "SEA_GLASS.THESORCERESSMOD-THE_SORCERESS_MOD.title": "海幻琉璃"
-}   
+  "SEA_GLASS.THESORCERESSMOD-THE_SORCERESS_MOD.title": "骗子玻璃"
+}

@@ -27,13 +27,15 @@ public class DefensiveRollPower : TheSorceressModPower
         Creature? dealer,
         CardModel? cardSource)
     {
-        return target != this.Owner && !Owner.HasPower<BufferPower>() ? amount : 0M;
+        if (target != Owner)
+            return amount;
+        if (Owner.HasPower<BufferPower>())
+            return amount;
+        return 0;
     }
 
     public override async Task AfterModifyingHpLostAfterOsty()
     {
-        if (Owner.HasPower<BufferPower>())
-            return;
         if (this.Owner.Player != null)
         {
             List<CardModel> piles = new List<CardModel>();
