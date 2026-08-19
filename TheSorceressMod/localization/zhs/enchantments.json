@@ -1,0 +1,5 @@
+{
+  "THESORCERESSMOD-STEALTHY_ENCHANTMENT.description": "当你拥有[gold]优势[/gold]时，此牌额外造成[blue]{Amount}[/blue]点伤害，且打出此牌后不会失去[gold]优势[/gold]。",
+  "THESORCERESSMOD-STEALTHY_ENCHANTMENT.extraCardText": "当你拥有[gold]优势[/gold]时，额外造成[blue]{Amount}[/blue]点伤害。{AddStealthy:cond:>0?\n打出此牌后不会失去[gold]优势[/gold]。|}",
+  "THESORCERESSMOD-STEALTHY_ENCHANTMENT.title": "潜袭"
+}
