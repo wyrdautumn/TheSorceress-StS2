@@ -24,21 +24,22 @@ public class TwoWeaponBurst() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Token,
     TargetType.AllEnemies)
 {
+    private decimal _extraHitsFromPlays;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, ValueProp.Move), new DynamicVar("hits",1)];
-    public override int MaxUpgradeLevel => 999;
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery,CardKeyword.Ethereal,CardKeyword.Exhaust];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
     }
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipFactory.Static(SorceressKeywords.Rekindle)];
 
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player == Owner && CombatManager.Instance.History.CardPlaysFinished.Any(e =>
-                e.HappenedLastPlayerTurn(Owner) && e.CardPlay.Card == this))
+                e.HappenedLastPlayerTurn(Owner) && e.CardPlay.Card == this) && this.Pile?.Type == PileType.Exhaust)
         {
             await CardPileCmd.Add(this, PileType.Hand.GetPile(Owner));
-            CardCmd.Upgrade(this);
         }
     }
 
@@ -70,10 +71,28 @@ public class TwoWeaponBurst() : TheSorceressModCard(1,
                 return Task.CompletedTask;
             })
             .WithAttackerAnim("Cast",0.2f).Execute(choiceContext);
+        DynamicVars["hits"].BaseValue += 1;
+        ExtraHitsFromPlays += 1;
+    }
+    
+    private Decimal ExtraHitsFromPlays
+    {
+        get => _extraHitsFromPlays;
+        set
+        {
+            AssertMutable();
+            _extraHitsFromPlays = value;
+        }
+    }
+    
+    protected override void AfterDowngraded()
+    {
+        base.AfterDowngraded();
+        DynamicVars["hits"].BaseValue += ExtraHitsFromPlays;
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["hits"].UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(5);
     }
 }

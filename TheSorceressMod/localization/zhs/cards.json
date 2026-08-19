@@ -83,7 +83,7 @@
   "THESORCERESSMOD-A_THOUSAND_MASKS.title": "千面之影",
   "THESORCERESSMOD-HELLFIRE_SOUL.description": "对所有敌人造成{Damage:diff()}点伤害。\n[gold]消耗[/gold]你[gold]弃牌堆[/gold]中至多{Exhaust:diff()}张随机牌。\n每[gold]消耗[/gold]一张牌，此牌消耗费用减少{energyPrefix:energyIcons(1)}。",
   "THESORCERESSMOD-HELLFIRE_SOUL.title": "地狱魂火",
-  "THESORCERESSMOD-FEINTING_FLURRY.description": "造成{Damage:diff()}伤害\n本回合每打出过一张[gold]戏法[/gold]牌，额外造成{ExtraDamage:diff()}点伤害.",
+  "THESORCERESSMOD-FEINTING_FLURRY.description": "造成{CalculatedDamage:diff()}伤害\n本回合每打出过一张[gold]戏法[/gold]牌，额外造成{ExtraDamage:diff()}点伤害.",
   "THESORCERESSMOD-FEINTING_FLURRY.title": "戏法连击",
   "THESORCERESSMOD-CREATE_A_DIVERSION.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n选择你[gold]抽牌堆[/gold]中的一张牌置于顶部。",
   "THESORCERESSMOD-CREATE_A_DIVERSION.title": "制造麻烦",
