@@ -7,19 +7,20 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Cards.CrossMod;
 using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Starter;
 
 [Pool(typeof(TokenCardPool))]
-public class TwoWeaponTwist() : TheSorceressModCard(1,
+public class TwoWeaponTwist() : TheSorceressModMoreNeowCard(1,
     CardType.Attack, CardRarity.Token,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new PowerVar<TwoWeaponTwistPower>(2)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<StrengthPower>()];
+        [HoverTipFactory.FromPower<StrengthPower>(),..AddMoreNeow()];
 
     protected override HashSet<CardTag> CanonicalTags
     {

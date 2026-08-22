@@ -15,7 +15,7 @@ public class PrescientPlanner() : TheSorceressModHeroExpansionCard(0,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust,CardKeyword.Ethereal];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight),HoverTipFactory.Static(SorceressKeywords.HeroExpansion)];
+        [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight),..AddHeroExpansion()];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.Cunning };

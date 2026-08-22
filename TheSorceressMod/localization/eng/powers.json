@@ -104,5 +104,8 @@
   "THESORCERESSMOD-CUNNING_MOMENTUM_POWER.title": "Cunning Momentum",
   "THESORCERESSMOD-PERSISTENT_PRIME_POWER.description": "ALL [gold]Primed[/gold] enemies remain [gold]Primed[/gold] until the end of the turn. Whenever an enemy's [gold]Prime[/gold] is removed, deal damage equal to their [gold]Prime[/gold].",
   "THESORCERESSMOD-PERSISTENT_PRIME_POWER.smartDescription": "ALL [gold]Primed[/gold] enemies remain [gold]Primed[/gold] until the end of the turn. Whenever an enemy's [gold]Prime[/gold] is removed, deal damage equal to their [gold]Prime[/gold]{Amount:plural:| {Amount} times}.",
-  "THESORCERESSMOD-PERSISTENT_PRIME_POWER.title": "Relentless Prime"
+  "THESORCERESSMOD-PERSISTENT_PRIME_POWER.title": "Relentless Prime",
+  "THESORCERESSMOD-DETONATOR_POWER.description": "The next time you draw an [gold]Agile[/gold] card, [gold]Exhaust[/gold] it.",
+  "THESORCERESSMOD-DETONATOR_POWER.smartDescription": "The next {Amount:plural:time|[blue]{}[/blue] times} you draw an [gold]Agile[/gold] card, [gold]Exhaust[/gold] it.",
+  "THESORCERESSMOD-DETONATOR_POWER.title": "Targeted Detonation"
 }

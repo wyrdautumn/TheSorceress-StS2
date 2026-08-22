@@ -18,7 +18,7 @@ public class SpellRiposte() : TheSorceressModHeroExpansionCard(0,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new PowerVar<PrimedPower>(8)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.Static(SorceressKeywords.HeroExpansion)];
+        [HoverTipFactory.FromPower<PrimedPower>(),..AddHeroExpansion()];
     
     protected override bool ShouldGlowGoldInternal
     {

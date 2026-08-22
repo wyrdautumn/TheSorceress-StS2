@@ -13,7 +13,7 @@ public class SuddenScales() : TheSorceressModCard(2,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6,ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7,ValueProp.Move)];
     
     public override bool GainsBlock => true;
     

@@ -27,7 +27,7 @@ public class RendTheVeil() : TheSorceressModHeroExpansionCard(0,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(21, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust,SorceressKeywords.Shadowdance];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.Static(SorceressKeywords.HeroExpansion)];
+        [..AddHeroExpansion()];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

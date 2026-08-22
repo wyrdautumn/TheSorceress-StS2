@@ -23,7 +23,7 @@ public class ProbingStrike() : TheSorceressModHeroExpansionCard(1,
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [..HoverTipFactory.FromEnchantment<StealthyEnchantment>(DynamicVars["Stealthy"].IntValue),HoverTipFactory.Static(SorceressKeywords.HeroExpansion)];
+        [..HoverTipFactory.FromEnchantment<StealthyEnchantment>(DynamicVars["Stealthy"].IntValue),..AddHeroExpansion()];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

@@ -73,6 +73,13 @@ public class TheSorceressModCardPool : CustomCardPoolModel
         {
             list.RemoveAll(c => c is TheSorceressModAncientsAwakenedCard);
         }
+        
+        
+        var deckboxType = AccessTools.TypeByName("MoreNeow.MoreNeowCode.Relics.Complex.UnfamiliarDeckbox");
+        if (deckboxType == null)
+        {
+            list.RemoveAll(c => c is TheSorceressModMoreNeowCard);
+        }
 
         return list;
     }

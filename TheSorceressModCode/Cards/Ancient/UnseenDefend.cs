@@ -32,7 +32,7 @@ public class UnseenDefend : TheSorceressModAncientsAwakenedCard
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.Static(SorceressKeywords.AncientsAwakened)];
+        [HoverTipFactory.FromPower<CombatAdvantagePower>(),..AddAncientsAwakened()];
 
     
     public override bool GainsBlock => true;

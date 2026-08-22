@@ -5,6 +5,7 @@ using Godot;
 using TheSorceressMod.TheSorceressModCode.Character;
 using TheSorceressMod.TheSorceressModCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using TheSorceressMod.TheSorceressModCode.helpers;
 
@@ -26,4 +27,28 @@ public abstract class TheSorceressModCard(int cost, CardType type, CardRarity ra
     //Uses card_portraits/card_name.png as image path. These should be smaller images.
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
+
+    protected IEnumerable<IHoverTip> AddAncientsAwakened()
+    {
+        if (!IsInCombat)
+        {
+            yield return HoverTipFactory.Static(SorceressKeywords.AncientsAwakened);
+        }
+    }
+    
+    protected IEnumerable<IHoverTip> AddHeroExpansion()
+    {
+        if (!IsInCombat)
+        {
+            yield return HoverTipFactory.Static(SorceressKeywords.HeroExpansion);
+        }
+    }
+    
+    protected IEnumerable<IHoverTip> AddMoreNeow()
+    {
+        if (!IsInCombat)
+        {
+            yield return HoverTipFactory.Static(SorceressKeywords.MoreNeow);
+        }
+    }
 }

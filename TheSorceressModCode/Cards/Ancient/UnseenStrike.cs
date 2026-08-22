@@ -29,7 +29,7 @@ public class UnseenStrike : TheSorceressModAncientsAwakenedCard
         CardTag.Strike, SorceressKeywords.Stealthy, SorceressKeywords.PrimeTrick
     ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.Static(SorceressKeywords.AncientsAwakened)];
+        [HoverTipFactory.FromPower<CombatAdvantagePower>(),..AddAncientsAwakened()];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle];
     

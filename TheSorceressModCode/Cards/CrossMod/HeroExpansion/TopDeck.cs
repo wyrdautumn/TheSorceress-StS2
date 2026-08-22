@@ -18,7 +18,7 @@ public class TopDeck() : TheSorceressModHeroExpansionCard(0,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.Static(SorceressKeywords.HeroExpansion)];
+        [..AddHeroExpansion()];
 
 
     protected override async Task OnPlay(

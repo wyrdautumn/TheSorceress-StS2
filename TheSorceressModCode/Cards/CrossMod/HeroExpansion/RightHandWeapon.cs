@@ -22,7 +22,7 @@ public class RightHandWeapon() : TheSorceressModHeroExpansionCard(0,
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
     }
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromCard<LeftHandWeapon>(),HoverTipFactory.Static(SorceressKeywords.HeroExpansion)];
+        [HoverTipFactory.FromCard<LeftHandWeapon>(),..AddHeroExpansion()];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

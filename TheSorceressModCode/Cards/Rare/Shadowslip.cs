@@ -28,7 +28,7 @@ public class Shadowslip() : TheSorceressModCard(3,
             if ((card.Type == CardType.Attack || card.Type == CardType.Skill) && !card.Keywords.Contains(SorceressKeywords.Subtle))
                 CardCmd.ApplyKeyword(card, SorceressKeywords.Subtle);
             if ((card.Type == CardType.Attack || card.Type == CardType.Skill) && !card.Keywords.Contains(SorceressKeywords.Shadowdance))
-                CardCmd.ApplyKeyword(card, SorceressKeywords.Shadowdance);
+                ShadowdanceHelper.TempShadowdance.Set(card, true);
             await CardCmd.Exhaust(choiceContext, card);
         }
     }

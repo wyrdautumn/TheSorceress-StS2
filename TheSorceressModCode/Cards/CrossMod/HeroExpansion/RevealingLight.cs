@@ -15,7 +15,7 @@ public class RevealingLight() : TheSorceressModHeroExpansionCard(1,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PrimedPower>(4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.Static(SorceressKeywords.HeroExpansion)];
+        [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromPower<CombatAdvantagePower>(),..AddHeroExpansion()];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

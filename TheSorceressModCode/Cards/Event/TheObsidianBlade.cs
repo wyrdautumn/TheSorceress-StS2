@@ -36,7 +36,7 @@ public class TheObsidianBlade : TheSorceressModHeroExpansionCard
     public override CardPoolModel VisualCardPool => ModelDb.CardPool<TheSorceressModCardPool>();
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle, SorceressKeywords.Shadowdance];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromKeyword(SorceressKeywords.Sorcery),HoverTipFactory.Static(SorceressKeywords.HeroExpansion)];
+        [HoverTipFactory.FromKeyword(SorceressKeywords.Sorcery),..AddHeroExpansion()];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

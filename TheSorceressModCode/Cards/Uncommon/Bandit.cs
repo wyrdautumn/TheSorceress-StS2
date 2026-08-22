@@ -14,7 +14,7 @@ public class Bandit() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(2), new CardsVar(2), new PowerVar<CharismaPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new CardsVar(1), new PowerVar<CharismaPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.ForEnergy(this),HoverTipFactory.FromPower<CharismaPower>()];
 
@@ -32,6 +32,6 @@ public class Bandit() : TheSorceressModCard(0,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["CharismaPower"].UpgradeValueBy(-1);
+        DynamicVars.Energy.UpgradeValueBy(1);
     }
 }

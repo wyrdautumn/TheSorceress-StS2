@@ -28,7 +28,7 @@ public class PerfectDistractionAncient : TheSorceressModAncientsAwakenedCard
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PrimedPower>(5)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.Static(SorceressKeywords.Rekindle),HoverTipFactory.Static(SorceressKeywords.AncientsAwakened)];
+        [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.Static(SorceressKeywords.Rekindle),..AddAncientsAwakened()];
 
         public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
         {

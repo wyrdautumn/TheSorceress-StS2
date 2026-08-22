@@ -8,18 +8,19 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Cards.CrossMod;
 using TheSorceressMod.TheSorceressModCode.Cards.Tokens;
 using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Starter;
 
-public class TwoWeaponCatch() : TheSorceressModCard(1,
+public class TwoWeaponCatch() : TheSorceressModMoreNeowCard(1,
     CardType.Attack, CardRarity.Basic,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new PowerVar<WeakPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<WeakPower>(),..HoverTipFactory.FromCardWithCardHoverTips<TwoWeaponTwist>()];
+        [HoverTipFactory.FromPower<WeakPower>(),..HoverTipFactory.FromCardWithCardHoverTips<TwoWeaponTwist>(),..AddMoreNeow()];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };

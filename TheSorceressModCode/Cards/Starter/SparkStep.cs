@@ -6,11 +6,12 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Cards.CrossMod;
 using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Starter;
 
-public class SparkStep() : TheSorceressModCard(1,
+public class SparkStep() : TheSorceressModMoreNeowCard(1,
     CardType.Skill, CardRarity.Basic,
     TargetType.AnyEnemy)
 {
@@ -21,7 +22,7 @@ public class SparkStep() : TheSorceressModCard(1,
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<PrimedPower>()];
+        [HoverTipFactory.FromPower<PrimedPower>(),..AddMoreNeow()];
     
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

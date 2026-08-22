@@ -18,7 +18,7 @@ public class PierceTheVeil() : TheSorceressModHeroExpansionCard(3,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(24, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust,SorceressKeywords.Sorcery];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromCard<RendTheVeil>(),HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.Static(SorceressKeywords.HeroExpansion)];
+        [HoverTipFactory.FromCard<RendTheVeil>(),HoverTipFactory.FromPower<CombatAdvantagePower>(),..AddHeroExpansion()];
     
     public override bool GainsBlock => true;
 

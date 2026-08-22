@@ -23,4 +23,5 @@ public static class SorceressKeywords
     [CustomEnum] public static StaticHoverTip Rekindle;
     [CustomEnum] public static StaticHoverTip AncientsAwakened;
     [CustomEnum] public static StaticHoverTip HeroExpansion;
+    [CustomEnum] public static StaticHoverTip MoreNeow;
 }

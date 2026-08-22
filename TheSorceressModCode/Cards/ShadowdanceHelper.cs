@@ -66,6 +66,7 @@ public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
         {
             WasAgilePlayed.Set(card, true);
             await CardCmd.AutoPlay(choiceContext, card,null,AutoPlayType.Default,false,false);
+            WasAgilePlayed.Set(card, false);
         }
     }
 
@@ -74,7 +75,6 @@ public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
     {
         if (WasAgilePlayed.Get(card))
         {
-            WasAgilePlayed.Set(card, false);
             cardLocation.pileType = PileType.Exhaust;
             return cardLocation;
         }
