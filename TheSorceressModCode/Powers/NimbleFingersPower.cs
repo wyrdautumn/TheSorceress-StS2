@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -37,6 +39,13 @@ public class NimbleFingersPower : TheSorceressModPower
             }
             InvokeDisplayAmountChanged();
         }
+        return Task.CompletedTask;
+    }
+
+    public override Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
+    {
+        if (player.Creature == Owner)
+            InvokeDisplayAmountChanged();
         return Task.CompletedTask;
     }
 }

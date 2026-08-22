@@ -19,7 +19,7 @@ public class CharismaPotion : TheSorceressModPotion
 
     public override TargetType TargetType => TargetType.Self;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<CharismaPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<CharismaPower>(3)];
     
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CharismaPower>()];

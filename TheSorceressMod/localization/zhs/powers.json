@@ -104,5 +104,8 @@
   "THESORCERESSMOD-CUNNING_MOMENTUM_POWER.title": "狡黠势头",
   "THESORCERESSMOD-PERSISTENT_PRIME_POWER.description": "所有被[gold]点燃[/gold]的敌人将保持[gold]点燃[/gold]状态直到回合结束。每当一名敌人的[gold]点燃[/gold]被移除时，造成等同于其[gold]点燃[/gold]层数的伤害。",
   "THESORCERESSMOD-PERSISTENT_PRIME_POWER.smartDescription": "所有被[gold]点燃[/gold]的敌人将保持[gold]点燃[/gold]状态直到回合结束。每当一名敌人的[gold]点燃[/gold]被移除时，造成等同于其[gold]点燃[/gold]层数的伤害。",
-  "THESORCERESSMOD-PERSISTENT_PRIME_POWER.title": "无情点燃"
+  "THESORCERESSMOD-PERSISTENT_PRIME_POWER.title": "无情点燃",
+  "THESORCERESSMOD-DETONATOR_POWER.description": "下次你抽到一张[gold]灵巧[/gold]牌时，将其[gold]消耗[/gold]。",
+"THESORCERESSMOD-DETONATOR_POWER.smartDescription": "你接下来{Amount:plural:一次|[blue]{}[/blue]次}抽到[gold]灵巧[/gold]牌时，将其[gold]消耗[/gold]。",
+"THESORCERESSMOD-DETONATOR_POWER.title": "指哪打哪"
 }

@@ -108,7 +108,7 @@
   "THESORCERESSMOD-PERFECT_DISTRACTION.title": "Mulligan",
   "THESORCERESSMOD-CHAOS_SANCTUARY.description": "Gain {Block:diff()} [gold]Block[/gold].\nWhenever you are attacked this turn, [gold]Prime[/gold] {ChaosSanctuaryPower:diff()} in return.",
   "THESORCERESSMOD-CHAOS_SANCTUARY.title": "Chaos Sanctuary",
-  "THESORCERESSMOD-BANDIT.description": "Next turn, draw {Cards:diff()} cards.\nNext turn, gain {Energy:energyIcons()}.\nLose {CharismaPower:diff()} [gold]Charisma[/gold].",
+  "THESORCERESSMOD-BANDIT.description": "Next turn, draw {Cards:diff()} {Cards:plural:card|cards}.\nNext turn, gain {Energy:energyIcons()}.\nLose {CharismaPower:diff()} [gold]Charisma[/gold].",
   "THESORCERESSMOD-BANDIT.title": "Bandit",
   "THESORCERESSMOD-TWO_WEAPON_DEFENSE.description": "Whenever an Attack hits an enemy, gain {TwoWeaponDefensePower:diff()} [gold]Block[/gold].",
   "THESORCERESSMOD-TWO_WEAPON_DEFENSE.title": "Dual-Wield Defense",

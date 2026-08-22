@@ -334,5 +334,19 @@
   "TANX.talk.NECRONOMICON_MAXED_THESORCERESSMOD-THE_SORCERESS_MOD.0-1.char": "A mighty enough foe to interest even the legendary Tanx...?",
   "TANX.talk.NECRONOMICON_MAXED_THESORCERESSMOD-THE_SORCERESS_MOD.0-1.next": "Continue",
   "TANX.talk.NECRONOMICON_MAXED_THESORCERESSMOD-THE_SORCERESS_MOD.0-2.ancient": "FUCK NO DO YOU THINK I'M CRAZY???",
-  "TANX.talk.NECRONOMICON_MAXED_THESORCERESSMOD-THE_SORCERESS_MOD.0-2.ancient.sfx": "event:/sfx/npcs/tanx/tanx_laugh"
+  "TANX.talk.NECRONOMICON_MAXED_THESORCERESSMOD-THE_SORCERESS_MOD.0-2.ancient.sfx": "event:/sfx/npcs/tanx/tanx_laugh",
+
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.0-1r.ancient": "#You look like a bird that wants to play some cards!",
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.0-0r.next": "Perhaps",
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.0-1r.char": "#From time to time. But I prefer to know my hand before it's been dealt.",
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.0-1r.next": "Continue",
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.0-2r.ancient": "#Sounds like you're already playing [sine]my[/sine] game, heehee!",
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.1-0r.char": "#Another round? I promise not to play the cards up my sleeves.",
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.1-0r.next": "Continue",
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.1-1r.ancient": "#Oh, no, please do! The game's more fun that way.",
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.2-0r.ancient": "#Funny how you know so many card tricks, feathered friend.",
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.2-0r.next": "Shrug",
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.2-1r.char": "#[i]\"Oh, sir, I'm afraid I haven't any gold. But perhaps we could wager for something else...?\"[/i]\nAnd so on. You can imagine the routine.",
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.2-1r.next": "Continue",
+  "JIMBOANCIENT-JIMBO.talk.THESORCERESSMOD-THE_SORCERESS_MOD.2-2r.char": "#Win or lose, I made certain the outcome remained in my hands."
 }
