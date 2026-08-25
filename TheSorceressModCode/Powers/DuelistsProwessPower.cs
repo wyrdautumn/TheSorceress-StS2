@@ -21,6 +21,9 @@ public class DuelistsProwessPower : TheSorceressModPower
         if (player != Owner.Player)
             return;
         this.Flash();
-        await PowerCmd.Apply<CombatAdvantagePower>(new ThrowingPlayerChoiceContext(), this.Owner, 1M, this.Owner, null);
+        for (int i = 0; i < Amount; i++)
+        {
+            await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, this.Owner, 1M, this.Owner, null);
+        }
     }
 }

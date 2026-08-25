@@ -1,4 +1,7 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -16,13 +19,14 @@ public class CunningSpark() : TheSorceressModRelic
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
-    
-    public override async Task AfterRoomEntered(AbstractRoom room)
+
+    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
-        if (!(room is CombatRoom))
+        if (combatState.RoundNumber != 1 || side != CombatSide.Player || !participants.Contains(Owner.Creature))
             return;
-        this.Flash();
-        await PowerCmd.Apply<CombatAdvantagePower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), this.Owner.Creature, 1, this.Owner.Creature, null);
+        Flash();
+        await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
     }
 
     public override RelicModel? GetUpgradeReplacement()

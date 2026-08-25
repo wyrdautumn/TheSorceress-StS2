@@ -1,7 +1,10 @@
 ﻿using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
 
@@ -18,7 +21,7 @@ public class ReturningDagger() : TheSorceressModCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CommonActions.CardAttack(this, play, 2, vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
+        await CommonActions.CardAttack(this, play, 2).WithHitVfxNode((Creature _) => NShivThrowVfx.Create(base.Owner.Creature, play.Target, new Color ("b18aff"))).Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

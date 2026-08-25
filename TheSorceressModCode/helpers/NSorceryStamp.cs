@@ -36,12 +36,15 @@ public partial class NSorceryStamp : Control
             this.Visible = _card.Visible;
             if (Visible)
             {
-                if (_card.Model.Enchantment != null)
-                    Position = (_position + new Vector2(0f, 64f));
+                if (_card.Model.Enchantment != null && _card.EnchantmentTab.Visible)
+                    Position = (_card._enchantmentIcon.Position + new Vector2(-12f, 48f));
+                else if (_card.Model.Enchantment != null && _card.EnchantmentVfxOverride.Visible)
+                    Position = (_card._enchantmentIcon.Position + new Vector2(-12f, 96f));
                 else
                 {
                     Position = _position;
                 }
             }
         }
+    
 }

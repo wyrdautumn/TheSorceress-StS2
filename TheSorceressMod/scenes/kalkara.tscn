@@ -257,22 +257,10 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Visuals/ShadowSprite:visible")
+tracks/12/path = NodePath("Visuals/ShadowSprite:skew")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Visuals/ShadowSprite:skew")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -740,6 +728,7 @@ texture = ExtResource("1_p1qjb")
 flip_h = true
 
 [node name="ShadowSprite" type="Sprite2D" parent="Visuals"]
+visible = false
 self_modulate = Color(0.41960785, 0.32941177, 0.8117647, 0.5921569)
 show_behind_parent = true
 material = SubResource("ShaderMaterial_ywtfl")

@@ -36,7 +36,12 @@
 		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Cards.NCard._titleLabel"/>
 		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Cards.NCard._energyLabel"/>
 		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Cards.NCard._typePlaque"/>
+		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Cards.NCard._enchantmentTab"/>
+		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Cards.NCard._enchantmentIcon"/>
+		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Cards.NCard._enchantmentLabel"/>
 		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Cards.NCard.UpdateTypePlaqueSizeAndPosition"/>
+		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Vfx.NCardEnchantVfx._cardNode"/>
+		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Vfx.NCardEnchantVfx._enchantmentIcon"/>
     </ItemGroup>
 
     <ItemGroup>

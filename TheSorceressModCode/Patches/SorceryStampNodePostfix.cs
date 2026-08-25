@@ -1,6 +1,7 @@
 ﻿using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Nodes.Cards;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using TheSorceressMod.TheSorceressModCode.helpers;
 
 namespace TheSorceressMod.TheSorceressModCode.Patches;
