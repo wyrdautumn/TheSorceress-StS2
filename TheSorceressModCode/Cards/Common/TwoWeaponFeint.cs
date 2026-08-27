@@ -17,7 +17,7 @@ public class TwoWeaponFeint() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6,ValueProp.Move), new PowerVar<CombatAdvantagePower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7,ValueProp.Move), new PowerVar<CombatAdvantagePower>(1)];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
@@ -44,6 +44,6 @@ public class TwoWeaponFeint() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 }

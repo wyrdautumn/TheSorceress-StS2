@@ -19,6 +19,14 @@ public class SorcerousSpark() : TheSorceressModRelic
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>(), HoverTipFactory.FromPower<CharismaPower>()];
     
+    public override async Task AfterRoomEntered(AbstractRoom room)
+    {
+        if (!(room is CombatRoom))
+            return;
+        Flash();
+        await PowerCmd.Apply<CharismaPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), this.Owner.Creature, 2, this.Owner.Creature, null);
+    }
+    
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
@@ -26,6 +34,5 @@ public class SorcerousSpark() : TheSorceressModRelic
             return;
         Flash();
         await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
-        await PowerCmd.Apply<CharismaPower>(choiceContext, this.Owner.Creature, 4, this.Owner.Creature, null);
     }
 }

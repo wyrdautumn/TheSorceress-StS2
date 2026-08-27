@@ -11,31 +11,24 @@ using TheSorceressMod.TheSorceressModCode.Cards;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
-public class SoulRebel() : TheSorceressModCard(3,
-    CardType.Skill, CardRarity.Rare,
+public class SoulRebel() : TheSorceressModCard(2,
+    CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered),
+    private Decimal _extraDamageFromExhaust;
+    
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
     new CalculationBaseVar(0),
-    new CalculationExtraVar(1),
-    new CalculatedVar("ExhaustCount").WithMultiplier(Calc)];
+    new ExtraDamageVar(6),
+    new CalculatedDamageVar(ValueProp.Move).WithMultiplier(Calc)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword( CardKeyword.Exhaust)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
-    public override CardType Type => IsUpgraded ? CardType.Attack : CardType.Skill;
 
     private static decimal Calc(CardModel card, Creature? arg2)
     {
-        if (!card.IsUpgraded)
-        {
             return PileType.Discard.GetPile(card.Owner).Cards
-                .Where<CardModel>((Func<CardModel, bool>)(c => c.Type == CardType.Attack)).Count();
-        }
-        else
-        {
-            return PileType.Discard.GetPile(card.Owner).Cards
-                .Where<CardModel>((Func<CardModel, bool>)(c => c.Type == CardType.Skill)).Count();
-        }
+                .Where<CardModel>((Func<CardModel, bool>)(c => c.Type == CardType.Attack && c != card)).Count();
     }
 
 
@@ -47,36 +40,43 @@ public class SoulRebel() : TheSorceressModCard(3,
         {
             return;
         }
-        if (!IsUpgraded)
+        List<CardModel> list = PileType.Discard.GetPile(this.Owner).Cards
+            .Where<CardModel>((Func<CardModel, bool>)(c => c.Type == CardType.Attack)).ToList<CardModel>();
+        foreach (CardModel card in list)
         {
-            List<CardModel> list = PileType.Discard.GetPile(this.Owner).Cards
-                .Where<CardModel>((Func<CardModel, bool>)(c => c.Type == CardType.Attack)).ToList<CardModel>();
-            int cardCount = list.Count;
-            await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-            foreach (CardModel card in list)
-            {
-                await CardCmd.Exhaust(choiceContext, card);
-            }
-            for (int hits = 0; hits < cardCount; hits++)
-            {
-                await CreatureCmd.Damage(choiceContext, play.Target, DynamicVars.Damage, Owner.Creature, this, play);
-            }
+            await CardCmd.Exhaust(choiceContext, card);
+            BuffFromExhaust(DynamicVars.ExtraDamage.BaseValue);
         }
-        else
+        await DamageCmd.Attack(DynamicVars.CalculationBase.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_starry_impact", "blunt_attack.mp3")
+            .Execute(choiceContext);
+    }
+    
+    private Decimal ExtraDamageFromExhaust
+    {
+        get => this._extraDamageFromExhaust;
+        set
         {
-            List<CardModel> list = PileType.Discard.GetPile(this.Owner).Cards
-                .Where<CardModel>((Func<CardModel, bool>)(c => c.Type == CardType.Skill)).ToList<CardModel>();
-            int cardCount = list.Count;
-            foreach (CardModel card in list)
-            {
-                await CardCmd.Exhaust(choiceContext, card);
-            }
-            await CommonActions.CardAttack(this, play, cardCount,vfx:"vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
+            this.AssertMutable();
+            this._extraDamageFromExhaust = value;
         }
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.Props = ValueProp.Move;
+        DynamicVars.ExtraDamage.UpgradeValueBy(2);
+    }
+    
+    protected override void AfterDowngraded()
+    {
+        base.AfterDowngraded();
+        DynamicVar damage = this.DynamicVars.CalculationBase;
+        damage.BaseValue = damage.BaseValue + this.ExtraDamageFromExhaust;
+    }
+
+    public void BuffFromExhaust(Decimal extraDamage)
+    {
+        DynamicVar damage = this.DynamicVars.CalculationBase;
+        damage.BaseValue = damage.BaseValue + extraDamage;
+        this.ExtraDamageFromExhaust += extraDamage;
     }
 }

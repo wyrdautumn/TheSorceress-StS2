@@ -1,5 +1,7 @@
 ﻿using BaseLib.Extensions;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -20,23 +22,23 @@ public class Infiltrate() : TheSorceressModCard(1,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(6, ValueProp.Move),
+        new DamageVar(8, ValueProp.Move),
         new PowerVar<CharismaPower>(2)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.FromPower<CharismaPower>()];
     
-    protected override bool ShouldGlowGoldInternal => Owner.HasPower<CombatAdvantagePower>();
+    protected override bool ShouldGlowGoldInternal => !AttackPlayedThisTurn;
     
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        bool hadCA = Owner.HasPower<CombatAdvantagePower>();
+        bool playedAttack = AttackPlayedThisTurn;
         await CommonActions.CardAttack(this, play, vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
-        if (hadCA)
+        if (!playedAttack)
         {
             await CommonActions.ApplySelf<CharismaPower>(choiceContext, this);
         }
@@ -47,4 +49,9 @@ public class Infiltrate() : TheSorceressModCard(1,
         DynamicVars.Damage.UpgradeValueBy(2);
         DynamicVars["CharismaPower"].UpgradeValueBy(1);
     }
+
+    private bool AttackPlayedThisTurn =>
+        CombatManager.Instance.History.CardPlaysFinished.Any(e =>
+            e.CardPlay.Card.Owner == Owner && e.CardPlay.Card.Type == CardType.Attack &&
+            e.HappenedThisTurn(CombatState));
 }

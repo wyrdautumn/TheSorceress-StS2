@@ -50,28 +50,28 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
 
         if (combatState.Encounter is CultistsNormal)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_CULTIST_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_CULTIST_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
             await Cmd.CustomScaledWait(0.4f, 1);
             TalkCmd.Play(new LocString("combat_messages", "SORCERESS_CULTISTS_REPLY"), combatState.Enemies.First(),
-                VfxColor.Blue,VfxDuration.VeryLong);
+                VfxColor.Blue,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is ByrdonisElite)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_BYRDONIS_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_BYRDONIS_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
             await Cmd.CustomScaledWait(0.4f, 1);
             TalkCmd.Play(new LocString("combat_messages", "SORCERESS_BYRDONIS_REPLY"), combatState.Enemies.First(),
-                VfxColor.Green,VfxDuration.VeryLong);
+                VfxColor.Green,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is DevotedSculptorWeak)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_SCULPTOR_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_SCULPTOR_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is OwlMagistrateNormal)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_OWL_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_OWL_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is TheObscuraNormal)
@@ -80,7 +80,7 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             if (parafright != null && parafright.IsHittable)
             {
                 TalkCmd.Play(new LocString("combat_messages", "SORCERESS_OBSCURA_BANTER"), sorceress.Creature,
-                    VfxColor.Purple, VfxDuration.VeryLong);
+                    VfxColor.Purple, SorceressKeywords.ExtraVeryLong);
                 parafrightBantered = true;
             }
             else return;
@@ -88,59 +88,59 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
 
         if (combatState.Encounter is WaterfallGiantBoss)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_WATERFALL_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_WATERFALL_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is TheInsatiableBoss)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_INSATIABLE_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_INSATIABLE_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is QueenBoss)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_QUEEN_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_QUEEN_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
             await Cmd.CustomScaledWait(0.4f, 1);
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_QUEEN_REPLY"),combatState.Enemies.First(creature => creature.Monster is Queen),VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_QUEEN_REPLY"),combatState.Enemies.First(creature => creature.Monster is Queen),VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is TestSubjectBoss)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_TEST_SUBJECT_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_TEST_SUBJECT_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is AeonglassBoss)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_AEONGLASS_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_AEONGLASS_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is DenseVegetationEventEncounter)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_WRIGGLER_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_WRIGGLER_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is MysteriousKnightEventEncounter)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KEY_FIGHT_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KEY_FIGHT_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
             await Cmd.CustomScaledWait(0.4f, 1);
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KEY_FIGHT_REPLY"),combatState.Enemies.First(creature => creature.Monster is MysteriousKnight),VfxColor.Black,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KEY_FIGHT_REPLY"),combatState.Enemies.First(creature => creature.Monster is MysteriousKnight),VfxColor.Black,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is PunchOffEventEncounter)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_PUNCHERS_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_PUNCHERS_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
             await Cmd.CustomScaledWait(0.4f, 1);
             foreach (Creature enemy in combatState.Enemies)
             {
                 TalkCmd.Play(new LocString("combat_messages", "SORCERESS_PUNCHERS_REPLY"),
-                    enemy, VfxColor.Cyan, VfxDuration.VeryLong);
+                    enemy, VfxColor.Cyan, SorceressKeywords.ExtraVeryLong);
             }
         }
 
         if (combatState.Encounter is FakeMerchantEventEncounter)
         {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_FAKE_MERCHANT_BANTER"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_FAKE_MERCHANT_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
             await Cmd.CustomScaledWait(0.4f, 1);
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_FAKE_MERCHANT_REPLY"),combatState.Enemies.First(creature => creature.Monster is FakeMerchantMonster),VfxColor.Blue,VfxDuration.VeryLong);
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_FAKE_MERCHANT_REPLY"),combatState.Enemies.First(creature => creature.Monster is FakeMerchantMonster),VfxColor.Blue,SorceressKeywords.ExtraVeryLong);
         }
     }
 
@@ -162,9 +162,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
         foreach (Creature enemy in combatState.Enemies.Where(creature => creature.Monster is KinFollower))
         {
             TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_REPLY"),
-                enemy, VfxColor.Blue, VfxDuration.VeryLong);
+                enemy, VfxColor.Blue, SorceressKeywords.ExtraVeryLong);
         }
         await Cmd.CustomScaledWait(2f, 2f);
-        TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_BANTER2"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
+        TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_BANTER2"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
     }
 }

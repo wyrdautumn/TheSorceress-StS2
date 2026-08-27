@@ -16,7 +16,7 @@ public class SlyFlourish() : TheSorceressModCard(0,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move), new CardsVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, ValueProp.Move), new CardsVar(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
 
     protected override async Task OnPlay(
@@ -34,5 +34,6 @@ public class SlyFlourish() : TheSorceressModCard(0,
     protected override void OnUpgrade()
     {
         DynamicVars.Cards.UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(1);
     }
 }

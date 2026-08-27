@@ -18,13 +18,12 @@ public class FetchingHat() : TheSorceressModRelic
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CharismaPower>()];
-    
-    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
-        ICombatState combatState)
+
+    public override async Task AfterRoomEntered(AbstractRoom room)
     {
-        if (combatState.RoundNumber != 1 || side != CombatSide.Player || !participants.Contains(Owner.Creature))
+        if (!(room is CombatRoom))
             return;
         Flash();
-        await PowerCmd.Apply<CharismaPower>(choiceContext, this.Owner.Creature, 2, this.Owner.Creature, null);
+        await PowerCmd.Apply<CharismaPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), this.Owner.Creature, 2, this.Owner.Creature, null);
     }
 }

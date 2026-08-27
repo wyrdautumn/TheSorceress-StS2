@@ -1,6 +1,7 @@
 ﻿using BaseLib.Patches.Content;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 
 namespace TheSorceressMod.TheSorceressModCode;
 
@@ -24,4 +25,5 @@ public static class SorceressKeywords
     [CustomEnum] public static StaticHoverTip AncientsAwakened;
     [CustomEnum] public static StaticHoverTip HeroExpansion;
     [CustomEnum] public static StaticHoverTip MoreNeow;
+    [CustomEnum] public static VfxDuration ExtraVeryLong;
 }

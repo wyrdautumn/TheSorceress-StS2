@@ -37,8 +37,8 @@ public class NimbleFingersPower : TheSorceressModPower
             {
                 this.Flash();
             }
-            InvokeDisplayAmountChanged();
         }
+        InvokeDisplayAmountChanged();
         return Task.CompletedTask;
     }
 
