@@ -12,7 +12,7 @@ public class DimensionalAssault() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(18, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(16, ValueProp.Move), new CardsVar(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle, SorceressKeywords.Shadowdance];
     
     protected override async Task OnPlay(
@@ -21,12 +21,13 @@ public class DimensionalAssault() : TheSorceressModCard(2,
     {
         if (play.Target == null)
             return;
-        await CreatureCmd.LoseBlock(choiceContext, play.Target, play.Target.Block, Owner.Creature);
-        await CommonActions.CardAttack(this, play, vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
+        await CommonActions.CardAttack(this, play, vfx:"vfx/vfx_dramatic_stab").Execute(choiceContext);
+        await CommonActions.Draw(this, choiceContext);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(6);
+        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
 }

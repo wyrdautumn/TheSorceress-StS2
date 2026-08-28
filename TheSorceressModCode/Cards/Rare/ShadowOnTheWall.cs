@@ -13,7 +13,7 @@ public class ShadowOnTheWall() : TheSorceressModCard(2,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Shadowdance];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
@@ -29,6 +29,6 @@ public class ShadowOnTheWall() : TheSorceressModCard(2,
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Ethereal);
+        AddKeyword(SorceressKeywords.Subtle);
     }
 }

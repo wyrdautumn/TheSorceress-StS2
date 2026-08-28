@@ -61,6 +61,14 @@ public class PrimedPower : TheSorceressModPower
             PrimeRemoved.Set(Owner, val + Amount);
             await PowerCmd.Remove(this);
         }
+
+        DetonatorPower? detonator = Owner.GetPower<DetonatorPower>();
+        if (detonator != null)
+        {
+            detonator.TriggerFlash();
+            await PowerCmd.Apply<PrimedPower>(choiceContext, Owner, detonator.Amount, null, null);
+            await PowerCmd.Remove(detonator);
+        }
     }
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)

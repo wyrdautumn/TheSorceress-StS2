@@ -20,13 +20,12 @@ public class CunningSpark() : TheSorceressModRelic
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
 
-    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
-        ICombatState combatState)
+    public override async Task AfterRoomEntered(AbstractRoom room)
     {
-        if (combatState.RoundNumber != 1 || side != CombatSide.Player || !participants.Contains(Owner.Creature))
+        if (!(room is CombatRoom))
             return;
         Flash();
-        await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
+        await PowerCmd.Apply<CombatAdvantagePower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1, Owner.Creature, null);
     }
 
     public override RelicModel? GetUpgradeReplacement()

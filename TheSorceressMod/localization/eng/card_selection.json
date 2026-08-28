@@ -4,5 +4,6 @@
   "TO_TELL": "Choose {Amount:plural:a story|[blue]{}[/blue] stories} to tell.",
   "TO_SHUFFLE": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to shuffle into your Draw Pile.",
   "TO_SHADOW": "Choose {Amount:plural:a shadow|[blue]{}[/blue] shadows} to call upon.",
-  "TO_TRICK": "Choose {Amount:plural:a trick|[blue]{}[/blue] tricks} to put up your sleeve."
+  "TO_TRICK": "Choose {Amount:plural:a trick|[blue]{}[/blue] tricks} to put up your sleeve.",
+  "TO_DANCE": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to draw from the shadows."
 }

@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -14,28 +15,21 @@ namespace TheSorceressMod.TheSorceressModCode.Relics;
 public class DancingSash() : TheSorceressModRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Rare;
+        RelicRarity.Shop;
     
-    
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DancingSashPower>(2)];
 
+    
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<StrengthPower>(),HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
+        [HoverTipFactory.FromPower<StrengthPower>(),HoverTipFactory.FromKeyword(SorceressKeywords.Sleight)];
 
-    public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal)
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (card.Owner == Owner && Owner.Creature.CombatState != null && Owner.Creature.Side == Owner.Creature.CombatState.CurrentSide)
+        if (cardPlay.Card.Owner == Owner && cardPlay.Card.Keywords.Contains(SorceressKeywords.Sleight))
         {
             Flash();
-            await PowerCmd.Apply<DancingSashPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
+            await PowerCmd.Apply<DancingSashPower>(choiceContext, Owner.Creature, DynamicVars["DancingSashPower"].BaseValue, Owner.Creature, null);
         }
-    }
 
-    public override async Task AfterCardDiscarded(PlayerChoiceContext choiceContext, CardModel card)
-    {
-        if (card.Owner == Owner && Owner.Creature.CombatState != null && Owner.Creature.Side == Owner.Creature.CombatState.CurrentSide)
-        {
-            Flash();
-            await PowerCmd.Apply<DancingSashPower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
-        }
     }
 }

@@ -17,7 +17,6 @@ public class DistractingShot() : TheSorceressModCard(1,
     {
         get => new HashSet<CardTag>() { SorceressKeywords.Cunning };
     }
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight)];

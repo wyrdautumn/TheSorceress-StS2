@@ -13,7 +13,7 @@ public class TwoWeaponDefense() : TheSorceressModCard(1,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<TwoWeaponDefensePower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<TwoWeaponDefensePower>(1), new PowerVar<TwoWeaponDefenseUpgradePower>(1)];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
@@ -25,10 +25,12 @@ public class TwoWeaponDefense() : TheSorceressModCard(1,
     {
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await PowerCmd.Apply<TwoWeaponDefensePower>(choiceContext, this.Owner.Creature, this.DynamicVars["TwoWeaponDefensePower"].BaseValue, this.Owner.Creature, this);
+        if (IsUpgraded)
+            await PowerCmd.Apply<TwoWeaponDefenseUpgradePower>(choiceContext, Owner.Creature,
+                DynamicVars["TwoWeaponDefenseUpgradePower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        AddKeyword(SorceressKeywords.Subtle);
     }
 }

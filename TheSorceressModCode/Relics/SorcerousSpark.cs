@@ -24,15 +24,7 @@ public class SorcerousSpark() : TheSorceressModRelic
         if (!(room is CombatRoom))
             return;
         Flash();
-        await PowerCmd.Apply<CharismaPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), this.Owner.Creature, 2, this.Owner.Creature, null);
-    }
-    
-    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
-        ICombatState combatState)
-    {
-        if (combatState.RoundNumber != 1 || side != CombatSide.Player || !participants.Contains(Owner.Creature))
-            return;
-        Flash();
-        await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, Owner.Creature, 1, Owner.Creature, null);
+        await PowerCmd.Apply<CombatAdvantagePower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1, Owner.Creature, null);
+        await PowerCmd.Apply<CharismaPower>(new ThrowingPlayerChoiceContext(), this.Owner.Creature, 2, this.Owner.Creature, null);
     }
 }

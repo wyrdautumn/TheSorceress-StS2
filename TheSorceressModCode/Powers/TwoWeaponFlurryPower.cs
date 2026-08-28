@@ -19,6 +19,8 @@ public class TwoWeaponFlurryPower : TheSorceressModPower
         if (cardPlay.Card.Owner.Creature != Owner || cardPlay.Card.Type != CardType.Attack)
             return;
         this.Flash();
+        foreach (Creature enemy in CombatState.HittableEnemies)
+            VfxCmd.PlayOnCreatureCenter(enemy, "vfx/vfx_attack_slash");
         await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, Amount, ValueProp.Unpowered, Owner, null, null);
     }
 }

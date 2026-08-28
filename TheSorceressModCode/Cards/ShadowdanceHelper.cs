@@ -21,25 +21,32 @@ public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
     public static readonly SpireField<CardModel, bool> TempShadowdance = new(() => false);
     public static readonly SpireField<CardModel, bool> WasAgilePlayed = new(() => false);
     public static readonly SpireField<CardModel, bool> ExhaustedOnPlay = new(() => false);
+    public static readonly SpireField<PlayerCombatState, int> CardsDanced = new(() => 0);
     
-    public override async Task BeforeHandDraw(
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
+    {
+        if (oldPileType == PileType.Exhaust && card.Pile != null && card.Pile.Type != PileType.Exhaust && card.Pile.Type != PileType.None && card.Pile.Type != PileType.Play && card.Owner.PlayerCombatState != null)
+        {
+            int val = CardsDanced.Get(card.Owner.PlayerCombatState);
+            CardsDanced.Set(card.Owner.PlayerCombatState, val + 1);
+        }
+    }
+    
+    public override async Task BeforeHandDrawLate(
         Player player,
         PlayerChoiceContext choiceContext,
         ICombatState combatState)
     {
-        List<CardModel> list = PileType.Exhaust.GetPile(player).Cards.ToList();
+        if (player.PlayerCombatState == null)
+            return;
+        List<CardModel> list = player.PlayerCombatState.AllCards.ToList();
         foreach (CardModel card in list)
         {
-            bool temp = TempShadowdance.Get(card);
-            if (temp)
-            {
-                TempShadowdance.Set(card, false);
-                await CardPileCmd.Add(card, PileType.Discard.GetPile(player));
-            }
-            else if (card.Keywords.Contains(SorceressKeywords.Shadowdance))
+            if (TempShadowdance.Get(card) || card.Keywords.Contains(SorceressKeywords.Shadowdance) && card.Pile != null && card.Pile.Type == PileType.Exhaust)
             {
                 await CardPileCmd.Add(card, PileType.Discard.GetPile(player));
             }
+            TempShadowdance.Set(card, false);
         }
     }
 

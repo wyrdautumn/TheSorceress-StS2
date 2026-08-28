@@ -23,30 +23,8 @@ public class ThrowingKnives() : TheSorceressModRelic
     public override RelicRarity Rarity =>
         RelicRarity.Rare;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Unpowered)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Unpowered)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
-
-    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
-        CardModel? cardSource)
-    {
-        if (power.Owner.Player == null || power.Owner.Player != Owner || power.Owner.Player.PlayerCombatState == null || power is not CombatAdvantagePower || amount < 1)
-        {
-            return;
-        }
-        Flash();
-        if (Owner.Creature.CombatState == null)
-            return;
-        Creature? target =
-            Owner.RunState.Rng.CombatTargets.NextItem<Creature>(Owner.Creature.CombatState.HittableEnemies);
-        if (target == null)
-            return;
-        NDebugAudioManager.Instance?.Play("dagger_throw.mp3");
-        Node? child = NShivThrowVfx.Create(Owner.Creature, target, new Color("b18aff"));
-        NCombatRoom? instance = NCombatRoom.Instance;
-        if (instance != null && child != null)
-            instance.CombatVfxContainer.AddChildSafely(child);
-        await CreatureCmd.Damage(choiceContext, target, DynamicVars.Damage, Owner.Creature);
-    }
 }

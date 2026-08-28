@@ -31,7 +31,8 @@ public class Palm() : TheSorceressModCard(0,
             return;
         foreach (CardModel card in _rekindle)
         {
-            await CardPileCmd.Add(card, PileType.Hand.GetPile(Owner));
+            if (card.Pile != null && card.Pile.Type == PileType.Exhaust)
+                await CardPileCmd.Add(card, PileType.Hand.GetPile(Owner));
             card.SetToFreeThisTurn();
         }
         _rekindle.Clear();

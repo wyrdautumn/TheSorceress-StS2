@@ -1,14 +1,18 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using Godot;
+using MegaCrit.Sts2.Core.Audio.Debug;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Extensions;
 using TheSorceressMod.TheSorceressModCode.helpers;
@@ -57,11 +61,22 @@ public class CombatAdvantagePower : TheSorceressModPower
 
     public override async Task AfterRemoved(Creature oldOwner)
     {
-        SilverySwordbreaker? relic = Owner.Player?.GetRelic<SilverySwordbreaker>();
+        ThrowingKnives? relic = Owner.Player?.GetRelic<ThrowingKnives>();
         if (relic != null)
         {
             relic.Flash();
-            await CreatureCmd.GainBlock(Owner, 3, ValueProp.Unpowered, null, true);
+            if (Owner.CombatState == null || Owner.Player == null)
+                return;
+            Creature? target =
+                Owner.Player.RunState.Rng.CombatTargets.NextItem<Creature>(Owner.CombatState.HittableEnemies);
+            if (target == null)
+                return;
+            NDebugAudioManager.Instance?.Play("dagger_throw.mp3");
+            Node? child = NShivThrowVfx.Create(Owner, target, new Color("b18aff"));
+            NCombatRoom? instance = NCombatRoom.Instance;
+            if (instance != null && child != null)
+                instance.CombatVfxContainer.AddChildSafely(child);
+            await CreatureCmd.Damage(new BlockingPlayerChoiceContext(), target, relic.DynamicVars.Damage, Owner);
         }
     }
 }

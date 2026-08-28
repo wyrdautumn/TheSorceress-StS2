@@ -22,7 +22,7 @@ public class LingeringShadowsPower : TheSorceressModPower
 
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
     {
-        if (card.Owner.Creature != this.Owner || oldPileType != PileType.Exhaust || card.Pile == null || card.Pile.Type == PileType.Exhaust || card.Pile.Type == PileType.None || this.Owner.Player == null || this.Owner.CombatState == null || ShadowdanceHelper.WasAgilePlayed.Get(card))
+        if (card.Owner.Creature != this.Owner || oldPileType != PileType.Exhaust || card.Pile == null || card.Pile.Type == PileType.Exhaust || card.Pile.Type == PileType.None || card.Pile.Type == PileType.Play || this.Owner.Player == null || this.Owner.CombatState == null)
         {
             return;
         }
