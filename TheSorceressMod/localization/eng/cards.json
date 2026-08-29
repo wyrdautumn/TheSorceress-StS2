@@ -27,7 +27,7 @@
   "THESORCERESSMOD-HELLFIRE_STRIKE.title": "Hellfire Strike",
   "THESORCERESSMOD-FLAME_SPIRAL.description": "Deal {Damage:diff()} damage to ALL enemies.",
   "THESORCERESSMOD-FLAME_SPIRAL.title": "Flame Spiral",
-  "THESORCERESSMOD-INFILTRATE.description": "Gain {CharismaPower:diff()} for each enemy.\nDeal {Damage:diff()} damage to ALL enemies.",
+  "THESORCERESSMOD-INFILTRATE.description": "Gain {CharismaPower:diff()} [gold]Charisma[/gold] for each enemy.\nDeal {Damage:diff()} damage to ALL enemies.",
   "THESORCERESSMOD-INFILTRATE.title": "Infiltrate",
   "THESORCERESSMOD-ENSORCELLED_BLADE.description": "Deal {Damage:diff()} damage.\nThe next time you play a [gold]Sorcery[/gold], gain {Energy:energyIcons()}.",
   "THESORCERESSMOD-ENSORCELLED_BLADE.title": "Ensorcelled Blade",
