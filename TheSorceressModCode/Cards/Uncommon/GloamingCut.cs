@@ -20,7 +20,7 @@ public class GloamingCut() : TheSorceressModCard(1,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move), new PowerVar<GloamingCutPower>(4)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, SorceressKeywords.Shadowdance];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Shadowdance];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
