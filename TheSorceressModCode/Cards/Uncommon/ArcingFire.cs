@@ -16,7 +16,7 @@ public class ArcingFire() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(17, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     
     protected override HashSet<CardTag> CanonicalTags
@@ -46,6 +46,6 @@ public class ArcingFire() : TheSorceressModCard(2,
 
     protected override void OnUpgrade()
     {
-        this.DynamicVars.Damage.UpgradeValueBy(5);
+        this.DynamicVars.Damage.UpgradeValueBy(6);
     }
 }

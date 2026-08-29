@@ -18,18 +18,16 @@ public class DancingSash() : TheSorceressModRelic
         RelicRarity.Shop;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DancingSashPower>(2)];
-
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<StrengthPower>(),HoverTipFactory.FromKeyword(SorceressKeywords.Sleight)];
-
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+        [HoverTipFactory.FromPower<StrengthPower>(),HoverTipFactory.Static(SorceressKeywords.Dance)];
+    
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
     {
-        if (cardPlay.Card.Owner == Owner && cardPlay.Card.Keywords.Contains(SorceressKeywords.Sleight))
+        if (card.Owner == Owner && oldPileType == PileType.Exhaust && card.Pile != null && card.Pile.Type != PileType.Exhaust && card.Pile.Type != PileType.None && card.Pile.Type != PileType.Play)
         {
             Flash();
-            await PowerCmd.Apply<DancingSashPower>(choiceContext, Owner.Creature, DynamicVars["DancingSashPower"].BaseValue, Owner.Creature, null);
+            await PowerCmd.Apply<DancingSashPower>(new BlockingPlayerChoiceContext(), Owner.Creature, DynamicVars["DancingSashPower"].BaseValue, Owner.Creature, null);
         }
-
     }
 }

@@ -5,7 +5,9 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Powers;
 using TheSorceressMod.TheSorceressModCode.Relics;
 
@@ -15,6 +17,8 @@ public class SorcerousSpark() : TheSorceressModRelic
 {
     public override RelicRarity Rarity =>
         RelicRarity.Starter;
+    
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<CharismaPower>(1)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>(), HoverTipFactory.FromPower<CharismaPower>()];
@@ -25,6 +29,5 @@ public class SorcerousSpark() : TheSorceressModRelic
             return;
         Flash();
         await PowerCmd.Apply<CombatAdvantagePower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1, Owner.Creature, null);
-        await PowerCmd.Apply<CharismaPower>(new ThrowingPlayerChoiceContext(), this.Owner.Creature, 2, this.Owner.Creature, null);
     }
 }

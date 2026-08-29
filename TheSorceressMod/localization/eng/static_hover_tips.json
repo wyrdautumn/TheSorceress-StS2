@@ -2,11 +2,13 @@
   "THESORCERESSMOD-FIRE_ATTACK.description": "Fire Attacks have the words \"[gold]Fire[/gold]\", \"[gold]Flame[/gold]\", or \"[gold]Pyre[/gold]\" in their name.",
   "THESORCERESSMOD-FIRE_ATTACK.title": "Fire",
   "THESORCERESSMOD-REKINDLE.title": "Rekindle",
-  "THESORCERESSMOD-REKINDLE.description": "When a card [gold]Rekindles[/gold], return it to your [gold]Hand[/gold] from the [gold]Exhaust Pile[/gold].",
+  "THESORCERESSMOD-REKINDLE.description": "When a card Rekindles, return it to your [gold]Hand[/gold] from the [gold]Exhaust Pile[/gold].",
   "THESORCERESSMOD-ANCIENTS_AWAKENED.title": "Ancients Awakened",
   "THESORCERESSMOD-ANCIENTS_AWAKENED.description": "This card is designed for use with the [gold]Ancients Awakened[/gold] mod.",
   "THESORCERESSMOD-HERO_EXPANSION.title": "Hero Expansion",
   "THESORCERESSMOD-HERO_EXPANSION.description": "This card is designed for use with the [gold]Hero Expansion[/gold] mod.",
   "THESORCERESSMOD-MORE_NEOW.title": "More Neow",
-  "THESORCERESSMOD-MORE_NEOW.description": "This card is designed for use with the [gold]More Neow[/gold] mod."
+  "THESORCERESSMOD-MORE_NEOW.description": "This card is designed for use with the [gold]More Neow[/gold] mod.",
+  "THESORCERESSMOD-DANCE.title": "Dance",
+  "THESORCERESSMOD-DANCE.description": "A card Dances when it leaves your [gold]Exhaust Pile[/gold] without being played."
 }

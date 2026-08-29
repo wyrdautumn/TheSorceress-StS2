@@ -30,7 +30,7 @@ public class GloamingCut() : TheSorceressModCard(1,
         await CommonActions.CardAttack(this, play,vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
         List<CardModel>? exhaust = CardPile.Get(PileType.Exhaust, Owner)
             ?.Cards
-            .Where(c => !c.Keywords.Contains(CardKeyword.Exhaust) && !c.Keywords.Contains(SorceressKeywords.Shadowdance)).ToList();
+            .Where(c => c.Type == CardType.Attack && !c.Keywords.Contains(CardKeyword.Exhaust) && !c.Keywords.Contains(SorceressKeywords.Shadowdance)).ToList();
         var prefs = new CardSelectorPrefs(new LocString("card_selection", "TO_DANCE"), 1);
         if (exhaust == null)
             return;

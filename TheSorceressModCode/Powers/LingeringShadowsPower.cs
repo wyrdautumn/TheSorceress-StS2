@@ -18,7 +18,7 @@ public class LingeringShadowsPower : TheSorceressModPower
     public override PowerStackType StackType => PowerStackType.Counter;
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
+        [HoverTipFactory.Static(SorceressKeywords.Dance)];
 
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
     {

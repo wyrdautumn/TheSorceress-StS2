@@ -14,17 +14,17 @@ using TheSorceressMod.TheSorceressModCode.Relics;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class AMurderOfOne() : TheSorceressModCard(3,
+public class AMurderOfOne() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new CalculationBaseVar(18),
-    new ExtraDamageVar(4),
+    new CalculationBaseVar(4),
+    new ExtraDamageVar(2),
     new CalculatedDamageVar(ValueProp.Move).WithMultiplier(Calc)
     ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<CombatAdvantagePower>()];
+        [HoverTipFactory.FromPower<CombatAdvantagePower>(), HoverTipFactory.Static(SorceressKeywords.Dance)];
 
     private static decimal Calc(CardModel card, Creature? arg2)
     {
@@ -60,6 +60,6 @@ public class AMurderOfOne() : TheSorceressModCard(3,
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(1);
+        DynamicVars.ExtraDamage.UpgradeValueBy(2);
     }
 }

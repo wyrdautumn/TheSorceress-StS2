@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -61,22 +62,12 @@ public class CombatAdvantagePower : TheSorceressModPower
 
     public override async Task AfterRemoved(Creature oldOwner)
     {
-        ThrowingKnives? relic = Owner.Player?.GetRelic<ThrowingKnives>();
-        if (relic != null)
+        SorcerousSpark? relic = Owner.Player?.GetRelic<SorcerousSpark>();
+        if (relic != null && Owner.CombatState != null)
         {
             relic.Flash();
-            if (Owner.CombatState == null || Owner.Player == null)
-                return;
-            Creature? target =
-                Owner.Player.RunState.Rng.CombatTargets.NextItem<Creature>(Owner.CombatState.HittableEnemies);
-            if (target == null)
-                return;
-            NDebugAudioManager.Instance?.Play("dagger_throw.mp3");
-            Node? child = NShivThrowVfx.Create(Owner, target, new Color("b18aff"));
-            NCombatRoom? instance = NCombatRoom.Instance;
-            if (instance != null && child != null)
-                instance.CombatVfxContainer.AddChildSafely(child);
-            await CreatureCmd.Damage(new BlockingPlayerChoiceContext(), target, relic.DynamicVars.Damage, Owner);
+            await PowerCmd.Apply<CharismaPower>(new BlockingPlayerChoiceContext(), Owner,
+                relic.DynamicVars["CharismaPower"].BaseValue, Owner, null);
         }
     }
 }

@@ -22,7 +22,7 @@ public class ShadowPotion : TheSorceressModPotion
     public override TargetType TargetType => TargetType.Self;
     
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
+        [HoverTipFactory.Static(SorceressKeywords.Rekindle)];
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
@@ -37,7 +37,8 @@ public class ShadowPotion : TheSorceressModPotion
         {
             return;
         }
-        await CardCmd.AutoPlay(choiceContext, card, null);
+        await CardPileCmd.Add(card, PileType.Hand.GetPile(Owner));
+        card.SetToFreeThisTurn();
     }
     
     public override string? CustomPackedImagePath => "res://TheSorceressMod/images/potions/shadow_potion.png";

@@ -107,6 +107,16 @@ public class PrimedPower : TheSorceressModPower
             await PowerCmd.Remove(this);
         }
     }
+
+    public override Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+    {
+        if (creature == Owner && wasRemovalPrevented)
+        {
+            int val = PrimeRemoved.Get(Owner);
+            PrimeRemoved.Set(Owner, val + Amount);
+        }
+        return Task.CompletedTask;
+    }
 }
 
 

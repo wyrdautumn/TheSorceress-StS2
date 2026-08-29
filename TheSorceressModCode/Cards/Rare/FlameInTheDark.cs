@@ -28,7 +28,7 @@ public class FlameInTheDark() : TheSorceressModCard(3,
     private int _currentCharisma = 2;
     private int _increasedCharisma;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(16, ValueProp.Move), new PowerVar<CharismaPower>(this.CurrentCharisma),new IntVar("Increase", 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, ValueProp.Move), new PowerVar<CharismaPower>(this.CurrentCharisma),new IntVar("Increase", 2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery,CardKeyword.Exhaust];
     protected override HashSet<CardTag> CanonicalTags
     {

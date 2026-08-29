@@ -21,7 +21,7 @@ public class LingeringShadows() : TheSorceressModCard(1,
     new CalculatedVar("LingeringShadowsPower").WithMultiplier(Calc)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
+        [HoverTipFactory.Static(SorceressKeywords.Dance)];
     
 
     private static decimal Calc(CardModel card, Creature? arg2)
