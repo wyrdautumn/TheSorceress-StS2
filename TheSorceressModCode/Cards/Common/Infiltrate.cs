@@ -22,36 +22,27 @@ public class Infiltrate() : TheSorceressModCard(1,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(8, ValueProp.Move),
-        new PowerVar<CharismaPower>(2)
+        new DamageVar(7, ValueProp.Move),
+        new PowerVar<CharismaPower>(1)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.FromPower<CharismaPower>()];
-    
-    protected override bool ShouldGlowGoldInternal => !AttackPlayedThisTurn;
     
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        bool playedAttack = AttackPlayedThisTurn;
+        if (CombatState == null)
+            return;
+        decimal charisma = CombatState.HittableEnemies.Count() * DynamicVars["CharismaPower"].BaseValue;
+        await CommonActions.ApplySelf<CharismaPower>(choiceContext, this, charisma);
         await CommonActions.CardAttack(this, play, vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
-        if (!playedAttack)
-        {
-            await CommonActions.ApplySelf<CharismaPower>(choiceContext, this);
-        }
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars["CharismaPower"].UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
-
-    private bool AttackPlayedThisTurn =>
-        CombatManager.Instance.History.CardPlaysFinished.Any(e =>
-            e.CardPlay.Card.Owner == Owner && e.CardPlay.Card.Type == CardType.Attack &&
-            e.HappenedThisTurn(CombatState));
 }
