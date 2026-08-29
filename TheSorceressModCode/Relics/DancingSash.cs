@@ -15,7 +15,7 @@ namespace TheSorceressMod.TheSorceressModCode.Relics;
 public class DancingSash() : TheSorceressModRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Shop;
+        RelicRarity.Rare;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DancingSashPower>(2)];
     

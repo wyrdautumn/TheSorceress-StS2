@@ -22,7 +22,7 @@ namespace TheSorceressMod.TheSorceressModCode.Relics;
 public class ThrowingKnives() : TheSorceressModRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Rare;
+        RelicRarity.Shop;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Unpowered)];
     
