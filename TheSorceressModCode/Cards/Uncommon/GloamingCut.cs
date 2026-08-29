@@ -20,8 +20,10 @@ public class GloamingCut() : TheSorceressModCard(1,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move), new PowerVar<GloamingCutPower>(4)];
 
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, SorceressKeywords.Shadowdance];
+    
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromKeyword(SorceressKeywords.Shadowdance)];
+        [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
     
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
