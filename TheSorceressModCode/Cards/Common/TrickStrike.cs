@@ -20,8 +20,7 @@ public class TrickStrike() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10,ValueProp.Move)];
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8,ValueProp.Move), new PowerVar<PrimedPower>(4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>(), HoverTipFactory.FromPower<CombatAdvantagePower>()];
 
@@ -29,8 +28,6 @@ public class TrickStrike() : TheSorceressModCard(1,
     {
         get
         {
-            if (CombatState != null && CombatState.HittableEnemies.Any(c => c.HasPower<PrimedPower>()))
-                return true;
             return Owner.HasPower<CombatAdvantagePower>();
         }
     }
@@ -41,13 +38,11 @@ public class TrickStrike() : TheSorceressModCard(1,
     {
         if (play.Target == null)
             return;
-        decimal prime = play.Target.GetPowerAmount<PrimedPower>();
         bool hadCA = Owner.HasPower<CombatAdvantagePower>();
-        await CommonActions.CardAttack(this, play,vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
-        if (prime > 0)
-            await CommonActions.Apply<PrimedPower>(choiceContext, play.Target, this, prime);
+        await CommonActions.CardAttack(this, play,vfx:"vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
         if (hadCA)
             await CommonActions.ApplySelf<CombatAdvantagePower>(choiceContext, this, 1);
+        await CommonActions.Apply<PrimedPower>(choiceContext, play.Target, this);
     }
 
     protected override void OnUpgrade()

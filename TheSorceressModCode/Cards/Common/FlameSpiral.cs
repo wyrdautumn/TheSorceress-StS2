@@ -11,7 +11,7 @@ public class FlameSpiral() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Common,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     protected override HashSet<CardTag> CanonicalTags
     {

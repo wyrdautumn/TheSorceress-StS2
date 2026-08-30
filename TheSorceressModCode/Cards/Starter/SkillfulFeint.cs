@@ -32,6 +32,6 @@ public class SkillfulFeint() : TheSorceressModCard(0,
 
     protected override void OnUpgrade()
     {
-
+        DynamicVars["DefensiveAdvantage"].UpgradeValueBy(1);
     }
 }
