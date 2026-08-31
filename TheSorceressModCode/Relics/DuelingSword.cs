@@ -16,7 +16,7 @@ namespace TheSorceressMod.TheSorceressModCode.Relics;
 public class DuelingSword() : TheSorceressModRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Rare;
+        RelicRarity.Shop;
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sorcery)];

@@ -15,9 +15,9 @@ namespace TheSorceressMod.TheSorceressModCode.Relics;
 public class SilverySwordbreaker() : TheSorceressModRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Uncommon;
+        RelicRarity.Rare;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(1,ValueProp.Unpowered)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(3,ValueProp.Unpowered)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
 
