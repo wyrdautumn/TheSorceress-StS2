@@ -19,7 +19,7 @@
   "THESORCERESSMOD-MIND_SHADOWS.title": "Mind Shadows",
   "THESORCERESSMOD-MAKE_AN_IMPRESSION.description": "Gain {CharismaPower:diff()} [gold]Charisma[/gold].\nPut a card from your [gold]Discard Pile[/gold] on top of your [gold]Draw Pile[/gold].",
   "THESORCERESSMOD-MAKE_AN_IMPRESSION.title": "Make an Impression",
-  "THESORCERESSMOD-GLOAMING_CUT.description": "Deal {Damage:diff()} damage.\nAdd [gold]Shadowdance[/gold] to an Attack in your [gold]Exhaust Pile[/gold] without [gold]Exhaust[/gold].",
+  "THESORCERESSMOD-GLOAMING_CUT.description": "Deal {Damage:diff()} damage.\nAdd [gold]Shadowdance[/gold] to an Attack or Skill in your [gold]Exhaust Pile[/gold] without [gold]Exhaust[/gold].",
   "THESORCERESSMOD-GLOAMING_CUT.title": "Gloaming Cut",
   "THESORCERESSMOD-TWO_WEAPON_FEINT.description": "Deal {Damage:diff()} damage.\nGain [gold]Combat Advantage[/gold].\nAdd [gold]{IfUpgraded:show:Paired Punish+|Paired Punish}[/gold] into your [gold]Hand[/gold].",
   "THESORCERESSMOD-TWO_WEAPON_FEINT.title": "Paired Feint",

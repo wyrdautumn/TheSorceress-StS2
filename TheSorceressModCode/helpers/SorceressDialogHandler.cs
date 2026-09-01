@@ -29,7 +29,7 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             combatState.Encounter is not DevotedSculptorWeak &&
             combatState.Encounter is not OwlMagistrateNormal && combatState.Encounter is not TheObscuraNormal &&
             combatState.Encounter is not WaterfallGiantBoss && combatState.Encounter is not TheInsatiableBoss &&
-            combatState.Encounter is not QueenBoss &&
+            combatState.Encounter is not QueenBoss && combatState.Encounter is not TheKinBoss &&
             combatState.Encounter is not TestSubjectBoss && combatState.Encounter is not AeonglassBoss &&
             combatState.Encounter is not DenseVegetationEventEncounter
             && combatState.Encounter is not MysteriousKnightEventEncounter &&
@@ -103,6 +103,12 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             TalkCmd.Play(new LocString("combat_messages", "SORCERESS_QUEEN_REPLY"),combatState.Enemies.First(creature => creature.Monster is Queen),VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
+        if (combatState.Encounter is TheKinBoss)
+        {
+            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
+
+        }
+
         if (combatState.Encounter is TestSubjectBoss)
         {
             TalkCmd.Play(new LocString("combat_messages", "SORCERESS_TEST_SUBJECT_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
@@ -142,29 +148,5 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             await Cmd.CustomScaledWait(0.4f, 1);
             TalkCmd.Play(new LocString("combat_messages", "SORCERESS_FAKE_MERCHANT_REPLY"),combatState.Enemies.First(creature => creature.Monster is FakeMerchantMonster),VfxColor.Blue,SorceressKeywords.ExtraVeryLong);
         }
-    }
-
-    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
-        ICombatState combatState)
-    {
-        if (combatState.RoundNumber > 1 || side != CombatSide.Player)
-            return;
-
-        Player? sorceress = combatState.Players.FirstOrDefault(p => p.Character is Character.TheSorceressMod);
-        if (sorceress == null)
-            return;
-
-        if (combatState.Encounter is not TheKinBoss)
-            return;
-        
-        TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_BANTER1"),sorceress.Creature,VfxColor.Purple,VfxDuration.VeryLong);
-        await Cmd.CustomScaledWait(2f, 2f);
-        foreach (Creature enemy in combatState.Enemies.Where(creature => creature.Monster is KinFollower))
-        {
-            TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_REPLY"),
-                enemy, VfxColor.Blue, SorceressKeywords.ExtraVeryLong);
-        }
-        await Cmd.CustomScaledWait(2f, 2f);
-        TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_BANTER2"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
     }
 }
