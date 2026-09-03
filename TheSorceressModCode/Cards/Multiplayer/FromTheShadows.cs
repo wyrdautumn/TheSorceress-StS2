@@ -17,7 +17,7 @@ public class FromTheShadows() : TheSorceressModCard(0,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
     
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight, CardKeyword.Exhaust];
     
     public override CardMultiplayerConstraint MultiplayerConstraint
     {
