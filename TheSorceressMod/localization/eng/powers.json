@@ -37,7 +37,7 @@
   "THESORCERESSMOD-NIMBLE_FINGERS_POWER.smartDescription": "The first {Amount:plural:[gold]Sleight[/gold] card|[blue]{Amount}[/blue] [gold]Sleight[/gold] cards} you play each turn {Amount:plural:doesn't|don't} increase the cost of your [gold]Sleight[/gold] cards.",
   "THESORCERESSMOD-NIMBLE_FINGERS_POWER.title": "Nimble Fingers",
   "THESORCERESSMOD-DEFENSIVE_ADVANTAGE_POWER.description": "Whenever you gain [gold]Combat Advantage[/gold], gain [gold]Dexterity[/gold] this turn.",
-  "THESORCERESSMOD-DEFENSIVE_ADVANTAGE_POWER.smartDescription": "Whenever you gain [gold]Combat Advantage[/gold], gain [blue]{Amount}/blue] [gold]Dexterity[/gold] this turn.",
+  "THESORCERESSMOD-DEFENSIVE_ADVANTAGE_POWER.smartDescription": "Whenever you gain [gold]Combat Advantage[/gold], gain [blue]{Amount}[/blue] [gold]Dexterity[/gold] this turn.",
   "THESORCERESSMOD-DEFENSIVE_ADVANTAGE_POWER.title": "Defensive Advantage",
   "THESORCERESSMOD-DEFENSIVE_ADVANTAGE_UPGRADE_POWER.description": "Take 40% less damage from attacks while you have [gold]Combat Advantage[/gold]. Does not stack.",
   "THESORCERESSMOD-DEFENSIVE_ADVANTAGE_UPGRADE_POWER.smartDescription": "Take 40% less damage from attacks while you have [gold]Combat Advantage[/gold]. This does not stack.",

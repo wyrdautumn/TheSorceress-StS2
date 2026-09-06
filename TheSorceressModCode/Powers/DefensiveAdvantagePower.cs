@@ -16,7 +16,7 @@ public class DefensiveAdvantagePower : TheSorceressModPower
 {
     public override PowerType Type => PowerType.Buff;
 
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>(), HoverTipFactory.FromPower<DexterityPower>()];
