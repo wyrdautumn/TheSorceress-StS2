@@ -63,7 +63,7 @@
   "THESORCERESSMOD-TWO_WEAPON_SORCERY.title": "Two-Implement Sorcery",
   "THESORCERESSMOD-UNKINDNESS.description": "Deal {Damage:diff()} damage.\nIf you have [gold]Combat Advantage[/gold], deal triple damage.",
   "THESORCERESSMOD-UNKINDNESS.title": "Unkindness",
-  "THESORCERESSMOD-CANDLELIGHT.description": "Gain {Energy:energyIcons()}.\nDraw {Cards:diff()} cards.\nGain [gold]Combat Advantage[/gold].",
+  "THESORCERESSMOD-CANDLELIGHT.description": "Gain {Energy:energyIcons()}.\nDraw {Cards:diff()} {Cards:plural:card|cards}.\nGain [gold]Combat Advantage[/gold].",
   "THESORCERESSMOD-CANDLELIGHT.title": "Candlelight",
   "THESORCERESSMOD-TWO_WEAPON_FIGHTING.description": "Deal {Damage:diff()} damage twice.\nAdd [gold]{IfUpgraded:show:Two-Weapon Combination+|Two-Weapon Combination}[/gold] into your [gold]Hand[/gold].",
   "THESORCERESSMOD-TWO_WEAPON_FIGHTING.title": "Two-Weapon Fighting",
