@@ -17,7 +17,7 @@ public class CreateADiversion() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6,ValueProp.Move), new PowerVar<VigorPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8,ValueProp.Move), new PowerVar<VigorPower>(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     public override bool GainsBlock => true;
     

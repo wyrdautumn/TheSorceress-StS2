@@ -208,7 +208,7 @@
   "THESORCERESSMOD-TWO_WEAPON_SUPPRESSION.title": "Second Hand Suppression",
   "THESORCERESSMOD-TWO_WEAPON_TACTICS.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.",
   "THESORCERESSMOD-TWO_WEAPON_TACTICS.title": "Second Hand Tactics",
-  "THESORCERESSMOD-PERFECT_DISTRACTION_ANCIENT.description": "[gold]Prime[/gold] {PrimedPower:diff()}.\nGain [gold]Combat Advantage[/gold].\nAt the start of your turn, [gold]Rekindle[/gold] this card.",
+  "THESORCERESSMOD-PERFECT_DISTRACTION_ANCIENT.description": "[gold]Prime[/gold] {PrimedPower:diff()}.\nAt the start of your turn, [gold]Rekindle[/gold] this card.",
   "THESORCERESSMOD-PERFECT_DISTRACTION_ANCIENT.title": "Godhunter",
   "THESORCERESSMOD-UNSEEN_STRIKE.description": "Deal {Damage:diff()} damage.\nDon't lose [gold]Combat Advantage[/gold] after playing this card.\nDon't remove the enemy's [gold]Prime[/gold].",
   "THESORCERESSMOD-UNSEEN_STRIKE.title": "Unseen Strike",

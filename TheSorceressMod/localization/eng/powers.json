@@ -79,7 +79,7 @@
   "THESORCERESSMOD-SORCERERS_GAMBIT_POWER.smartDescription": "Whenever you take no damage from an attack, deal [blue]{Amount}[/blue] damage back.",
   "THESORCERESSMOD-SORCERERS_GAMBIT_POWER.title": "Sorcerer's Gambit",
   "THESORCERESSMOD-LEGENDARY_SNEAK_POWER.description": "Whenever you gain [gold]Combat Advantage[/gold], draw a card.",
-  "THESORCERESSMOD-LEGENDARY_SNEAK_POWER.smartDescription": "Whenever you gain [gold]Combat Advantage[/gold], draw [blue]{Amount}[/blue] {Amount:pural:card|cards}.",
+  "THESORCERESSMOD-LEGENDARY_SNEAK_POWER.smartDescription": "Whenever you gain [gold]Combat Advantage[/gold], draw [blue]{Amount}[/blue] {Amount:plural:card|cards}.",
   "THESORCERESSMOD-LEGENDARY_SNEAK_POWER.title": "Legendary Sneak",
   "THESORCERESSMOD-FLOCK_TACTICS_POWER.description": "Whenever another player attacks an enemy this turn, gain [gold]Combat Advantage[/gold].",
   "THESORCERESSMOD-FLOCK_TACTICS_POWER.smartDescription": "Whenever another player attacks an enemy this turn, gain [gold]Combat Advantage[/gold].",
