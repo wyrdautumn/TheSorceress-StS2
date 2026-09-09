@@ -12,8 +12,8 @@ public class PrescientPlanner() : TheSorceressModHeroExpansionCard(0,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust,CardKeyword.Ethereal];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight),..AddHeroExpansion()];
     protected override HashSet<CardTag> CanonicalTags
@@ -26,11 +26,11 @@ public class PrescientPlanner() : TheSorceressModHeroExpansionCard(0,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-        await CommonActions.Draw(this, choiceContext);
+        await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
     }
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Ethereal);
+        DynamicVars.Energy.UpgradeValueBy(1);
     }
 }

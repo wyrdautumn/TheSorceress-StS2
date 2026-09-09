@@ -42,7 +42,7 @@ public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
         List<CardModel> list = player.PlayerCombatState.AllCards.ToList();
         foreach (CardModel card in list)
         {
-            if (TempShadowdance.Get(card) || card.Keywords.Contains(SorceressKeywords.Shadowdance) && card.Pile != null && card.Pile.Type == PileType.Exhaust)
+            if ((TempShadowdance.Get(card) || card.Keywords.Contains(SorceressKeywords.Shadowdance)) && card.Pile != null && card.Pile.Type == PileType.Exhaust)
             {
                 await CardPileCmd.Add(card, PileType.Discard.GetPile(player));
             }
@@ -67,6 +67,12 @@ public class ShadowdanceHelper() : CustomSingletonModel(HookType.Combat)
         if (ExhaustedOnPlay.Get(card))
         {
             ExhaustedOnPlay.Set(card, false);
+            return;
+        }
+
+        if (WasAgilePlayed.Get(card))
+        {
+            WasAgilePlayed.Set(card, false);
             return;
         }
         if (card.Keywords.Contains(SorceressKeywords.Subtle))

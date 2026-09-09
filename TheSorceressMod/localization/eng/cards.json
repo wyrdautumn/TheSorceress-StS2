@@ -232,7 +232,7 @@
   "THESORCERESSMOD-RIGHT_HAND_WEAPON.description": "Draw {Cards:diff()} card.\nDiscard any number of cards.\nAdd [gold]Left-Hand Weapon[/gold] into your [gold]Hand[/gold] and increase its damage by {DamageIncrease:diff()} for each card discarded.",
   "THESORCERESSMOD-RIGHT_HAND_WEAPON.selectionScreenPrompt": "Choose any number of cards to discard.",
   "THESORCERESSMOD-RIGHT_HAND_WEAPON.title": "Right-Hand Weapon",
-  "THESORCERESSMOD-PRESCIENT_PLANNER.description": "Draw {Cards:diff()} cards.\nReset the cost of your [gold]Sleights[/gold] this turn.",
+  "THESORCERESSMOD-PRESCIENT_PLANNER.description": "Gain {Energy:energyIcons()}.\nReset the cost of your [gold]Sleights[/gold] this turn.",
   "THESORCERESSMOD-PRESCIENT_PLANNER.title": "Prescient Planner",
   "THESORCERESSMOD-REND_THE_VEIL.description": "Deal {Damage:diff()} damage to ALL enemies.",
   "THESORCERESSMOD-REND_THE_VEIL.title": "Rend the Veil",

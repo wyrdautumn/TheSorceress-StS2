@@ -25,7 +25,7 @@ public class PerfectDistractionAncient : TheSorceressModAncientsAwakenedCard
         AncientsAwakenedCrossCompat.RegisterExperimentalSerumCardForKalkara(this);
     }
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PrimedPower>(6)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PrimedPower>(7)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>(),HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.Static(SorceressKeywords.Rekindle),..AddAncientsAwakened()];
@@ -46,6 +46,6 @@ public class PerfectDistractionAncient : TheSorceressModAncientsAwakenedCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars["PrimedPower"].UpgradeValueBy(2);
+        DynamicVars["PrimedPower"].UpgradeValueBy(3);
     }
 }
