@@ -12,7 +12,7 @@ public class Blink() : TheSorceressModCard(1,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6,ValueProp.Move),new CardsVar(1)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle, SorceressKeywords.Shadowdance];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle, SorceressKeywords.Shadowdance, SorceressKeywords.Sorcery];
     public override bool GainsBlock => true;
 
     protected override async Task OnPlay(

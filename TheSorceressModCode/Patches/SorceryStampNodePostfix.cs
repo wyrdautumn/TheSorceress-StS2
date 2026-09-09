@@ -32,7 +32,9 @@ public class SorceryStampNodePostfix
 
         stamp.AddChild(visual);
             
-        var cardContainer = __instance.GetChild(0)!;
+        var cardContainer = __instance.GetChild(0);
+        if (cardContainer == null)
+            return;
         cardContainer.AddChild(stamp);
     }
 }
@@ -41,9 +43,13 @@ public class SorceryStampNodePostfix
 public class SorceryStampVisibilityPostfix
 {
     [HarmonyPostfix]
-    public static void FixSorceryStampNode(NCard __instance)
+    public static void FixSorceryStampNode(NCard? __instance)
     {
-        Control? stamp = __instance.GetChild(0)!.GetNodeOrNull<Control>("SorceryStamp");
+        if (__instance == null || __instance.GetChild(0) == null)
+            return;
+        Control? stamp = __instance.GetChild(0).GetNodeOrNull<Control>("SorceryStamp");
+        if (stamp == null)
+            return;
         if (__instance.Visible && __instance.Model != null &&
             __instance.Model.Keywords.Contains(SorceressKeywords.Sorcery))
             stamp.Visible = true;

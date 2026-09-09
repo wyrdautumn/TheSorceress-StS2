@@ -13,7 +13,7 @@ public class DimensionalAssault() : TheSorceressModCard(2,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, ValueProp.Move), new CardsVar(2)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle, SorceressKeywords.Shadowdance];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle, SorceressKeywords.Shadowdance, SorceressKeywords.Sorcery];
     
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
