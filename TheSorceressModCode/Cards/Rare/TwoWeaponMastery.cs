@@ -28,6 +28,6 @@ public class TwoWeaponMastery() : TheSorceressModCard(2,
 
     protected override void OnUpgrade()
     {
-        AddKeyword(SorceressKeywords.Subtle);
+        DynamicVars["TwoWeaponMasteryPower"].UpgradeValueBy(1);
     }
 }

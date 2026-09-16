@@ -15,7 +15,7 @@ public class DefensiveAdvantage() : TheSorceressModCard(1,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DefensiveAdvantagePower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DefensiveAdvantagePower>(4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.FromPower<DexterityPower>()];
 
@@ -29,6 +29,6 @@ public class DefensiveAdvantage() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["DefensiveAdvantagePower"].UpgradeValueBy(1);
+        DynamicVars["DefensiveAdvantagePower"].UpgradeValueBy(2);
     }
 }

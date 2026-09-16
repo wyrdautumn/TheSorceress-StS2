@@ -15,6 +15,7 @@ using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
+using TheSorceressMod.TheSorceressModCode.Cards.CrossMod.HeroExpansion;
 using TheSorceressMod.TheSorceressModCode.Extensions;
 using TheSorceressMod.TheSorceressModCode.helpers;
 using TheSorceressMod.TheSorceressModCode.Relics;
@@ -52,7 +53,7 @@ public class CombatAdvantagePower : TheSorceressModPower
     {
         if (command.Attacker == this.Owner && command.ModelSource is CardModel && command.DamageProps.IsPoweredAttack())
         {
-            if (command.ModelSource is CardModel cardSource && cardSource.Tags.Contains(SorceressKeywords.Stealthy))
+            if (command.ModelSource is CardModel cardSource && (cardSource.Tags.Contains(SorceressKeywords.Stealthy) || cardSource.Enchantment is StealthyEnchantment))
             {
                 return;
             }

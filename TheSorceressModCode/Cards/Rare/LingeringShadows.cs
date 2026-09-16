@@ -11,37 +11,25 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
-public class LingeringShadows() : TheSorceressModCard(1,
+public class LingeringShadows() : TheSorceressModCard(2,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new CalculationBaseVar(3),
-    new CalculationExtraVar(1),
-    new CalculatedVar("LingeringShadowsPower").WithMultiplier(Calc)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<LingeringShadowsPower>(6)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.Static(SorceressKeywords.Dance)];
     
-
-    private static decimal Calc(CardModel card, Creature? arg2)
-    {
-        if (card.Owner.Creature.GetPowerAmount<CharismaPower>() < -card.DynamicVars.CalculationBase.BaseValue)
-            return -card.DynamicVars.CalculationBase.BaseValue;
-        return card.Owner.Creature.GetPowerAmount<CharismaPower>();
-    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<LingeringShadowsPower>(choiceContext, Owner.Creature,
-            ((CalculatedVar)DynamicVars["LingeringShadowsPower"]).Calculate(Owner.Creature), Owner.Creature, this);
+        await PowerCmd.Apply<LingeringShadowsPower>(choiceContext, Owner.Creature, DynamicVars["LingeringShadowsPower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationBase.UpgradeValueBy(1);
+        EnergyCost.UpgradeBy(-1);
     }
 }

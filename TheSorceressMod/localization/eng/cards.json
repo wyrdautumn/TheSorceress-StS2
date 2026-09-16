@@ -67,7 +67,7 @@
   "THESORCERESSMOD-CANDLELIGHT.title": "Candlelight",
   "THESORCERESSMOD-TWO_WEAPON_FIGHTING.description": "Deal {Damage:diff()} damage twice.\nAdd [gold]{IfUpgraded:show:Two-Weapon Combination+|Two-Weapon Combination}[/gold] into your [gold]Hand[/gold].",
   "THESORCERESSMOD-TWO_WEAPON_FIGHTING.title": "Two-Weapon Fighting",
-  "THESORCERESSMOD-LIGHTNING_DAGGERS.description": "Deal {CalculatedDamage:diff()} damage.\nDeals {ExtraDamage:diff()} additional damage if you have [gold]Combat Advantage[/gold].",
+  "THESORCERESSMOD-LIGHTNING_DAGGERS.description": "Enemy loses {Damage:diff()} HP.\nPut [gold]{IfUpgraded:show:Second Strike+|Second Strike}[/gold] into your [gold]Discard Pile[/gold].",
   "THESORCERESSMOD-LIGHTNING_DAGGERS.title": "Lightning Daggers",
   "THESORCERESSMOD-DUELISTS_FLURRY.description": "Deal {Damage:diff()} damage to ALL enemies.\nIf you have [gold]Combat Advantage[/gold], apply {WeakPower:diff()} [gold]Weak[/gold] to ALL enemies.",
   "THESORCERESSMOD-DUELISTS_FLURRY.title": "Duelist's Flurry",
@@ -241,5 +241,7 @@
   "THESORCERESSMOD-AVOID_NOTICE.description": "Apply {WeakPower:diff()} [gold]Weak[/gold] to ALL enemies.",
   "THESORCERESSMOD-AVOID_NOTICE.title": "Avoid Notice",
   "THESORCERESSMOD-INVENTED_VULNERABILITY.description": "Apply {VulnerablePower:diff()} [gold]Vulnerable[/gold].\nEnemy loses {InventedVulnerabilityDebuff:diff()} [gold]Strength[/gold] this turn.",
-  "THESORCERESSMOD-INVENTED_VULNERABILITY.title": "Invented Vulnerability"
+  "THESORCERESSMOD-INVENTED_VULNERABILITY.title": "Invented Vulnerability",
+  "THESORCERESSMOD-LIGHTNING_STRIKE.description": "Deal {Damage:diff()} damage.\nDraw {Cards:diff()} {Cards:plural:card|cards}.",
+  "THESORCERESSMOD-LIGHTNING_STRIKE.title": "Second Strike"
 }

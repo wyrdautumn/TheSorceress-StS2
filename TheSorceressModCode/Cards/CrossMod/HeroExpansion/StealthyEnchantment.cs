@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -31,9 +32,7 @@ public class StealthyEnchantment : CustomEnchantmentModel
 
     protected override void OnEnchant()
     {
-        if (!Card.Tags.Contains(SorceressKeywords.Stealthy))
-            Card.Tags.AddItem(SorceressKeywords.Stealthy);
-        else
+        if (Card.Tags.Contains(SorceressKeywords.Stealthy))
             DynamicVars["AddStealthy"].BaseValue = 0;
     }
 }

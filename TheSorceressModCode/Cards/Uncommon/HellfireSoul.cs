@@ -22,11 +22,11 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class HellfireSoul() : TheSorceressModCard(5,
+public class HellfireSoul() : TheSorceressModCard(4,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(24, ValueProp.Move), new DynamicVar("Exhaust", 3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(20, ValueProp.Move), new DynamicVar("Exhaust", 4)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     protected override HashSet<CardTag> CanonicalTags
     {
@@ -94,6 +94,6 @@ public class HellfireSoul() : TheSorceressModCard(5,
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Retain);
+        DynamicVars.Damage.UpgradeValueBy(6);
     }
     }

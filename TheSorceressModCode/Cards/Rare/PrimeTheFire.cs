@@ -18,7 +18,7 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
-public class PrimeTheFire() : TheSorceressModCard(4,
+public class PrimeTheFire() : TheSorceressModCard(5,
     CardType.Skill, CardRarity.Rare,
     TargetType.AllEnemies)
 {

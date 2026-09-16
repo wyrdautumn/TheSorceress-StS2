@@ -1,23 +1,32 @@
 ﻿using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Encounters;
 using MegaCrit.Sts2.Core.Models.Monsters;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheSorceressMod.TheSorceressModCode.helpers;
 
 public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
 {
     private bool parafrightBantered = false;
+    private bool attackBantered = false;
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
+        if (combatState.RoundNumber == 1 && side == CombatSide.Player)
+            attackBantered = false;
+        
         if (side != CombatSide.Player)
             return;
 
@@ -148,5 +157,160 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             await Cmd.CustomScaledWait(0.4f, 1);
             TalkCmd.Play(new LocString("combat_messages", "SORCERESS_FAKE_MERCHANT_REPLY"),combatState.Enemies.First(creature => creature.Monster is FakeMerchantMonster),VfxColor.Blue,SorceressKeywords.ExtraVeryLong);
         }
+    }
+
+    public override Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props,
+        Creature target, CardModel? cardSource)
+    {
+        if (dealer == null || dealer.Player == null || dealer.Player.Character is not Character.TheSorceressMod || attackBantered)
+            return Task.CompletedTask;
+        EncounterModel? encounter = dealer.CombatState?.Encounter;
+        if (dealer.CombatState == null || encounter == null || encounter.RoomType != RoomType.Boss)
+            return Task.CompletedTask;
+        if (encounter is CeremonialBeastBoss)
+        {
+            if (result.TotalDamage >= 40)
+            {
+                if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_BEAST_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                else
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_BEAST_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                attackBantered = true;
+            }
+            return Task.CompletedTask;
+        }
+        if (encounter is TheKinBoss)
+        {
+            if (result.TotalDamage >= 40)
+            {
+                if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                else
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                attackBantered = true;
+            }
+            return Task.CompletedTask;
+        }
+        if (encounter is VantomBoss)
+        {
+            if (result.TotalDamage >= 40)
+            {
+                if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_VANTOM_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                else
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_VANTOM_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                attackBantered = true;
+            }
+            return Task.CompletedTask;
+        }
+        if (encounter is WaterfallGiantBoss)
+        {
+            if (result.TotalDamage >= 40)
+            {
+                if ((double)dealer.CurrentHp / dealer.MaxHp > .25 || (double)target.CurrentHp / target.MaxHp > .5)
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_WATERFALL_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                else
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_WATERFALL_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                attackBantered = true;
+            }
+            return Task.CompletedTask;
+        }
+        if (encounter is SoulFyshBoss)
+        {
+            if (result.TotalDamage >= 40)
+            {
+                if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_FISH_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                else
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_FISH_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                attackBantered = true;
+            }
+            return Task.CompletedTask;
+        }
+        if (encounter is LagavulinMatriarchBoss)
+        {
+            if (result.TotalDamage >= 40)
+            {
+                if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_MATRIARCH_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                else
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_MATRIARCH_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                attackBantered = true;
+            }
+            return Task.CompletedTask;
+        }
+        if (encounter is KnowledgeDemonBoss)
+        {
+            if (result.TotalDamage >= 55)
+            {
+                if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_DEMON_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                else
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_DEMON_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                attackBantered = true;
+            }
+            return Task.CompletedTask;
+        }
+        if (encounter is KaiserCrabBoss)
+        {
+            if (result.TotalDamage >= 55)
+            {
+                if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_CRAB_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                else
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_CRAB_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                attackBantered = true;
+            }
+            return Task.CompletedTask;
+        }
+        if (encounter is TheInsatiableBoss)
+        {
+            if (result.TotalDamage >= 55)
+            {
+                SandpitPower? sandpitPower = target.Powers.OfType<SandpitPower>().FirstOrDefault(s => s.Target == dealer);
+                if ((double)dealer.CurrentHp / dealer.MaxHp > .25 && sandpitPower == null || (sandpitPower != null && sandpitPower.Amount > 1))
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_INSATIABLE_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                else
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_INSATIABLE_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                attackBantered = true;
+            }
+            return Task.CompletedTask;
+        }
+        if (encounter is QueenBoss)
+        {
+            if (result.TotalDamage >= 70)
+            {
+                if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_QUEEN_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                else
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_QUEEN_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                attackBantered = true;
+            }
+            return Task.CompletedTask;
+        }
+        if (encounter is TestSubjectBoss)
+        {
+            if (result.TotalDamage >= 70)
+            {
+                if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_SUBJECT_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                else
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_SUBJECT_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                attackBantered = true;
+            }
+            return Task.CompletedTask;
+        }
+        if (encounter is AeonglassBoss)
+        {
+            if (result.TotalDamage >= 70)
+            {
+                if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_GLASS_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                else
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_GLASS_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                attackBantered = true;
+            }
+        }
+        return Task.CompletedTask;
     }
 }
