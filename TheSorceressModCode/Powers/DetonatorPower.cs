@@ -16,6 +16,15 @@ public class DetonatorPower : TheSorceressModPower
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>()];
 
+    public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
+    {
+        if (!Owner.HasPower<PrimedPower>())
+        {
+            await PowerCmd.Apply<PrimedPower>(choiceContext, Owner, Amount, null, null);
+            await PowerCmd.Remove(this);
+        }
+    }
+
     public void TriggerFlash()
     {
         Flash();

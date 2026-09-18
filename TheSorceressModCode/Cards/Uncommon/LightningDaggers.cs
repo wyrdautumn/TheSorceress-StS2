@@ -40,9 +40,10 @@ public class LightningDaggers() : TheSorceressModCard(0,
         if (CombatState == null)
             return;
         CardModel lightningStrike = CombatState.CreateCard<LightningStrike>(Owner);
-        await CardPileCmd.AddGeneratedCardToCombat(lightningStrike, PileType.Discard, Owner);
         if (IsUpgraded)
             CardCmd.Upgrade(lightningStrike);
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(lightningStrike, PileType.Discard, Owner));
+        await Cmd.Wait(0.5f);
     }
     
     protected override void OnUpgrade()

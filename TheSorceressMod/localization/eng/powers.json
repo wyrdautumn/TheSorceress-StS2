@@ -112,6 +112,6 @@
   "THESORCERESSMOD-PERSISTENT_PRIME_POWER.smartDescription": "ALL [gold]Primed[/gold] enemies remain [gold]Primed[/gold] until the end of the turn. Whenever an enemy's [gold]Prime[/gold] is removed, deal damage equal to their [gold]Prime[/gold]{Amount:plural:| {Amount} times}.",
   "THESORCERESSMOD-PERSISTENT_PRIME_POWER.title": "Relentless Prime",
   "THESORCERESSMOD-DETONATOR_POWER.description": "Prime after the next attack.",
-  "THESORCERESSMOD-DETONATOR_POWER.smartDescription": "Prime [blue]{Amount}[/blue] after the next attack.",
+  "THESORCERESSMOD-DETONATOR_POWER.smartDescription": "[gold]Prime[/gold] [blue]{Amount}[/blue] after the next attack.",
   "THESORCERESSMOD-DETONATOR_POWER.title": "Prime and Detonate"
 }

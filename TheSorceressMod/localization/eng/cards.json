@@ -67,7 +67,7 @@
   "THESORCERESSMOD-CANDLELIGHT.title": "Candlelight",
   "THESORCERESSMOD-TWO_WEAPON_FIGHTING.description": "Deal {Damage:diff()} damage twice.\nAdd [gold]{IfUpgraded:show:Two-Weapon Combination+|Two-Weapon Combination}[/gold] into your [gold]Hand[/gold].",
   "THESORCERESSMOD-TWO_WEAPON_FIGHTING.title": "Two-Weapon Fighting",
-  "THESORCERESSMOD-LIGHTNING_DAGGERS.description": "Enemy loses {Damage:diff()} HP.\nPut [gold]{IfUpgraded:show:Second Strike+|Second Strike}[/gold] into your [gold]Discard Pile[/gold].",
+  "THESORCERESSMOD-LIGHTNING_DAGGERS.description": "Enemy loses {Damage:diff()} HP.\nAdd a [gold]{IfUpgraded:show:Second Strike+|Second Strike}[/gold] into your [gold]Discard Pile[/gold].",
   "THESORCERESSMOD-LIGHTNING_DAGGERS.title": "Lightning Daggers",
   "THESORCERESSMOD-DUELISTS_FLURRY.description": "Deal {Damage:diff()} damage to ALL enemies.\nIf you have [gold]Combat Advantage[/gold], apply {WeakPower:diff()} [gold]Weak[/gold] to ALL enemies.",
   "THESORCERESSMOD-DUELISTS_FLURRY.title": "Duelist's Flurry",

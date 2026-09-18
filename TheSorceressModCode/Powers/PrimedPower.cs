@@ -40,7 +40,10 @@ public class PrimedPower : TheSorceressModPower
         foreach (Creature enemy in CombatState.GetOpponentsOf(Owner))
         {
             if (enemy.HasPower<PersistentPrimePower>())
+            {
+                await TriggerDetonator(choiceContext);
                 return;
+            }
         }
         CardModel card = (CardModel) command.ModelSource;
         if (!card.Tags.Contains(SorceressKeywords.PrimeTrick))
@@ -62,6 +65,11 @@ public class PrimedPower : TheSorceressModPower
             await PowerCmd.Remove(this);
         }
 
+        await TriggerDetonator(choiceContext);
+    }
+
+    private async Task TriggerDetonator(PlayerChoiceContext choiceContext)
+    {
         DetonatorPower? detonator = Owner.GetPower<DetonatorPower>();
         if (detonator != null)
         {
