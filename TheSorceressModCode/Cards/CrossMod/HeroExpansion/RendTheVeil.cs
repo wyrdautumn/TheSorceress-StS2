@@ -24,7 +24,7 @@ public class RendTheVeil() : TheSorceressModHeroExpansionCard(0,
     CardType.Attack, CardRarity.Token,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(21, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(18, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust,SorceressKeywords.Shadowdance];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [..AddHeroExpansion()];

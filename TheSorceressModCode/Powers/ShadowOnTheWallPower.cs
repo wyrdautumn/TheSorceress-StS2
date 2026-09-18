@@ -22,7 +22,7 @@ public class ShadowOnTheWallPower : TheSorceressModPower
 
     public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
     {
-        if (card.Owner.Creature == this.Owner && card.Type == CardType.Attack)
+        if (card.Owner.Creature == this.Owner && card.Type == CardType.Attack & !GetInternalData<Data>().CardPlayed.Any())
         {
             GetInternalData<Data>().CardPlayed.Add(card);
             return playCount + Amount;
@@ -34,8 +34,11 @@ public class ShadowOnTheWallPower : TheSorceressModPower
     {
         if (GetInternalData<Data>().CardPlayed.Contains(cardPlay.Card))
         {
-            await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, Owner, 1, Owner, null);
-            await PowerCmd.Decrement(this);
+            if (Amount > 0)
+            {
+                await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, Owner, 1, Owner, null);
+                await PowerCmd.Decrement(this);
+            }
             if (cardPlay.IsLastInSeries && Amount > 0)
                 await PowerCmd.Remove(this);
         }

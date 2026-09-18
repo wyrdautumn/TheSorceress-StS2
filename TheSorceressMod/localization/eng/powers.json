@@ -76,7 +76,7 @@
   "THESORCERESSMOD-SPELLBLADE_POWER.smartDescription": "All of your Attacks are [gold]Sorceries[/gold].",
   "THESORCERESSMOD-SPELLBLADE_POWER.title": "Spellblade",
   "THESORCERESSMOD-SORCERERS_GAMBIT_POWER.description": "Whenever you take no damage from an attack, deal 4 damage back.",
-  "THESORCERESSMOD-SORCERERS_GAMBIT_POWER.smartDescription": "Whenever you take no damage from an attack, deal [blue]{Amount}[/blue] damage back.",
+  "THESORCERESSMOD-SORCERERS_GAMBIT_POWER.smartDescription": "Whenever you take no damage from an attack, deal [blue]{Display}[/blue] damage back.",
   "THESORCERESSMOD-SORCERERS_GAMBIT_POWER.title": "Sorcerer's Gambit",
   "THESORCERESSMOD-LEGENDARY_SNEAK_POWER.description": "Whenever you gain [gold]Combat Advantage[/gold], draw a card.",
   "THESORCERESSMOD-LEGENDARY_SNEAK_POWER.smartDescription": "Whenever you gain [gold]Combat Advantage[/gold], draw [blue]{Amount}[/blue] {Amount:plural:card|cards}.",

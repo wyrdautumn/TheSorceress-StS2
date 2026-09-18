@@ -1,10 +1,12 @@
 ﻿using BaseLib.Utils;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
@@ -43,20 +45,20 @@ public class TheObsidianBlade : TheSorceressModHeroExpansionCard
         CardPlay play)
     {
         await CommonActions.CardAttack(this, play,vfx:"vfx/vfx_dramatic_stab").Execute(choiceContext);
-        if (RunState == null || CombatState == null)
-            return;
-        var card = PileType.Deck.GetPile(Owner).Cards.Where(c => c.Keywords.Contains(SorceressKeywords.Sorcery)).TakeRandom(1, RunState.Rng.CombatCardSelection).FirstOrDefault();
-        if (card == null)
+        var prefs = new CardSelectorPrefs(new LocString("card_selection", "TO_WEAVE"), 1);
+        var deck = PileType.Deck.GetPile(Owner).Cards.Where(c => c.Keywords.Contains(SorceressKeywords.Sorcery)).ToList();
+        var card = (await CardSelectCmd.FromSimpleGrid(
+            choiceContext,
+            deck,
+            Owner,
+            prefs)).FirstOrDefault();
+        if (card == null || CombatState == null)
         {
             return;
         }
         var clone = CombatState?.CloneCard(card);
         if (clone != null)
-        {
-            clone.DeckVersion = card;
-            await CardPileCmd.AddGeneratedCardToCombat(clone, PileType.Hand, Owner);
-            await CardCmd.AutoPlay(choiceContext, clone, null);
-        }
+            await CardCmd.AutoPlay(choiceContext, clone.CreateDupe(Owner), null);
     }
 
     protected override void OnUpgrade()

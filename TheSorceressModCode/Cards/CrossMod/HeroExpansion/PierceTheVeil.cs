@@ -15,7 +15,7 @@ public class PierceTheVeil() : TheSorceressModHeroExpansionCard(3,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(20, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(16, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust,SorceressKeywords.Sorcery];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromCard<RendTheVeil>(IsUpgraded),HoverTipFactory.FromPower<CombatAdvantagePower>(),..AddHeroExpansion()];
@@ -32,9 +32,9 @@ public class PierceTheVeil() : TheSorceressModHeroExpansionCard(3,
         if (CombatState == null)
             return;
         CardModel rend = CombatState.CreateCard<RendTheVeil>(Owner);
-        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(rend, PileType.Exhaust, Owner), 1.5f);
         if (IsUpgraded)
             CardCmd.Upgrade(rend);
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(rend, PileType.Exhaust, Owner), 1.5f);
     }
 
     protected override void OnUpgrade()
