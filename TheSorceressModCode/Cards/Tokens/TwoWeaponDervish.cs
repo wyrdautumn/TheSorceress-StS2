@@ -20,7 +20,7 @@ public class TwoWeaponDervish() : TheSorceressModCard(0,
     CardType.Attack, CardRarity.Token,
     TargetType.RandomEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, ValueProp.Move), new DynamicVar("mult", 2), new DynamicVar("bonusdamage", 5)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new DynamicVar("mult", 2), new DynamicVar("bonusdamage", 5)];
     
     protected override bool HasEnergyCostX => true;
     

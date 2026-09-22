@@ -22,7 +22,7 @@ public class PrimeTheFire() : TheSorceressModCard(5,
     CardType.Skill, CardRarity.Rare,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(26, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered), new PowerVar<PrimedPower>(8)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, ValueProp.Move | ValueProp.Unblockable | ValueProp.Unpowered), new PowerVar<PrimedPower>(8)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     protected override HashSet<CardTag> CanonicalTags
     {
@@ -72,7 +72,7 @@ public class PrimeTheFire() : TheSorceressModCard(5,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(6);
+        DynamicVars.Damage.UpgradeValueBy(5);
         DynamicVars["PrimedPower"].UpgradeValueBy(2);
     }
 }

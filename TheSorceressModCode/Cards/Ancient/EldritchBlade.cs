@@ -18,7 +18,7 @@ public class EldritchBlade() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Ancient,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(16,ValueProp.Move),new EnergyVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(16,ValueProp.Move),new EnergyVar(1),new PowerVar<PrimedPower>(16)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -28,12 +28,11 @@ public class EldritchBlade() : TheSorceressModCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        AttackCommand attack = await CommonActions.CardAttack(this, play, vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
-        decimal prime = attack.Results.SelectMany(r => r).Sum(d => d.TotalDamage);
+        await CommonActions.CardAttack(this, play, vfx:"vfx/vfx_attack_slash").Execute(choiceContext);
         if (play.Target != null)
-            await PowerCmd.Apply<PrimedPower>(choiceContext, play.Target, prime, Owner.Creature, this);
-        await PowerCmd.Apply<SorcerousMomentumPower>(choiceContext, this.Owner.Creature,
-            this.DynamicVars.Energy.BaseValue, this.Owner.Creature, this);
+            await PowerCmd.Apply<PrimedPower>(choiceContext, play.Target, DynamicVars["PrimedPower"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<SorcerousMomentumPower>(choiceContext, Owner.Creature,
+            DynamicVars.Energy.BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

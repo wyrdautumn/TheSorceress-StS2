@@ -11,7 +11,7 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
-public class DefensiveAdvantage() : TheSorceressModCard(1,
+public class DefensiveAdvantage() : TheSorceressModCard(2,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {
@@ -29,6 +29,6 @@ public class DefensiveAdvantage() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["DefensiveAdvantagePower"].UpgradeValueBy(2);
+        EnergyCost.UpgradeBy(-1);
     }
 }

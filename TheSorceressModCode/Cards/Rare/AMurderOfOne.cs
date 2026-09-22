@@ -12,15 +12,15 @@ using TheSorceressMod.TheSorceressModCode.Cards;
 using TheSorceressMod.TheSorceressModCode.Powers;
 using TheSorceressMod.TheSorceressModCode.Relics;
 
-namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
+namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
 
 public class AMurderOfOne() : TheSorceressModCard(1,
-    CardType.Attack, CardRarity.Uncommon,
+    CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new CalculationBaseVar(4),
-    new ExtraDamageVar(2),
+    new CalculationBaseVar(6),
+    new ExtraDamageVar(3),
     new CalculatedDamageVar(ValueProp.Move).WithMultiplier(Calc)
     ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -60,6 +60,7 @@ public class AMurderOfOne() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.ExtraDamage.UpgradeValueBy(2);
+        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.ExtraDamage.UpgradeValueBy(1);
     }
 }

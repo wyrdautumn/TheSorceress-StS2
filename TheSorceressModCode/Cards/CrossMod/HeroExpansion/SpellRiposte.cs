@@ -15,7 +15,7 @@ public class SpellRiposte() : TheSorceressModHeroExpansionCard(0,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new PowerVar<PrimedPower>(8)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new PowerVar<PrimedPower>(6)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<PrimedPower>(),..AddHeroExpansion()];
@@ -43,6 +43,6 @@ public class SpellRiposte() : TheSorceressModHeroExpansionCard(0,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["PrimedPower"].UpgradeValueBy(4);
+        DynamicVars["PrimedPower"].UpgradeValueBy(3);
     }
 }

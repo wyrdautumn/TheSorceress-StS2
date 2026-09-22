@@ -26,7 +26,7 @@ public class PrimedPower : TheSorceressModPower
     public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource, CardPlay? cardPlay)
     {
-        if (target != this.Owner || !props.IsPoweredAttack())
+        if (target != this.Owner || !props.IsPoweredAttack() || cardSource == null)
             return 0;
         return Amount;
     }

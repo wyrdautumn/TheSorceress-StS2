@@ -19,7 +19,7 @@ public class SoulRebel() : TheSorceressModCard(2,
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [
     new CalculationBaseVar(0),
-    new ExtraDamageVar(6),
+    new ExtraDamageVar(4),
     new CalculatedDamageVar(ValueProp.Move).WithMultiplier(Calc)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword( CardKeyword.Exhaust)];

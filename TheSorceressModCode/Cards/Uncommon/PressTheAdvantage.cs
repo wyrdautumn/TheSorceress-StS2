@@ -9,10 +9,10 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
 
-namespace TheSorceressMod.TheSorceressModCode.Cards.Rare;
+namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
 public class PressTheAdvantage() : TheSorceressModCard(1,
-    CardType.Attack, CardRarity.Rare,
+    CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move),

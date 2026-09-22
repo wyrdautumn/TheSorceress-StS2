@@ -172,9 +172,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             if (result.TotalDamage >= 40)
             {
                 if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_BEAST_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_BEAST_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 else
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_BEAST_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_BEAST_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 attackBantered = true;
             }
             return Task.CompletedTask;
@@ -184,9 +184,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             if (result.TotalDamage >= 40)
             {
                 if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 else
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_KIN_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 attackBantered = true;
             }
             return Task.CompletedTask;
@@ -196,9 +196,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             if (result.TotalDamage >= 40)
             {
                 if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_VANTOM_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_VANTOM_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 else
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_VANTOM_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_VANTOM_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 attackBantered = true;
             }
             return Task.CompletedTask;
@@ -208,9 +208,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             if (result.TotalDamage >= 40)
             {
                 if ((double)dealer.CurrentHp / dealer.MaxHp > .25 || (double)target.CurrentHp / target.MaxHp > .5)
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_WATERFALL_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_WATERFALL_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 else
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_WATERFALL_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_WATERFALL_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 attackBantered = true;
             }
             return Task.CompletedTask;
@@ -220,9 +220,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             if (result.TotalDamage >= 40)
             {
                 if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_FISH_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_FISH_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 else
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_FISH_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_FISH_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 attackBantered = true;
             }
             return Task.CompletedTask;
@@ -232,9 +232,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             if (result.TotalDamage >= 40)
             {
                 if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_MATRIARCH_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_MATRIARCH_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 else
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_MATRIARCH_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_MATRIARCH_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 attackBantered = true;
             }
             return Task.CompletedTask;
@@ -244,9 +244,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             if (result.TotalDamage >= 55)
             {
                 if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_DEMON_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_DEMON_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 else
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_DEMON_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_DEMON_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 attackBantered = true;
             }
             return Task.CompletedTask;
@@ -256,9 +256,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             if (result.TotalDamage >= 55)
             {
                 if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_CRAB_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_CRAB_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 else
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_CRAB_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_CRAB_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 attackBantered = true;
             }
             return Task.CompletedTask;
@@ -269,9 +269,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             {
                 SandpitPower? sandpitPower = target.Powers.OfType<SandpitPower>().FirstOrDefault(s => s.Target == dealer);
                 if ((double)dealer.CurrentHp / dealer.MaxHp > .25 && sandpitPower == null || (sandpitPower != null && sandpitPower.Amount > 1))
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_INSATIABLE_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_INSATIABLE_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 else
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_INSATIABLE_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_INSATIABLE_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 attackBantered = true;
             }
             return Task.CompletedTask;
@@ -281,9 +281,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             if (result.TotalDamage >= 70)
             {
                 if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_QUEEN_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_QUEEN_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 else
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_QUEEN_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_QUEEN_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 attackBantered = true;
             }
             return Task.CompletedTask;
@@ -293,9 +293,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             if (result.TotalDamage >= 70)
             {
                 if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_SUBJECT_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_SUBJECT_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 else
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_SUBJECT_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_SUBJECT_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 attackBantered = true;
             }
             return Task.CompletedTask;
@@ -305,9 +305,9 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             if (result.TotalDamage >= 70)
             {
                 if ((double)dealer.CurrentHp / dealer.MaxHp > .25)
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_GLASS_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_GLASS_BOSS_ATTACK_HIGH"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 else
-                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_GLASS_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,VfxDuration.VeryLong);
+                    TalkCmd.Play(new LocString("combat_messages", "SORCERESS_GLASS_BOSS_ATTACK_LOW"),dealer,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
                 attackBantered = true;
             }
         }

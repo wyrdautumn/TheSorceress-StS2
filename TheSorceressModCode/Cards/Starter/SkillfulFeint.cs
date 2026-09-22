@@ -18,8 +18,6 @@ public class SkillfulFeint() : TheSorceressModCard(0,
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>(),HoverTipFactory.FromPower<StrengthPower>()];
-
-    public override TargetType TargetType => IsUpgraded ? TargetType.AllEnemies : TargetType.AnyEnemy;
     
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

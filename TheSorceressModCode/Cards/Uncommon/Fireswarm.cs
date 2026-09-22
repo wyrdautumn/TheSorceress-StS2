@@ -12,7 +12,7 @@ using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Uncommon;
 
-public class Fireswarm() : TheSorceressModCard(0,
+public class Fireswarm() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
@@ -47,6 +47,6 @@ public class Fireswarm() : TheSorceressModCard(0,
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Exhaust);
+        EnergyCost.UpgradeBy(-1);
     }
 }
