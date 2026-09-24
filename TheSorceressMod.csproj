@@ -43,6 +43,7 @@
 		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Vfx.NCardEnchantVfx._cardNode"/>
 		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Vfx.NCardEnchantVfx._enchantmentIcon"/>
 		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Screens.CardLibrary.NCardLibrary._specialSearchbarKeywords"/>
+		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Combat.NPlayerHand._prefs"/>
     </ItemGroup>
 
     <ItemGroup>

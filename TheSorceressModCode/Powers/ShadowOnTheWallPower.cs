@@ -20,11 +20,17 @@ public class ShadowOnTheWallPower : TheSorceressModPower
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CombatAdvantagePower>()];
 
+    public override Task BeforeCardPlayed(CardPlay cardPlay)
+    {
+        if (cardPlay.Card.Owner.Creature == Owner && cardPlay.Card.Type == CardType.Attack & !GetInternalData<Data>().CardPlayed.Any())
+            GetInternalData<Data>().CardPlayed.Add(cardPlay.Card);
+        return Task.CompletedTask;
+    }
+
     public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
     {
-        if (card.Owner.Creature == this.Owner && card.Type == CardType.Attack & !GetInternalData<Data>().CardPlayed.Any())
+        if (card.Owner.Creature == this.Owner && card.Type == CardType.Attack && !GetInternalData<Data>().CardPlayed.Any())
         {
-            GetInternalData<Data>().CardPlayed.Add(card);
             return playCount + Amount;
         }
         return playCount;

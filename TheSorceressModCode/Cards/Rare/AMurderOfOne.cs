@@ -60,7 +60,7 @@ public class AMurderOfOne() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.CalculationBase.UpgradeValueBy(2);
         DynamicVars.ExtraDamage.UpgradeValueBy(1);
     }
 }

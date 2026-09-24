@@ -31,9 +31,8 @@ public class SleightHelper() : CustomSingletonModel(HookType.Combat)
 
         return Task.CompletedTask;
     }
-
-    public override Task BeforeCardPlayed(CardPlay cardPlay)
-    {
+    
+    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay){
         PlayerCombatState? combatState = cardPlay.Card.Owner.PlayerCombatState;
         if (combatState != null)
         {
@@ -56,18 +55,11 @@ public class SleightHelper() : CustomSingletonModel(HookType.Combat)
                     SleightHelper.SleightCount.Set(combatState, val + 1);
                 }
             }
-        }
-        return Task.CompletedTask;
-    }
 
-    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay){
-        PlayerCombatState? combatState = cardPlay.Card.Owner.PlayerCombatState;
-        if (combatState != null)
-        {
-            List<CardModel> playerCards = combatState.AllCards.ToList();
-            foreach (CardModel card in playerCards)
+            if (!cardPlay.Card.Owner.HasPower<ConfusedPower>() && (cardPlay.Card.Tags.Contains(SorceressKeywords.Cunning) || cardPlay.Card.Keywords.Contains(SorceressKeywords.Sleight)))
             {
-                if (card.Keywords.Contains(SorceressKeywords.Sleight) && !card.Owner.HasPower<ConfusedPower>())
+                List<CardModel> playerCards = combatState.AllCards.Where(c => c.Keywords.Contains(SorceressKeywords.Sleight)).ToList();
+                foreach (CardModel card in playerCards)
                 {
                     card.EnergyCost.SetThisTurn(SleightCount.Get(combatState));
                 }
