@@ -24,7 +24,7 @@ public class AgileExhaustGlowPatch
                     if (!c.Keywords.Contains(SorceressKeywords.Subtle))
                         return false;
                     UnplayableReason reason;
-                    return c.CanPlay(out reason, out AbstractModel _);
+                    return c.CanPlay(out reason, out AbstractModel? _);
                 });
             }
         }
