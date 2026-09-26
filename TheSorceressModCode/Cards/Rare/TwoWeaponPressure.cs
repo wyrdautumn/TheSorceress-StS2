@@ -22,7 +22,7 @@ public class TwoWeaponPressure() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, ValueProp.Move), new PowerVar<WeakPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, ValueProp.Move), new PowerVar<WeakPower>(2)];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
@@ -47,7 +47,6 @@ public class TwoWeaponPressure() : TheSorceressModCard(2,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
-        DynamicVars.Weak.UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(6);
     }
 }
