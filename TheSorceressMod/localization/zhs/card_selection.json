@@ -4,5 +4,7 @@
   "TO_TELL": "选择{Amount:plural:一张卡牌|[blue]{}[/blue]张卡牌}置于抽牌堆顶部",
   "TO_SHUFFLE": "选择{Amount:plural:一张卡牌|[blue]{}[/blue]张卡牌}洗入你的抽牌堆",
   "TO_SHADOW": "选择 {Amount:plural:一张暗影之舞|[blue]{}[/blue]张暗影之舞}放入手牌",
-  "TO_TRICK": "选择{Amount:plural:一张戏法|[blue]{}[/blue]张戏法}放入手牌"
+  "TO_TRICK": "选择{Amount:plural:一张戏法|[blue]{}[/blue]张戏法}放入手牌",
+  "TO_DANCE": "选择{Amount:plural:一张卡牌|[blue]{}[/blue]张卡牌}从暗影中抽取。",
+  "TO_WEAVE": "选择{Amount:plural:一个法术|[blue]{}[/blue]个法术}来编织。"
 }

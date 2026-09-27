@@ -42,7 +42,7 @@ public class LightningDaggers() : TheSorceressModCard(0,
         CardModel lightningStrike = CombatState.CreateCard<LightningStrike>(Owner);
         if (IsUpgraded)
             CardCmd.Upgrade(lightningStrike);
-        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(lightningStrike, PileType.Draw, Owner));
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(lightningStrike, PileType.Draw, Owner, CardPilePosition.Random));
         await Cmd.Wait(0.5f);
     }
     
