@@ -40,13 +40,13 @@ public class ShadowOnTheWallPower : TheSorceressModPower
     {
         if (GetInternalData<Data>().CardPlayed.Contains(cardPlay.Card))
         {
-            if (Amount > 0)
+            if (Amount > 0 && !cardPlay.IsLastInSeries)
             {
                 await PowerCmd.Apply<CombatAdvantagePower>(choiceContext, Owner, 1, Owner, null);
                 await PowerCmd.Decrement(this);
             }
-            if (cardPlay.IsLastInSeries && Amount > 0)
-                await PowerCmd.Remove(this);
+            if (cardPlay.IsLastInSeries)
+                GetInternalData<Data>().CardPlayed.Clear();
         }
     }
 

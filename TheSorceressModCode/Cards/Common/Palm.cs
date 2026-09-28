@@ -48,9 +48,10 @@ public class Palm() : TheSorceressModCard(0,
         _rekindle.Add(card);
         await CardCmd.Exhaust(choiceContext, card);
     }
-
+    
     protected override void AfterCloned()
     {
+        base.AfterCloned();
         _rekindle = new List<CardModel>();
     }
 
