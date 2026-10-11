@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
 using TheSorceressMod.TheSorceressModCode.Cards.Tokens;
+using TheSorceressMod.TheSorceressModCode.Powers;
 
 #pragma warning disable CS8603 // Possible null reference return.
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
@@ -22,14 +23,14 @@ public class TwoWeaponPressure() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, ValueProp.Move), new PowerVar<WeakPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, ValueProp.Move), new PowerVar<WeakPower>(3)];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
     }
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<WeakPower>(), HoverTipFactory.FromCard<TwoWeaponOpening>(), HoverTipFactory.FromCard<TwoWeaponLink>(), HoverTipFactory.FromCard<TwoWeaponFinisher>()];
+        [HoverTipFactory.FromPower<WeakPower>(),HoverTipFactory.FromPower<VulnerablePower>(),HoverTipFactory.FromPower<CombatAdvantagePower>(), HoverTipFactory.FromCard<TwoWeaponOpening>(IsUpgraded), HoverTipFactory.FromCard<TwoWeaponLink>(IsUpgraded), HoverTipFactory.FromCard<TwoWeaponFinisher>(IsUpgraded)];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -42,11 +43,13 @@ public class TwoWeaponPressure() : TheSorceressModCard(2,
         if (CombatState == null)
             return;
         CardModel open = CombatState.CreateCard<TwoWeaponOpening>(Owner);
+        if (IsUpgraded)
+            CardCmd.Upgrade(open);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(open, PileType.Draw, Owner,CardPilePosition.Random), 1.5F);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(6);
+        DynamicVars.Damage.UpgradeValueBy(4);
     }
 }

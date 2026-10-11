@@ -17,19 +17,10 @@ public class SoulRebel() : TheSorceressModCard(2,
 {
     private Decimal _extraDamageFromExhaust;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new CalculationBaseVar(0),
-    new ExtraDamageVar(4),
-    new CalculatedDamageVar(ValueProp.Move).WithMultiplier(Calc)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(14, ValueProp.Move), new DynamicVar("Extra", 4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword( CardKeyword.Exhaust)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery];
-
-    private static decimal Calc(CardModel card, Creature? arg2)
-    {
-            return PileType.Discard.GetPile(card.Owner).Cards
-                .Where<CardModel>((Func<CardModel, bool>)(c => c.Type == CardType.Attack && c != card)).Count();
-    }
 
 
     protected override async Task OnPlay(
@@ -42,13 +33,13 @@ public class SoulRebel() : TheSorceressModCard(2,
         }
         List<CardModel> list = PileType.Discard.GetPile(this.Owner).Cards
             .Where<CardModel>((Func<CardModel, bool>)(c => c.Type == CardType.Attack)).ToList<CardModel>();
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_starry_impact", "blunt_attack.mp3")
+            .Execute(choiceContext);
         foreach (CardModel card in list)
         {
             await CardCmd.Exhaust(choiceContext, card);
-            BuffFromExhaust(DynamicVars.ExtraDamage.BaseValue);
+            BuffFromExhaust(DynamicVars["Extra"].BaseValue);
         }
-        await DamageCmd.Attack(DynamicVars.CalculationBase.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_starry_impact", "blunt_attack.mp3")
-            .Execute(choiceContext);
     }
     
     private Decimal ExtraDamageFromExhaust
@@ -63,13 +54,14 @@ public class SoulRebel() : TheSorceressModCard(2,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.ExtraDamage.UpgradeValueBy(2);
+        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars["Extra"].UpgradeValueBy(2);
     }
     
     protected override void AfterDowngraded()
     {
         base.AfterDowngraded();
-        DynamicVar damage = this.DynamicVars.CalculationBase;
+        DynamicVar damage = this.DynamicVars.Damage;
         damage.BaseValue = damage.BaseValue + this.ExtraDamageFromExhaust;
     }
 

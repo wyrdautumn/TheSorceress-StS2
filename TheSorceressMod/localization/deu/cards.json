@@ -144,7 +144,7 @@
   "THESORCERESSMOD-FLAME_IN_THE_DARK.title": "Flammende Finsternis",
   "THESORCERESSMOD-A_MURDER_OF_ONE.description": "Falls X > 1, erhalte [gold]Kampfvorteil[/gold].\nFüge X{IfUpgraded:show:+1} Mal{Damage:diff()} Schaden zu.",
   "THESORCERESSMOD-A_MURDER_OF_ONE.title": "Eschatologie",
-  "THESORCERESSMOD-SOUL_REBEL.description": "[gold]Erschöpfe[/gold] alle {IfUpgraded:show:Fertigkeiten|Angriffe} im [gold]Abwurfstapel[/gold].\n{IfUpgraded:show:Füge {Damage:diff()} Schaden zu|Der Feind verliert {Damage:diff()} TP} für jede [gold]Erschöpfe[/gold] Karte.{InCombat:\n[gold]Erschöpfe[/gold] {ExhaustCount:diff()} {ExhaustCount:plural:Karte|Karten}.|}",
+  "THESORCERESSMOD-SOUL_REBEL.description": "[gold]Erschöpfe[/gold] alle {IfUpgraded:show:Fertigkeiten|Angriffe} im [gold]Abwurfstapel[/gold].\n{IfUpgraded:show:Füge {Damage:diff()} Schaden zu|Der Feind verliert {Damage:diff()} TP} für jede [gold]Erschöpfe[/gold] Karte.",
   "THESORCERESSMOD-SOUL_REBEL.title": "Rebellisches Selbst",
   "THESORCERESSMOD-TWO_WEAPON_PRESSURE.description": "Füge {Damage:diff()} Schaden zu.\nWende {WeakPower:diff()} [gold]Schwach[/gold] an.\nMische [gold]Zweiwaffen-Eröffnung[/gold] in deinen [gold]Nachziehstapel[/gold].",
   "THESORCERESSMOD-TWO_WEAPON_PRESSURE.title": "Zweiwaffen-Druck",

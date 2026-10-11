@@ -13,7 +13,7 @@ public class TwoWeaponFinisher() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Token,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, ValueProp.Move)];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
@@ -29,6 +29,6 @@ public class TwoWeaponFinisher() : TheSorceressModCard(2,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }

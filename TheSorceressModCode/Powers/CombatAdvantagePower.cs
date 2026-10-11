@@ -27,6 +27,19 @@ public class CombatAdvantagePower : TheSorceressModPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
     
+    protected override object InitInternalData() => new Data();
+    
+    public override Task BeforeAttack(AttackCommand command)
+    {
+        if (command.Attacker != Owner || !command.DamageProps.IsPoweredAttack())
+            return Task.CompletedTask;
+        Data internalData = GetInternalData<Data>();
+        if (internalData.commandToModify != null || command.ModelSource != null && !(command.ModelSource is CardModel) || !command.DamageProps.IsPoweredAttack())
+            return Task.CompletedTask;
+        internalData.commandToModify = command;
+        return Task.CompletedTask;
+    }
+    
     public override Decimal ModifyDamageMultiplicative(
         Creature? target,
         Decimal amount,
@@ -41,6 +54,11 @@ public class CombatAdvantagePower : TheSorceressModPower
         {
             return 1;
         }
+        Data internalData = GetInternalData<Data>();
+
+        if (internalData.commandToModify != null && (internalData.commandToModify.ModelSource != cardSource || internalData.commandToModify.Attacker != dealer))
+            return 1;
+        
         WickedDagger? relic = Owner.Player?.GetRelic<WickedDagger>();
         if (relic != null)
         {
@@ -51,14 +69,16 @@ public class CombatAdvantagePower : TheSorceressModPower
 
     public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
     {
-        if (command.Attacker == this.Owner && command.ModelSource is CardModel && command.DamageProps.IsPoweredAttack())
+        Data internalData = GetInternalData<Data>();
+        if (command != internalData.commandToModify)
+            return;
+
+        if (command.ModelSource is CardModel cardSource && (cardSource.Tags.Contains(SorceressKeywords.Stealthy) || cardSource.Enchantment is StealthyEnchantment))
         {
-            if (command.ModelSource is CardModel cardSource && (cardSource.Tags.Contains(SorceressKeywords.Stealthy) || cardSource.Enchantment is StealthyEnchantment))
-            {
-                return;
-            }
-            await PowerCmd.Remove(this);
+            internalData.commandToModify = null;
+            return;
         }
+        await PowerCmd.Remove(this);
     }
 
     public override async Task AfterRemoved(Creature oldOwner)
@@ -70,5 +90,10 @@ public class CombatAdvantagePower : TheSorceressModPower
             await PowerCmd.Apply<CharismaPower>(new BlockingPlayerChoiceContext(), Owner,
                 relic.DynamicVars["CharismaPower"].BaseValue, Owner, null);
         }
+    }
+    
+    private class Data
+    {
+        public AttackCommand? commandToModify;
     }
 }

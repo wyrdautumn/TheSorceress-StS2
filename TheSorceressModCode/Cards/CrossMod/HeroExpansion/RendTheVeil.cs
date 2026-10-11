@@ -39,7 +39,7 @@ public class RendTheVeil() : TheSorceressModHeroExpansionCard(0,
         double num2 = SaveManager.Instance.PrefsSave.FastMode == FastModeType.Fast ? 0.2 : 0.3;
         NCombatRoom? instance1 = NCombatRoom.Instance;
         if (instance1 != null)
-            instance1.CombatVfxContainer.AddChildSafely(NHorizontalLinesVfx.Create(color, 0.8));
+            instance1.CombatVfxContainer.AddChildSafely(NHorizontalLinesVfx.Create(color, 0.8 + num2));
         SfxCmd.Play("event:/sfx/characters/ironclad/ironclad_whirlwind");
         NRun? instance2 = NRun.Instance;
         if (instance2 != null)

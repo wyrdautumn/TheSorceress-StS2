@@ -103,6 +103,6 @@
   "THESORCERESSMOD-CUNNING_MOMENTUM_POWER.smartDescription": "Der nächste ausgespielte [gold]Taschentrick[/gold], gibt {Amount:energyIcons()}.",
   "THESORCERESSMOD-CUNNING_MOMENTUM_POWER.title": "Gerissenes Momentum",
   "THESORCERESSMOD-PERSISTENT_PRIME_POWER.description": "ALLE [gold]Präparrierten[/gold] verbleiben [gold]Präparriert[/gold] bis zum Ende des Zuges. Sind sie nicht länger [gold]Präparriert[/gold] füge entsprechend Schaden zu.",
-  "THESORCERESSMOD-PERSISTENT_PRIME_POWER.smartDescription": "ALLE [gold]Präparrierten[/gold] verbleiben [gold]Präparriert[/gold] bis zum Ende des Zuges. Ist ein Gegner nicht länger [gold]Präparriert[/gold], füge [gold]Präparriert[/gold]{Amount:plural:| {Amount} Mal}.", entsprechend Schaden zu.
+  "THESORCERESSMOD-PERSISTENT_PRIME_POWER.smartDescription": "ALLE [gold]Präparrierten[/gold] verbleiben [gold]Präparriert[/gold] bis zum Ende des Zuges. Ist ein Gegner nicht länger [gold]Präparriert[/gold], füge [gold]Präparriert[/gold]{Amount:plural:| {Amount} Mal}.",
   "THESORCERESSMOD-PERSISTENT_PRIME_POWER.title": "Unbeugsam Präparriert"
 }

@@ -22,19 +22,51 @@ public class PrimedPower : TheSorceressModPower
     
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
+    
+    protected override object InitInternalData() => new Data();
+    
+    public override Task BeforeAttack(AttackCommand command)
+    {
+        if (command.IsSingleTargeted && command.CardPlay != null && command.CardPlay.Target != Owner || !command.DamageProps.IsPoweredAttack())
+            return Task.CompletedTask;
+        foreach (Creature enemy in CombatState.GetOpponentsOf(Owner))
+        {
+            if (enemy.HasPower<PersistentPrimePower>())
+            {
+                return Task.CompletedTask;
+            }
+        }
+        Data internalData = GetInternalData<Data>();
+        if (internalData.commandToModify != null || command.ModelSource != null && !(command.ModelSource is CardModel) || !command.DamageProps.IsPoweredAttack())
+            return Task.CompletedTask;
+        internalData.commandToModify = command;
+        internalData.amountWhenAttackStarted = Amount;
+        return Task.CompletedTask;
+    }
 
     public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource, CardPlay? cardPlay)
     {
         if (target != this.Owner || !props.IsPoweredAttack() || cardSource == null)
             return 0;
-        return Amount;
+        Data internalData = GetInternalData<Data>();
+        foreach (Creature enemy in CombatState.GetOpponentsOf(Owner))
+        {
+            if (enemy.HasPower<PersistentPrimePower>())
+            {
+                return Amount;
+            }
+        }
+        return internalData.commandToModify != null && cardSource != null && cardSource != internalData.commandToModify.ModelSource || internalData.commandToModify != null && internalData.commandToModify.Attacker != dealer ? 0M : Amount;
     }
 
     public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
     {
+        Data internalData = GetInternalData<Data>();
         if (command.ModelSource is not CardModel || !command.Results.SelectMany(r => r.Select(c => c.Receiver)).Contains(Owner) || !command.DamageProps.IsPoweredAttack())
         {
+            if (internalData.commandToModify != null && internalData.commandToModify == command)
+                internalData.commandToModify = null;
             return;
         }
         foreach (Creature enemy in CombatState.GetOpponentsOf(Owner))
@@ -46,6 +78,8 @@ public class PrimedPower : TheSorceressModPower
             }
         }
         CardModel card = (CardModel) command.ModelSource;
+        if (command != internalData.commandToModify)
+            return;
         if (!card.Tags.Contains(SorceressKeywords.PrimeTrick))
         {
             NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(Owner);
@@ -60,9 +94,12 @@ public class PrimedPower : TheSorceressModPower
                         instance.CombatVfxContainer.AddChildSafely((Godot.Node)child);
                 }
             }
-            int val = PrimeRemoved.Get(Owner);
-            PrimeRemoved.Set(Owner, val + Amount);
-            await PowerCmd.Remove(this);
+            PrimeRemoved.Set(Owner, internalData.amountWhenAttackStarted + Amount);
+            await PowerCmd.ModifyAmount(choiceContext, this, -internalData.amountWhenAttackStarted, null, null);
+        }
+        else
+        {
+            internalData.commandToModify = null;
         }
 
         await TriggerDetonator(choiceContext);
@@ -124,6 +161,12 @@ public class PrimedPower : TheSorceressModPower
             PrimeRemoved.Set(Owner, val + Amount);
         }
         return Task.CompletedTask;
+    }
+    
+    private class Data
+    {
+        public AttackCommand? commandToModify;
+        public int amountWhenAttackStarted;
     }
 }
 
