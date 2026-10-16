@@ -27,11 +27,11 @@ public class NimbleRoll() : TheSorceressModCard(0,
     {
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await CommonActions.Draw(this, choiceContext);
-        
+        await CommonActions.ApplySelf<GloamingCutPower>(choiceContext, this);
     }
 
     protected override void OnUpgrade()
     {
-        this.DynamicVars.Cards.UpgradeValueBy(1);
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
 }
