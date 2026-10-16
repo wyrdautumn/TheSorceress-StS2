@@ -59,27 +59,6 @@ public class TheSorceressModCardPool : CustomCardPoolModel
         {
             list.RemoveAll(c => Sorceress7Epoch.Cards.Any(card => card.Id == c.Id));
         }
-        
-        var mysteriousFlashlightType =
-            AccessTools.TypeByName("TheHeroExpansion.TheHeroExpansionCode.Extensions.CustomMysteriousFlashlightExtension");
-        if (mysteriousFlashlightType == null)
-        {
-            list.RemoveAll(c => c is TheSorceressModHeroExpansionCard);
-        }
-        
-        var ancientsAwakenedType =
-            AccessTools.TypeByName("AncientsAwakened.AncientsAwakenedCode.Pools.Mithrix.PerfectedPool");
-        if (ancientsAwakenedType == null)
-        {
-            list.RemoveAll(c => c is TheSorceressModAncientsAwakenedCard);
-        }
-        
-        
-        var deckboxType = AccessTools.TypeByName("MoreNeow.MoreNeowCode.Relics.Complex.UnfamiliarDeckbox");
-        if (deckboxType == null)
-        {
-            list.RemoveAll(c => c is TheSorceressModMoreNeowCard);
-        }
 
         return list;
     }

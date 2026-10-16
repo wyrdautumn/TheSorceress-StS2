@@ -36,7 +36,7 @@ public class TheObsidianBlade : TheSorceressModHeroExpansionCard
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(24, ValueProp.Move)];
     public override CardPoolModel VisualCardPool => ModelDb.CardPool<TheSorceressModCardPool>();
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle, SorceressKeywords.Shadowdance];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sorcery),..AddHeroExpansion()];
 

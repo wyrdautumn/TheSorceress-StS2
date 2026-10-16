@@ -4,27 +4,30 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using TheSorceressMod.TheSorceressModCode.Cards;
 using TheSorceressMod.TheSorceressModCode.Powers;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Common;
 
-public class NimbleRoll() : TheSorceressModCard(1,
+public class NimbleRoll() : TheSorceressModCard(0,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new PowerVar<GloamingCutPower>(5)];
+    
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<CombatAdvantagePower>()];
-
+        [HoverTipFactory.FromPower<DexterityPower>()];
+    
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
         await CreatureCmd.TriggerAnim(this.Owner.Creature, "Cast", this.Owner.Character.CastAnimDelay);
         await CommonActions.Draw(this, choiceContext);
-        await CommonActions.ApplySelf<CombatAdvantagePower>(choiceContext, this, 1);
+        
     }
 
     protected override void OnUpgrade()

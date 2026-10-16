@@ -14,7 +14,7 @@ namespace TheSorceressMod.TheSorceressModCode.Relics;
 public class FetchingHat() : TheSorceressModRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Common;
+        RelicRarity.Uncommon;
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<CharismaPower>()];

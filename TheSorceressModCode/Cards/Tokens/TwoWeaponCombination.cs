@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
+using TheSorceressMod.TheSorceressModCode.Cards.Common;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Tokens;
 
@@ -30,7 +31,7 @@ public class TwoWeaponCombination() : TheSorceressModCard(0,
 
     private static decimal Calc(CardModel card, Creature? arg2)
         => CombatManager.Instance.History.CardPlaysFinished.Count<CardPlayFinishedEntry>(e =>
-            e.CardPlay.Card is TwoWeaponCombination && e.CardPlay.Card.Owner == card.Owner);
+            e.CardPlay.Card is TwoWeaponFighting && e.CardPlay.Card.Owner == card.Owner);
     
 
     protected override async Task OnPlay(
@@ -39,7 +40,6 @@ public class TwoWeaponCombination() : TheSorceressModCard(0,
     {
         await CommonActions.CardAttack(this, play, (int) ((CalculatedVar) DynamicVars["hits"]).Calculate(Owner.Creature), vfx: "vfx/vfx_attack_slash")
             .Execute(choiceContext);
-        
     }
 
     protected override void OnUpgrade()

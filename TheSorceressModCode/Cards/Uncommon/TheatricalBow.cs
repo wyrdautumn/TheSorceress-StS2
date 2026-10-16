@@ -43,6 +43,6 @@ public class TheatricalBow() : TheSorceressModCard(0,
 
     protected override void OnUpgrade()
     {
-        AddKeyword(SorceressKeywords.Shadowdance);
+        AddKeyword(CardKeyword.Retain);
     }
 }

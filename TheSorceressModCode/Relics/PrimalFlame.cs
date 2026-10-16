@@ -20,7 +20,7 @@ namespace TheSorceressMod.TheSorceressModCode.Relics;
 public class PrimalFlame() : TheSorceressModRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Uncommon;
+        RelicRarity.Common;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PrimedPower>(6)];
 

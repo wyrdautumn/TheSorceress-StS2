@@ -17,7 +17,7 @@ public class AgileExhaustGlowPatch
         [HarmonyPostfix]
         public static void FromHandPostfix(NPlayerHand? __instance, ref Func<CardModel, bool>? __result)
         {
-            if (__instance != null && __instance._prefs.Prompt != null && __instance._prefs.Prompt.LocEntryKey == "TO_EXHAUST")
+            if (__instance != null && __instance._prefs.Prompt != null && (__instance._prefs.Prompt.LocEntryKey == "TO_EXHAUST" || __instance._prefs.Prompt.LocEntryKey == "TO_PALM"))
             {
                 __result = (c =>
                 {

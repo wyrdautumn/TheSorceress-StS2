@@ -13,14 +13,13 @@ using TheSorceressMod.TheSorceressModCode.Cards;
 
 namespace TheSorceressMod.TheSorceressModCode.Cards.Common;
 
-public class Palm() : TheSorceressModCard(0,
+public class Palm() : TheSorceressModCard(1,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
     private List<CardModel> _rekindle = new List<CardModel>();
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sleight];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.Static(SorceressKeywords.Rekindle)];
@@ -57,6 +56,7 @@ public class Palm() : TheSorceressModCard(0,
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(SorceressKeywords.Sleight);
+        EnergyCost.UpgradeBy(-1);
+        AddKeyword(SorceressKeywords.Sleight);
     }
 }
