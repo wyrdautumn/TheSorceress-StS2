@@ -67,8 +67,8 @@ public class SoulRebel() : TheSorceressModCard(2,
 
     public void BuffFromExhaust(Decimal extraDamage)
     {
-        DynamicVar damage = this.DynamicVars.CalculationBase;
-        damage.BaseValue = damage.BaseValue + extraDamage;
+        DynamicVar damage = this.DynamicVars.Damage;
+        damage.BaseValue += extraDamage;
         this.ExtraDamageFromExhaust += extraDamage;
     }
 }
