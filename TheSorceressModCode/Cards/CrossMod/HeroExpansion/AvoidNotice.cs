@@ -13,7 +13,7 @@ public class AvoidNotice() : TheSorceressModHeroExpansionCard(0,
     CardType.Skill, CardRarity.Rare,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WeakPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WeakPower>(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust,CardKeyword.Innate];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<WeakPower>(),..AddHeroExpansion()];

@@ -3,6 +3,7 @@ using TheSorceressMod.TheSorceressModCode.Extensions;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Unlocks;
@@ -40,6 +41,40 @@ public class TheSorceressModCardPool : CustomCardPoolModel
     public override Color DeckEntryCardColor => new("37396d");
 
     public override bool IsColorless => false;
+    
+    public override IEnumerable<CardModel> AllCards
+    {
+        get
+        {
+            if (_allCards == null)
+            {
+                _allCards = this.GenerateAllCards();
+                _allCards = ModHelper.ConcatModelsFromMods(this, _allCards).ToArray();
+                var mysteriousFlashlightType =
+                    AccessTools.TypeByName("TheHeroExpansion.TheHeroExpansionCode.Extensions.CustomMysteriousFlashlightExtension");
+                if (mysteriousFlashlightType == null)
+                {
+                    _allCards = _allCards.Where(c => c is not TheSorceressModHeroExpansionCard).ToArray();
+                }
+        
+                var ancientsAwakenedType =
+                    AccessTools.TypeByName("AncientsAwakened.AncientsAwakenedCode.Pools.Mithrix.PerfectedPool");
+                if (ancientsAwakenedType == null)
+                {
+                    _allCards = _allCards.Where(c => c is not TheSorceressModAncientsAwakenedCard).ToArray();
+                }
+        
+        
+                var deckboxType = AccessTools.TypeByName("MoreNeow.MoreNeowCode.Relics.Complex.UnfamiliarDeckbox");
+                if (deckboxType == null)
+                {
+                    _allCards = _allCards.Where(c => c is not TheSorceressModMoreNeowCard).ToArray();
+                }
+
+            }
+            return _allCards;
+        }
+    }
     
     protected override IEnumerable<CardModel> FilterThroughEpochs(UnlockState unlockState, IEnumerable<CardModel> cards)
     {

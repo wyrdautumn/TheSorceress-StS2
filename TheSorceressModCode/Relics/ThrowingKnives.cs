@@ -24,7 +24,7 @@ public class ThrowingKnives() : TheSorceressModRelic
     public override RelicRarity Rarity =>
         RelicRarity.Uncommon;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Unpowered)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, ValueProp.Unpowered)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(SorceressKeywords.Sleight)];

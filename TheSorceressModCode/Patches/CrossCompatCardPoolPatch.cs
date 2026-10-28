@@ -16,7 +16,7 @@ public class CrossCompatCardPoolPatch
         [HarmonyPostfix]
         public static void SorceressCardPoolPostfix(ref IEnumerable<CardModel> __result, CardPoolModel __instance)
         {
-            if (__instance is not TheSorceressModCardPool && __instance is not TokenCardPool && __instance is not EventCardPool)
+            if (__instance is not TokenCardPool && __instance is not EventCardPool)
                 return;
             
             List<CardModel> list = __result.ToList();

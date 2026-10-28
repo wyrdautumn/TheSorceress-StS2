@@ -18,10 +18,10 @@ namespace TheSorceressMod.TheSorceressModCode.Patches;
 public static class SorceressEpochUnlockPatches
 {
     private static readonly MethodInfo? TryObtainMidRun = AccessTools.Method(
-        typeof(ProgressSaveManager), "TryObtainEpochMidRun", (Type[])null, (Type[])null);
+        typeof(ProgressSaveManager), "TryObtainEpochMidRun", null, null);
 
     private static readonly MethodInfo? TryObtainPostRun = AccessTools.Method(
-        typeof(ProgressSaveManager), "TryObtainEpochPostRun", (Type[])null, (Type[])null);
+        typeof(ProgressSaveManager), "TryObtainEpochPostRun", null, null);
 
     [HarmonyPatch(typeof(ProgressSaveManager), "ObtainCharUnlockEpoch")]
     [HarmonyPostfix]
@@ -56,7 +56,7 @@ public static class SorceressEpochUnlockPatches
     [HarmonyPostfix]
     public static void SorceressEliteEpochPostfix(ProgressSaveManager __instance, Player localPlayer)
     {
-        if (!(localPlayer.Character is Character.TheSorceressMod))
+        if (!(localPlayer.Character is Character.TheSorceressMod) || localPlayer.UnlockState.IsEpochRevealed<Sorceress3Epoch>())
             return;
 
         try
@@ -67,19 +67,18 @@ public static class SorceressEpochUnlockPatches
             if (progress == null) return;
             int eliteWins = 0;
 
-            foreach (EncounterStats stats in progress.EncounterStats.Values)
+            foreach (EncounterStats stats in progress.EncounterStats.Values.Where(s => eliteEncounterIds.Contains(s.Id)))
             {
-                if (!eliteEncounterIds.Contains(stats.Id))
-                    continue;
-
                 foreach (FightStats fightStat in stats.FightStats)
                 {
-                    if (fightStat.Character == ((AbstractModel)localPlayer.Character).Id)
+                    if (fightStat.Character == localPlayer.Character.Id)
                     {
                         eliteWins += fightStat.Wins;
                         break;
                     }
                 }
+                if (eliteWins >= 15)
+                    break;
             }
 
             if (eliteWins >= 15)
@@ -97,7 +96,7 @@ public static class SorceressEpochUnlockPatches
     [HarmonyPostfix]
     public static void SorceressBossEpochPostfix(ProgressSaveManager __instance, Player localPlayer)
     {
-        if (!(localPlayer.Character is Character.TheSorceressMod))
+        if (!(localPlayer.Character is Character.TheSorceressMod) || localPlayer.UnlockState.IsEpochRevealed<Sorceress2Epoch>())
             return;
 
         try
@@ -111,19 +110,18 @@ public static class SorceressEpochUnlockPatches
             if (progress == null) return;
             int bossWins = 0;
 
-            foreach (EncounterStats stats in progress.EncounterStats.Values)
+            foreach (EncounterStats stats in progress.EncounterStats.Values.Where(s => bossEncounters.Contains(s.Id)))
             {
-                if (!bossEncounters.Contains(stats.Id))
-                    continue;
-
                 foreach (FightStats fightStat in stats.FightStats)
                 {
-                    if (fightStat.Character == ((AbstractModel)localPlayer.Character).Id)
+                    if (fightStat.Character == localPlayer.Character.Id)
                     {
                         bossWins += fightStat.Wins;
                         break;
                     }
                 }
+                if (bossWins >= 15)
+                    break;
             }
 
             if (bossWins >= 15)
