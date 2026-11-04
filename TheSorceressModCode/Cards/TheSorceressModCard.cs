@@ -51,4 +51,12 @@ public abstract class TheSorceressModCard(int cost, CardType type, CardRarity ra
             yield return HoverTipFactory.Static(SorceressKeywords.MoreNeow);
         }
     }
+    
+    protected IEnumerable<IHoverTip> AddReshuffledSpire()
+    {
+        if (!IsInCombat)
+        {
+            yield return HoverTipFactory.Static(SorceressKeywords.ReshuffledSpire);
+        }
+    }
 }

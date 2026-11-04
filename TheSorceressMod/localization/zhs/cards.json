@@ -182,7 +182,7 @@
   "THESORCERESSMOD-TWO_WEAPON_TWIST.title": "双武器·破势",
   "THESORCERESSMOD-TWO_WEAPON_PUNISH.description": "仅当你拥有[gold]优势[/gold]时才能打出。\n造成{Damage:diff()}点伤害。\n施加{WeakPower:diff()}层[gold]虚弱[/gold]。",
   "THESORCERESSMOD-TWO_WEAPON_PUNISH.title": "双武器·惩戒",
-  "THESORCERESSMOD-TWO_WEAPON_COMBINATION.description": "造成{Damage:diff()}点伤害{InCombat:{hits:plural:|，重复{hits:diff()}次}|}。\n本场战斗中每已打出过一张[gold]双武器·开战[/gold]，额外攻击一次。",
+  "THESORCERESSMOD-TWO_WEAPON_COMBINATION.description": "造成{Damage:diff()}点伤害{hits:plural:|，重复{hits:diff()}次}。\n本场战斗中每已打出过一张[gold]双武器·开战[/gold]，额外攻击一次。",
   "THESORCERESSMOD-TWO_WEAPON_COMBINATION.title": "双武器·连斩",
   "THESORCERESSMOD-TWO_WEAPON_DERVISH.description": "对随机敌人造成{Damage:diff()}点伤害，重复{mult:diff()}次。\n对至少被命中过一次的所有敌人额外造成{bonusdamage:diff()}点伤害。",
   "THESORCERESSMOD-TWO_WEAPON_DERVISH.title": "双武器·旋舞",

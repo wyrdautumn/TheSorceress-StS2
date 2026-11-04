@@ -21,9 +21,9 @@ public class SorcerersGambit() : TheSorceressModCard(1,
     
     private static decimal Calc(CardModel card, Creature? arg2)
     {
-        if (card.Owner.Creature.GetPowerAmount<CharismaPower>() < -card.DynamicVars.CalculationBase.BaseValue)
+        if (card.Owner.Creature.GetPowerAmount<CharismaPower>() * (card.Owner.Creature.GetPowerAmount<ForceOfPersonalityPower>() + 1) < -card.DynamicVars.CalculationBase.BaseValue)
             return -card.DynamicVars.CalculationBase.BaseValue;
-        return card.Owner.Creature.GetPowerAmount<CharismaPower>();
+        return card.Owner.Creature.GetPowerAmount<CharismaPower>() * (card.Owner.Creature.GetPowerAmount<ForceOfPersonalityPower>() + 1);
     }
 
     protected override async Task OnPlay(

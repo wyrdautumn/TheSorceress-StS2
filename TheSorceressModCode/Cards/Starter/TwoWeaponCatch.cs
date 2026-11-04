@@ -20,7 +20,7 @@ public class TwoWeaponCatch() : TheSorceressModMoreNeowCard(1,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new PowerVar<WeakPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<WeakPower>(),..HoverTipFactory.FromCardWithCardHoverTips<TwoWeaponTwist>(),..AddMoreNeow()];
+        [HoverTipFactory.FromPower<WeakPower>(),HoverTipFactory.FromCard<TwoWeaponTwist>(),HoverTipFactory.FromPower<StrengthPower>(),..AddMoreNeow()];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };

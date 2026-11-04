@@ -25,6 +25,7 @@ public static class SorceressKeywords
     [CustomEnum] public static StaticHoverTip AncientsAwakened;
     [CustomEnum] public static StaticHoverTip HeroExpansion;
     [CustomEnum] public static StaticHoverTip MoreNeow;
+    [CustomEnum] public static StaticHoverTip ReshuffledSpire;
     [CustomEnum] public static VfxDuration ExtraVeryLong;
     [CustomEnum] public static StaticHoverTip Dance;
 }

@@ -41,6 +41,12 @@ public class CrossCompatCardPoolPatch
             {
                 list.RemoveAll(c => c is TheSorceressModMoreNeowCard);
             }
+            
+            var reshuffledType = AccessTools.TypeByName("ReshuffledSpire.ReshuffledSpireCode.Extensions.AncientVariantExtension");
+            if (reshuffledType == null)
+            {
+                list.RemoveAll(c => c is TheSorceressModReshuffledSpireCard);
+            }
 
             __result = list;
         }

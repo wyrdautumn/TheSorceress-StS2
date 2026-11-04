@@ -113,5 +113,11 @@
   "THESORCERESSMOD-PERSISTENT_PRIME_POWER.title": "Relentless Prime",
   "THESORCERESSMOD-DETONATOR_POWER.description": "Prime after the next attack.",
   "THESORCERESSMOD-DETONATOR_POWER.smartDescription": "[gold]Prime[/gold] [blue]{Amount}[/blue] after the next attack.",
-  "THESORCERESSMOD-DETONATOR_POWER.title": "Prime and Detonate"
+  "THESORCERESSMOD-DETONATOR_POWER.title": "Prime and Detonate",
+  "THESORCERESSMOD-FORCE_OF_PERSONALITY_POWER.description": "Double the effect of your [gold]Charisma[/gold].",
+  "THESORCERESSMOD-FORCE_OF_PERSONALITY_POWER.smartDescription": "Double the effect of your [gold]Charisma[/gold].",
+  "THESORCERESSMOD-FORCE_OF_PERSONALITY_POWER.title": "Force of Personality",
+  "THESORCERESSMOD-SHROUD_OF_STARS_POWER.description": "Whenever you play a [gold]Sleight[/gold] card, ALL enemies lose [gold]Strength[/gold] this turn.",
+  "THESORCERESSMOD-SHROUD_OF_STARS_POWER.smartDescription": "Whenever you play a [gold]Sleight[/gold] card, ALL enemies lose [blue]{Amount}[/blue] [gold]Strength[/gold] this turn.",
+  "THESORCERESSMOD-SHROUD_OF_STARS_POWER.title": "Shroud of Stars"
 }

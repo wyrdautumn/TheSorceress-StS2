@@ -159,7 +159,7 @@
   "THESORCERESSMOD-TWO_WEAPON_TWIST.title": "Zweiwaffen-Drehung",
   "THESORCERESSMOD-TWO_WEAPON_PUNISH.description": "Nur mit [gold]Kampfvorteil[/gold] ausspielbar.\nFüge {Damage:diff()} Schaden zu.\nWende {WeakPower:diff()} [gold]Schwach[/gold] an.",
   "THESORCERESSMOD-TWO_WEAPON_PUNISH.title": "Zweiwaffen-Strafe",
-  "THESORCERESSMOD-TWO_WEAPON_COMBINATION.description": "Füge {Damage:diff()} Schaden zu {InCombat:{hits:plural:| {hits:diff()} Mal}|}.\nTrifft ein weiteres Mal für jede, in diesem Kampf ausgespielte [gold]Zweiwaffen-Kampf[/gold].",
+  "THESORCERESSMOD-TWO_WEAPON_COMBINATION.description": "Füge {Damage:diff()} Schaden zu {hits:plural:| {hits:diff()} Mal}.\nTrifft ein weiteres Mal für jede, in diesem Kampf ausgespielte [gold]Zweiwaffen-Kampf[/gold].",
   "THESORCERESSMOD-TWO_WEAPON_COMBINATION.title": "Zweiwaffen-Kombo",
   "THESORCERESSMOD-TWO_WEAPON_DERVISH.description": "Füge einem zufälligen Gegner {mult:diff()}X Mal {Damage:diff()} Schaden zu.\nFüge {bonusdamage:diff()} extra Schaden zu, für jeden Gegner, der mindestens einmal getroffen wurde.",
   "THESORCERESSMOD-TWO_WEAPON_DERVISH.title": "Zweiwaffen-Derwisch",

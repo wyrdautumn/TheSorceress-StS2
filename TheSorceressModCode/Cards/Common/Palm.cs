@@ -57,6 +57,5 @@ public class Palm() : TheSorceressModCard(1,
     protected override void OnUpgrade()
     {
         EnergyCost.UpgradeBy(-1);
-        AddKeyword(SorceressKeywords.Sleight);
     }
 }

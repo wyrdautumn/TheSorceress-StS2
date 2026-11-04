@@ -1,4 +1,6 @@
 ﻿using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,7 +23,24 @@ public class TwoWeaponFighting() : TheSorceressModCard(1,
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
     }
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [..HoverTipFactory.FromCardWithCardHoverTips<TwoWeaponCombination>(IsUpgraded)];
+        [FromCombinationWithHitCount(this)];
+
+    private static IHoverTip FromCombinationWithHitCount(CardModel card)
+    {
+        if (card.CombatState == null)
+            return HoverTipFactory.FromCard<TwoWeaponCombination>();
+        CardModel preview = (CardModel) ModelDb.Card<TwoWeaponCombination>().MutableClone();
+        int plays = CombatManager.Instance.History.CardPlaysFinished.Count<CardPlayFinishedEntry>(e =>
+            e.CardPlay.Card is TwoWeaponFighting && e.CardPlay.Card.Owner == card.Owner);
+        plays += 1;
+        preview.DynamicVars.CalculationBase.UpgradeValueBy(plays);
+        if (card.IsUpgraded)
+            preview.UpgradeInternal();
+        preview.FinalizeUpgradeInternal();
+        preview.DynamicVars.RecalculateForUpgradeOrEnchant();
+        preview.UpdateDynamicVarPreview(CardPreviewMode.Normal, null, preview.DynamicVars);
+        return new CardHoverTip(preview);
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

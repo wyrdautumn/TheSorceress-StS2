@@ -22,10 +22,10 @@ public class SorcerersGambitPower : TheSorceressModPower
     
     private static decimal Calc(PowerModel power, Creature? arg2)
     {
-        return Math.Max(0, power.Amount + power.Owner.GetPowerAmount<CharismaPower>() * power.DynamicVars["ChaMult"].IntValue);
+        return Math.Max(0, power.Amount + power.Owner.GetPowerAmount<CharismaPower>() * power.DynamicVars["ChaMult"].IntValue * (power.Owner.GetPowerAmount<ForceOfPersonalityPower>() + 1));
     }
     
-    public override int DisplayAmount => Math.Max(0, Amount + Owner.GetPowerAmount<CharismaPower>() * DynamicVars["ChaMult"].IntValue);
+    public override int DisplayAmount => Math.Max(0, Amount + Owner.GetPowerAmount<CharismaPower>() * DynamicVars["ChaMult"].IntValue * (Owner.GetPowerAmount<ForceOfPersonalityPower>() + 1));
 
     public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
         CardModel? cardSource)
@@ -49,6 +49,6 @@ public class SorcerersGambitPower : TheSorceressModPower
         {
             return;
         }
-        await CreatureCmd.Damage(choiceContext, dealer, Math.Max(0, Amount + Owner.GetPowerAmount<CharismaPower>() * DynamicVars["ChaMult"].IntValue), ValueProp.Unpowered, Owner, null, null);
+        await CreatureCmd.Damage(choiceContext, dealer, Math.Max(0, Amount + Owner.GetPowerAmount<CharismaPower>() * DynamicVars["ChaMult"].IntValue * (Owner.GetPowerAmount<ForceOfPersonalityPower>() + 1)), ValueProp.Unpowered, Owner, null, null);
     }
 }

@@ -63,14 +63,18 @@ public class TheSorceressModCardPool : CustomCardPoolModel
                 {
                     _allCards = _allCards.Where(c => c is not TheSorceressModAncientsAwakenedCard).ToArray();
                 }
-        
-        
+                
                 var deckboxType = AccessTools.TypeByName("MoreNeow.MoreNeowCode.Relics.Complex.UnfamiliarDeckbox");
                 if (deckboxType == null)
                 {
                     _allCards = _allCards.Where(c => c is not TheSorceressModMoreNeowCard).ToArray();
                 }
-
+                
+                var reshuffledType = AccessTools.TypeByName("ReshuffledSpire.ReshuffledSpireCode.Extensions.AncientVariantExtension");
+                if (reshuffledType == null)
+                {
+                    _allCards = _allCards.Where(c => c is not TheSorceressModReshuffledSpireCard).ToArray();
+                }
             }
             return _allCards;
         }

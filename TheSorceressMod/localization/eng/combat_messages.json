@@ -46,5 +46,7 @@
   "SORCERESS_SUBJECT_BOSS_ATTACK_HIGH": "You're nothing but a beast brought to heel.",
   "SORCERESS_SUBJECT_BOSS_ATTACK_LOW": "[jitter]Don't. Get. Back. Up.[/jitter]",
   "SORCERESS_GLASS_BOSS_ATTACK_HIGH": "I'll shatter time itself before I give in!",
-  "SORCERESS_GLASS_BOSS_ATTACK_LOW": "[jitter]DIE![/jitter]"
+  "SORCERESS_GLASS_BOSS_ATTACK_LOW": "[jitter]DIE![/jitter]",
+  
+  "SORCERESS_QUEEN_BOSS_BLANK_SLATE_BANTER": "[jitter]I AM MY OWN![/jitter]"
 }
