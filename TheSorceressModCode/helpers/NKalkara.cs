@@ -25,9 +25,10 @@ public partial class NKalkara : NCreatureVisuals
 		_shadow = GetNodeOrNull<Sprite2D>("%Visuals/ShadowSprite");
 		_loseEffect = GetNodeOrNull<SorceressParticles>("%Visuals/%LoseAdvantage");
 		_gainEffect = GetNodeOrNull<SorceressParticles>("%Visuals/%GainAdvantage");
+		_gainEffect.Visible = false;
 	}
-	
-	public override void _Process(double delta)
+
+	public void CheckShadow()
 	{
 		if (_shadow != null)
 		{
@@ -39,11 +40,16 @@ public partial class NKalkara : NCreatureVisuals
 				if (hasAdvantage && !_shadow.Visible)
 				{
 					_shadow.Visible = true;
-					if (_gainEffect != null) _gainEffect.Restart();
+					if (_gainEffect != null)
+					{
+						_gainEffect.Visible = true;
+						_gainEffect.Restart();
+					}
 				}
 				if (!hasAdvantage && _shadow.Visible)
 				{
 					_shadow.Visible = false;
+					if (_gainEffect != null) _gainEffect.Visible = false;
 					if (_loseEffect != null) _loseEffect.Restart();
 				}
 			}

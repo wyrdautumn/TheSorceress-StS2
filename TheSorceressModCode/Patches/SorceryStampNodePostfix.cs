@@ -47,15 +47,9 @@ public class SorceryStampVisibilityPostfix
     {
         if (__instance == null || __instance.GetChild(0) == null)
             return;
-        Control? stamp = __instance.GetChild(0).GetNodeOrNull<Control>("SorceryStamp");
+        NSorceryStamp? stamp = __instance.GetChild(0).GetNodeOrNull<NSorceryStamp>("SorceryStamp");
         if (stamp == null)
             return;
-        if (__instance.Visible && __instance.Model != null &&
-            __instance.Model.Keywords.Contains(SorceressKeywords.Sorcery))
-            stamp.Visible = true;
-        else
-        {
-            stamp.Visible = false;
-        }
+        stamp.OverlayCheck();
     }
 }

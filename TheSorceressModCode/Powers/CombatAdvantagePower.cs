@@ -28,7 +28,13 @@ public class CombatAdvantagePower : TheSorceressModPower
     public override PowerStackType StackType => PowerStackType.Single;
     
     protected override object InitInternalData() => new Data();
-    
+
+    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        UpdateShadowVisuals();
+        return Task.CompletedTask;
+    }
+
     public override Task BeforeAttack(AttackCommand command)
     {
         if (command.Attacker != Owner || !command.DamageProps.IsPoweredAttack())
@@ -90,6 +96,17 @@ public class CombatAdvantagePower : TheSorceressModPower
             await PowerCmd.Apply<CharismaPower>(new BlockingPlayerChoiceContext(), Owner,
                 relic.DynamicVars["CharismaPower"].BaseValue, Owner, null);
         }
+        UpdateShadowVisuals();
+    }
+
+    private void UpdateShadowVisuals()
+    {
+        NCreature? creature = Owner.GetCreatureNode();
+        if (creature == null)
+            return;
+        NCreatureVisuals visuals = creature.Visuals;
+        if (visuals is NKalkara kalkara)
+            kalkara.CheckShadow();
     }
     
     private class Data

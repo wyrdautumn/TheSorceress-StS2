@@ -24,9 +24,11 @@ public partial class NSorceryStamp : Control
             }
 
             _position = Position;
+            
+            OverlayCheck();
         }
         
-        public override void _Process(double delta)
+        public void OverlayCheck()
         {
             if (_card == null || _card.Model == null || !_card.Model.Keywords.Contains(SorceressKeywords.Sorcery))
             {
