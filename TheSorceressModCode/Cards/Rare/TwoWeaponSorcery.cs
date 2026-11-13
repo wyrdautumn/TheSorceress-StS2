@@ -16,7 +16,7 @@ public class TwoWeaponSorcery() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Rare,
     TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move), new HitCountVar(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery,CardKeyword.Exhaust];
     protected override HashSet<CardTag> CanonicalTags
     {
@@ -29,7 +29,7 @@ public class TwoWeaponSorcery() : TheSorceressModCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CommonActions.CardAttack(this,play,2, vfx: "vfx/vfx_attack_slash").Execute(choiceContext);
+        await CommonActions.CardAttack(this,play,DynamicVars.HitCount.IntValue, vfx: "vfx/vfx_attack_slash").Execute(choiceContext);
         await PowerCmd.Apply<TwoWeaponSorceryPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
 

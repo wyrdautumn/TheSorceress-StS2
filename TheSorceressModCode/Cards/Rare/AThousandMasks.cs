@@ -15,10 +15,10 @@ public class AThousandMasks() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, ValueProp.Move),
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move),
     new CalculationBaseVar(0),
     new CalculationExtraVar(1),
-    new CalculatedVar("AdvantageCount").WithMultiplier(Calc)];
+    new CalculatedHitCountVar("AdvantageCount").WithMultiplier(Calc)];
 
     private static decimal Calc(CardModel card, Creature? target)
     {
@@ -39,6 +39,6 @@ public class AThousandMasks() : TheSorceressModCard(2,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }

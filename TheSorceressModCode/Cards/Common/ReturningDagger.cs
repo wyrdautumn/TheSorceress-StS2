@@ -14,14 +14,14 @@ public class ReturningDagger() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new HitCountVar(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Subtle,SorceressKeywords.Shadowdance];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CommonActions.CardAttack(this, play, 2).WithHitVfxNode((Creature _) => NShivThrowVfx.Create(base.Owner.Creature, play.Target, new Color ("b18aff"))).Execute(choiceContext);
+        await CommonActions.CardAttack(this, play, DynamicVars.HitCount.IntValue).WithHitVfxNode((Creature _) => NShivThrowVfx.Create(base.Owner.Creature, play.Target, new Color ("b18aff"))).Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

@@ -3,5 +3,6 @@
   "THESORCERESSMOD-RANDOM_BOOL.title": "This doesn't do anything, but the button below won't appear without it.",
   "THESORCERESSMOD-UNLOCK_SECTION.title": "Sorceress Unlocks",
   "THESORCERESSMOD-ALL_STUFF_UNLOCKED.title": "Unlock",
-  "THESORCERESSMOD-UNLOCK_ALL_STUFF.title": "Unlock all Sorceress epochs"
+  "THESORCERESSMOD-UNLOCK_ALL_STUFF.title": "Unlock all Sorceress epochs",
+  "THESORCERESSMOD-RESTORE_PRIESTESS.title": "Restore the High Priestess to her seat of power"
 }

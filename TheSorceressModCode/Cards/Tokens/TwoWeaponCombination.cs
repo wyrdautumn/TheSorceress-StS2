@@ -21,7 +21,7 @@ public class TwoWeaponCombination() : TheSorceressModCard(0,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, ValueProp.Move),
     new CalculationBaseVar(1),
     new CalculationExtraVar(1),
-    new CalculatedVar("hits").WithMultiplier(Calc)];
+    new CalculatedHitCountVar("hits").WithMultiplier(Calc)];
     
     protected override HashSet<CardTag> CanonicalTags
     {

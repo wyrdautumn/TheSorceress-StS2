@@ -18,7 +18,7 @@ public class PressTheAdvantage() : TheSorceressModCard(1,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move),
     new CalculationBaseVar(1),
     new CalculationExtraVar(1),
-    new CalculatedVar("hits").WithMultiplier(Calc)];
+    new CalculatedHitCountVar("hits").WithMultiplier(Calc)];
 
     private static decimal Calc(CardModel card, Creature? target)
     {

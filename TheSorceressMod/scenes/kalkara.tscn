@@ -746,12 +746,14 @@ script = ExtResource("2_gjh31")
 self_modulate = Color(0.39691457, 0.30333683, 0.7824953, 1)
 z_index = 1
 material = SubResource("ShaderMaterial_asfil")
+scale = Vector2(10, 10)
 emitting = false
 amount = 1
 texture = ExtResource("10_j00b5")
 lifetime = 0.4
 one_shot = true
 fixed_fps = 60
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_xu5rx")
 
 [node name="ShadowMoveGain" type="GPUParticles2D" parent="Visuals/GainAdvantage"]
@@ -794,12 +796,14 @@ self_modulate = Color(0.69411767, 0.5411765, 1, 1)
 z_index = 1
 material = SubResource("ShaderMaterial_asfil")
 rotation = 1.5707964
+scale = Vector2(10, 10)
 emitting = false
 amount = 1
 texture = ExtResource("10_j00b5")
 lifetime = 0.4
 one_shot = true
 fixed_fps = 60
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_xu5rx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -856,3 +860,8 @@ angle_max = 180.0
 scale_amount_min = 0.01
 scale_amount_max = 0.04
 color_ramp = SubResource("Gradient_qf3qf")
+
+[node name="FormVfx" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0

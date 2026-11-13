@@ -57,7 +57,7 @@ script = ExtResource("1_i7d20")
 
 [node name="KalkaraSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-40.99997, 3.9999695)
-scale = Vector2(0.585, 0.6)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_i5eap")
 animation = &"light_off"
 
@@ -104,4 +104,3 @@ offset_left = -185.0
 offset_top = -278.0
 offset_right = -185.0
 offset_bottom = -278.0
-metadata/_edit_use_anchors_ = true

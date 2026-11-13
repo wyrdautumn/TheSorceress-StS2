@@ -13,7 +13,7 @@ public class TwoWeaponFinisher() : TheSorceressModCard(2,
     CardType.Attack, CardRarity.Token,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, ValueProp.Move), new HitCountVar(2)];
     protected override HashSet<CardTag> CanonicalTags
     {
         get => new HashSet<CardTag>() { SorceressKeywords.TwoWeapon };
@@ -24,7 +24,7 @@ public class TwoWeaponFinisher() : TheSorceressModCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CommonActions.CardAttack(this, play, 2, vfx: "vfx/vfx_attack_slash").Execute(choiceContext);
+        await CommonActions.CardAttack(this, play, DynamicVars.HitCount.IntValue, vfx: "vfx/vfx_attack_slash").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

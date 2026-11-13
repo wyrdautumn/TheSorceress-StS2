@@ -31,4 +31,6 @@ public class TheSorceressModConfig : SimpleModConfig
         foreach (string epochId in epochs.Except(SaveManager.Instance.Progress.Epochs.Where(e => e.State == EpochState.Revealed).Select( e => e.Id)))
             SaveManager.Instance.ObtainEpochOverride(epochId, EpochState.Revealed);
     }
+
+    public static bool RestorePriestess { get; set; } = false;
 }

@@ -25,7 +25,7 @@ public class TwoWeaponBurst() : TheSorceressModCard(1,
     TargetType.AllEnemies)
 {
     private decimal _extraHitsFromPlays;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, ValueProp.Move), new DynamicVar("hits",1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, ValueProp.Move), new HitCountVar("hits",1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [SorceressKeywords.Sorcery,CardKeyword.Ethereal,CardKeyword.Exhaust];
     protected override HashSet<CardTag> CanonicalTags
     {

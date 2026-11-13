@@ -15,7 +15,7 @@ public class TwoWeaponDueling() : TheSorceressModCard(1,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.RandomEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new DynamicVar("hits", 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move), new HitCountVar("hits", 2)];
 
     protected override HashSet<CardTag> CanonicalTags
     {

@@ -46,5 +46,6 @@
   "SORCERESS_SUBJECT_BOSS_ATTACK_HIGH": "你不过是一头被驯服的野兽。",
   "SORCERESS_SUBJECT_BOSS_ATTACK_LOW": "[jitter]别..再..站..起..来..[/jitter]",
   "SORCERESS_GLASS_BOSS_ATTACK_HIGH": "我宁愿粉碎时间本身也不会屈服！",
-  "SORCERESS_GLASS_BOSS_ATTACK_LOW": "[jitter]去死！[/jitter]"
+  "SORCERESS_GLASS_BOSS_ATTACK_LOW": "[jitter]去死！[/jitter]",
+  "SORCERESS_QUEEN_BOSS_BLANK_SLATE_BANTER": "[jitter]我命由我！！！[/jitter]"
 }

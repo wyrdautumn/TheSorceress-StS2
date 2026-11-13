@@ -8,5 +8,7 @@
   "THESORCERESSMOD-HERO_EXPANSION.title": "英雄扩展",
   "THESORCERESSMOD-HERO_EXPANSION.description": "此牌为与[gold]英雄扩展[/gold]Mod配合使用而设计。",
   "THESORCERESSMOD-DANCE.title": "舞动",
-  "THESORCERESSMOD-DANCE.description": "当一张牌未被打出便离开你的[gold]消耗堆[/gold]时，即为舞动。"
+  "THESORCERESSMOD-DANCE.description": "当一张牌未被打出便离开你的[gold]消耗堆[/gold]时，即为舞动。",
+  "THESORCERESSMOD-RESHUFFLED_SPIRE.title": "重洗尖塔",
+"THESORCERESSMOD-RESHUFFLED_SPIRE.description": "此牌为与[gold]重洗尖塔[/gold]Mod配合使用而设计。"
 }
