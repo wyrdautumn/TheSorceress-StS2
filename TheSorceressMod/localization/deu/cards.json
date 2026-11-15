@@ -184,5 +184,6 @@
   "THESORCERESSMOD-TWO_WEAPON_SUPPRESSION.description": "Füge ALLEN Gegnern {Damage:diff()} Schaden zu.\nWende {WeakPower:diff()} [gold]Schwach[/gold] auf ALLE Gengner an.\nGebe [gold]{IfUpgraded:show:Zweiwaffen-Taktik+|Zweiwaffen-Taktik}[/gold] auf die Hände von allen anderen.",
   "THESORCERESSMOD-TWO_WEAPON_SUPPRESSION.title": "Zweiwaffen-Unterdrückung",
   "THESORCERESSMOD-TWO_WEAPON_TACTICS.description": "Erhalte {Block:diff()} [gold]Block[/gold].\nFüge {Damage:diff()} Schaden zu.",
-  "THESORCERESSMOD-TWO_WEAPON_TACTICS.title": "Zweiwaffen-Taktik"
+  "THESORCERESSMOD-TWO_WEAPON_TACTICS.title": "Zweiwaffen-Taktik",
+  "THESORCERESSMOD-HIGH_PRIESTESS.title": "Die Hexerin"
 }

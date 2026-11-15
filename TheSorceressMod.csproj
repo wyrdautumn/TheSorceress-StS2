@@ -46,6 +46,7 @@
 		<Publicize Include="sts2:MegaCrit.Sts2.Core.Nodes.Combat.NPlayerHand._prefs"/>
 		<Publicize Include="sts2:MegaCrit.Sts2.Core.Models.CardPoolModel._allCards"/>
 		<Publicize Include="sts2:MegaCrit.Sts2.Core.Models.CardModel.PortraitPngPath"/>
+		<Publicize Include="sts2:MegaCrit.Sts2.Core.Models.CardModel.BetaPortraitPngPath"/>
 
     </ItemGroup>
 

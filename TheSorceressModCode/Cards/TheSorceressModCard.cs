@@ -2,10 +2,12 @@
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
+using HarmonyLib;
 using TheSorceressMod.TheSorceressModCode.Character;
 using TheSorceressMod.TheSorceressModCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using TheSorceressMod.TheSorceressModCode.helpers;
 
@@ -27,6 +29,20 @@ public abstract class TheSorceressModCard(int cost, CardType type, CardRarity ra
     //Uses card_portraits/card_name.png as image path. These should be smaller images.
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
+
+    [HarmonyPatch(typeof(CardModel), "BetaPortraitPngPath", MethodType.Getter)]
+    class BetaPortraitPathPatch
+    {
+        [HarmonyPrefix]
+        static bool SorceressBetaPortraitPng(CardModel __instance, ref string? __result)
+        {
+            if (__instance is not TheSorceressModCard)
+                return true;
+            
+            __result = $"beta/big/{__instance.Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
+            return false;
+        }
+    }
 
     protected IEnumerable<IHoverTip> AddAncientsAwakened()
     {

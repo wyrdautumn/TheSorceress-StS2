@@ -268,5 +268,7 @@
   "THESORCERESSMOD-FORCE_OF_PERSONALITY.title": "Force of Personality",
   "THESORCERESSMOD-SHROUD_OF_STARS.description": "Whenever you play a [gold]Sleight[/gold] card, ALL enemies lose {ShroudOfStarsPower:diff()} [gold]Strength[/gold] this turn.",
   "THESORCERESSMOD-SHROUD_OF_STARS.title": "Shroud of Stars",
+  "THESORCERESSMOD-KISS_OF_DEATH.description": "Deal {CalculatedDamage:diff()} damage.\nDeal {ExtraDamage:diff()} additional damage for each card played by ALL players this combat.",
+  "THESORCERESSMOD-KISS_OF_DEATH.title": "Kiss of Death",
   "THESORCERESSMOD-HIGH_PRIESTESS.title": "The Sorceress"
 }
