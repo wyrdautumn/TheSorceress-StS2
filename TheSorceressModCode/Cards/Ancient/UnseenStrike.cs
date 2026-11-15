@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
 using TheSorceressMod.TheSorceressModCode.Cards.CrossMod;
+using TheSorceressMod.TheSorceressModCode.Cards.Starter;
 using TheSorceressMod.TheSorceressModCode.Patches;
 using TheSorceressMod.TheSorceressModCode.Powers;
 
@@ -16,13 +17,10 @@ public class UnseenStrike : TheSorceressModAncientsAwakenedCard
 {
     public UnseenStrike() : base(1, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
     {
-        AncientsAwakenedCrossCompat.RegisterPerfectedStrikeForKalkara(this);
+        this.AddPerfectedCardForCustomCharacters(ModelDb.Card<StrikeSorceress>());
     }
     
-    public override CardPoolModel VisualCardPool =>
-        AncientsAwakenedCrossCompat.GetPerfectedPoolOrFallback(
-            base.VisualCardPool
-        );
+    public override CardPoolModel VisualCardPool => AncientsAwakenedPerfectedInterop.PerfectedCardPool(Pool) ?? base.VisualCardPool;
 
     protected override HashSet<CardTag> CanonicalTags =>
     [

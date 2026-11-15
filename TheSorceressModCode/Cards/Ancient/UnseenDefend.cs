@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
 using TheSorceressMod.TheSorceressModCode.Cards.CrossMod;
+using TheSorceressMod.TheSorceressModCode.Cards.Starter;
 using TheSorceressMod.TheSorceressModCode.Patches;
 using TheSorceressMod.TheSorceressModCode.Powers;
 using TheSorceressMod.TheSorceressModCode.Relics;
@@ -19,13 +20,10 @@ public class UnseenDefend : TheSorceressModAncientsAwakenedCard
 {
     public UnseenDefend() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self)
     {
-        AncientsAwakenedCrossCompat.RegisterPerfectedDefendForKalkara(this);
+        this.AddPerfectedCardForCustomCharacters(ModelDb.Card<DefendSorceress>());
     }
     
-    public override CardPoolModel VisualCardPool =>
-        AncientsAwakenedCrossCompat.GetPerfectedPoolOrFallback(
-            base.VisualCardPool
-        );
+    public override CardPoolModel VisualCardPool => AncientsAwakenedPerfectedInterop.PerfectedCardPool(Pool) ?? base.VisualCardPool;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6, ValueProp.Move)];
     

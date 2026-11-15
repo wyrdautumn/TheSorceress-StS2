@@ -14,8 +14,8 @@ using TheSorceressMod.TheSorceressModCode.helpers;
 namespace TheSorceressMod.TheSorceressModCode.Cards;
 
 [Pool(typeof(TheSorceressModCardPool))]
-public abstract class TheSorceressModCard(int cost, CardType type, CardRarity rarity, TargetType target) :
-    CustomCardModel(cost, type, rarity, target)
+public abstract class TheSorceressModCard(int cost, CardType type, CardRarity rarity, TargetType target, bool library = true, bool auto = true) :
+    CustomCardModel(cost, type, rarity, target, library, auto)
 {
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
