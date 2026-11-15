@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheSorceressMod.TheSorceressModCode.Cards;
 using TheSorceressMod.TheSorceressModCode.Cards.CrossMod;
@@ -22,7 +23,7 @@ public class PerfectDistractionAncient : TheSorceressModAncientsAwakenedCard
         CardType.Skill, CardRarity.Ancient,
         TargetType.AnyEnemy)
     {
-        AncientsAwakenedCrossCompat.RegisterExperimentalSerumCardForKalkara(this);
+        this.AddExperimentalCardForCustomCharacters(ModelDb.Character<Character.TheSorceressMod>());
     }
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PrimedPower>(7)];
