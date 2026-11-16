@@ -1,6 +1,7 @@
 ﻿using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Nodes.RestSite;
+using TheSorceressMod.TheSorceressModCode.helpers;
 
 namespace TheSorceressMod.TheSorceressModCode.Patches;
 
@@ -13,6 +14,8 @@ public class KalkaraRestSitePatch
         [HarmonyPostfix]
         private static void Postfix(NRestSiteCharacter __instance)
         {
+            if (__instance is not NSorceressRestSite)
+                return;
             AnimatedSprite2D sprite = __instance.GetNodeOrNull<AnimatedSprite2D>("KalkaraSprite");
             if (sprite == null)
                 return;

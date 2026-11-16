@@ -20,7 +20,7 @@
   "THESORCERESSMOD-WICKED_DAGGER.description": "[gold]Combat Advantage[/gold] increases the damage of your next attack by [blue]75%[/blue] rather than [blue]50%[/blue].",
   "THESORCERESSMOD-WICKED_DAGGER.flavor": "A subtle enchantment keeps this blade untarnished by blood. Those stains must be carried by its wielder.",
   "THESORCERESSMOD-WICKED_DAGGER.title": "Wicked Dagger",
-  "THESORCERESSMOD-DUELING_SWORD.description": "Strikes and Defends become [gold]Sorceries[/gold].",
+  "THESORCERESSMOD-DUELING_SWORD.description": "[gold]Strikes[/gold] and [gold]Defends[/gold] become [gold]Sorceries[/gold].",
   "THESORCERESSMOD-DUELING_SWORD.flavor": "An agile weapon that rewards finesse. Less subtle than a dagger, but with a better sense of drama.",
   "THESORCERESSMOD-DUELING_SWORD.title": "Dueling Sword",
   "THESORCERESSMOD-DANCING_SASH.description": "Whenever a card [gold]Dances[/gold], gain [blue]1[/blue] [gold]Strength[/gold] this turn.",
