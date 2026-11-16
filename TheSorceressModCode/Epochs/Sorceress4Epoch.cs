@@ -8,7 +8,7 @@ public class Sorceress4Epoch : EpochModel
 {
     public override string Id => "THESORCERESSMOD-SORCERESS4_EPOCH";
     public override EpochEra Era => EpochEra.Invitation4;
-    public override int EraPosition => 2;
+    public override int EraPosition => 4;
     public override string? StoryId => "Sorceress";
     
     public override EpochModel[] GetTimelineExpansion()

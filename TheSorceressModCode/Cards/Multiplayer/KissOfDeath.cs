@@ -1,9 +1,11 @@
 ﻿using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -23,8 +25,8 @@ public class KissOfDeath() : TheSorceressModCard(3,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new CalculationBaseVar(12),
-    new ExtraDamageVar(1),
+    new CalculationBaseVar(6),
+    new ExtraDamageVar(3),
     new CalculatedDamageVar(ValueProp.Move).WithMultiplier(Calc)];
     
     public override CardMultiplayerConstraint MultiplayerConstraint
@@ -34,9 +36,10 @@ public class KissOfDeath() : TheSorceressModCard(3,
     
     private static decimal Calc(CardModel card, Creature? target)
     {
-        if (card.Owner.PlayerCombatState == null)
+        if (target == null)
             return 0;
-        return CombatManager.Instance.History.CardPlaysFinished.Count();
+        return CombatManager.Instance.History.Entries.OfType<PowerReceivedEntry>().Where(p =>
+            p.Power.Owner == target && p.Power.Type == PowerType.Debuff && p.Applier != null && p.Applier.IsPlayer).Count();
     }
 
     protected override async Task OnPlay(
