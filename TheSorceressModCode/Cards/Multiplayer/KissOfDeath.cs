@@ -25,8 +25,8 @@ public class KissOfDeath() : TheSorceressModCard(3,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-    new CalculationBaseVar(6),
-    new ExtraDamageVar(3),
+    new CalculationBaseVar(8),
+    new ExtraDamageVar(4),
     new CalculatedDamageVar(ValueProp.Move).WithMultiplier(Calc)];
     
     public override CardMultiplayerConstraint MultiplayerConstraint
