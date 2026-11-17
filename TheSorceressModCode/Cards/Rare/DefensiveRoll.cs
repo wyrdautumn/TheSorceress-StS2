@@ -13,7 +13,7 @@ public class DefensiveRoll() : TheSorceressModCard(0,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DefensiveRollPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DefensiveRollPower>(1), new CardsVar(4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
 

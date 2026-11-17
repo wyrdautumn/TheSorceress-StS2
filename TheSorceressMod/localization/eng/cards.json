@@ -128,7 +128,7 @@
   "THESORCERESSMOD-COUNTER_STEP.title": "Counter-Step",
   "THESORCERESSMOD-FIRESTARTER.description": "At the start of your turn, ALL enemies [gold]Prime[/gold] {FirestarterPower:diff()}.",
   "THESORCERESSMOD-FIRESTARTER.title": "Firestarter",
-  "THESORCERESSMOD-DEFENSIVE_ROLL.description": "The next {DefensiveRollPower:plural:time|{DefensiveRollPower:diff()} times} you would lose HP, prevent it and [gold]Exhaust[/gold] 5 random cards from your [gold]Draw[/gold] and [gold]Discard Piles[/gold].",
+  "THESORCERESSMOD-DEFENSIVE_ROLL.description": "The next {DefensiveRollPower:plural:time|{DefensiveRollPower:diff()} times} you would lose HP, prevent it and [gold]Exhaust[/gold] {Cards:diff()} random cards from your [gold]Draw[/gold] and [gold]Discard Piles[/gold].",
   "THESORCERESSMOD-DEFENSIVE_ROLL.title": "Daring Roll",
   "THESORCERESSMOD-DETONATOR.description": "[gold]Exhaust[/gold] the top card of your [gold]Draw Pile[/gold].\n[gold]Prime[/gold] {PrimedPower:diff()}.\nThe next time the enemy is attacked, [gold]Prime[/gold] {DetonatorPower:diff()}.",
   "THESORCERESSMOD-DETONATOR.title": "Prime and Detonate",

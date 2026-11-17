@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -16,6 +17,8 @@ public class DefensiveRollPower : TheSorceressModPower
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
+    
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(4)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
@@ -41,7 +44,7 @@ public class DefensiveRollPower : TheSorceressModPower
             List<CardModel> piles = new List<CardModel>();
             piles.AddRange(PileType.Discard.GetPile(this.Owner.Player).Cards);
             piles.AddRange(PileType.Draw.GetPile(this.Owner.Player).Cards);
-            foreach (CardModel card in piles.StableShuffle<CardModel>(this.Owner.Player.RunState.Rng.Shuffle).Take<CardModel>(5))
+            foreach (CardModel card in piles.StableShuffle<CardModel>(this.Owner.Player.RunState.Rng.Shuffle).Take<CardModel>(DynamicVars.Cards.IntValue))
             {
                 await CardCmd.Exhaust(new BlockingPlayerChoiceContext(), card);
             }
