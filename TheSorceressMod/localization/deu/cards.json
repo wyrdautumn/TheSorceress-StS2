@@ -113,7 +113,7 @@
   "THESORCERESSMOD-COUNTER_STEP.title": "Nichtig",
   "THESORCERESSMOD-FIRESTARTER.description": "Bei Beginn deines Zuges, werden ALLE Gegner um {FirestarterPower:diff()} [gold]Präparriert[/gold].",
   "THESORCERESSMOD-FIRESTARTER.title": "Feuerteufel",
-  "THESORCERESSMOD-DEFENSIVE_ROLL.description": "{DefensiveRollPower:plural:Das nächste Mal|Die nächsten {DefensiveRollPower:diff()} Male}, wenn TP verlieren würdest, [gold]Erschöpfe[/gold] stattdessen 5 zufällige Karten aus deinem [gold]Nachzieh-[/gold] und [gold]Abwurfstapel[/gold] ",
+  "THESORCERESSMOD-DEFENSIVE_ROLL.description": "{DefensiveRollPower:plural:Das nächste Mal|Die nächsten {DefensiveRollPower:diff()} Male}, wenn TP verlieren würdest, [gold]Erschöpfe[/gold] stattdessen {Cards:diff()} zufällige Karten aus deinem [gold]Nachzieh-[/gold] und [gold]Abwurfstapel[/gold] ",
   "THESORCERESSMOD-DEFENSIVE_ROLL.title": "Gewagtes Manöver",
   "THESORCERESSMOD-DETONATOR.title": "Der Knaller",
   "THESORCERESSMOD-RAVENS_SPLENDOR.description": "Erhalte {Block:diff()} [gold]Block[/gold].\nWende {VulnerablePower:diff()} [gold]Verwundbar[/gold] bei ALLEN Gegnern an.",
