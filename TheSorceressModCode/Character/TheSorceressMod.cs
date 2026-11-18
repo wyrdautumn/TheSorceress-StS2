@@ -29,6 +29,7 @@ public class TheSorceressMod : PlaceholderCharacterModel
     public static readonly Color Color = new("b18aff");
 
     public override Color NameColor => Color;
+    public override Color DreadNameColor => Color;
     public override CharacterGender Gender => CharacterGender.Feminine;
     public override int StartingHp => 68;
 
