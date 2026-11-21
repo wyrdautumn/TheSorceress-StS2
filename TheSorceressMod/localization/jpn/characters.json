@@ -1,0 +1,17 @@
+﻿{
+  "THESORCERESSMOD-THE_SORCERESS_MOD.aromaPrinciple": "[sine][color=B18AFF]どんな代償を払おうと、自分自身の物語を紡いでみせる。[/color][/sine]",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.banter.alive.endTurnPing": "敵はじっと待ち構えている。",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.banter.dead.endTurnPing": "……",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.cardsModifierDescription": "ソーサレスのカードが報酬やショップに出現するようになった。",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.cardsModifierTitle": "ソーサレスのカード",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.description": "望まれぬ傭兵として生まれながら、新たな自分へと生まれ変わった者。\n魔術の輝きの奥には、恐るべき刃が隠されている。",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.eventDeathPrevention": "ここで終わらせてしまうのは、あまりにも惜しい。",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.goldMonologue": "[sine]素敵なドレスを何着か持っていても、悪くないわよね……？[/sine]",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.possessiveAdjective": "彼女",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.pronounObject": "彼女",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.pronounPossessive": "彼女",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.pronounSubject": "彼女",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.shortTitle": "ソーサレス",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.title": "ソーサレス",
+  "THESORCERESSMOD-THE_SORCERESS_MOD.titleObject": "ソーサレス"
+}

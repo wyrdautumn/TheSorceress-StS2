@@ -1,0 +1,16 @@
+﻿{
+  "THESORCERESSMOD-ANCIENTS_AWAKENED.description": "このカードは[gold]Ancients Awakened[/gold] modとの併用を想定して設計されています。",
+  "THESORCERESSMOD-ANCIENTS_AWAKENED.title": "Ancients Awakened",
+  "THESORCERESSMOD-DANCE.description": "カードがプレイされずに[gold]廃棄札[/gold]を離れたとき、そのカードはダンスを行う。",
+  "THESORCERESSMOD-DANCE.title": "ダンス",
+  "THESORCERESSMOD-FIRE_ATTACK.description": "炎のアタックは、カード名に「[gold]ファイア[/gold]」「[gold]フレイム[/gold]」「[gold]パイロ[/gold]」のいずれかを含む。",
+  "THESORCERESSMOD-FIRE_ATTACK.title": "炎",
+  "THESORCERESSMOD-HERO_EXPANSION.description": "このカードは[gold]Hero Expansion[/gold] modとの併用を想定して設計されている。",
+  "THESORCERESSMOD-HERO_EXPANSION.title": "Hero Expansion",
+  "THESORCERESSMOD-MORE_NEOW.description": "このカードは[gold]More Neow[/gold] modとの併用を想定して設計されている。",
+  "THESORCERESSMOD-MORE_NEOW.title": "More Neow",
+  "THESORCERESSMOD-REKINDLE.description": "[gold]廃棄札[/gold]からこのカードを[gold]手札[/gold]に戻す。",
+  "THESORCERESSMOD-REKINDLE.title": "再燃",
+  "THESORCERESSMOD-RESHUFFLED_SPIRE.description": "このカードは[gold]Reshuffled Spire[/gold] modとの併用を想定して設計されている。",
+  "THESORCERESSMOD-RESHUFFLED_SPIRE.title": "Reshuffled Spire"
+}

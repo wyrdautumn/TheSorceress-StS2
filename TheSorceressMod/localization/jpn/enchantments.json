@@ -1,0 +1,5 @@
+﻿{
+  "THESORCERESSMOD-STEALTHY_ENCHANTMENT.description": "[gold]バトルアドバンテージ[/gold]を持っている場合、追加で[blue]{Amount}[/blue]ダメージを与える。このカードをプレイした後も[gold]バトルアドバンテージ[/gold]を失わない。",
+  "THESORCERESSMOD-STEALTHY_ENCHANTMENT.extraCardText": "[gold]バトルアドバンテージ[/gold]を持っている場合、追加で[blue]{Amount}[/blue]ダメージを与える。{AddStealthy:cond:>0?\nこのカードをプレイした後も[gold]バトルアドバンテージ[/gold]を失わない。|}",
+  "THESORCERESSMOD-STEALTHY_ENCHANTMENT.title": "隠密"
+}

@@ -1,0 +1,11 @@
+﻿{
+  "TO_DANCE": "影から引くカードを{Amount:plural:1枚|[blue]{}[/blue]枚}選ぶ。",
+  "TO_ENSORCELL": "魅了するカードを{Amount:plural:1枚|[blue]{}[/blue]枚}選ぶ。",
+  "TO_PALM": "手の内に隠すカードを{Amount:plural:1枚|[blue]{}[/blue]枚}選ぶ。",
+  "TO_RETAIN": "[gold]保留[/gold]するカードを{Amount:plural:1枚|[blue]{}[/blue]枚}選ぶ。",
+  "TO_SHADOW": "呼び出す影を{Amount:plural:1つ|[blue]{}[/blue]つ}選ぶ。",
+  "TO_SHUFFLE": "山札に加えてシャッフルするカードを{Amount:plural:1枚|[blue]{}[/blue]枚}選ぶ。",
+  "TO_TELL": "語る物語を{Amount:plural:1つ|[blue]{}[/blue]つ}選ぶ。",
+  "TO_TRICK": "袖に隠しておくトリックを{Amount:plural:1つ|[blue]{}[/blue]つ}選ぶ。",
+  "TO_WEAVE": "編み上げる呪文を{Amount:plural:1つ|[blue]{}[/blue]つ}選ぶ。"
+}

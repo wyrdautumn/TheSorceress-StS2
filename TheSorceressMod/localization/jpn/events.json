@@ -1,0 +1,7 @@
+﻿{
+  "BYRDONIS_NEST.pages.EAT.sorceressDescription": "卵を割り、炎で焼いて食べる。\n\n自然の摂理というものだ。何しろ、この場所にこれ以上巨大生物は必要ない。",
+  "BYRDONIS_NEST.pages.INITIAL.sorceressDescription": "巨大な[jitter][red]よろめく獣[/red][/jitter]が、傷ついた[green][sine]緑のビャード[/sine][/green]を追いかけるを目撃する。\n\nバードが逃げ込んだ小さなくぼみには、[gold]守る者のいない卵が一つ[/gold]取り残されている。\n\n[sine]どうするべきか、気持ちが揺れる……[/sine]",
+  "BYRDONIS_NEST.pages.TAKE.sorceressDescription": "卵をそっとすくい上げ、しまい込む。\n\n自分で卵を[green]孵す[/green]ことになるなんて、思いもしなかった。けれど、その考えは不思議と心を安らかにしてくれる。",
+  "COLORFUL_PHILOSOPHERS.pages.INITIAL.options.CARD_POOL∴THESORCERESSMOD-THE_SORCERESS_MOD_CARD_POOL.description": "ソーサレスのカードを[blue]{Cards}[/blue]枚獲得する。",
+  "COLORFUL_PHILOSOPHERS.pages.INITIAL.options.CARD_POOL∴THESORCERESSMOD-THE_SORCERESS_MOD_CARD_POOL.title": "ネイビー"
+}

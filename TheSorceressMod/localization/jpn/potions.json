@@ -1,0 +1,8 @@
+﻿{
+  "THESORCERESSMOD-CHARISMA_POTION.description": "[gold]カリスマ[/gold]{CharismaPower:diff()}を得る。",
+  "THESORCERESSMOD-CHARISMA_POTION.title": "性転換の霊薬",
+  "THESORCERESSMOD-INVISIBILITY_POTION.description": "[gold]バトルアドバンテージ[/gold]を得る。",
+  "THESORCERESSMOD-INVISIBILITY_POTION.title": "透明化ポーション",
+  "THESORCERESSMOD-SHADOW_POTION.description": "[gold]廃棄札[/gold]からカードを1枚選び、[gold]再燃[/gold]させる。このターン、そのカードはコストなしでプレイできる。",
+  "THESORCERESSMOD-SHADOW_POTION.title": "影移しの血清"
+}

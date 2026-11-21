@@ -1,0 +1,10 @@
+﻿{
+  "THESORCERESSMOD-SHADOWDANCE.description": "ターン開始時、このカードが[gold]廃棄札[/gold]にある場合、[gold]捨て札[/gold]に戻す。",
+  "THESORCERESSMOD-SHADOWDANCE.title": "シャドウダンス",
+  "THESORCERESSMOD-SLEIGHT.description": "[gold]巧妙[/gold]カードのコストは、このターンにプレイした巧妙カードの枚数に等しい。",
+  "THESORCERESSMOD-SLEIGHT.title": "巧妙",
+  "THESORCERESSMOD-SORCERY.description": "このカードの威力は[gold]カリスマ[/gold]によって増加する。",
+  "THESORCERESSMOD-SORCERY.title": "魔術",
+  "THESORCERESSMOD-SUBTLE.description": "このカードがプレイされずに[gold]廃棄[/gold]された場合、直ちにコストなしでプレイされる。その後、[gold]廃棄[/gold]される。",
+  "THESORCERESSMOD-SUBTLE.title": "機敏"
+}

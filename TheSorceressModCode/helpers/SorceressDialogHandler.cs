@@ -31,6 +31,7 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
             return;
 
         Player? sorceress = combatState.Players.FirstOrDefault(p => p.Character is Character.TheSorceressMod);
+        Player? wildfire = combatState.Players.FirstOrDefault(p => p.Character.Id.Entry == "THEWILDFIRE-THE_WILDFIRE");
         if (sorceress == null)
             return;
 
@@ -75,6 +76,8 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
 
         if (combatState.Encounter is DevotedSculptorWeak)
         {
+            if (wildfire != null)
+                return;
             TalkCmd.Play(new LocString("combat_messages", "SORCERESS_SCULPTOR_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
@@ -120,16 +123,22 @@ public class SorceressDialogHandler() : CustomSingletonModel(HookType.Combat)
 
         if (combatState.Encounter is TestSubjectBoss)
         {
+            if (wildfire != null)
+                return;
             TalkCmd.Play(new LocString("combat_messages", "SORCERESS_TEST_SUBJECT_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is AeonglassBoss)
         {
+            if (wildfire != null)
+                return;
             TalkCmd.Play(new LocString("combat_messages", "SORCERESS_AEONGLASS_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
         if (combatState.Encounter is DenseVegetationEventEncounter)
         {
+            if (wildfire != null)
+                return;
             TalkCmd.Play(new LocString("combat_messages", "SORCERESS_WRIGGLER_BANTER"),sorceress.Creature,VfxColor.Purple,SorceressKeywords.ExtraVeryLong);
         }
 
