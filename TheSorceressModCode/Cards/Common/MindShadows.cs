@@ -37,6 +37,7 @@ public class MindShadows() : TheSorceressModCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Weak.UpgradeValueBy(1);
     }
 }
