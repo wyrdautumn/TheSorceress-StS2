@@ -16,7 +16,7 @@ public class ProbingStrike() : TheSorceressModHeroExpansionCard(1,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move), new DynamicVar("Stealthy", 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9, ValueProp.Move), new DynamicVar("Stealthy", 3)];
     protected override HashSet<CardTag> CanonicalTags =>
     [
         CardTag.Strike

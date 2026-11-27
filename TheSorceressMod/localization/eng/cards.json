@@ -225,7 +225,7 @@
   "THESORCERESSMOD-TOP_DECK.title": "Top Deck",
   "THESORCERESSMOD-REVEALING_LIGHT.description": "ALL enemies [gold]Prime[/gold] {PrimedPower:diff()}.\nGain [gold]Combat Advantage[/gold].",
   "THESORCERESSMOD-REVEALING_LIGHT.title": "Revealing Light",
-  "THESORCERESSMOD-SPELL_RIPOSTE.description": "Deal {Damage:diff()} damage.\nIf the enemy doesn't intend to attack this turn, [gold]Prime[/gold] {PrimedPower:diff()}.",
+  "THESORCERESSMOD-SPELL_RIPOSTE.description": "Enemy loses {Damage:diff()} HP.\nIf the enemy doesn't intend to attack this turn, apply {VulnerablePower:diffI()} [gold]Vulnerable[/gold].",
   "THESORCERESSMOD-SPELL_RIPOSTE.title": "Spell Riposte",
   "THESORCERESSMOD-LEFT_HAND_WEAPON.description": "Deal {Damage:diff()} damage.",
   "THESORCERESSMOD-LEFT_HAND_WEAPON.title": "Left-Hand Weapon",
